@@ -16,6 +16,7 @@
 
 	class boadmin
 	{
+		var $public_functions = array('delete'	=> True);
 		function boadmin()
 		{
 			$this->so = createobject('news_admin.soadmin');

@@ -149,7 +149,7 @@
 			$GLOBALS['phpgw']->template->set_var('value_content','<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . stripslashes($news['content']) . '</textarea>');
 
 			$GLOBALS['phpgw']->template->set_var('label_category',lang('Category') . ':');
-			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $this->cats->formated_list('select','mains',$news['category']) . '</select>');
+			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $this->cats->formated_list('select','mains',$news['category'], True) . '</select>');
 
 			$GLOBALS['phpgw']->template->set_var('label_status',lang('Status') . ':');
 			$GLOBALS['phpgw']->template->set_var('value_status','<select name="news[status]"><option value="Active">'
@@ -224,7 +224,7 @@
 			$GLOBALS['phpgw']->template->set_var('value_content','<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . stripslashes($news['content']) . '</textarea>');
 
 			$GLOBALS['phpgw']->template->set_var('label_category',lang('Category') . ':');
-			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $this->cats->formated_list('select','mains',$news['category']) . '</select>');
+			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $this->cats->formated_list('select','mains',$news['category'], True) . '</select>');
 
 			$GLOBALS['phpgw']->template->set_var('label_status',lang('Status') . ':');
 			$GLOBALS['phpgw']->template->set_var('value_status','<select name="news[status]"><option value="Active">'
@@ -298,7 +298,7 @@
 			$GLOBALS['phpgw']->template->set_var('lang_main',lang('Main'));
 
 			$GLOBALS['phpgw']->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
-			$GLOBALS['phpgw']->template->set_var('input_category',$this->cats->formated_list('select','mains',$cat_id));
+			$GLOBALS['phpgw']->template->set_var('input_category',$this->cats->formated_list('select','mains',$cat_id, True));
 
 			$GLOBALS['phpgw']->template->set_var('header_date',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_date',$order,'/index.php',lang('Date'),'&menuaction=news_admin.uiadmin.news_list'));
 			$GLOBALS['phpgw']->template->set_var('header_subject',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_subject',$order,'/index.php',lang('Subject'),'&menuaction=news_admin.uiadmin.news_list'));

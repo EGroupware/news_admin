@@ -59,13 +59,13 @@
 			$this->db->next_record();
 
 			$items = array(
-				'id'          => $this->db->f('news_id'),
-				'date'        => $this->db->f('news_date'),
-				'subject'     => $this->db->f('news_subject'),
-				'submittedby' => $this->db->f('news_submittedby'),
-				'content'     => $this->db->f('news_content'),
-				'status'      => $this->db->f('news_status'),
-				'cat'         => $this->db->f('news_cat')
+				'id'		=> $this->db->f('news_id'),
+				'date'		=> $this->db->f('news_date'),
+				'subject'	=> $this->db->f('news_subject'),
+				'submittedby'	=> $this->db->f('news_submittedby'),
+				'content'	=> $this->db->f('news_content'),
+				'status'	=> $this->db->f('news_status'),
+				'category'	=> $this->db->f('news_cat')
 			);
 			return $items;
 		}
