@@ -1,0 +1,49 @@
+active	news_admin	nl	Actief
+add new news	news_admin	nl	Nieuw nieuws toevoegen
+add news item	news_admin	nl	Nieuwsitem toevoen
+all news	news_admin	nl	Alle nieuwsitems
+always	news_admin	nl	Altijd
+configuration	news_admin	nl	Configuratie
+configure access permissions	news_admin	nl	Configureer Toegangsrechten
+configure rss exports	news_admin	nl	Configureer RSS export
+contains html	news_admin	nl	Bevat HTML
+content	news_admin	nl	Inhoud
+edit news item	news_admin	nl	Nieuwsitem bewerken
+format for links to items	news_admin	nl	Formaat voor links naar item
+format of export	news_admin	nl	Formaat van export
+from	news_admin	nl	Van
+global news	news_admin	nl	Globaal Nieuws
+global_news	news_admin	nl	Globaal Nieuws
+image link	news_admin	nl	Link afbeelding
+image title	news_admin	nl	Title afbeelding
+image url	news_admin	nl	URL afbeelding
+implies read permission	news_admin	nl	impliceerd leesrechten
+item has been deleted	news_admin	nl	Item is verwijderd
+item not found	news_admin	nl	Item niet gevonden
+link	news_admin	nl	Link
+main	news_admin	nl	Hoofd
+maintain	admin	nl	Beheer
+maintain news	news_admin	nl	Beheer Nieuws
+message has been added	news_admin	nl	Bericht is toegevoegd
+more news	news_admin	nl	Meer nieuws
+new item has been added	news_admin	nl	Nieuw item is toegevoegd
+news admin	news_admin	nl	Nieuwsbeheer
+news item has been added	news_admin	nl	Nieuwsitem is toegevoegd
+news item has been updated	news_admin	nl	Nieuwsitem is bijgewerkt
+news_admin	common	nl	Nieuwsbeheer
+no entries found	news_admin	nl	geen items gevonden
+no news	news_admin	nl	Er is momenteel geen nieuws beschikbaar in deze categorie
+no rss export	news_admin	nl	Geen RSS export
+on	news_admin	nl	op
+publish date	news_admin	nl	Publicatiedatum
+read permissions	news_admin	nl	Leesrechten
+submitted by	common	nl	Toegevoegd door
+teaser	news_admin	nl	teaser
+the news content is missing	news_admin	nl	De tekst ontbreekt
+the subject is missing	news_admin	nl	Het onderwerp ontbreekt
+untilnews_admin		nl	tot
+view this category	news_admin	nl	Deze caterogie weergeven
+visible	news_admin	nl	Zichtbaar
+webpage news admin	news_admin	nl	Webpagina nieuwsbeheer
+write	news_admin	nl	Schrijven
+write permissions	news_admin	nl	Schrijfrechten
