@@ -55,8 +55,8 @@
        $phpgw->template->set_var("row_status",lang($phpgw->db->f("news_status")));
     }
 
-    $phpgw->template->set_var("row_edit",'<a href="' . $phpgw->link("edit.php","news_id=" . $phpgw->db->f("news_id")) . '">' . lang("edit") . '</a>');
-    $phpgw->template->set_var("row_view",'<a href="' . $phpgw->link("view.php","news_id=" . $phpgw->db->f("news_id")) . '">' . lang("view") . '</a>');
+    $phpgw->template->set_var("row_edit",'<a href="' . $phpgw->link("/news_admin/edit.php","news_id=" . $phpgw->db->f("news_id")) . '">' . lang("edit") . '</a>');
+    $phpgw->template->set_var("row_view",'<a href="' . $phpgw->link("/news_admin/view.php","news_id=" . $phpgw->db->f("news_id")) . '">' . lang("view") . '</a>');
 
     $phpgw->template->parse("rows","row",True);
   }
@@ -65,7 +65,7 @@
      $phpgw->template->set_var("rows","");
   }
 
-  $phpgw->template->set_var("add_link",$phpgw->link("add.php"));
+  $phpgw->template->set_var("add_link",$phpgw->link("/news_admin/add.php"));
   $phpgw->template->set_var("lang_add",lang("add"));
   
   $phpgw->template->pparse("out","list");

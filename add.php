@@ -28,7 +28,7 @@
      $phpgw->db->query("insert into webpage_news (news_date,news_submittedby,news_content,news_subject,"
                      . "news_status) values ('" . time() . "','" . $phpgw_info["user"]["account_id"] . "','"
                      . addslashes($content) . "','" . addslashes($subject) . "','$status')",__LINE__,__FILE__);
-     Header("Location: " . $phpgw->link("index.php"));
+     Header("Location: " . $phpgw->link("/news_admin/index.php"));
      $phpgw->common->phpgw_exit();
   } else {
 
@@ -36,7 +36,7 @@
      $phpgw->template->set_var("bgcolor",$phpgw_info["theme"]["bgcolor"]);
 
      $phpgw->template->set_var("lang_header",lang("Add news item"));
-     $phpgw->template->set_var("form_action",$phpgw->link("add.php"));
+     $phpgw->template->set_var("form_action",$phpgw->link("/news_admin/add.php"));
      $phpgw->template->set_var("form_button",'<input type="submit" name="submit" value="' . lang("Add") . '">');
 
      $phpgw->template->set_var("tr_color",$phpgw->nextmatchs->alternate_row_color());

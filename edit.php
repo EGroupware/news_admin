@@ -14,13 +14,17 @@
 
   /* $Id$ */
 
-  $phpgw_info["flags"] = array("currentapp" => "news_admin","enable_nextmatchs_class" => True,
-                               "enable_utilities_class" => True);
-  if ($submit) {
-     $phpgw_info["flags"]["noheader"] = True;
-     $phpgw_info["flags"]["nonavbar"] = True;
-  }
-  include("../header.inc.php");
+	$phpgw_info['flags'] = array(
+		'currentapp'              => 'news_admin',
+		'enable_nextmatchs_class' => True
+	);
+	if ($submit)
+	{
+		$phpgw_info['flags']['noheader'] = True;
+		$phpgw_info['flags']['nonavbar'] = True;
+	}
+	include('../header.inc.php');
+	$phpgw->sbox = createobject('phpgwapi.sbox');
 
   if ($submit) {
      // Its possiable that this could get messed up becuase of there timezone offset
@@ -31,7 +35,7 @@
      $phpgw->db->query("update webpage_news set news_subject='" . addslashes($subject) . "',"
                      . "news_content='" . addslashes($content) . "',news_status='$status',news_date='$date' "
                      . "where news_id='$news_id'",__LINE__,__FILE__);
-     Header("Location: " . $phpgw->link("index.php"));
+     Header("Location: " . $phpgw->link("/news_admin/index.php"));
      $phpgw->common->phpgw_exit();
  
   }
@@ -46,7 +50,7 @@
   $phpgw->template->set_var("bgcolor",$phpgw_info["theme"]["bgcolor"]);
 
   $phpgw->template->set_var("lang_header",lang("Edit news item"));
-  $phpgw->template->set_var("form_action",$phpgw->link("edit.php","news_id=" . $phpgw->db->f("news_id")));
+  $phpgw->template->set_var("form_action",$phpgw->link("/news_admin/edit.php","news_id=" . $phpgw->db->f("news_id")));
   $phpgw->template->set_var("form_button",'<input type="submit" name="submit" value="' . lang("Edit") . '">');
 
   $phpgw->template->set_var("tr_color",$phpgw->nextmatchs->alternate_row_color());
@@ -70,12 +74,12 @@
   $phpgw->template->set_var("tr_color",$phpgw->nextmatchs->alternate_row_color());
   $phpgw->template->set_var("label",lang("Date") . ":");
 
-  $d_html = $phpgw->common->dateformatorder($phpgw->utilities->sbox->getYears("date_year", date("Y",$phpgw->db->f("news_date"))),
-                                            $phpgw->utilities->sbox->getMonthText("date_month", date("m",$phpgw->db->f("news_date"))),
-                                            $phpgw->utilities->sbox->getDays("date_day", date("d",$phpgw->db->f("news_date")))
+  $d_html = $phpgw->common->dateformatorder($phpgw->sbox->getYears("date_year", date("Y",$phpgw->db->f("news_date"))),
+                                            $phpgw->sbox->getMonthText("date_month", date("m",$phpgw->db->f("news_date"))),
+                                            $phpgw->sbox->getDays("date_day", date("d",$phpgw->db->f("news_date")))
                                            );
   $d_html .= " - ";
-  $d_html .= $phpgw->utilities->sbox->full_time("date_hour",$phpgw->common->show_date($phpgw->db->f("news_date"),"h"),
+  $d_html .= $phpgw->sbox->full_time("date_hour",$phpgw->common->show_date($phpgw->db->f("news_date"),"h"),
                                                 "date_min",$phpgw->common->show_date($phpgw->db->f("news_date"),"i"),
                                                 "date_sec",$phpgw->common->show_date($phpgw->db->f("news_date"),"s"),
                                                 "date_ap",$phpgw->common->show_date($phpgw->db->f("news_date"),"a")
