@@ -102,7 +102,7 @@
 			$sql .= 'VALUES (' . (int)$news['date']  . ',';
 			$sql .=  $GLOBALS['phpgw_info']['user']['account_id'] . ",'" . $this->db->db_addslashes($news['content']) ."','";
 			$sql .=  $this->db->db_addslashes($news['subject']) ."'," . (int)$news['begin'] . "," . (int)$news['end'] . ",'";
-			$sql .=  $this->db->db_addslashes($news['teaser']) . "'," . (int)$news['category'] . ',' . (int)$news['is_html'] .')';
+			$sql .=  $this->db->db_addslashes($news['teaser']) . "'," . (int)$news['category'] . ',' . (int)!!$news['is_html'] .')';
 			$this->db->query($sql);
 
 			return $this->db->get_last_insert_id('phpgw_news', 'news_id');

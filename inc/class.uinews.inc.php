@@ -425,7 +425,7 @@
 				'label_subject' => lang('subject') . ':',
 				'value_subject' => '<input name="news[subject]" size="60" value="' . htmlentities($this->news_data['subject']) . '">',
 				'label_teaser' => lang('teaser') . ':',
-				'value_teaser' => '<input name="news[teaser]" size="60" value="' . htmlentities($this->news_data['teaser']) . '" maxLength=100>',
+				'value_teaser' => '<input name="news[teaser]" size="60" value="' . htmlentities($this->news_data['teaser']) . '" maxLength="100">',
 				'label_content' => lang('Content') . ':',
 				'value_content' => '<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . $this->news_data['content'] . '</textarea>',
 				'label_category' => lang('Category') . ':',
@@ -440,7 +440,7 @@
 				'value_end_m' =>  $this->sbox->getMonthText('news[end_m]',date('n',$this->news_data['end'])),
 				'value_end_y' =>  $this->sbox->getYears('news[end_y]',date('Y',$this->news_data['end']),date('Y')),
 				'label_is_html' => lang('Contains HTML'),
-				'value_is_html' => '<input type="checkbox" name="news[is_html]"' . ($this->news_data['is_html'] ? ' CHECKED' : '') .'>', 
+				'value_is_html' => '<input type="checkbox" value="1" name="news[is_html]"' . ($this->news_data['is_html'] ? ' checked="1"' : '') .'>',
 			));
 			
 			$this->template->pfp('out','form');
