@@ -2,13 +2,14 @@
 <!-- BEGIN list -->
 <b>{lang_header}</b><hr><p>
 
- <table border="0" align="center" width="70%">
+ <table border="0" align="center" width="85%">
   <tr bgcolor="{th_bg}">
    <td width="12%">{header_date}</td>
    <td>{header_subject}</td>
-   <td width="5%">{header_status}</td>
-   <td width="5%">{header_edit}</td>
-   <td width="5%">{header_view}</td>
+   <td width="5%" align="center">{header_status}</td>
+   <td width="5%" align="center">{header_view}</td>
+   <td width="5%" align="center">{header_edit}</td>
+   <td width="5%" align="center">{header_delete}</td>
   </tr>
 
   {rows}
@@ -22,3 +23,14 @@
 
  </table>
 <!-- END list -->
+
+<!-- BEGIN row -->
+  <tr bgcolor="{tr_color}">
+   <td>{row_date}</td>
+   <td>{row_subject}&nbsp;</td>
+   <td align="center">{row_status}</td>
+   <td align="center">{row_view}</td>
+   <td align="center">{row_edit}</td>
+   <td align="center">{row_delete}</td>
+  </tr>
+<!-- END row -->

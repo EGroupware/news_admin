@@ -1,13 +1,3 @@
-<!-- BEGIN news_form -->
- <div align="right">
-  <table border="0" width="90%" cellspacing="0" cellpadding="0">
-  
-   {rows}
-  
-  </table>
- </div>
-<!-- END news_form -->
-
 <!-- BEGIN row -->
    <tr bgcolor="c7c3c7">
     <td width="13" valign="top" valign="top">

@@ -14,17 +14,18 @@
 	/* Basic information about this app */
 	$setup_info['news_admin']['name']      = 'news_admin';
 	$setup_info['news_admin']['title']     = 'News Admin';
-	$setup_info['news_admin']['version']   = '0.0.1';
+	$setup_info['news_admin']['version']   = '0.8.1.002';
 	$setup_info['news_admin']['app_order'] = 4;
 	$setup_info['news_admin']['enable']    = 1;
 
 	/* The tables this app creates */
 	$setup_info['news_admin']['tables']    = array(
-		'webpage_news'
+		'phpgw_news'
 	);
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['news_admin']['hooks'][] = 'admin';
+	$setup_info['news_admin']['hooks'][] = 'home';
 
 	/* Dependencies for this app to work */
 	$setup_info['news_admin']['depends'][] = array(
