@@ -191,7 +191,11 @@
 
 			$this->common_header();
 
-			if (! $cat_id && $cat_id != '0')
+			if(!$cat_id)
+			{
+				$cat_id = 0;
+			}
+			elseif (! $cat_id && $cat_id != '0')
 			{
 				if (! $this->session_data['cat_id'])
 				{
