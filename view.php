@@ -14,25 +14,31 @@
 
   /* $Id$ */
 
-  $phpgw_info["flags"] = array("currentapp" => "news_admin","enable_nextmatchs_class" => True);
-  include("../header.inc.php");
+	$phpgw_info['flags'] = array(
+		'currentapp' => 'news_admin',
+		'enable_nextmatchs_class' => True
+	);
+	include('../header.inc.php');
 
-  // If you move your site templates, change your path to it here
-  $tpl = new Template($phpgw_info["server"]["server_root"] . "/news_admin/website/templates");
+	// If you move your site templates, change your path to it here
+	//$tpl = new Template($phpgw_info["server"]["server_root"] . "/news_admin/website/templates");
+	$tpl = CreateObject('phpgwapi.Template',PHPGW_SERVER_ROOT . SEP . 'news_admin' . SEP . 'website' . SEP . 'templates');
 
-  $tpl->set_file(array("news" => "news.tpl",
-                       "row"  => "news_row.tpl"));
+	$tpl->set_file(array(
+		'news' => 'news.tpl',
+		'row'  => 'news_row.tpl'
+	));
 
-  $phpgw->db->query("select * from webpage_news where news_id='$news_id'",__LINE__,__FILE__);
-  $phpgw->db->next_record();
+	$phpgw->db->query("SELECT * FROM webpage_news WHERE news_id='$news_id'",__LINE__,__FILE__);
+	$phpgw->db->next_record();
 
-  $tpl->set_var("icon_dir","website/");
-  $tpl->set_var("subject",$phpgw->db->f("news_subject"));
-  $tpl->set_var("submitedby","Submitted by " . $phpgw->db->f("submittedby") . " on " . date("m/d/Y - h:m:s a",$phpgw->db->f("news_date")));
-  $tpl->set_var("content",nl2br($phpgw->db->f("news_content")));
+	$tpl->set_var('icon_dir','website/');
+	$tpl->set_var('subject',$phpgw->db->f('news_subject'));
+	$tpl->set_var('submitedby','Submitted by ' . $phpgw->db->f('submittedby') . ' on ' . date('m/d/Y - h:m:s a',$phpgw->db->f('news_date')));
+	$tpl->set_var('content',nl2br($phpgw->db->f('news_content')));
 
-  $tpl->parse("rows","row",True);
-  $tpl->pparse("out","news");
+	$tpl->parse('rows','row',True);
+	$tpl->pparse('out','news');
 
-  $phpgw->common->phpgw_footer();
+	$phpgw->common->phpgw_footer();
 ?>
