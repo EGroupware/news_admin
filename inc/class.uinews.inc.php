@@ -47,6 +47,7 @@
 			$this->order = $this->bo->order;
 			$this->sort = $this->bo->sort;
 			$this->cat_id = $this->bo->cat_id;
+			$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
 		}
 
 		//with $default, we are called from the news form
@@ -395,6 +396,8 @@
 		function modify($type = 'edit')
 		{
 			$options = $this->bo->get_options($this->news_data);
+			$style='width:600px; min-width:500px; height:400px;'; 
+			$content = $GLOBALS['phpgw']->html->htmlarea('news[content]',$this->news_data['content'],$style);
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 
@@ -429,7 +432,7 @@
 				'label_teaser' => lang('teaser') . ':',
 				'value_teaser' => '<input name="news[teaser]" size="60" value="' . @htmlspecialchars($this->news_data['teaser'],ENT_COMPAT,$GLOBALS['phpgw']->translation->charset()) . '" maxLength="100">',
 				'label_content' => lang('Content') . ':',
-				'value_content' => '<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . $this->news_data['content'] . '</textarea>',
+				'value_content' => $content,
 				'label_category' => lang('Category') . ':',
 				'value_category' => '<select name="news[category]">' . $this->selectlist('write', (int)$this->news_data['category']) . '</select>',
 				'label_visible' => lang('Visible') . ':',
@@ -441,8 +444,10 @@
 				'value_end_d' =>  $this->sbox->getDays('news[end_d]',date('j',$this->news_data['end'])) ,
 				'value_end_m' =>  $this->sbox->getMonthText('news[end_m]',date('n',$this->news_data['end'])),
 				'value_end_y' =>  $this->sbox->getYears('news[end_y]',date('Y',$this->news_data['end']),date('Y')),
-				'label_is_html' => lang('Contains HTML'),
-				'value_is_html' => '<input type="checkbox" value="1" name="news[is_html]"' . ($this->news_data['is_html'] ? ' checked="1"' : '') .'>',
+				//the option is not needed after having added WYSIWYG-htmleditor
+				//for editing news
+				/*'label_is_html' => lang('Contains HTML'),
+				'value_is_html' => '<input type="checkbox" value="1" name="news[is_html]"' . ($this->news_data['is_html'] ? ' checked="1"' : '') .'>',*/
 			));
 			
 			$this->template->pfp('out','form');

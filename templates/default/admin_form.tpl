@@ -46,12 +46,7 @@
 	 </span>
     </td>
    </tr>
-		 
-   <tr class="row_off">
-    <td>{label_is_html}&nbsp;</td>
-    <td>{value_is_html}&nbsp;</td>
-   </tr>
-
+   <input type="hidden" name="news[is_html]" value="1">	
    <tr class="th">
     <td colspan="2" align="right">
      {form_button}
