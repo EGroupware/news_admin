@@ -48,7 +48,7 @@
 
 		function view()
 		{
-			$news_id = $GLOBALS['HTTP_POST_VARS']['news_id'] ? $GLOBALS['HTTP_POST_VARS']['news_id'] : $GLOBALS['HTTP_GET_VARS']['news_id'];
+			$news_id = get_var('news_id',Array('GET','POST'));
 
 			$this->common_header();
 
@@ -73,8 +73,8 @@
 
 		function delete()
 		{
-			$news_id = $GLOBALS['HTTP_POST_VARS']['news_id'] ? $GLOBALS['HTTP_POST_VARS']['news_id'] : $GLOBALS['HTTP_GET_VARS']['news_id'];
-			$cat_id  = $GLOBALS['HTTP_POST_VARS']['cat_id'] ? $GLOBALS['HTTP_POST_VARS']['cat_id'] : $GLOBALS['HTTP_GET_VARS']['cat_id'];
+			$news_id = get_var('news_id',Array('GET','POST'));
+			$cat_id = get_var('cat_id',Array('GET','POST'));
 
 			$this->common_header();
 			$GLOBALS['phpgw']->template->set_file(array(
@@ -92,10 +92,10 @@
 
 		function add($errors = '')
 		{
-			$news   = $GLOBALS['HTTP_POST_VARS']['news'];
-			$submit = $GLOBALS['HTTP_POST_VARS']['submit'];
+			$news   = get_var('news',Array('POST'));
+			$submit = get_var('submit',Array('POST'));
 
-			if($GLOBALS['HTTP_POST_VARS']['cancel'])
+			if(get_var('cancel',Array('POST')))
 			{
 				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
 			}
@@ -161,10 +161,10 @@
 
 		function edit($errors = '')
 		{
-			$news    = $GLOBALS['HTTP_POST_VARS']['news'];
-			$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+			$news    = get_var('news',Array('POST'));
+			$news_id = get_var('news_id',Array('GET'));
 
-			if($GLOBALS['HTTP_POST_VARS']['cancel'])
+			if(get_var('cancel',Array('POST')))
 			{
 				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
 			}
@@ -236,9 +236,9 @@
 
 		function news_list($message = '')
 		{
-			$news_id = $GLOBALS['HTTP_POST_VARS']['news_id'] ? $GLOBALS['HTTP_POST_VARS']['news_id'] : $GLOBALS['HTTP_GET_VARS']['news_id'];
-			$sort    = $GLOBALS['HTTP_POST_VARS']['sort']    ? $GLOBALS['HTTP_POST_VARS']['sort']    : $GLOBALS['HTTP_GET_VARS']['sort'];
-			$cat_id  = $GLOBALS['HTTP_POST_VARS']['cat_id']  ? $GLOBALS['HTTP_POST_VARS']['cat_id']  : $GLOBALS['HTTP_GET_VARS']['cat_id'];
+			$news_id = get_var('news_id',Array('GET','POST'));
+			$sort    = get_var('sort',Array('GET','POST'));
+			$cat_id  = get_var('cat_id',Array('GET','POST'));
 
 			$this->common_header();
 

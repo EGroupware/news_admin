@@ -34,7 +34,7 @@
 		{
 			global $cat_id, $start, $category_list, $oldnews;
 
-			$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+			$news_id = get_var('news_id',Array('GET'));
 
 			if($news_id)
 			{
@@ -175,7 +175,7 @@
 		{
 			global $cat_id, $start, $oldnews;
 
-			$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+			$news_id = get_var('news_id',Array('GET'));
 
 			if($news_id)
 			{

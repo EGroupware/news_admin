@@ -23,7 +23,7 @@
 
 		function delete()
 		{
-			$news_id = $GLOBALS['HTTP_POST_VARS']['news_id'] ? $GLOBALS['HTTP_POST_VARS']['news_id'] : $GLOBALS['HTTP_GET_VARS']['news_id'];
+			$news_id = get_var('news_id',Array('GET','POST'));
 
 			$this->so->delete($news_id);
 			ExecMethod('news_admin.uiadmin.news_list',array('message' => lang('Item has been deleted')));
