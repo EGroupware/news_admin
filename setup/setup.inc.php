@@ -14,7 +14,7 @@
 	/* Basic information about this app */
 	$setup_info['news_admin']['name']      = 'news_admin';
 	//$setup_info['news_admin']['title']     = 'News Admin';
-	$setup_info['news_admin']['version']   = '0.9.14.503';
+	$setup_info['news_admin']['version']   = '1.0.0';
 	$setup_info['news_admin']['app_order'] = 16;
 	$setup_info['news_admin']['enable']    = 1;
 

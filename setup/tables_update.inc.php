@@ -126,8 +126,6 @@
 		return $GLOBALS['setup_info']['news_admin']['currentver'];
 	}
 
-		
-
 
 	$test[] = '0.9.14.502';
 	function news_admin_upgrade0_9_14_502()
@@ -141,6 +139,14 @@
 
 
 		$GLOBALS['setup_info']['news_admin']['currentver'] = '0.9.14.503';
+		return $GLOBALS['setup_info']['news_admin']['currentver'];
+	}
+
+
+	$test[] = '0.9.14.503';
+	function news_admin_upgrade0_9_14_503()
+	{
+		$GLOBALS['setup_info']['news_admin']['currentver'] = '1.0.0';
 		return $GLOBALS['setup_info']['news_admin']['currentver'];
 	}
 ?>
