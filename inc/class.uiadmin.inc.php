@@ -137,6 +137,55 @@
 			$phpgw->template->pfp('out','form');
 		}
 
+		function edit($errors = '')
+		{
+			global $phpgw, $phpgw_info, $news;
+			$this->common_header();
+
+			$cats = createobject('phpgwapi.categories');
+
+			$phpgw->template->set_file(array(
+				'form' => 'admin_form.tpl'
+			));
+
+			if (is_array($errors))
+			{
+				$phpgw->template->set_var('errors',$phpgw->common->error_list($errors));
+			}
+
+			$phpgw->template->set_var('th_bg',$phpgw_info['theme']['th_bg']);
+			$phpgw->template->set_var('row_on',$phpgw_info['theme']['row_on']);
+			$phpgw->template->set_var('row_off',$phpgw_info['theme']['row_off']);
+			$phpgw->template->set_var('bgcolor',$phpgw_info['theme']['bgcolor']);
+
+			$phpgw->template->set_var('lang_header',lang('Edit news item'));
+
+			if (is_array($fields))
+			{
+				$bo     = createobject('news_admin.boadmin');
+				$fields = $bo->view($news_id,True);
+			}
+
+			$phpgw->template->set_var('form_action',$phpgw->link('/news_admin/main.php','menuaction=news_admin.boadmin.edit'));
+			$phpgw->template->set_var('form_button','<input type="submit" name="submit" value="' . lang('Edit') . '">');
+
+			$phpgw->template->set_var('label_subject',lang('subject') . ':');
+			$phpgw->template->set_var('value_subject','<input name="news[subject]" size="60" value="' . $news['subject'] . '">');
+
+			$phpgw->template->set_var('label_content',lang('Content') . ':');
+			$phpgw->template->set_var('value_content','<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . stripslashes($news['content']) . '</textarea>');
+
+			$phpgw->template->set_var('label_category',lang('Category') . ':');
+			$phpgw->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $cats->formated_list('select','mains',$news['category']) . '</select>');
+
+			$phpgw->template->set_var('label_status',lang('Status') . ':');
+			$phpgw->template->set_var('value_status','<select name="news[status]"><option value="Active">'
+					. lang('Active') . '</option><option value="Disabled">'
+					. lang('Disabled') . '</option></select>');
+
+			$phpgw->template->pfp('out','form');
+		}
+
 		function news_list($message = '')
 		{
 			global $phpgw, $phpgw_info, $order, $sort, $cat_id;

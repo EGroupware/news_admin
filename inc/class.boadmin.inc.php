@@ -84,12 +84,19 @@
 			return $item;
 		}
 
-		function view($news_id)
+		function view($news_id, $raw_values = False)
 		{
 			$so     = createobject('news_admin.soadmin');
 			$item   = $so->view($news_id);
 
-			$_item = $this->format_fields($item);
+			if (! $raw_values)
+			{
+				$_item = $this->format_fields($item);
+			}
+			else
+			{
+				$_item = $item;
+			}
 
 			return $_item;
 		}

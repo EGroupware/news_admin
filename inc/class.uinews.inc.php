@@ -53,17 +53,17 @@
 			$this->template->set_block('_news','row');
 			$this->template->set_block('_news','category');
 
-			$this->db->query("select count(*) from phpgw_news where news_status='Active' and news_cat='$cat_id'");
+			$this->db->query("select count(*) from phpgw_news where news_status='Active' and news_cat='$cat_id'",__LINE__,__FILE__);
 			$this->db->next_record();
 			$total = $this->db->f(0);
 
 			if (! $oldnews)
 			{
-				$this->db->query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc " . $this->db->limit(0,5));
+				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc",5,1,__LINE__,__FILE__);
 			}
 			else
 			{
-				$this->db->query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc " . $this->db->limit($start));
+				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc ",$total,$start,__LINE__,__FILE__);
 			}
 
 			$image_path = $phpgw->common->get_image_path('news_admin');
