@@ -57,5 +57,6 @@
      $phpgw->template->parse("rows","row",True);
 
      $phpgw->template->pparse("out","form");
+     $phpgw->common->phpgw_footer();
   }
 ?>
