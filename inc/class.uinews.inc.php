@@ -120,35 +120,17 @@
 
 		function show_news_home()
 		{
-			$title = lang('News Admin');
-			$portalbox = CreateObject('phpgwapi.listbox',array
-			(
-				'title'     => $title,
-				'width'     => '100%',
-				'header_background_image' => $GLOBALS['phpgw']->common->image('phpgwapi/templates/default','bg_filler')
-			));
-
-			$app_id = $GLOBALS['phpgw']->applications->name2id('news_admin');
+			$app_id	= $GLOBALS['phpgw']->applications->name2id('news_admin');
 			$GLOBALS['portal_order'][] = $app_id;
 
-			$var = Array(
-				'up'       => Array('url' => '/set_box.php', 'app' => $app_id),
-				'down'     => Array('url' => '/set_box.php', 'app' => $app_id),
-				'close'    => Array('url' => '/set_box.php', 'app' => $app_id),
-				'question' => Array('url' => '/set_box.php', 'app' => $app_id),
-				'edit'     => Array('url' => '/set_box.php', 'app' => $app_id)
-			);
-
-			while(list($key,$value) = each($var))
-			{
-				$portalbox->set_controls($key,$value);
-			}
+			$portalbox = CreateObject('phpgwapi.listbox',array
+			(
+				'title'     => lang('News Admin'),
+				'app_id'	=> $app_id
+			));
 
 			$total = $this->bonews->get_NumNewsInCat(0);
-
 			$newslist = $this->bonews->get_newslist($cat_id);
-
-			$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
 
 			foreach($newslist as $newsitem)
 			{
@@ -159,7 +141,6 @@
 					'lang_link_statustext'	=> lang('read news item')
 				);
 			}
-
 			$GLOBALS['phpgw']->template->set_var('phpgw_body',$portalbox->draw(),True);
 		}
 
