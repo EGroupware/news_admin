@@ -1,29 +1,29 @@
 <?php
 
-  $path_to_header   = "/path/to/phpgroupware/";
-  $template_path    = "/path/to/phpgroupware/news_admin/website/templates/";
-  $domain           = "default";
+	$path_to_header   = '/path/to/phpgroupware/';
+	$template_path    = '/path/to/phpgroupware/news_admin/website/templates/';
+	$domain           = 'default';
 
-  // This is used for exporting news
-  $site_title       = "mysite title";
-  $site_link        = "http://www.mysite.com";
-  $site_description = "Just a sample";
-  $img_title        = "my logo";
-  $img_url          = "http://www.mysite.com/logo.jpg";
-  $img_link         = "http://www.mysite.com";
-  
-  // Don't change the follow lines
-  $phpgw_info["flags"]["noapi"] = True;
-  include($path_to_header . "header.inc.php");
-  include($phpgw_info["server"]["api_dir"] . "/phpgw_template.inc.php");
-  include($phpgw_info["server"]["api_dir"] . "/phpgw_db_".$phpgw_domain[$domain]["db_type"].".inc.php");
-  
-  $db           = new db;
-  $db->Host     = $phpgw_domain[$domain]["server"]["db_host"];
-  $db->Type     = $phpgw_domain[$domain]["db_type"];
-  $db->Database = $phpgw_domain[$domain]["db_name"];
-  $db->User     = $phpgw_domain[$domain]["db_user"];
-  $db->Password = $phpgw_domain[$domain]["db_pass"];
+	// This is used for exporting news
+	$site_title       = 'mysite title';
+	$site_link        = 'http://www.mysite.com';
+	$site_description = 'Just a sample';
+	$img_title        = 'my logo';
+	$img_url          = 'http://www.mysite.com/logo.jpg';
+	$img_link         = 'http://www.mysite.com';
 
-  $tpl = new Template($template_path);
+	// Don't change the follow lines
+	$GLOBALS['phpgw_info']['flags']['noapi'] = True;
+	include($path_to_header . 'header.inc.php');
+	include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/class.Template.inc.php');
+	include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/class.db_' . $phpgw_domain[$domain]['db_type'] . '.inc.php');
+
+	$db           = new db;
+	$db->Host     = $GLOBALS['phpgw_domain'][$domain]['server']['db_host'];
+	$db->Type     = $GLOBALS['phpgw_domain'][$domain]['db_type'];
+	$db->Database = $GLOBALS['phpgw_domain'][$domain]['db_name'];
+	$db->User     = $GLOBALS['phpgw_domain'][$domain]['db_user'];
+	$db->Password = $GLOBALS['phpgw_domain'][$domain]['db_pass'];
+
+	$tpl = new Template($template_path);
 
