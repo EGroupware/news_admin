@@ -46,7 +46,7 @@ should news_admin display the latest article headlines on the main screen.	news_
 show latest news articles?	news_admin	de	Neuest Nachrichten anzeigen?
 show news articles on main page?	news_admin	de	Neue Nachrichten auf der Startseite anzeigen
 small view	news_admin	de	schmale Anzeige
-submitted by	common	de	Eingtragen von
+submitted by	common	de	Eingetragen von
 teaser	news_admin	de	Anreiser
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
 the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
