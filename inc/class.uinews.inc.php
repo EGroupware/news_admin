@@ -123,25 +123,21 @@
 			$app_id	= $GLOBALS['phpgw']->applications->name2id('news_admin');
 			$GLOBALS['portal_order'][] = $app_id;
 
-			$portalbox = CreateObject('phpgwapi.listbox',array
-			(
-				'title'     => lang('News Admin'),
-				'app_id'	=> $app_id
-			));
-
+			$GLOBALS['phpgw']->portalbox->set_params(array('title'		=> lang('News Admin'),
+															'app_id'	=> $app_id));
 			$total = $this->bonews->get_NumNewsInCat(0);
 			$newslist = $this->bonews->get_newslist($cat_id);
 
 			foreach($newslist as $newsitem)
 			{
-				$portalbox->data[] = array
+				$GLOBALS['phpgw']->portalbox->data[] = array
 				(
 					'text'					=> $newsitem['subject'] . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
 					'link'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $newsitem['id']),
 					'lang_link_statustext'	=> lang('read news item')
 				);
 			}
-			$portalbox->draw();
+			$GLOBALS['phpgw']->portalbox->draw();
 		}
 
 		function show_news_website($section='mid')
