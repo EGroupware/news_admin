@@ -15,5 +15,6 @@
 	/* $Id$ */
 
 	$news = createobject('news_admin.uinews');
-	return $news->show_news_website('mid');
+
+	$GLOBALS['phpgw_info']['wcm']['mid'] = $news->show_news_website('mid');
 ?>
