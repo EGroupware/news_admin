@@ -123,7 +123,7 @@
 			$app_id	= $GLOBALS['phpgw']->applications->name2id('news_admin');
 			$GLOBALS['portal_order'][] = $app_id;
 
-			$GLOBALS['phpgw']->portalbox->set_params(array('title'		=> lang('News Admin'),
+			$GLOBALS['phpgw']->portalbox->set_params(array('title'		=> lang('news_admin'),
 															'app_id'	=> $app_id));
 			$total = $this->bonews->get_NumNewsInCat(0);
 			$newslist = $this->bonews->get_newslist($cat_id);
