@@ -72,27 +72,38 @@
 				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC ",$start,__LINE__,__FILE__,$total);
 			}
 
-			$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
+			$var = Array();
 
-			while ($this->db->next_record())
-			{
-				$this->template->set_var('icon_dir',$image_path);
-				$this->template->set_var('subject',$this->db->f('news_subject'));
-				$this->template->set_var('submitedby','Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')));
-				$this->template->set_var('content',nl2br($this->db->f('news_content')));
-
-				$this->template->parse('rows','row',True);
-			}
+			$this->template->set_var('icon',$GLOBALS['phpgw']->common->image('news_admin','news-corner.gif'));
 
 			if ($show_category_select || $category_list)
 			{
-				$this->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&category_list=True'));
-				$this->template->set_var('lang_category',lang('Category'));
+				$var['form_action'] = $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&category_list=True');
+				$var['lang_category'] = lang('Category');
 
-				$cats = createobject('phpgwapi.categories');
-				$this->template->set_var('lang_main',lang('Main'));
-				$this->template->set_var('input_category',$cats->formated_list('select','mains',$cat_id));
+				$var['lang_main'] = lang('Main');
+//				$cats = createobject('phpgwapi.categories');
+				$var['input_category'] = ExecMethod('phpgwapi.categories.formated_list',
+					Array(
+						'format'	=>'select',
+						'type'	=> 'mains',
+						'selected'	=> $cat_id
+					)
+				);
+				$this->template->set_var($var);
 				$this->template->parse('_category','category');
+			}
+
+			while ($this->db->next_record())
+			{
+				$var = Array(
+					'subject'	=> $this->db->f('news_subject'),
+					'submitedby'	=> 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
+					'content'	=> nl2br($this->db->f('news_content'))
+				);
+
+				$this->template->set_var($var);
+				$this->template->parse('rows','row',True);
 			}
 
 			$this->template->pfp('_out','news_form');
