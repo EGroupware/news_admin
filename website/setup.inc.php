@@ -22,6 +22,8 @@
 	* Don't change anything after this line                                *
 	\******************************************************************** */
 
+	error_reporting(error_reporting() & ~E_NOTICE);
+
 	function copyobj($a,&$b)
 	{
 		if(floor(phpversion()) > 4)
