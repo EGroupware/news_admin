@@ -14,32 +14,80 @@
 
   /* $Id$ */
 
-  // Note: Some of this is hard coded for right now ....
+	include('setup.inc.php');
 
-  include("setup.inc.php");
+	$cat_id = intval($_GET['cat_id']);
+//	$format = (isset($_GET['format']) ? strtolower(trim($_GET['format'])) : 'rss');
+	$limit	= (isset($_GET['limit']) ? trim($_GET['limit']) : 5);
+//	$all	= (isset($_GET['all']) ? True : False);
 
-  if (! $format) {
-     $format = "rdf";
-  }
+	$site = $export_obj->readconfig($cat_id);
 
-  $tpl->set_file(array("news" => $format . ".tpl",
-                       "row"  => $format . "_row.tpl"));
+	//TODO allow override of configured value by a configurable flag
+	//validate format
 
-  $db->query("select * from phpgw_news,accounts where news_status='Active' order by news_date "
-           . "desc limit 5");
+// 	$available_formats = array('rss'	=> True, //RSS 0.91
+// 				'rdf-chan'	=> True, //RDF 1.0
+// 				'rdf2'		=> True, //RDF/RSS 2.0
+// 				);
 
-  $tpl->set_var("site_title",$site_title);
-  $tpl->set_var("site_link",$site_link);
-  $tpl->set_var("site_description",$site_site_description);
-  $tpl->set_var("img_title",$img_title);
-  $tpl->set_var("img_url",$img_url);
-  $tpl->set_var("img_link",$img_link);
+// 	if(!$available_formats[$format])
+// 	{
+// 		$format = 'rss';
+// 	}
 
-  while ($db->next_record()) {
-    $tpl->set_var("title",$db->f("news_subject"));
-    $tpl->set_var("link",$site_link);
+	if (!$site['type'])
+	{
+		echo "THIS CATEGORY IS NOT PUBLICLY ACCESSIBLE";
+		die();
+	}
+
+	$formats = array(1 => 'rss091', 2 => 'rss1', 3 => 'rss2');
+	$itemsyntaxs = array(
+		0 => '?item=',
+		1 => '&item=',
+		2 => '?news%5Bitem%5D=',
+		3 => '&news%5Bitem%5D='
+	);
+	$format = $formats[$site['type']];
+	$itemsyntax = $itemsyntaxs[$site['itemsyntax']];
+
+	$tpl->set_file(array('news' => $format . '.tpl'));
+	$tpl->set_block('news', 'item', 'items');
+	if($format == 'rss1')
+	{
+		$tpl->set_block('news', 'seq', 'seqs');
+	}
+
+	$tpl->set_var($site);
+
+// 	if($all)
+// 	{
+// 		$news = $news_obj->get_all_public_news($limit);
+// 	}
+// 	else
+// 	{
+		$news = $news_obj->get_newslist($cat_id, 0,'','',$limit,True);
+// 	}
+
+	if(is_array($news))
+	{
+		foreach($news as $news_id => $news_data) 
+		{
+			$tpl->set_var($news_data);
+
+   			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_id);
+			if($format == 'rss1')
+			{
+				$tpl->parse('seqs','seq',True);
+			}
     
-    $tpl->parse("rows","row",True);
-  }
-  $tpl->pparse("out","news");
-
+   	 		$tpl->parse('items','item',True);
+		}
+	}
+	else
+	{
+		$tpl->set_var('items', '');
+	}
+	$tpl->pparse('out','news');
+?>

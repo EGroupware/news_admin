@@ -1,14 +1,17 @@
 <!-- BEGIN list -->
-<b>{lang_header}</b><hr><p>
-
-<form action="{form_action}" method="POST">
- {lang_category}: <select name="cat_id" onChange="this.form.submit();"><option value="0">{lang_main}</option>{input_category}</select> &nbsp; &nbsp; <a href="{link_add}">{lang_add}</a> &nbsp; &nbsp; {link_view_cat}
-</form>
-
+ {_category}  &nbsp; &nbsp; <a href="{link_add}">{lang_add}</a>
  <center>{message}</center><p>
-
- <table border="0" align="center" width="85%">
-  <tr bgcolor="{th_bg}">
+  <h2 align="center">{cat_name}
+    </h2>
+     <table align="center" border="0" width="85%">
+      <tr>
+	   {left}
+       <td align="center">{lang_showing}</td>
+	   {right}
+      </tr>
+     </table>
+<table align="center" width="85%" cellspacing="0" style="{ border: 1px solid #000000; }">
+  <tr class="th">
    <td width="12%">{header_date}</td>
    <td>{header_subject}</td>
    <td width="5%" align="center">{header_status}</td>
@@ -38,3 +41,9 @@
    <td colspan="6" align="center">{row_message}</td>
   </tr>
 <!-- END row_empty -->
+
+<!-- BEGIN category -->
+<form method="POST">
+ <select name="inputread" onChange="location.href=this.value">{readable}</select>
+</form>
+<!-- END category -->

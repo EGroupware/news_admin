@@ -16,21 +16,22 @@
 	include('setup.inc.php');
 
 	$tpl->set_file(array('news' => 'news.tpl',
-							'row' => 'news_row.tpl'));
+			'row' => 'news_row.tpl')
+	);
 
-	$db->query("select count(*) from phpgw_news where news_status='Active'");
+	$db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active'");
 	$db->next_record();
 	$total = $db->f(0);
 
 	if (! $oldnews)
 	{
-		$db->query("select *,account_lid as submittedby from phpgw_news,phpgw_accounts where news_status='Active' "
-					. "and news_submittedby=phpgw_accounts.account_id order by news_date desc limit 5");
+		$db->query("SELECT *,account_lid AS submittedby FROM phpgw_news,phpgw_accounts WHERE news_status='Active' "
+					. "AND news_submittedby=phpgw_accounts.account_id ORDER BY news_date DESC LIMIT 5");
 	}
 	else
 	{
-		$db->query("select *,account_lid as submittedby from phpgw_news,phpgw_accounts where news_status='Active' and "
-					. "news_submittedby=phpgw_accounts.account_id order by news_date desc limit 5,$total");
+		$db->query("SELECT *,account_lid AS submittedby FROM phpgw_news,phpgw_accounts WHERE news_status='Active' AND "
+					. "news_submittedby=phpgw_accounts.account_id ORDER BY news_date DESC LIMIT 5,$total");
 	}
 
 	while ($db->next_record())

@@ -16,11 +16,15 @@
 
 	$phpgw_info = array();
 	$GLOBALS['phpgw_info']['flags'] = array(
-		'currentapp' => 'news_admin'
+		'currentapp' => 'news_admin',
+		'noheader' => True,
+		'nonavbar' => True,
 	);
+
 	include('../header.inc.php');
 
-	ExecMethod('news_admin.uinews.show_news',True);
+	$ui= createobject('news_admin.ui');
+	$ui->read_news();
 
 	$GLOBALS['phpgw']->common->phpgw_footer();
 ?>

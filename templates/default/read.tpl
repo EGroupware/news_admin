@@ -1,12 +1,11 @@
 <!-- BEGIN news_form -->
  {_category}
- <div align="right">
-  <table border="0" width="90%" cellspacing="0" cellpadding="0">
-  
+  <h2 align="center">{cat_name}
+    </h2>
+	<table align="center" border="0" width="90%" cellspacing="0" cellpadding="0">
    {rows}
-  
-  </table>
- </div>
+    </table>
+ <table width="100%"><tr><td align="left">{lesslink}</td><td align="right">{morelink}</td></tr></table>
 <!-- END news_form -->
 
 <!-- BEGIN row -->
@@ -30,8 +29,16 @@
    </tr>
 <!-- END row -->
 
+<!-- BEGIN row_empty -->
+  <tr>
+   <td align="center">{row_message}</td>
+  </tr>
+<!-- END row_empty -->
+
+
 <!-- BEGIN category -->
-<form action="{form_action}" method="POST">
- {lang_category}: <select name="cat_id" onChange="this.form.submit();"><option value="0">{lang_main}</option>{input_category}</select>
+<form method="POST">
+ <select name="inputread" onChange="location.href=this.value">{readable}</select>
+ {maintainlink}
 </form>
 <!-- END category -->
