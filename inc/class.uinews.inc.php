@@ -47,7 +47,7 @@
 			}
 
 			$this->template->set_file(array(
-				'_news' => 'news.tpl',
+				'_news' => 'news.tpl'
 			));
 			$this->template->set_block('_news','news_form');
 			$this->template->set_block('_news','row');
