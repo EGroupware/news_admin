@@ -1,59 +1,59 @@
-active	news_admin	zt	±Ò¥Î
-add new article	news_admin	zt	·s¼W¤å³¹
-add new news	news_admin	zt	·s¼W·s»D
-add news item	news_admin	zt	·s¼W·s»D¶µ¥Ø
-all news	news_admin	zt	©Ò¦³·s»D
-always	news_admin	zt	¹w³]
-configuration	news_admin	zt	³]©w
-configure access permissions	common	zt	³]©w¦s¨úÅv­­
-configure rss exports	common	zt	³]©wRSS¶×¥X
-contains html	news_admin	zt	¥]§tHTML
-content	news_admin	zt	¤º®e
-edit news item	news_admin	zt	½s¿è·s»D¶µ¥Ø
-failed to add message	news_admin	zt	µLªk·s¼W°T®§
-format for links to items	news_admin	zt	³sµ²¶µ¥Ø®æ¦¡
-format of export	news_admin	zt	¶×¥X®æ¦¡
-from	news_admin	zt	¨Ó¦Û
-global news	news_admin	zt	¥ş°ì·s»D
-global_news	news_admin	zt	¥ş°ì·s»D
-image link	news_admin	zt	¹Ï¤ù³sµ²
-image title	news_admin	zt	¹Ï¤ù¼ĞÃD
-image url	news_admin	zt	¹Ï¤ùºô§}
-implies read permission	news_admin	zt	ªí¥ÜÅª¨úÅv­­
-item has been deleted	news_admin	zt	§R°£§¹¦¨
-item not found	news_admin	zt	¨S¦³³o­Ó¶µ¥Ø
-link	news_admin	zt	³sµ²
-main	news_admin	zt	¥D­n
-maintain	news_admin	zt	ºûÅ@
-maintain news	admin	zt	ºûÅ@·s»D
-message has been added	news_admin	zt	·s¼W°T®§§¹¦¨
-more news	news_admin	zt	¨ä¥L·s»D
-new item has been added	news_admin	zt	·s¼W¶µ¥Ø§¹¦¨
-news admin	news_admin	zt	·s»DºŞ²z
-news administration	news_admin	zt	·s»DºŞ²z
-news item has been added	news_admin	zt	·s¼W·s»D¶µ¥Ø§¹¦¨
-news item has been updated	news_admin	zt	§ó·s·s»D¶µ¥Ø§¹¦¨
-news_admin	common	zt	·s»DºŞ²z
-no entries found	news_admin	zt	§ä¤£¨ì¥ô¦ó¸ê®Æ
-no news	news_admin	zt	³o­ÓÃş§O¥Ø«e¨S¦³¥ô¦ó·s»D
-no rss export	news_admin	zt	¨S¦³RSS¶×¥X
-number of articles to display on the main screen	news_admin	zt	¦b¥D­nµe­±Åã¼Æ·s»D¼Æ¶q
-on	news_admin	zt	¦b
-publish date	news_admin	zt	µo¥¬¤é´Á
-read news	news_admin	zt	Åª¨ú·s»D
-read permissions	news_admin	zt	Åª¨úÅv­­
-should news_admin display the latest article headlines on the main screen.	news_admin	zt	¬O§_­n¦b¥Dµe­±Åã¥Ü³Ì·s¤å³¹¡H
-show latest news articles?	news_admin	zt	Åã¥Ü³Ì·s¤å³¹¡H
-show news articles on main page?	news_admin	zt	¦b¥D­¶­±Åã¥Ü·s»D¡H
-small view	news_admin	zt	ÁY¤p
-submitted by	common	zt	µo¥¬ªÌ
-teaser	news_admin	zt	ºûÅ@ªÌ
-the news content is missing	news_admin	zt	·s»D¤º®e¿ò¥¢
-the number of articles to display on the main screen.	news_admin	zt	¦b¥D­nµe­±Åã¥Üªº·s»D¤å³¹¼Æ¶q¡C
-the subject is missing	news_admin	zt	±z¨S¦³¿é¤J¥DÃD
-until	news_admin	zt	ª½¨ì
-view this category	news_admin	zt	ÂsÄı³o­ÓÃş§O
-visible	news_admin	zt	±Ò¥Î
-webpage news admin	news_admin	zt	ºô­¶·s»DºŞ²z
-write	news_admin	zt	¼g¤J
-write permissions	news_admin	zt	¼g¤JÅv­­
+active	news_admin	zt	å•Ÿç”¨
+add new article	news_admin	zt	æ–°å¢æ–‡ç« 
+add new news	news_admin	zt	æ–°å¢æ–°è
+add news item	news_admin	zt	æ–°å¢æ–°èé …ç›®
+all news	news_admin	zt	æ‰€æœ‰æ–°è
+always	news_admin	zt	é è¨­
+configuration	news_admin	zt	è¨­å®š
+configure access permissions	common	zt	è¨­å®šå­˜å–æ¬Šé™
+configure rss exports	common	zt	è¨­å®šRSSåŒ¯å‡º
+contains html	news_admin	zt	åŒ…å«HTML
+content	news_admin	zt	å…§å®¹
+edit news item	news_admin	zt	ç·¨è¼¯æ–°èé …ç›®
+failed to add message	news_admin	zt	ç„¡æ³•æ–°å¢è¨Šæ¯
+format for links to items	news_admin	zt	é€£çµé …ç›®æ ¼å¼
+format of export	news_admin	zt	åŒ¯å‡ºæ ¼å¼
+from	news_admin	zt	ä¾†è‡ª
+global news	news_admin	zt	å…¨åŸŸæ–°è
+global_news	news_admin	zt	å…¨åŸŸæ–°è
+image link	news_admin	zt	åœ–ç‰‡é€£çµ
+image title	news_admin	zt	åœ–ç‰‡æ¨™é¡Œ
+image url	news_admin	zt	åœ–ç‰‡ç¶²å€
+implies read permission	news_admin	zt	è¡¨ç¤ºè®€å–æ¬Šé™
+item has been deleted	news_admin	zt	åˆªé™¤å®Œæˆ
+item not found	news_admin	zt	æ²’æœ‰é€™å€‹é …ç›®
+link	news_admin	zt	é€£çµ
+main	news_admin	zt	ä¸»è¦
+maintain	news_admin	zt	ç¶­è­·
+maintain news	admin	zt	ç¶­è­·æ–°è
+message has been added	news_admin	zt	æ–°å¢è¨Šæ¯å®Œæˆ
+more news	news_admin	zt	å…¶ä»–æ–°è
+new item has been added	news_admin	zt	æ–°å¢é …ç›®å®Œæˆ
+news admin	news_admin	zt	æ–°èç®¡ç†
+news administration	news_admin	zt	æ–°èç®¡ç†
+news item has been added	news_admin	zt	æ–°å¢æ–°èé …ç›®å®Œæˆ
+news item has been updated	news_admin	zt	æ›´æ–°æ–°èé …ç›®å®Œæˆ
+news_admin	common	zt	æ–°èç®¡ç†
+no entries found	news_admin	zt	æ‰¾ä¸åˆ°ä»»ä½•è³‡æ–™
+no news	news_admin	zt	é€™å€‹é¡åˆ¥ç›®å‰æ²’æœ‰ä»»ä½•æ–°è
+no rss export	news_admin	zt	æ²’æœ‰RSSåŒ¯å‡º
+number of articles to display on the main screen	news_admin	zt	åœ¨ä¸»è¦ç•«é¢é¡¯æ•¸æ–°èæ•¸é‡
+on	news_admin	zt	åœ¨
+publish date	news_admin	zt	ç™¼å¸ƒæ—¥æœŸ
+read news	news_admin	zt	è®€å–æ–°è
+read permissions	news_admin	zt	è®€å–æ¬Šé™
+should news_admin display the latest article headlines on the main screen.	news_admin	zt	æ˜¯å¦è¦åœ¨ä¸»ç•«é¢é¡¯ç¤ºæœ€æ–°æ–‡ç« ï¼Ÿ
+show latest news articles?	news_admin	zt	é¡¯ç¤ºæœ€æ–°æ–‡ç« ï¼Ÿ
+show news articles on main page?	news_admin	zt	åœ¨ä¸»é é¢é¡¯ç¤ºæ–°èï¼Ÿ
+small view	news_admin	zt	ç¸®å°
+submitted by	common	zt	ç™¼å¸ƒè€…
+teaser	news_admin	zt	ç¶­è­·è€…
+the news content is missing	news_admin	zt	æ–°èå…§å®¹éºå¤±
+the number of articles to display on the main screen.	news_admin	zt	åœ¨ä¸»è¦ç•«é¢é¡¯ç¤ºçš„æ–°èæ–‡ç« æ•¸é‡ã€‚
+the subject is missing	news_admin	zt	æ‚¨æ²’æœ‰è¼¸å…¥ä¸»é¡Œ
+until	news_admin	zt	ç›´åˆ°
+view this category	news_admin	zt	ç€è¦½é€™å€‹é¡åˆ¥
+visible	news_admin	zt	å•Ÿç”¨
+webpage news admin	news_admin	zt	ç¶²é æ–°èç®¡ç†
+write	news_admin	zt	å¯«å…¥
+write permissions	news_admin	zt	å¯«å…¥æ¬Šé™
