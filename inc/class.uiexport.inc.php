@@ -112,10 +112,16 @@
 					'itemsyntaxselectlist' => $this->selectlist($this->itemsyntaxtypes,$config['itemsyntax'])
 				));
 				$GLOBALS['phpgw']->template->set_var('confblock','');
-				foreach (array('title','link','description','img_title','img_url','img_link') as $setting)
+				foreach (array(
+					'title'        => lang('Title'),
+					'link'         => lang('Link'),
+					'description'  => lang('description'),
+					'img_title'    => lang('Image Title'),
+					'img_url'      => lang('Image URL'),
+					'img_link'     => lang('Image Link')) as $setting => $label)
 				{
 					$GLOBALS['phpgw']->template->set_var(array(
-						'setting' => $setting,
+						'setting' => $label,
 						'value' => ('<input size="80" type="text" name="inputconfig[' . $cat['id'] . '][' . $setting . ']" value="' . 
 							$config[$setting] . '" />'
 						)

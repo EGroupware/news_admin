@@ -23,7 +23,7 @@
 
 	include('../header.inc.php');
 
-	$ui= createobject('news_admin.ui');
+	$ui= createobject('news_admin.uinews');
 	$ui->read_news();
 
 	$GLOBALS['phpgw']->common->phpgw_footer();

@@ -14,7 +14,7 @@
   <tr class="th">
    <td width="12%">{header_date}</td>
    <td>{header_subject}</td>
-   <td width="5%" align="center">{header_status}</td>
+   <td width="15%" align="center">{header_status}</td>
    <td width="5%" align="center">{header_view}</td>
    <td width="5%" align="center">{header_edit}</td>
    <td width="5%" align="center">{header_delete}</td>

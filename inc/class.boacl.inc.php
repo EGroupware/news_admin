@@ -52,7 +52,7 @@
 //				$this->cats = array_merge($main_cat,$this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True));
 				$this->cats = $this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True);
 			}
-			$this->permissions = $this->get_permissions();
+			$this->permissions = $this->get_permissions(True);
 		}
 
 		function save_sessiondata()
@@ -90,6 +90,16 @@
 			return $this->permissions['L'.$cat_id] & $right;
 		}
 
+		function is_readable($cat_id)
+		{
+			return $this->is_permitted($cat_id,PHPGW_ACL_READ);
+		}
+
+		function is_writeable($cat_id)
+		{
+			return $this->is_permitted($cat_id,PHPGW_ACL_ADD);
+		}
+
 		function set_rights($cat_id,$read,$write)
 		{
 			$readcat = $read ? $read : array();
@@ -112,8 +122,8 @@
 		}
 
 		//access permissions for current user
-		function get_permissions()
+		function get_permissions($inc_groups = False)
 		{
-			return $this->so->get_permissions($GLOBALS['phpgw_info']['user']['account_id']);
+			return $this->so->get_permissions($GLOBALS['phpgw_info']['user']['account_id'], $inc_groups);
 		}
 	}

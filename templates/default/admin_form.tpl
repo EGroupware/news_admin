@@ -1,8 +1,6 @@
-<!-- BEGIN form -->
-
  <center>{errors}</center>
 
- <form method="POST" action="{form_action}">
+ <form method="POST" name="admin" action="{form_action}">
  <input type="hidden" name="news[id]" value="{value_id}">
   <table width="75%" align="center" cellspacing="0" style="{ border: 1px solid #000000; }">
    <tr class="th">
@@ -30,17 +28,28 @@
    </tr>
 
    <tr class="row_on">
-    <td>{label_status}&nbsp;</td>
-    <td>{value_status}&nbsp;</td>
-   </tr>
-
-   <tr class="row_off">
-    <td>{label_date}&nbsp;</td>
+    <td>{label_visible}&nbsp;</td>
     <td>
-       {value_date_d}&nbsp;
-       {value_date_m}&nbsp;
-       {value_date_y}
+	 <select id="from" onChange="toggle()" name="from">
+	  {select_from}
+	 </select>
+	 <span id="visible">{value_begin_d}&nbsp;
+       {value_begin_m}&nbsp;
+       {value_begin_y}
+	  <select id="until" onChange="toggle()" name="until">
+	   {select_until}
+	  </select>
+	  <span id="end">{value_end_d}&nbsp;
+       {value_end_m}&nbsp;
+       {value_end_y}
+	  </span>
+	 </span>
     </td>
+   </tr>
+		 
+   <tr class="row_off">
+    <td>{label_is_html}&nbsp;</td>
+    <td>{value_is_html}&nbsp;</td>
    </tr>
 
    <tr class="th">
@@ -52,4 +61,29 @@
   </table>
  </form>
  <br>
-<!-- END form -->
+	<script language="Javascript">
+	// <!-- start Javascript	
+	function toggle()
+	{
+	myspan = document.getElementById('visible')
+	if (document.getElementById('from').value == '0.5')
+	{
+		myspan.style.display = 'inline';
+	}
+	else
+	{
+		myspan.style.display = 'none';
+	}
+	myspan = document.getElementById('end')
+	if (document.getElementById('until').value == '0.5')
+	{
+		myspan.style.display = 'inline';
+	}
+	else
+	{
+		myspan.style.display = 'none';
+	}
+	}
+	toggle();
+	// end Javascript -->
+	</script>

@@ -4,7 +4,7 @@ content	news_admin	pl	Tre¶æ
 item has been deleted	news_admin	pl	
 maintain news	admin	pl	
 new item has been added	news_admin	pl	Dodano nowy punkt
-news admin	common	pl	Wiadomo¶ci administratora
+news_admin	common	pl	Wiadomo¶ci administratora
 no entries found	news_admin	pl	
 submitted by	common	pl	Wys³ane przez
 the news content is missing	news_admin	pl	

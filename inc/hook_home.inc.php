@@ -14,6 +14,6 @@
 
 	/* $Id$ */
 
-	$news = createobject('news_admin.uinews');
-	$news->show_news_home();
+// 	$news = createobject('news_admin.uinews');
+// 	$news->show_news_home();
 ?>

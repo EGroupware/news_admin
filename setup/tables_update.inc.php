@@ -46,9 +46,6 @@
 		return $setup_info['news_admin']['currentver'];
 	}
 
-
-
-
 	$test[] = '0.8.1.002';
 	function news_admin_upgrade0_8_1_002()
 	{
@@ -85,6 +82,65 @@
 		));
 
 		$GLOBALS['setup_info']['news_admin']['currentver'] = '0.9.14.501';
+		return $GLOBALS['setup_info']['news_admin']['currentver'];
+	}
+
+	$test[] = '0.9.14.501';
+	function news_admin_upgrade0_9_14_501()
+	{
+		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_news','news_begin',array(
+			'type' => 'int','precision' => '4','nullable' => True
+		));
+		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_news','news_end',array(
+			'type' => 'int','precision' => '4','nullable' => True
+		));
+		$db2 = $GLOBALS['phpgw_setup']->db;
+		$GLOBALS['phpgw_setup']->oProc->query('SELECT news_id,news_status FROM phpgw_news');
+		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$unixtimestampmax = 2147483647;
+			$db2->query('UPDATE phpgw_news SET news_begin=news_date,news_end=' . 
+				(($GLOBALS['phpgw_setup']->oProc->f('news_status') == 'Active') ? $unixtimestampmax : 'news_date') .
+				' WHERE news_id=' . $GLOBALS['phpgw_setup']->oProc->f('news_id'));
+		}
+		$newtbldef = array(
+			'fd' => array(
+				'news_id' => array('type' => 'auto','nullable' => False),
+				'news_date' => array('type' => 'int','precision' => '4','nullable' => True),
+				'news_subject' => array('type' => 'varchar','precision' => '255','nullable' => True),
+				'news_submittedby' => array('type' => 'varchar','precision' => '255','nullable' => True),
+				'news_content' => array('type' => 'blob','nullable' => True),
+				'news_begin' => array('type' => 'int','precision' => '4','nullable' => True),
+				'news_end' => array('type' => 'int','precision' => '4','nullable' => True),
+				'news_cat' => array('type' => 'int','precision' => '4','nullable' => True),
+				'news_teaser' => array('type' => 'varchar','precision' => '255','nullable' => True)
+			),
+			'pk' => array('news_id'),
+			'fk' => array(),
+			'ix' => array('news_date','news_subject'),
+			'uc' => array()
+		);
+		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_news',$newtbldef,'news_status');
+
+		$GLOBALS['setup_info']['news_admin']['currentver'] = '0.9.14.502';
+		return $GLOBALS['setup_info']['news_admin']['currentver'];
+	}
+
+		
+
+
+	$test[] = '0.9.14.502';
+	function news_admin_upgrade0_9_14_502()
+	{
+		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_news','is_html',array(
+			'type' => 'int',
+			'precision' => '2',
+			'nullable' => False,
+			'default' => '0'
+		));
+
+
+		$GLOBALS['setup_info']['news_admin']['currentver'] = '0.9.14.503';
 		return $GLOBALS['setup_info']['news_admin']['currentver'];
 	}
 ?>

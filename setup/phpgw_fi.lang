@@ -4,7 +4,7 @@ content	news_admin	fi	Sisältö
 item has been deleted	news_admin	fi	Kohde poistettu
 maintain news	admin	fi	Uutisten ylläpito
 new item has been added	news_admin	fi	Uusi kohde lisätty
-news admin	common	fi	Uutisten ylläpito
+news_admin	common	fi	Uutisten ylläpito
 no entries found	news_admin	fi	ei kohteita
 submitted by	common	fi	Luonut
 the news content is missing	news_admin	fi	Uutisen sisältö puuttuu

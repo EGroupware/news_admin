@@ -39,14 +39,26 @@
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
 
-		function get_permissions($user)
+		function get_permissions($user, $inc_groups)
 		{
+			$groups = $GLOBALS['phpgw']->acl->get_location_list_for_id('phpgw_group', 1, $user);
 			$result = array();
-			$sql = "select acl_location, acl_rights from phpgw_acl where acl_appname = 'news_admin' and acl_account = $user";
+			$sql  = 'SELECT acl_location, acl_rights FROM phpgw_acl ';
+			$sql .= "WHERE acl_appname = 'news_admin' ";
+			if($inc_groups)
+			{
+				$sql .= 'AND acl_account IN('. intval($user);
+				$sql .= ($groups ? ',' . implode(',', $groups) : '');
+				$sql .= ')';
+			}
+			else
+			{
+				$sql .= 'AND acl_account ='. intval($user);
+			}
 			$this->db->query($sql,__LINE__,__FILE__);
 			while ($this->db->next_record())
 			{
-				$result[$this->db->f('acl_location')] = $this->db->f('acl_rights');
+				$result[$this->db->f('acl_location')] |= $this->db->f('acl_rights');
 			}
 			return $result;
 		}
