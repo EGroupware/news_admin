@@ -18,6 +18,9 @@
 
 	class uiadmin
 	{
+		var $db;
+		var $template;
+		var $session_data;
 		var $public_functions = array(
 					'news_list' => True,
 					'add'       => True,
@@ -30,8 +33,9 @@
 		{
 			global $phpgw;
 
-			$this->template = $phpgw->template;
-			$this->db       = $phpgw->db;
+			$this->template     = $phpgw->template;
+			$this->db           = $phpgw->db;
+			$this->session_data = $phpgw->session->appsession('session_data','news_admin');
 		}
 
 		function common_header()
@@ -40,6 +44,12 @@
 
 			$phpgw->common->phpgw_header();
 			echo parse_navbar();		
+		}
+
+		function save_session_data()
+		{
+			global $phpgw;		
+			$phpgw->session->appsession('session_data','news_admin',$this->session_data);
 		}
 
 		function view()
@@ -65,6 +75,24 @@
 			$this->template->parse('rows','row',True);
 
 			$this->template->pfp('_out','news_form');
+		}
+
+		function delete()
+		{
+			global $phpgw, $news_id, $cat_id;
+
+			$this->common_header();
+			$this->template->set_file(array(
+				'form' => 'admin_delete.tpl'
+			));
+			$this->template->set_var('lang_message',lang('Are you sure you want to delete this entry ?'));
+			$this->template->set_var('lang_yes',lang('Yes'));
+			$this->template->set_var('lang_no',lang('No'));
+
+			$this->template->set_var('link_yes',$phpgw->link('/news_admin/main.php','menuaction=news_admin.boadmin.delete&news_id=' . $news_id));
+			$this->template->set_var('link_no',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.news_list'));
+
+			$this->template->pfp('_out','form');
 		}
 
 		function add($errors = '')
@@ -114,6 +142,21 @@
 			global $phpgw, $phpgw_info, $order, $sort, $cat_id;
 
 			$this->common_header();
+
+			if (! $cat_id && $cat_id != 0)
+			{
+				if (! $this->session_data['cat_id'])
+				{
+					$cat_id = 0;
+				}
+				else
+				{
+					$cat_id = $this->session_data['cat_id'];
+				}
+			}
+
+			$this->session_data['cat_id'] = $cat_id;
+			$this->save_session_data();
 
 			$this->template->set_file(array(
 				'_list' => 'admin_list.tpl'

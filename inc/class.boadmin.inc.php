@@ -28,6 +28,17 @@
 		
 		}
 
+		function delete()
+		{
+			global $news_id;
+
+			$so = createobject('news_admin.soadmin');
+			$ui = createobject('news_admin.uiadmin');
+
+			$so->delete($news_id);
+			$ui->news_list();
+		}
+
 		function add()
 		{
 			global $news;
