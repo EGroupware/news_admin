@@ -17,7 +17,7 @@
 	class uinews
 	{
 		var $template;
-		var $db;
+		var $bonews;
 		var $public_functions = array(
 			'show_news'      => True,
 			'show_news_home' => True
@@ -26,20 +26,13 @@
 		function uinews()
 		{
 			$this->template = $GLOBALS['phpgw']->template;
-			$this->db       = $GLOBALS['phpgw']->db;
+			$this->bonews   = CreateObject('news_admin.bonews');
 			$this->template->set_root($GLOBALS['phpgw']->common->get_tpl_dir('news_admin'));
 		}
 
 		function show_news($show_category_select = False)
 		{
 			global $cat_id, $start, $category_list, $oldnews;
-
-			$news_id = get_var('news_id',Array('GET'));
-
-			if($news_id)
-			{
-				$specific = " AND news_id='" . $news_id . "'";
-			}
 
 			if (! function_exists('parse_navbar'))
 			{
@@ -59,18 +52,18 @@
 			$this->template->set_block('_news','row');
 			$this->template->set_block('_news','category');
 
-			$this->db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id'",__LINE__,__FILE__);
-			$this->db->next_record();
-			$total = $this->db->f(0);
+			$news_id = get_var('news_id',Array('GET'));
 
-			if (! $oldnews)
+			if($news_id)
 			{
-				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' $specific ORDER BY news_date DESC",0,__LINE__,__FILE__,5);
+				$news = $this->bonews->get_news($news_id);
 			}
 			else
 			{
-				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC ",$start,__LINE__,__FILE__,$total);
+				$news = $this->bonews->get_NewsList($cat_id, $oldnews, $start, $total);
 			}
+
+			$total = $bonews->get_NumNewsInCat($cat_id);
 
 			$var = Array();
 
@@ -94,12 +87,12 @@
 				$this->template->parse('_category','category');
 			}
 
-			while ($this->db->next_record())
+			foreach($news as $newsitem)
 			{
 				$var = Array(
-					'subject'	=> $this->db->f('news_subject'),
-					'submitedby'	=> 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
-					'content'	=> nl2br(stripslashes($this->db->f('news_content')))
+					'subject'	=> $newsitem['subject'],
+					'submitedby'	=> 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
+					'content'	=> nl2br($newsitem['news_content'])
 				);
 
 				$this->template->set_var($var);
@@ -149,19 +142,17 @@
 				$portalbox->set_controls($key,$value);
 			}
 
-			$this->db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active' AND news_cat='0'",__LINE__,__FILE__);
-			$this->db->next_record();
-			$total = $this->db->f(0);
+			$total = $this->bonews->get_NumNewsInCat(0);
 
-			$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC",0,__LINE__,__FILE__,5);
+			$newslist = $this->bonews->get_newslist($cat_id);
 
 			$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
 
-			while ($this->db->next_record())
+			foreach($newslist as $newsitem)
 			{
 				$portalbox->data[] = array(
-					'text' => $this->db->f('news_subject') . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
-					'link' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $this->db->f('news_id'))
+					'text' => $newsitem['subject'] . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
+					'link' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $newsitem['id'])
 				);
 			}
 
@@ -176,13 +167,6 @@
 		{
 			global $cat_id, $start, $oldnews;
 
-			$news_id = get_var('news_id',Array('GET'));
-
-			if($news_id)
-			{
-				$specific = " AND news_id='" . $news_id . "'";
-			}
-
 			if (! $cat_id)
 			{
 				$cat_id = 0;
@@ -195,29 +179,30 @@
 			$this->template->set_block('_news','row');
 			$this->template->set_block('_news','category');
 
-			$this->db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id'",__LINE__,__FILE__);
-			$this->db->next_record();
-			$total = $this->db->f(0);
+			$news_id = get_var('news_id',Array('GET'));
 
-			if (! $oldnews)
+			if($news_id)
 			{
-				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' $specific ORDER BY news_date DESC",0,__LINE__,__FILE__,5);
+				$news = $this->bonews->get_news($news_id);
 			}
 			else
 			{
-				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC ",$start,__LINE__,__FILE__,$total);
+				$news = $this->bonews->get_NewsList($cat_id,$oldnews,$start,$total);
 			}
+
+
+			$total = $this->bonews->get_NumNewsInCat($cat_id);
 
 			$var = Array();
 
 			$this->template->set_var('icon',$GLOBALS['phpgw']->common->image('news_admin','news-corner.gif'));
 
-			while ($this->db->next_record())
+			foreach($news as $newsitem)
 			{
 				$var = Array(
-					'subject'    => $this->db->f('news_subject'),
-					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
-					'content'    => nl2br(stripslashes($this->db->f('news_content')))
+					'subject'    => $newsitem['subject'],
+					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
+					'content'    => nl2br($newsitem['content'])
 				);
 
 				$this->template->set_var($var);
