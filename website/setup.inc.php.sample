@@ -3,6 +3,14 @@
   $path_to_header   = "/path/to/phpgroupware/";
   $template_path    = "/path/to/phpgroupware/news_admin/website/templates/";
   $domain           = "default";
+
+  // This is used for exporting news
+  $site_title       = "mysite title";
+  $site_link        = "http://www.mysite.com";
+  $site_description = "Just a sample";
+  $img_title        = "my logo";
+  $img_url          = "http://www.mysite.com/logo.jpg";
+  $img_link         = "http://www.mysite.com";
   
   // Don't change the follow lines
   $phpgw_info["flags"]["noapi"] = True;
