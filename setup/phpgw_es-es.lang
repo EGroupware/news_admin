@@ -5,8 +5,8 @@ add news item	news_admin	es-es	Añadir elemento de noticias
 all news	news_admin	es-es	Todas las noticias
 always	news_admin	es-es	Siempre
 configuration	news_admin	es-es	Configuración
-configure access permissions	news_admin	es-es	Configurar permisos de acceso
-configure rss exports	news_admin	es-es	Configurar exportación RSS
+configure access permissions	common	es-es	Configurar permisos de acceso
+configure rss exports	common	es-es	Configurar exportación RSS
 contains html	news_admin	es-es	Contiene HTML
 content	news_admin	es-es	Contenido
 edit news item	news_admin	es-es	Editar elemento de noticias
@@ -40,6 +40,7 @@ no rss export	news_admin	es-es	No se exporta RSS
 number of articles to display on the main screen	news_admin	es-es	Número de artículos a mostrar en la pantalla principal
 on	news_admin	es-es	en
 publish date	news_admin	es-es	Fecha de publicación
+read news	news_admin	es-es	Leer noticias
 read permissions	news_admin	es-es	Leer permisos
 should news_admin display the latest article headlines on the main screen.	news_admin	es-es	¿Mostrar el encabezado del último artículo en la pantalla principal?
 show latest news articles?	news_admin	es-es	¿Mostrar los últimos artículos de noticias?
