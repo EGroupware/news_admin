@@ -16,7 +16,6 @@ failed to add message	news_admin	zh	添加新消息失败
 format for links to items	news_admin	zh	新闻项的链接格式
 format of export	news_admin	zh	RSS导出文件格式
 from	news_admin	zh	从
-global categories	news_admin	zh	全局类别
 global news	news_admin	zh	全局新闻
 global_news	news_admin	zh	全局新闻
 image link	news_admin	zh	图片链接
