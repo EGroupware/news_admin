@@ -98,27 +98,34 @@
 
 		function add($news)
 		{
-			$sql  = 'INSERT INTO phpgw_news (news_date,news_submittedby,news_content,news_subject,news_begin,news_end,news_teaser,news_cat,is_html) ';
-			$sql .= 'VALUES (' . (int)$news['date']  . ',';
-			$sql .=  $GLOBALS['phpgw_info']['user']['account_id'] . ",'" . $this->db->db_addslashes($news['content']) ."','";
-			$sql .=  $this->db->db_addslashes($news['subject']) ."'," . (int)$news['begin'] . "," . (int)$news['end'] . ",'";
-			$sql .=  $this->db->db_addslashes($news['teaser']) . "'," . (int)$news['category'] . ',' . (int)!!$news['is_html'] .')';
-			$this->db->query($sql);
+			$add_array = array(
+				'news_date'			=> (int)$news['date'],
+				'news_submittedby'	=> $GLOBALS['phpgw_info']['user']['account_id'],
+				'news_content'		=> $news['content'],
+				'news_subject'		=> $news['subject'],
+				'news_begin'		=> (int)$news['begin'],
+				'news_end'			=> (int)$news['end'],
+				'news_teaser'		=> $news['teaser'],
+				'news_cat'			=> (int)$news['category'],
+				'is_html'			=> (int)!!$news['is_html'],
+			);
+			$this->db->insert('phpgw_news', $add_array, '', __LINE__, __FILE__);
 
 			return $this->db->get_last_insert_id('phpgw_news', 'news_id');
 		}
 
 		function edit($news)
 		{
-			$this->db->query("UPDATE phpgw_news SET "
-				. "news_content='" . $this->db->db_addslashes($news['content']) . "',"
-				. "news_subject='" . $this->db->db_addslashes($news['subject']) . "', "
-				. "news_teaser='" . $this->db->db_addslashes($news['teaser']) . "', "
-				. 'news_begin=' . (int)$news['begin'] . ', '
-				. 'news_end=' . (int)$news['end'] . ', '
-				. 'news_cat=' . (int)$news['category'] . ', '
-				. 'is_html=' . ($news['is_html'] ? 1 : 0) .' '
-				. 'WHERE news_id=' . (int)$news['id'],__LINE__,__FILE__);
+			$update_array = array(
+				'news_content'	=> $news['content'],
+				'news_subject'	=> $news['subject'],
+				'news_teaser'	=> $news['teaser'],
+				'news_begin'	=> $news['begin'],
+				'news_end'		=> $news['end'],
+				'news_cat'		=> $news['category'],
+				'is_html'		=> $news['is_html'] ? 1 : 0,
+			);
+			$this->db->update('phpgw_news', $update_array, array('news_id' => (int)$news['id']), __LINE__, __FILE__);
 		}
 
 		function delete($news_id)
