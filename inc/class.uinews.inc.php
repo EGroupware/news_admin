@@ -170,4 +170,72 @@
 				. $portalbox->draw()
 				. '<!-- end News Admin -->'  . "\r\n";
 		}
+
+		function show_news_website()
+		{
+			global $cat_id, $start, $oldnews;
+
+			$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+
+			if($news_id)
+			{
+				$specific = " AND news_id='" . $news_id . "'";
+			}
+
+			if (! $cat_id)
+			{
+				$cat_id = 0;
+			}
+
+			$this->template->set_file(array(
+				'_news' => 'news.tpl'
+			));
+			$this->template->set_block('_news','news_form');
+			$this->template->set_block('_news','row');
+			$this->template->set_block('_news','category');
+
+			$this->db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id'",__LINE__,__FILE__);
+			$this->db->next_record();
+			$total = $this->db->f(0);
+
+			if (! $oldnews)
+			{
+				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' $specific ORDER BY news_date DESC",0,__LINE__,__FILE__,5);
+			}
+			else
+			{
+				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC ",$start,__LINE__,__FILE__,$total);
+			}
+
+			$var = Array();
+
+			$this->template->set_var('icon',$GLOBALS['phpgw']->common->image('news_admin','news-corner.gif'));
+
+			while ($this->db->next_record())
+			{
+				$var = Array(
+					'subject'    => $this->db->f('news_subject'),
+					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
+					'content'    => nl2br(stripslashes($this->db->f('news_content')))
+				);
+
+				$this->template->set_var($var);
+				$this->template->parse('rows','row',True);
+			}
+
+			$out = $this->template->fp('out','news_form');
+
+			if ($total > 5 && ! $oldnews)
+			{
+				$link_values = array(
+					'menuaction'    => 'news_admin.uinews.show_news',
+					'oldnews'       => 'True',
+					'cat_id'        => $cat_id,
+					'category_list' => 'True'
+				);
+
+				$out .= '<center><a href="' . $GLOBALS['phpgw']->link('/index.php',$link_values) . '">View news archives</a></center>';
+			}
+			return $out;
+		}
 	}
