@@ -46,3 +46,4 @@
    <p>&nbsp;</p>
 
    <div align="right"><font size="-1">This page uses the news admin from <a href="http://www.phpgroupware.org">phpGroupWare</a></font></div>
+
