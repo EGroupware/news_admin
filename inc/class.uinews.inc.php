@@ -165,10 +165,11 @@
 				);
 			}
 
-			echo "\r\n"
+			$tmp = "\r\n"
 				. '<!-- start News Admin -->' . "\r\n"
 				. $portalbox->draw()
 				. '<!-- end News Admin -->'  . "\r\n";
+			$GLOBALS['phpgw']->template->set_var('phpgw_body',$tmp,True);
 		}
 
 		function show_news_website($section='mid')
