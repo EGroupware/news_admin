@@ -1,0 +1,13 @@
+create table webpage_news (
+  news_id           int auto_increment NOT NULL,
+  news_date         int,
+  news_subject      varchar(255),
+  news_submittedby  varchar(255),
+  news_content      blob,
+  news_status       enum('Active','Disabled'),
+  primary key(news_id)
+);
+
+insert into webpage_news (news_date,news_subject,news_submittedby,news_content,news_status) values 
+                         (UNIX_TIMESTAMP(),'Sample news item','1','This is a sample item to show what this program does.',
+                         'Active');

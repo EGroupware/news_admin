@@ -1,0 +1,20 @@
+<?php
+
+  $path_to_header   = "/path/to/phpgroupware/";
+  $template_path    = "/path/to/phpgroupware/news_admin/website/templates/";
+  $domain           = "default";
+  
+  // Don't change the follow lines
+  include($path_to_header . "header.inc.php");
+  include($phpgw_info["server"]["api_dir"] . "/phpgw_template.inc.php");
+  include($phpgw_info["server"]["api_dir"] . "/phpgw_db_".$phpgw_info["server"]["db_type"].".inc.php");
+  include($phpgw_info["server"]["api_dir"] . "/phpgw_template.inc.php");
+  
+  $db           = new db;
+  $db->Host     = $phpgw_domain[$domain]["server"]["db_host"];
+  $db->Type     = $phpgw_domain[$domain]["db_type"];
+  $db->Database = $phpgw_domain[$domain]["db_name"];
+  $db->User     = $phpgw_domain[$domain]["db_user"];
+  $db->Password = $phpgw_domain[$domain]["db_pass"];
+
+  $tpl = new Template($template_path);
