@@ -1,7 +1,7 @@
 <!-- BEGIN row -->
    <tr bgcolor="c7c3c7">
     <td width="13" valign="top" valign="top">
-     <img src="images/news-corner.gif" align="top">
+     <img src="templates/images/news-corner.gif" align="top">
     </td>
     <td align="left" width="99%">
      <b>{subject}</b>&nbsp;

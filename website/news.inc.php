@@ -45,4 +45,4 @@
    <p>&nbsp;</p>
    <p>&nbsp;</p>
 
-   <font size="-1">This page uses the news admin from <a href="http://www.phpgroupware.org">phpGroupWare</a></font>
+   <div align="right"><font size="-1">This page uses the news admin from <a href="http://www.phpgroupware.org">phpGroupWare</a></font></div>
