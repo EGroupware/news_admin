@@ -1,49 +1,49 @@
-active	news_admin	zh	ÆôÓÃ
-add new news	news_admin	zh	Ìí¼ÓĞÂÎÅ
-add news item	news_admin	zh	Ìí¼ÓĞÂÎÅÏî
-all news	news_admin	zh	ËùÓĞĞÂÎÅ
-always	news_admin	zh	×ÜÊÇ
-configuration	news_admin	zh	ÉèÖÃ
-configure access permissions	news_admin	zh	ÉèÖÃ·ÃÎÊÈ¨ÏŞ
-configure rss exports	news_admin	zh	ÉèÖÃRSSµ¼³öÎÄ¼ş
-contains html	news_admin	zh	°üº¬HTML
-content	news_admin	zh	Ä¿Â¼
-edit news item	news_admin	zh	±à¼­ĞÂÎÅÏî
-format for links to items	news_admin	zh	ĞÂÎÅÏîµÄÁ´½Ó¸ñÊ½
-format of export	news_admin	zh	RSSµ¼³öÎÄ¼ş¸ñÊ½
-from	news_admin	zh	À´×Ô
-global news	news_admin	zh	È«¾ÖĞÂÎÅ
-global_news	news_admin	zh	È«¾ÖĞÂÎÅ
-image link	news_admin	zh	Í¼Æ¬Á´½Ó
-image title	news_admin	zh	Í¼Æ¬±êÌâ
-image url	news_admin	zh	Í¼Æ¬ÍøÖ·
-implies read permission	news_admin	zh	°üº¬¶ÁÈ¨ÏŞ
-item has been deleted	news_admin	zh	ÏîÒÑÉ¾³ı
-item not found	news_admin	zh	ÕÒ²»µ½Ïî
-link	news_admin	zh	Á´½Ó
-main	news_admin	zh	Ö÷Òª
-maintain	news_admin	zh	Î¬»¤
-maintain news	admin	zh	ĞÂÎÅÎ¬»¤
-message has been added	news_admin	zh	ÏûÏ¢ÒÑÌí¼Ó
-more news	news_admin	zh	¸ü¶àĞÂÎÅ
-new item has been added	news_admin	zh	ĞÂÏîÒÑÌí¼Ó
-news admin	news_admin	zh	ĞÂÎÅ¹ÜÀí
-news item has been added	news_admin	zh	ĞÂÎÅÏîÒÑÌí¼Ó
-news item has been updated	news_admin	zh	ĞÂÎÅÏîÒÑ¸üĞÂ
-news_admin	common	zh	ĞÂÎÅ¹ÜÀí
-no entries found	news_admin	zh	ÕÒ²»µ½ÌõÄ¿
-no news	news_admin	zh	Ã»ÓĞĞÂÎÅ
-no rss export	news_admin	zh	ÎŞRSSµ¼³öÎÄ¼ş
-on	news_admin	zh	ÔÚ
-publish date	news_admin	zh	³ö°æÈÕÆÚ
-read permissions	news_admin	zh	¶ÁÈ¨ÏŞ
-submitted by	common	zh	Ìá½»Õß
-teaser	news_admin	zh	ÄÑÌâ
-the news content is missing	news_admin	zh	ĞÂÎÅÄ¿Â¼¶ªÊ§
-the subject is missing	news_admin	zh	ÌâÄ¿¶ªÊ§
-until	news_admin	zh	Ö±µ½
-view this category	news_admin	zh	²é¿´Àà±ğ
-visible	news_admin	zh	¿É¼û
-webpage news admin	news_admin	zh	ÍøÒ³ĞÂÎÅ¹ÜÀí
-write	news_admin	zh	Ğ´
-write permissions	news_admin	zh	Ğ´È¨ÏŞ
+ï»¿active	news_admin	zh	å¯ç”¨
+add new news	news_admin	zh	æ·»åŠ æ–°é—»
+add news item	news_admin	zh	æ·»åŠ æ–°é—»é¡¹
+all news	news_admin	zh	æ‰€æœ‰æ–°é—»
+always	news_admin	zh	æ€»æ˜¯
+configuration	news_admin	zh	è®¾ç½®
+configure access permissions	news_admin	zh	è®¾ç½®è®¿é—®æƒé™
+configure rss exports	news_admin	zh	è®¾ç½®RSSå¯¼å‡ºæ–‡ä»¶
+contains html	news_admin	zh	åŒ…å«HTML
+content	news_admin	zh	ç›®å½•
+edit news item	news_admin	zh	ç¼–è¾‘æ–°é—»é¡¹
+format for links to items	news_admin	zh	æ–°é—»é¡¹çš„é“¾æ¥æ ¼å¼
+format of export	news_admin	zh	RSSå¯¼å‡ºæ–‡ä»¶æ ¼å¼
+from	news_admin	zh	æ¥è‡ª
+global news	news_admin	zh	å…¨å±€æ–°é—»
+global_news	news_admin	zh	å…¨å±€æ–°é—»
+image link	news_admin	zh	å›¾ç‰‡é“¾æ¥
+image title	news_admin	zh	å›¾ç‰‡æ ‡é¢˜
+image url	news_admin	zh	å›¾ç‰‡ç½‘å€
+implies read permission	news_admin	zh	åŒ…å«è¯»æƒé™
+item has been deleted	news_admin	zh	é¡¹å·²åˆ é™¤
+item not found	news_admin	zh	æ‰¾ä¸åˆ°é¡¹
+link	news_admin	zh	é“¾æ¥
+main	news_admin	zh	ä¸»è¦
+maintain	news_admin	zh	ç»´æŠ¤
+maintain news	admin	zh	æ–°é—»ç»´æŠ¤
+message has been added	news_admin	zh	æ¶ˆæ¯å·²æ·»åŠ 
+more news	news_admin	zh	æ›´å¤šæ–°é—»
+new item has been added	news_admin	zh	æ–°é¡¹å·²æ·»åŠ 
+news admin	news_admin	zh	æ–°é—»ç®¡ç†
+news item has been added	news_admin	zh	æ–°é—»é¡¹å·²æ·»åŠ 
+news item has been updated	news_admin	zh	æ–°é—»é¡¹å·²æ›´æ–°
+news_admin	common	zh	æ–°é—»ç®¡ç†
+no entries found	news_admin	zh	æ‰¾ä¸åˆ°æ¡ç›®
+no news	news_admin	zh	æ²¡æœ‰æ–°é—»
+no rss export	news_admin	zh	æ— RSSå¯¼å‡ºæ–‡ä»¶
+on	news_admin	zh	åœ¨
+publish date	news_admin	zh	å‡ºç‰ˆæ—¥æœŸ
+read permissions	news_admin	zh	è¯»æƒé™
+submitted by	common	zh	æäº¤è€…
+teaser	news_admin	zh	éš¾é¢˜
+the news content is missing	news_admin	zh	æ–°é—»ç›®å½•ä¸¢å¤±
+the subject is missing	news_admin	zh	é¢˜ç›®ä¸¢å¤±
+until	news_admin	zh	ç›´åˆ°
+view this category	news_admin	zh	æŸ¥çœ‹ç±»åˆ«
+visible	news_admin	zh	å¯è§
+webpage news admin	news_admin	zh	ç½‘é¡µæ–°é—»ç®¡ç†
+write	news_admin	zh	å†™
+write permissions	news_admin	zh	å†™æƒé™
