@@ -2,7 +2,7 @@
 <b>{lang_header}</b><hr><p>
 
 <form action="{form_action}" method="POST">
- {lang_category}: <select name="cat_id" onChange="this.form.submit();"><option value="0">{lang_main}</option>{input_category}</select>
+ {lang_category}: <select name="cat_id" onChange="this.form.submit();"><option value="0">{lang_main}</option>{input_category}</select> &nbsp; &nbsp; <a href="{link_add}">{lang_add}</a> &nbsp; &nbsp; {link_view_cat}
 </form>
 
  <center>{message}</center><p>
@@ -19,13 +19,6 @@
 
   {rows}
 
-  <tr bgcolor="{bgcolor}">
-   <td colspan="5">&nbsp;</td>
-  </tr>
-  <tr bgcolor="{bgcolor}">
-   <td colspan="5"><a href="{add_link}">{lang_add}</a></td>
-  </tr>
-
  </table>
 <!-- END list -->
 
@@ -39,3 +32,9 @@
    <td align="center">{row_delete}</td>
   </tr>
 <!-- END row -->
+
+<!-- BEGIN row_empty -->
+  <tr bgcolor="{tr_color}">
+   <td colspan="6" align="center">{row_message}</td>
+  </tr>
+<!-- END row_empty -->

@@ -94,6 +94,12 @@
 			return $_item;
 		}
 
+		function total($cat_id)
+		{
+			$so = createobject('news_admin.soadmin');
+			return $so->total($cat_id);
+		}
+
 		function getlist($order,$sort,$cat_id)
 		{
 			global $phpgw;

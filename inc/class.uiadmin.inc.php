@@ -155,6 +155,24 @@
 				}
 			}
 
+			if (! $order)
+			{
+				if ($this->session_data['order'])
+				{
+					$order = $this->session_data['order'];
+				}
+			}
+
+			if (! $sort)
+			{
+				if ($this->session_data['sort'])
+				{
+					$sort = $this->session_data['sort'];
+				}
+			}
+
+			$this->session_data['order']  = $order;
+			$this->session_data['sort']   = $sort;
 			$this->session_data['cat_id'] = $cat_id;
 			$this->save_session_data();
 
@@ -163,6 +181,7 @@
 			));
 			$this->template->set_block('_list','list');
 			$this->template->set_block('_list','row');
+			$this->template->set_block('_list','row_empty');
 
 			if ($message)
 			{
@@ -188,6 +207,7 @@
 
 			$nextmatchs = createobject('phpgwapi.nextmatchs');
 			$bo         = createobject('news_admin.boadmin');
+			$total      = $bo->total($cat_id);
 			$items      = $bo->getlist($order,$sort,$cat_id);
 
 			while (is_array($items) && $_item = each($items))
@@ -214,7 +234,23 @@
 				$this->template->parse('rows','row',True);
 			}
 
-			$this->template->set_var('add_link',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.add&news%5Bcategory%5D=' . $cat_id));
+			if (! $total)
+			{
+				$nextmatchs->template_alternate_row_color(&$this->template);
+				$this->template->set_var('row_message',lang('No entrys found'));
+				$this->template->parse('rows','row_empty',True);
+			}
+
+			if ($total)
+			{
+				$this->template->set_var('link_view_cat','<a href="' . $phpgw->link('/news_admin/main.php','menuaction=news_admin.uinews.show_news&cat_id=' . $cat_id) . '">' . lang('View this category') . '</a>');
+			}
+			else
+			{
+				$this->template->set_var('link_view_cat',lang('View this category'));
+			}
+
+			$this->template->set_var('link_add',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.add&news%5Bcategory%5D=' . $cat_id));
 			$this->template->set_var('lang_add',lang('add'));
 
 			$this->template->pfp('out','list');

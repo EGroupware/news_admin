@@ -46,6 +46,14 @@
 			$this->db->query("delete from phpgw_news where news_id='$news_id'",__LINE__,__FILE__);
 		}
 
+		function total($cat_id)
+		{
+			$this->db->query("select count(*) from phpgw_news where news_cat='$cat_id'",__LINE__,__FILE__);
+			$this->db->next_record();		
+
+			return $this->db->f(0);
+		}
+
 		function view($news_id)
 		{
 			$this->db->query("select * from phpgw_news where news_id='$news_id'",__LINE__,__FILE__);

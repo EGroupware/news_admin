@@ -14,8 +14,8 @@
 
 	$title = $appname;
 	$file = Array(
-		'News'       => $phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.news_list'),
-		'Categories' => $phpgw->link('/preferences/categories.php','cats_app=news_admin')
+		'Maintain news' => $phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.news_list'),
+		'Categories'    => $phpgw->link('/preferences/categories.php','cats_app=news_admin')
 	);
 
 	display_section($appname,$title,$file);
