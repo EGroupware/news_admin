@@ -40,7 +40,7 @@
 
 		$news = CreateObject('news_admin.uinews');
 
-		$newslist = $news->bo->get_newslist('all',0,'','',$latestcount,False);
+		$newslist = $news->bo->get_newslist('all',0,'','',$latestcount,True);
 
 		$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
 
