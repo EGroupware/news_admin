@@ -26,7 +26,7 @@
 			
 		function get_newslist($cat_id, $start, $order,$sort,$limit=0,$activeonly,&$total)
 		{
-			if ($order)
+			if (!empty($order))
 			{
 				$ordermethod = ' ORDER BY ' . $this->db->db_addslashes($order) . ' ' . $this->db->db_addslashes($sort);
 			}

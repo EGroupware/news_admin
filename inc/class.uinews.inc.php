@@ -69,11 +69,15 @@
 					$selectlist .= '>' . $cat['name'] . '</option>' . "\n";
 				}
 			}
+
 			if (!$default)
 			{
-				$link_data['cat_id'] = 'all';
-				$selectlist .= '<option style="font-weight:bold" value="' . $GLOBALS['phpgw']->link('/index.php',$link_data)  
-					. '">' . lang('All news') . '</option>'  . "\n";
+				if($type=='read' || $this->bo->acl->is_permitted('all',$right))
+				{
+					$link_data['cat_id'] = 'all';
+					$selectlist .= '<option style="font-weight:bold" value="' . $GLOBALS['phpgw']->link('/index.php',$link_data)  
+						. '">' . lang('All news') . '</option>'  . "\n";
+				}
 			}
 			return $selectlist;
 		}
@@ -288,10 +292,17 @@
 					$this->news_data['date'] = time();
 					$this->bo->set_dates($_POST['from'],$_POST['until'],$this->news_data);
 					$this->news_id = $this->bo->add($this->news_data);
-					$this->message = lang('Message has been added');
-					//after having added, we must switch to edit mode instead of stay in add
-					$this->modify('edit');
-					return;
+					if(!$this->news_id)
+					{
+						$this->message = lang('failed to add message');
+					}
+					else
+					{
+						$this->message = lang('Message has been added');
+						//after having added, we must switch to edit mode instead of stay in add
+						$this->modify('edit');
+						return;
+					}
 				}
 				else
 				{
@@ -400,6 +411,8 @@
 			{
 				$this->template->set_var('errors',$this->message);
 			}
+
+			$category_list = $this->selectlist('write', intval($this->news_data['category']));
 
 			$this->template->set_var('lang_header',lang($type . ' news item'));
 			$this->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php',

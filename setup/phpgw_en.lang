@@ -1,4 +1,5 @@
 active	news_admin	en	Active
+add new article	news_admin	en	Add New Article
 add new news	news_admin	en	Add new news
 add news item	news_admin	en	Add news item
 all news	news_admin	en	All news
@@ -9,6 +10,7 @@ configure rss exports	news_admin	en	Configure RSS exports
 contains html	news_admin	en	Contains HTML
 content	news_admin	en	Content
 edit news item	news_admin	en	Edit news item
+failed to add message	news_admin	en	Failed to add new message
 format for links to items	news_admin	en	Format for links to items
 format of export	news_admin	en	Format of export
 from	news_admin	en	From
@@ -28,18 +30,25 @@ message has been added	news_admin	en	Message has been added
 more news	news_admin	en	More news
 new item has been added	news_admin	en	New item has been added
 news admin	news_admin	en	News Admin
+news administration	news_admin	en	News Administration
 news item has been added	news_admin	en	News item has been added
 news item has been updated	news_admin	en	News item has been updated
 news_admin	common	en	News Admin
 no entries found	news_admin	en	no entries found
 no news	news_admin	en	No News is Currently Available in the Category
 no rss export	news_admin	en	No RSS export
+number of articles to display on the main screen	news_admin	en	Number of articles to display on the main screen
 on	news_admin	en	on
 publish date	news_admin	en	Publish Date
 read permissions	news_admin	en	Read permissions
+should news_admin display the latest article headlines on the main screen.	news_admin	en	Should News Admin display the latest article headlines on the main screen.
+show latest news articles?	news_admin	en	Show latest news articles?
+show news articles on main page?	news_admin	en	Show news articles on main page?
+small view	news_admin	en	small view
 submitted by	common	en	Submitted by
-teaser	news_admin	en	teaser
+teaser	news_admin	en	Teaser
 the news content is missing	news_admin	en	The news content is missing
+the number of articles to display on the main screen.	news_admin	en	The number of articles to display on the main screen.
 the subject is missing	news_admin	en	The subject is missing
 until	news_admin	en	until
 view this category	news_admin	en	View this category
