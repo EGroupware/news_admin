@@ -358,9 +358,17 @@
 
 			if($_POST['cancel'])
 			{
-				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'));
+			  if(isset($this->news_data['category']))
+			  {
+			      Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news&cat_id='.$this->news_data['category']));
+			  }
+			  else
+			  {
+			      Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'));
 				return;
+			  }
 			}
+
 			if(is_array($this->news_data))
 			{
 				if(!$this->news_data['subject'])
