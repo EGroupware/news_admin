@@ -15,7 +15,7 @@
 	$setup_info['news_admin']['name']      = 'news_admin';
 	//$setup_info['news_admin']['title']     = 'News Admin';
 	$setup_info['news_admin']['version']   = '0.9.14.503';
-	$setup_info['news_admin']['app_order'] = 4;
+	$setup_info['news_admin']['app_order'] = 15;
 	$setup_info['news_admin']['enable']    = 1;
 
 	/* The tables this app creates */
@@ -31,6 +31,6 @@
 	/* Dependencies for this app to work */
 	$setup_info['news_admin']['depends'][] = array(
 		 'appname' => 'phpgwapi',
-		 'versions' => Array('0.9.13', '0.9.14', '0.9.15')
+		 'versions' => Array('0.9.14', '0.9.15','1.0.0')
 	);
 
