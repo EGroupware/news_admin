@@ -17,7 +17,6 @@
 			'Maintain news'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'),
 			'Global Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname)
 		);
-
-		display_section($appname,$file);
+		$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
 	}
 ?>
