@@ -59,11 +59,11 @@
 
 			if (! $oldnews)
 			{
-				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc",5,1,__LINE__,__FILE__);
+				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc",1,__LINE__,__FILE__,5);
 			}
 			else
 			{
-				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc ",$total,$start,__LINE__,__FILE__);
+				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc ",$start,__LINE__,__FILE__,$total);
 			}
 
 			$image_path = $phpgw->common->get_image_path('news_admin');
