@@ -20,13 +20,12 @@
 
 		function sonews()
 		{
-			$this->db       = $GLOBALS['phpgw']->db;
+			copyobj($GLOBALS['phpgw']->db,$this->db);
 		}
 
-			
 		function get_newslist($cat_id, $start, $order,$sort,$limit=0,$activeonly,&$total)
 		{
-			if (!empty($order))
+			if(!empty($order))
 			{
 				$ordermethod = ' ORDER BY ' . $this->db->db_addslashes($order) . ' ' . $this->db->db_addslashes($sort);
 			}
@@ -35,17 +34,17 @@
 				$ordermethod = ' ORDER BY news_date DESC';
 			}
 
-			if (is_array($cat_id))
+			if(is_array($cat_id))
 			{
-				$filter = "IN (" . implode(',',$cat_id) . ')';
+				$filter = 'IN (' . implode(',',$cat_id) . ')';
 			}
 			else
 			{
-				$filter = "=" . intval($cat_id);
+				$filter = '=' . (int)$cat_id;
 			}
 
 			$sql = 'SELECT * FROM phpgw_news WHERE news_cat ' . $filter;
-			if ($activeonly)
+			if($activeonly)
 			{
 				$now = time();
 				$sql .= " AND news_begin<=$now AND news_end>=$now";
@@ -58,18 +57,18 @@
 
 			$news = array();
 
-			while ($this->db->next_record())
+			while($this->db->next_record())
 			{
 				$news[$this->db->f('news_id')] = array(
-					'subject'	=> htmlentities($this->db->f('news_subject', True)),
-					'submittedby'	=> $this->db->f('news_submittedby'),
-					'date' => $this->db->f('news_date'),
-					'id' => $this->db->f('news_id'),
-					'begin' => $this->db->f('news_begin'),
-					'end' => $this->db->f('news_end'),
-					'teaser' => htmlentities($this->db->f('news_teaser', True)),
-					'content'	=> $this->db->f('news_content',True),
-					'is_html'			=> ($this->db->f('is_html') ? True : False),
+					'subject' => htmlentities($this->db->f('news_subject', True)),
+					'submittedby' => $this->db->f('news_submittedby'),
+					'date'    => $this->db->f('news_date'),
+					'id'      => $this->db->f('news_id'),
+					'begin'   => $this->db->f('news_begin'),
+					'end'     => $this->db->f('news_end'),
+					'teaser'  => htmlentities($this->db->f('news_teaser', True)),
+					'content' => $this->db->f('news_content',True),
+					'is_html' => ($this->db->f('is_html') ? True : False),
 				);
 			}
 			return $news;
@@ -85,13 +84,13 @@
 			while ($this->db->next_record())
 			{
 				$news[$this->db->f('news_id')] = array(
-					'subject'	=> $this->db->f('news_subject', True),
-					'submittedby'	=> $this->db->f('news_submittedby'),
-					'date' => $this->db->f('news_date'),
-					'id' => $this->db->f('news_id'),
-					'teaser' => $this->db->f('news_teaser', True),
-					'content'	=> $this->db->f('news_content', True),
-					'is_html'	=> ($this->db->f('is_html') ? True : False),
+					'subject' => $this->db->f('news_subject', True),
+					'submittedby' => $this->db->f('news_submittedby'),
+					'date'    => $this->db->f('news_date'),
+					'id'      => $this->db->f('news_id'),
+					'teaser'  => $this->db->f('news_teaser', True),
+					'content' => $this->db->f('news_content', True),
+					'is_html' => ($this->db->f('is_html') ? True : False),
 				);
 			}
 			return $news;
@@ -100,10 +99,10 @@
 		function add($news)
 		{
 			$sql  = 'INSERT INTO phpgw_news (news_date,news_submittedby,news_content,news_subject,news_begin,news_end,news_teaser,news_cat,is_html) ';
-			$sql .= 'VALUES (' . intval($news['date'])  . ',';
+			$sql .= 'VALUES (' . (int)$news['date']  . ',';
 			$sql .=  $GLOBALS['phpgw_info']['user']['account_id'] . ",'" . $this->db->db_addslashes($news['content']) ."','";
-			$sql .=  $this->db->db_addslashes($news['subject']) ."'," . intval($news['begin']) . "," . intval($news['end']) . ",'";
-			$sql .=  $this->db->db_addslashes($news['teaser']) . "'," . intval($news['category']) . ',' . intval($news['is_html']) .')';
+			$sql .=  $this->db->db_addslashes($news['subject']) ."'," . (int)$news['begin'] . "," . (int)$news['end'] . ",'";
+			$sql .=  $this->db->db_addslashes($news['teaser']) . "'," . (int)$news['category'] . ',' . (int)$news['is_html'] .')';
 			$this->db->query($sql);
 
 			return $this->db->get_last_insert_id('phpgw_news', 'news_id');
@@ -115,34 +114,34 @@
 				. "news_content='" . $this->db->db_addslashes($news['content']) . "',"
 				. "news_subject='" . $this->db->db_addslashes($news['subject']) . "', "
 				. "news_teaser='" . $this->db->db_addslashes($news['teaser']) . "', "
-				. 'news_begin=' . intval($news['begin']) . ', '
-				. 'news_end=' . intval($news['end']) . ', '
-				. 'news_cat=' . intval($news['category']) . ', '
+				. 'news_begin=' . (int)$news['begin'] . ', '
+				. 'news_end=' . (int)$news['end'] . ', '
+				. 'news_cat=' . (int)$news['category'] . ', '
 				. 'is_html=' . ($news['is_html'] ? 1 : 0) .' '
-				. 'WHERE news_id=' . intval($news['id']),__LINE__,__FILE__);
+				. 'WHERE news_id=' . (int)$news['id'],__LINE__,__FILE__);
 		}
 
 		function delete($news_id)
 		{
-			$this->db->query('DELETE FROM phpgw_news WHERE news_id=' . intval($news_id) ,__LINE__,__FILE__);
+			$this->db->query('DELETE FROM phpgw_news WHERE news_id=' . (int)$news_id,__LINE__,__FILE__);
 		}
 
 		function get_news($news_id)
 		{
-			$this->db->query('SELECT * FROM phpgw_news WHERE news_id=' . intval($news_id),__LINE__,__FILE__);
+			$this->db->query('SELECT * FROM phpgw_news WHERE news_id=' . (int)$news_id,__LINE__,__FILE__);
 			$this->db->next_record();
 
 			$item = array(
-				'id'		=> $this->db->f('news_id'),
-				'date'		=> $this->db->f('news_date'),
-				'subject'	=> $this->db->f('news_subject', True),
-				'submittedby'	=> $this->db->f('news_submittedby'),
-				'teaser'	=> $this->db->f('news_teaser', True),
-				'content'	=> $this->db->f('news_content', True),
-				'begin'		=> $this->db->f('news_begin'),
-				'end' 		=> $this->db->f('news_end'),
-				'category'	=> $this->db->f('news_cat'),
-				'is_html'	=> ($this->db->f('is_html') ? True : False),
+				'id'       => $this->db->f('news_id'),
+				'date'     => $this->db->f('news_date'),
+				'subject'  => $this->db->f('news_subject', True),
+				'submittedby' => $this->db->f('news_submittedby'),
+				'teaser'   => $this->db->f('news_teaser', True),
+				'content'  => $this->db->f('news_content', True),
+				'begin'    => $this->db->f('news_begin'),
+				'end'      => $this->db->f('news_end'),
+				'category' => $this->db->f('news_cat'),
+				'is_html'  => ($this->db->f('is_html') ? True : False),
 			);
 			return $item;
 		}
@@ -158,7 +157,7 @@
 // 				$ordermethod = ' ORDER BY news_date DESC';
 // 			}
 
-// 			$this->db->query('SELECT * FROM phpgw_news WHERE news_cat=' . intval($cat_id) . $ordermethod,__LINE__,__FILE__);
+// 			$this->db->query('SELECT * FROM phpgw_news WHERE news_cat=' . (int)$cat_id . $ordermethod,__LINE__,__FILE__);
 // 			while ($this->db->next_record())
 // 			{
 // 				$items[] = array(
@@ -173,5 +172,4 @@
 // 			}
 // 			return $items;
 // 		}
-
 	}

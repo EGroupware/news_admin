@@ -16,7 +16,7 @@
 
 	include('setup.inc.php');
 
-	$cat_id = intval($_GET['cat_id']);
+	$cat_id = (int)$_GET['cat_id'];
 //	$format = (isset($_GET['format']) ? strtolower(trim($_GET['format'])) : 'rss');
 	$limit	= (isset($_GET['limit']) ? trim($_GET['limit']) : 5);
 //	$all	= (isset($_GET['all']) ? True : False);
@@ -36,7 +36,7 @@
 // 		$format = 'rss';
 // 	}
 
-	if (!$site['type'])
+	if(!$site['type'])
 	{
 		echo "THIS CATEGORY IS NOT PUBLICLY ACCESSIBLE";
 		die();
@@ -76,13 +76,13 @@
 		{
 			$tpl->set_var($news_data);
 
-   			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_id);
+			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_id);
 			if($format == 'rss1')
 			{
 				$tpl->parse('seqs','seq',True);
 			}
     
-   	 		$tpl->parse('items','item',True);
+			$tpl->parse('items','item',True);
 		}
 	}
 	else

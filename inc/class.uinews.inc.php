@@ -27,11 +27,11 @@
 		var $news_id;
 		var $sbox;
 		var $public_functions = array(
-			'write_news' 	=> True,
-			'add'       	=> True,
-			'edit'      	=> True,
-			'delete'    	=> True,
-			'delete_item'	=> True,
+			'write_news'  => True,
+			'add'         => True,
+			'edit'        => True,
+			'delete'      => True,
+			'delete_item' => True,
 			'read_news'      => True,
 			'show_news_home' => True
 		);
@@ -60,7 +60,7 @@
 			{
 				if($this->bo->acl->is_permitted($cat['id'],$right))
 				{
-					$cat_id = (int) $cat['id'];
+					$cat_id = (int)$cat['id'];
 					$link_data['cat_id'] = $cat_id;
 					$selectlist .= '<option value="';
 					$selectlist .= $default !== False ? $cat_id : $GLOBALS['phpgw']->link('/index.php',$link_data);
@@ -84,8 +84,7 @@
 
 		function read_news()
 		{
-			$limit = ($GLOBALS['phpgw_info']['common']['maxmatchs'] 
-								? $GLOBALS['phpgw_info']['common']['maxmatchs'] : 5);
+			$limit = ($GLOBALS['phpgw_info']['common']['maxmatchs'] ? $GLOBALS['phpgw_info']['common']['maxmatchs'] : 5);
 
 			$news_id = get_var('news_id',Array('GET'));
 
@@ -106,9 +105,8 @@
 			$var['lang_write'] = lang('Write');
 			$var['readable'] = $this->selectlist('read');
 			$var['maintainlink'] = (($this->cat_id != 'all') && $this->bo->acl->is_permitted($this->cat_id,PHPGW_ACL_ADD)) ? 
-				('<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news&start=0&cat_id='.$this->cat_id) .
-					'">' . lang('Maintain') . '</a>') :
-				'';
+				('<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news&start=0&cat_id='.$this->cat_id)
+				. '">' . lang('Maintain') . '</a>') : '';
 			$var['cat_name'] = ($this->cat_id != 'all') ? $this->bo->catbo->id2name($this->cat_id) : lang('All news');
 			$this->template->set_var($var);
 			$this->template->parse('_category','category');
@@ -118,9 +116,9 @@
 			foreach($news as $newsitem)
 			{
 				$var = Array(
-					'subject'	=> $newsitem['subject'],
-					'submitedby'	=> 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
-					'content'	=> $newsitem['content'],
+					'subject' => $newsitem['subject'],
+					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
+					'content' => $newsitem['content'],
 				);
 
 				$this->template->set_var($var);
@@ -279,15 +277,15 @@
 			if($_POST['submitit'])
 			{
 				$this->news_data = $_POST['news'];
-				if (! $this->news_data['subject'])
+				if(!$this->news_data['subject'])
 				{
 					$errors[] = lang('The subject is missing');
 				}
-				if (! $this->news_data['content'])
+				if(!$this->news_data['content'])
 				{
 					$errors[] = lang('The news content is missing');
 				}
-				if (!is_array($errors))
+				if(!is_array($errors))
 				{
 					$this->news_data['date'] = time();
 					$this->bo->set_dates($_POST['from'],$_POST['until'],$this->news_data);
@@ -337,7 +335,7 @@
 
 		function delete_item()
 		{
-			$item = intval(get_var('news_id'));
+			$item = (int)get_var('news_id',array('GET','POST'));
 			if($item)
 			{
 				$this->bo->delete($item);
@@ -352,9 +350,8 @@
 
 		function edit()
 		{
-			$this->news_data	= $_POST['news'];
-			$this->news_id		= (isset($_GET['news_id']) ? $_GET['news_id'] 
-										: $_POST['news']['id']);
+			$this->news_data = $_POST['news'];
+			$this->news_id   = (isset($_GET['news_id']) ? $_GET['news_id'] : $_POST['news']['id']);
 
 			if($_POST['cancel'])
 			{
@@ -363,11 +360,11 @@
 			}
 			if(is_array($this->news_data))
 			{
-				if(! $this->news_data['subject'])
+				if(!$this->news_data['subject'])
 				{
 					$errors[] = lang('The subject is missing');
 				}
-				if(! $this->news_data['content'])
+				if(!$this->news_data['content'])
 				{
 					$errors[] = lang('The news content is missing');
 				}
@@ -403,7 +400,7 @@
 				'form' => 'admin_form.tpl'
 			));
 
-			if (is_array($this->message))
+			if(is_array($this->message))
 			{
 				$this->template->set_var('errors',$GLOBALS['phpgw']->common->error_list($this->message));
 			}
@@ -412,7 +409,7 @@
 				$this->template->set_var('errors',$this->message);
 			}
 
-			$category_list = $this->selectlist('write', intval($this->news_data['category']));
+			$category_list = $this->selectlist('write', (int)$this->news_data['category']);
 
 			$this->template->set_var('lang_header',lang($type . ' news item'));
 			$this->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php',
@@ -432,7 +429,7 @@
 				'label_content' => lang('Content') . ':',
 				'value_content' => '<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . $this->news_data['content'] . '</textarea>',
 				'label_category' => lang('Category') . ':',
-				'value_category' => '<select name="news[category]">' . $this->selectlist('write', intval($this->news_data['category'])) . '</select>',
+				'value_category' => '<select name="news[category]">' . $this->selectlist('write', (int)$this->news_data['category']) . '</select>',
 				'label_visible' => lang('Visible') . ':',
 				'value_begin_d' =>  $this->sbox->getDays('news[begin_d]',date('j',$this->news_data['begin'])),
 				'value_begin_m' =>  $this->sbox->getMonthText('news[begin_m]',date('n',$this->news_data['begin'])),
@@ -496,7 +493,7 @@
 			{
 				$this->nextmatchs->template_alternate_row_color(&$this->template);
 				$this->template->set_var('row_date',$GLOBALS['phpgw']->common->show_date($item['date']));
-				if (strlen($item['news_subject']) > 40)
+				if(strlen($item['news_subject']) > 40)
 				{
 					$subject = $GLOBALS['phpgw']->strip_html(substr($item['subject'],40,strlen($item['subject'])));
 				}
@@ -514,7 +511,7 @@
 				$this->template->parse('rows','row',True);
 			}
 
-			if (! $this->bo->total)
+			if(!$this->bo->total)
 			{
 				$this->nextmatchs->template_alternate_row_color(&$this->template);
 				$this->template->set_var('row_message',lang('No entries found'));

@@ -18,15 +18,15 @@
 
 		function soacl()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			copyobj($GLOBALS['phpgw']->db,$this->db);
 		}
 
 		function get_rights($location)
 		{
 			$result = array();
-			$sql = "select acl_account, acl_rights from phpgw_acl where acl_appname = 'news_admin' and acl_location = '$location'";
+			$sql = "SELECT acl_account, acl_rights from phpgw_acl WHERE acl_appname = 'news_admin' AND acl_location = '$location'";
 			$this->db->query($sql,__LINE__,__FILE__);
-			while ($this->db->next_record())
+			while($this->db->next_record())
 			{
 				$result[$this->db->f('acl_account')] = $this->db->f('acl_rights');
 			}
@@ -47,13 +47,13 @@
 			$sql .= "WHERE acl_appname = 'news_admin' ";
 			if($inc_groups)
 			{
-				$sql .= 'AND acl_account IN('. intval($user);
+				$sql .= 'AND acl_account IN('. (int)$user;
 				$sql .= ($groups ? ',' . implode(',', $groups) : '');
 				$sql .= ')';
 			}
 			else
 			{
-				$sql .= 'AND acl_account ='. intval($user);
+				$sql .= 'AND acl_account ='. (int)$user;
 			}
 			$this->db->query($sql,__LINE__,__FILE__);
 			while ($this->db->next_record())

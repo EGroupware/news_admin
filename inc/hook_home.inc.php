@@ -14,7 +14,7 @@
 
 	/* $Id$ */
 
-	$showevents = intval($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['homeShowLatest']);
+	$showevents = (int)$GLOBALS['phpgw_info']['user']['preferences']['news_admin']['homeShowLatest'];
 	if($showevents > 0)
 	{
 		$GLOBALS['phpgw']->translation->add_app('news_admin');
@@ -29,7 +29,7 @@
 			'header_background_image' => $GLOBALS['phpgw']->common->image('phpgwapi/templates/default','bg_filler')
 		));
 
-		$latestcount = intval($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['homeShowLatestCount']);
+		$latestcount = (int)$GLOBALS['phpgw_info']['user']['preferences']['news_admin']['homeShowLatestCount'];
 		if($latestcount<=0) 
 		{
 			$latestcount = 10;
@@ -76,7 +76,7 @@
 
 		while(list($key,$value) = each($var))
 		{
-				$portalbox->set_controls($key,$value);
+			$portalbox->set_controls($key,$value);
 		}
 
 		$tmp = "\r\n"

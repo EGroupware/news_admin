@@ -258,14 +258,14 @@
 					$news['end'] = 0;
 					break;
 				default:
-					$news['begin'] = mktime(0,0,0,intval($news['begin_m']), intval($news['begin_d']), intval($news['begin_y']));
+					$news['begin'] = mktime(0,0,0,(int)$news['begin_m'], (int)$news['begin_d'], (int)$news['begin_y']);
 					switch($until)
 					{
 						case 1:
 							$news['end'] = $this->unixtimestampmax;
 							break;
 						default:
-							$news['end'] = mktime(0,0,0,intval($news['end_m']), intval($news['end_d']), intval($news['end_y']));
+							$news['end'] = mktime(0,0,0,(int)$news['end_m'], (int)$news['end_d'], (int)$news['end_y']);
 					}
 			}
 		}

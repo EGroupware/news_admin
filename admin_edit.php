@@ -19,26 +19,26 @@
 		'currentapp'              => 'news_admin',
 		'enable_nextmatchs_class' => True
 	);
-	if ($submit)
+	if($submit)
 	{
 		$GLOBALS['phpgw_info']['flags']['noheader'] = True;
 		$GLOBALS['phpgw_info']['flags']['nonavbar'] = True;
 	}
 	include('../header.inc.php');
 
-	$GLOBALS['phpgw']->sbox = createobject('phpgwapi.sbox');
+	$GLOBALS['phpgw']->sbox = CreateObject('phpgwapi.sbox');
 
-	if ($submit)
+	if($submit)
 	{
 		// Its possiable that this could get messed up becuase of there timezone offset
-		if ($date_ap == "pm")
+		if($date_ap == 'pm')
 		{
 			$date_hour = $date_hour + 12;
 		}
 		$date = mktime($date_hour,$date_min,$date_sec,$date_month,$date_day,$date_year);
-		$GLOBALS['phpgw']->db->query("update phpgw_news set news_subject='" . addslashes($subject) . "',"
+		$GLOBALS['phpgw']->db->query("UPDATE phpgw_news SET news_subject='" . addslashes($subject) . "',"
 			. "news_content='" . addslashes($content) . "',news_status='$status',news_date='$date' "
-			. "where news_id='$news_id'",__LINE__,__FILE__);
+			. "WHERE news_id='$news_id'",__LINE__,__FILE__);
 		Header('Location: ' . $GLOBALS['phpgw']->link('/news_admin/index.php'));
 		$GLOBALS['phpgw']->common->phpgw_exit();
 	}
@@ -92,8 +92,8 @@
 	$GLOBALS['phpgw']->template->set_var('value',$d_html);
 
 	$h = '<select name="status"><option value="Active"' . $s['Active'] . '>'
-		. lang("active") . '</option><option value="Disabled"' . $s['Disabled'] . '>'
-		. lang("Disabled") . '</option></select>';
+		. lang('Active') . '</option><option value="Disabled"' . $s['Disabled'] . '>'
+		. lang('Disabled') . '</option></select>';
 	$GLOBALS['phpgw']->template->parse('rows','row',True);
 
 	$GLOBALS['phpgw']->template->pparse('out','form');

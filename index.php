@@ -20,10 +20,9 @@
 		'noheader' => True,
 		'nonavbar' => True,
 	);
-
 	include('../header.inc.php');
 
-	$ui= createobject('news_admin.uinews');
+	$ui = CreateObject('news_admin.uinews');
 	$ui->read_news();
 
 	$GLOBALS['phpgw']->common->phpgw_footer();
