@@ -1,0 +1,60 @@
+active	news_admin	it	Attivo
+add new article	news_admin	it	Aggiungi Nuovo Articolo
+add new news	news_admin	it	Aggiungi Nuova Notizia
+add news item	news_admin	it	Aggiungi oggetto notizia
+all news	news_admin	it	Tutte le Notizie
+always	news_admin	it	Sempre
+configuration	news_admin	it	Configurazione
+configure access permissions	common	it	Configura i permessi di accesso
+configure rss exports	common	it	Configura l'esportazione RSS
+contains html	news_admin	it	Contiene HTML
+content	news_admin	it	Contenuto
+edit news item	news_admin	it	Modifica oggetto notizia
+failed to add message	news_admin	it	Aggiunta nuovo messaggio fallita
+format for links to items	news_admin	it	Formato per i collegamenti agli oggetti
+format of export	news_admin	it	Formato esportazione
+from	news_admin	it	Da
+global categories	news_admin	it	Categorie Globali
+global news	news_admin	it	Notizie Generali
+global_news	news_admin	it	Notizie_Generali
+image link	news_admin	it	Link Immagine
+image title	news_admin	it	Titolo Immagine
+image url	news_admin	it	Url Immagine
+implies read permission	news_admin	it	implica i permessi di lettura
+item has been deleted	news_admin	it	L'oggetto è stato cancellato
+item not found	news_admin	it	Oggetto non trovato
+link	news_admin	it	Link
+main	news_admin	it	Principale
+maintain	news_admin	it	Manutenzione
+maintain news	admin	it	Manutenzione Notizie
+message has been added	news_admin	it	Il messaggio è stato aggiunto
+more news	news_admin	it	Altre Notizie
+new item has been added	news_admin	it	Il nuovo oggetto è stato aggiunto
+news admin	news_admin	it	Gestione Notizie
+news administration	news_admin	it	Amministrazione Notizie
+news item has been added	news_admin	it	l'oggetto Notizia è stato aggiunto
+news item has been updated	news_admin	it	l'oggetto Notizia è stato aggiornato
+news_admin	common	it	Gestione Notizie
+no entries found	news_admin	it	nessuna voce trovata
+no news	news_admin	it	Nessuna Notizia è attualmente disponibile nella Categoria
+no rss export	news_admin	it	Nessuna esportazione RSS
+number of articles to display on the main screen	news_admin	it	Numero di articoli da visualizzare sulla schermata principale
+on	news_admin	it	il
+publish date	news_admin	it	Data pubblicazione
+read news	news_admin	it	Leggi Notizie
+read permissions	news_admin	it	Permessi di lettura
+should news_admin display the latest article headlines on the main screen.	news_admin	it	Gestione Notizie deve mostrare i titoli degli articoli più recenti sulla schermata principale?
+show latest news articles?	news_admin	it	Mostra gli articoli delle notizie più recenti?
+show news articles on main page?	news_admin	it	Mostra gli articoli delle notizie sulla schermata principale?
+small view	news_admin	it	Visualizzazione ridotta
+submitted by	common	it	Aggiunto da
+teaser	news_admin	it	Didascalia
+the news content is missing	news_admin	it	Il contenuto della notizia è mancante
+the number of articles to display on the main screen.	news_admin	it	Il numero di articoli da mostrare sulla schermata principale.
+the subject is missing	news_admin	it	L'oggetto è mancante
+until	news_admin	it	fino al
+view this category	news_admin	it	Visualizza questa categoria
+visible	news_admin	it	Visibile
+webpage news admin	news_admin	it	Pagina web News Admin
+write	news_admin	it	Scrivi
+write permissions	news_admin	it	Permessi di scrittura
