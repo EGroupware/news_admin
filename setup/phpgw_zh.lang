@@ -5,15 +5,18 @@ add news item	news_admin	zh	添加新闻
 all news	news_admin	zh	所有新闻
 always	news_admin	zh	是
 configuration	news_admin	zh	配置
-configure access permissions	news_admin	zh	设置访问权限
+configure access permissions	news_admin	zh	授权访问
+configure access permissions	common	zh	授权访问
 configure rss exports	news_admin	zh	设置RSS导出文件
-contains html	news_admin	zh	包含HTML
+configure rss exports	common	zh	设置RSS导出文件
+contains html	news_admin	zh	允许使用HTML标记
 content	news_admin	zh	内容
 edit news item	news_admin	zh	编辑新闻项
 failed to add message	news_admin	zh	添加新消息失败
 format for links to items	news_admin	zh	新闻项的链接格式
 format of export	news_admin	zh	RSS导出文件格式
 from	news_admin	zh	从
+global categories	news_admin	zh	全局类别
 global news	news_admin	zh	全局新闻
 global_news	news_admin	zh	全局新闻
 image link	news_admin	zh	图片链接
@@ -41,13 +44,13 @@ number of articles to display on the main screen	news_admin	zh	在首页上显�
 on	news_admin	zh	在
 publish date	news_admin	zh	出版日期
 read news	news_admin	zh	阅读新闻
-read permissions	news_admin	zh	读权限
+read permissions	news_admin	zh	允许阅读
 should news_admin display the latest article headlines on the main screen.	news_admin	zh	是否在首页显示最近的新闻摘要?
 show latest news articles?	news_admin	zh	是否显示最近的新闻?
 show news articles on main page?	news_admin	zh	是否在首页显示新闻?
 small view	news_admin	zh	仅显示部分新闻
 submitted by	common	zh	提交者
-teaser	news_admin	zh	难题
+teaser	news_admin	zh	摘要
 the news content is missing	news_admin	zh	新闻目录丢失
 the number of articles to display on the main screen.	news_admin	zh	在首页上显示多少条新闻?
 the subject is missing	news_admin	zh	题目丢失
@@ -56,4 +59,4 @@ view this category	news_admin	zh	查看类别
 visible	news_admin	zh	是否可见?
 webpage news admin	news_admin	zh	网页新闻管理
 write	news_admin	zh	写
-write permissions	news_admin	zh	写权限
+write permissions	news_admin	zh	允许撰写
