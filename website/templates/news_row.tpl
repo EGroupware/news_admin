@@ -1,12 +1,12 @@
 <!-- BEGIN row -->
-   <tr bgcolor="c7c3c7">
+   <tr bgcolor="#c7c3c7">
     <td width="13" valign="top" valign="top">
      <img src="{icon_dir}templates/images/news-corner.gif" align="top">
     </td>
     <td align="left" width="99%">
      <b>{subject}</b>&nbsp;
     </td>
-    <td align="left" width="1%" bgcolor="FFFFFF">
+    <td align="left" width="1%" bgcolor="#FFFFFF">
      &nbsp;
     </td>
    </tr>
