@@ -274,7 +274,7 @@
 		{
 			if($_POST['cancel'])
 			{
-				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'));
+				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.read_news'));
 				return;
 			}
 			if($_POST['submitit'])
