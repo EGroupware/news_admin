@@ -25,7 +25,7 @@
   $tpl->set_file(array("news" => $format . ".tpl",
                        "row"  => $format . "_row.tpl"));
 
-  $db->query("select * from webpage_news,accounts where news_status='Active' order by news_date "
+  $db->query("select * from phpgw_news,accounts where news_status='Active' order by news_date "
            . "desc limit 5");
 
   $tpl->set_var("site_title",$site_title);

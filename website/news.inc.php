@@ -19,14 +19,14 @@
   $tpl->set_file(array("news" => "news.tpl",
                        "row"  => "news_row.tpl"));
 
-  $db->query("select count(*) from webpage_news where news_status='Active'");
+  $db->query("select count(*) from phpgw_news where news_status='Active'");
   $db->next_record();
   $total = $db->f(0);
 
   if (! $oldnews) {
-     $db->query("select *,account_lid as submittedby from webpage_news,accounts where news_status='Active' and news_submittedby=accounts.account_id order by news_date desc limit 5");
+     $db->query("select *,account_lid as submittedby from phpgw_news,accounts where news_status='Active' and news_submittedby=accounts.account_id order by news_date desc limit 5");
   } else {  
-     $db->query("select *,account_lid as submittedby from webpage_news,accounts where news_status='Active' and news_submittedby=accounts.account_id order by news_date desc limit 5,$total");
+     $db->query("select *,account_lid as submittedby from phpgw_news,accounts where news_status='Active' and news_submittedby=accounts.account_id order by news_date desc limit 5,$total");
   }
 
   while ($db->next_record()) {

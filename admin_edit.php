@@ -36,7 +36,7 @@
 			$date_hour = $date_hour + 12;
 		}
 		$date = mktime($date_hour,$date_min,$date_sec,$date_month,$date_day,$date_year);
-		$GLOBALS['phpgw']->db->query("update webpage_news set news_subject='" . addslashes($subject) . "',"
+		$GLOBALS['phpgw']->db->query("update phpgw_news set news_subject='" . addslashes($subject) . "',"
 			. "news_content='" . addslashes($content) . "',news_status='$status',news_date='$date' "
 			. "where news_id='$news_id'",__LINE__,__FILE__);
 		Header('Location: ' . $GLOBALS['phpgw']->link('/news_admin/index.php'));
@@ -48,7 +48,7 @@
 		'row'  => 'form_row.tpl'
 	));
 
-	$GLOBALS['phpgw']->db->query("select * from webpage_news where news_id='$news_id'",__LINE__,__FILE__);
+	$GLOBALS['phpgw']->db->query("select * from phpgw_news where news_id='$news_id'",__LINE__,__FILE__);
 	$GLOBALS['phpgw']->db->next_record();
 
 	$GLOBALS['phpgw']->template->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
