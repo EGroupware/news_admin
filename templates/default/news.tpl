@@ -1,4 +1,4 @@
-<!-- END news -->
+<!-- BEGIN news_form -->
  <div align="right">
   <table border="0" width="90%" cellspacing="0" cellpadding="0">
   
@@ -6,7 +6,7 @@
   
   </table>
  </div>
-<!-- END news -->
+<!-- END news_form -->
 
 <!-- BEGIN row -->
    <tr bgcolor="c7c3c7">
