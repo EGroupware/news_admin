@@ -5,13 +5,13 @@ add news item	news_admin	de	Eine neue Nachricht hinzufügen
 all news	news_admin	de	Alle Nachrichten
 always	news_admin	de	Immer
 configuration	news_admin	de	Konfiguration
-configure access permissions	news_admin	de	Zugriffsrechte konfigurieren
-configure rss exports	news_admin	de	RSS Export konfigurieren
+configure access permissions	common	de	Zugriffsrechte konfigurieren
+configure rss exports	common	de	RSS Export konfigurieren
 contains html	news_admin	de	Beinhaltet HTML
 content	news_admin	de	Inhalt
 edit news item	news_admin	de	Nachricht bearbeiten
 failed to add message	news_admin	de	Hinzufügen einer neuen Nachricht fehlgeschlagen
-format for links to items	news_admin	de	
+format for links to items	news_admin	de	Format für Verweise auf Einträge
 format of export	news_admin	de	Exportformat
 from	news_admin	de	Von
 global news	news_admin	de	Globale Nachrichten
@@ -24,7 +24,7 @@ item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
 link	news_admin	de	Link
 main	news_admin	de	Hauptmenü
-maintain	news_admin	de	
+maintain	news_admin	de	Pflegen
 maintain news	admin	de	Nachrichten pflegen
 message has been added	news_admin	de	Nachricht wurde hinzugefügt
 more news	news_admin	de	Mehr News
@@ -40,11 +40,12 @@ no rss export	news_admin	de	Kein RSS export
 number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten welche auf der Startseite angezeit werden.
 on	news_admin	de	An
 publish date	news_admin	de	Veröffentlichungsdatum
+read news	news_admin	de	Nachrichten lesen
 read permissions	news_admin	de	Leserechte
-should news_admin display the latest article headlines on the main screen.	news_admin	de	
-show latest news articles?	news_admin	de	
-show news articles on main page?	news_admin	de	Neue Nachrichten auf der Hauptseite anzeigen
-small view	news_admin	de	
+should news_admin display the latest article headlines on the main screen.	news_admin	de	Sollen die neuesten Nachrichten auf der Startseite angezeigt werden.
+show latest news articles?	news_admin	de	Neuest Nachrichten anzeigen?
+show news articles on main page?	news_admin	de	Neue Nachrichten auf der Startseite anzeigen
+small view	news_admin	de	schmale Anzeige
 submitted by	common	de	Eingtragen von
 teaser	news_admin	de	Anreiser
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
