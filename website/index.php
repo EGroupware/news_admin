@@ -1,8 +1,8 @@
 <body bgcolor="FFFFFF">
 <?php
   /**************************************************************************\
-  * phpGroupWare - Webpage news admin                                        *
-  * http://www.phpgroupware.org                                              *
+  * eGroupWare - Webpage news admin                                          *
+  * http://www.egroupware.org                                                *
   * --------------------------------------------                             *
   *  This program is free software; you can redistribute it and/or modify it *
   *  under the terms of the GNU General Public License as published by the   *
