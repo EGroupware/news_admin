@@ -33,7 +33,7 @@
 
 		function show_news($show_category_select = False)
 		{
-			global $cat_id, $start, $phpgw, $category_list;
+			global $cat_id, $start, $phpgw, $category_list, $oldnews;
 
 			if (! function_exists('parse_navbar'))
 			{
@@ -59,7 +59,7 @@
 
 			if (! $oldnews)
 			{
-				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc",1,__LINE__,__FILE__,5);
+				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc",0,__LINE__,__FILE__,5);
 			}
 			else
 			{
@@ -80,7 +80,7 @@
 
 			if ($show_category_select || $category_list)
 			{
-				$this->template->set_var('form_action',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uinews.show_news&category_list=True'));
+				$this->template->set_var('form_action',$phpgw->link('/index.php','menuaction=news_admin.uinews.show_news&category_list=True'));
 				$this->template->set_var('lang_category',lang('Category'));
 
 				$cats = createobject('phpgwapi.categories');
@@ -92,7 +92,14 @@
 			$this->template->pfp('_out','news_form');
 			if ($total > 5 && ! $oldnews)
 			{
-				echo '<center><a href="index.php?oldnews=True">View news archives</a></center>';
+				$link_values = array(
+					'menuaction'    => 'news_admin.uinews.show_news',
+					'oldnews'       => 'True',
+					'cat_id'        => $cat_id,
+					'category_list' => 'True'
+				);
+
+				echo '<center><a href="' . $phpgw->link('/index.php',$link_values) . '">View news archives</a></center>';
 			}
 		}
 	}

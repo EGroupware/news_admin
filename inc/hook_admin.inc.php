@@ -12,11 +12,10 @@
 
   /* $Id$ */
 
-	$title = $appname;
 	$file = Array(
-		'Maintain news' => $phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.news_list'),
+		'Maintain news' => $phpgw->link('/index.php','menuaction=news_admin.uiadmin.news_list'),
 		'Categories'    => $phpgw->link('/preferences/categories.php','cats_app=news_admin')
 	);
 
-	display_section($appname,$title,$file);
+	display_section('news_admin','News',$file);
 ?>
