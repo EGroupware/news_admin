@@ -52,7 +52,14 @@
 			$this->template->set_block('_news','row');
 			$this->template->set_block('_news','category');
 
-			$news_id = get_var('news_id',Array('GET'));
+			if (function_exists('get_var'))
+			{
+				$news_id = get_var('news_id',Array('GET'));
+			}
+			else
+			{	
+				$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+			}
 
 			if($news_id)
 			{
@@ -63,7 +70,7 @@
 				$news = $this->bonews->get_NewsList($cat_id, $oldnews, $start, $total);
 			}
 
-			$total = $bonews->get_NumNewsInCat($cat_id);
+			$total = $this->bonews->get_NumNewsInCat($cat_id);
 
 			$var = Array();
 
@@ -92,7 +99,7 @@
 				$var = Array(
 					'subject'	=> $newsitem['subject'],
 					'submitedby'	=> 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
-					'content'	=> nl2br($newsitem['news_content'])
+					'content'	=> nl2br($newsitem['content'])
 				);
 
 				$this->template->set_var($var);
@@ -179,7 +186,14 @@
 			$this->template->set_block('_news','row');
 			$this->template->set_block('_news','category');
 
-			$news_id = get_var('news_id',Array('GET'));
+			if (function_exists('get_var'))
+			{
+				$news_id = get_var('news_id',Array('GET'));
+			}
+			else
+			{   
+				$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+			}
 
 			if($news_id)
 			{
