@@ -14,7 +14,8 @@
 
   /* $Id$ */
 
-  $phpgw_info["flags"] = array("currentapp" => "news_admin","enable_nextmatchs_class" => True);
+  $phpgw_info["flags"] = array("currentapp" => "news_admin","enable_nextmatchs_class" => True,
+                               "enable_utilities_class" => True);
   if ($submit) {
      $phpgw_info["flags"]["noheader"] = True;
      $phpgw_info["flags"]["nonavbar"] = True;
@@ -22,8 +23,13 @@
   include("../header.inc.php");
 
   if ($submit) {
+     // Its possiable that this could get messed up becuase of there timezone offset
+     if ($date_ap == "pm") {
+        $date_hour = $date_hour + 12;
+     }
+     $date = mktime($date_hour,$date_min,$date_sec,$date_month,$date_day,$date_year);
      $phpgw->db->query("update webpage_news set news_subject='" . addslashes($subject) . "',"
-                     . "news_content='" . addslashes($content) . "',news_status='$status' "
+                     . "news_content='" . addslashes($content) . "',news_status='$status',news_date='$date' "
                      . "where news_id='$news_id'",__LINE__,__FILE__);
      Header("Location: " . $phpgw->link("index.php"));
      exit; 
@@ -59,6 +65,27 @@
                                   . lang("active") . '</option><option value="Disabled"' . $s["Disabled"] . '>'
                                   . lang("Disabled") . '</option></select>');
   $phpgw->template->parse("rows","row",True);
+
+  $phpgw->template->set_var("tr_color",$phpgw->nextmatchs->alternate_row_color());
+  $phpgw->template->set_var("label",lang("Date") . ":");
+
+  $d_html = $phpgw->common->dateformatorder($phpgw->utilities->sbox->getYears("date_year", date("Y",$phpgw->db->f("news_date"))),
+                                            $phpgw->utilities->sbox->getMonthText("date_month", date("m",$phpgw->db->f("news_date"))),
+                                            $phpgw->utilities->sbox->getDays("date_day", date("d",$phpgw->db->f("news_date")))
+                                           );
+  $d_html .= " - ";
+  $d_html .= $phpgw->utilities->sbox->full_time("date_hour",$phpgw->common->show_date($phpgw->db->f("news_date"),"h"),
+                                                "date_min",$phpgw->common->show_date($phpgw->db->f("news_date"),"i"),
+                                                "date_sec",$phpgw->common->show_date($phpgw->db->f("news_date"),"s"),
+                                                "date_ap",$phpgw->common->show_date($phpgw->db->f("news_date"),"a")
+                                               );
+  $phpgw->template->set_var("value",$d_html);
+
+  $h = '<select name="status"><option value="Active"' . $s["Active"] . '>'
+      . lang("active") . '</option><option value="Disabled"' . $s["Disabled"] . '>'
+      . lang("Disabled") . '</option></select>';
+  $phpgw->template->parse("rows","row",True);
+
 
   $phpgw->template->pparse("out","form");     
 ?>
