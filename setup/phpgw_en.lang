@@ -1,11 +1,16 @@
 active	news_admin	en	Active
 add news item	news_admin	en	Add news item
 content	news_admin	en	Content
+edit news item	news_admin	en	Edit news item
 item has been deleted	news_admin	en	Item has been deleted
+main	news_admin	en	Main
 maintain news	admin	en	Maintain News
 new item has been added	news_admin	en	New item has been added
+news item has been added	news_admin	en	News item has been added
+news item has been updated	news_admin	en	News item has been updated
 news_admin	common	en	News Admin
 no entries found	news_admin	en	no entries found
+read news item	news_admin	en	read news item
 submitted by	common	en	Submitted by
 the news content is missing	news_admin	en	The news content is missing
 the subject is missing	news_admin	en	The subject is missing

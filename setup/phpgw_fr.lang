@@ -1,11 +1,16 @@
 active	news_admin	fr	Actif
 add news item	news_admin	fr	Ajouter un objet de nouvelles
 content	news_admin	fr	Contenu
+Edit news item	news_admin	fr	Modifier un objet de nouvelles
 item has been deleted	news_admin	fr	L'objet a été effacé
+Main	news_admin	fr	Principal
 maintain news	admin	fr	Maintenir les nouvelles
 new item has been added	news_admin	fr	Le nouvel objet a été ajouté
+News item has been added	news_admin	fr	Un objet de nouvelles a été ajouté
+News item has been updated	news_admin	fr	Un objet de nouvelles a été mis à jour
 news_admin	common	fr	Administration des nouvelles
 no entries found	news_admin	fr	Aucune entrée trouvée
+read news item	news_admin	fr	Lire un objet de nouvelles
 submitted by	common	fr	Soumis par
 the news content is missing	news_admin	fr	Le contenu de la nouvelle est manquant
 the subject is missing	news_admin	fr	Le sujet est manquant
