@@ -137,13 +137,13 @@
 			$phpgw->template->pfp('out','form');
 		}
 
-		function news_list()
+		function news_list($message = '')
 		{
 			global $phpgw, $phpgw_info, $order, $sort, $cat_id;
 
 			$this->common_header();
 
-			if (! $cat_id && $cat_id != 0)
+			if (! $cat_id && $cat_id != '0')
 			{
 				if (! $this->session_data['cat_id'])
 				{
@@ -163,6 +163,11 @@
 			));
 			$this->template->set_block('_list','list');
 			$this->template->set_block('_list','row');
+
+			if ($message)
+			{
+				$this->template->set_var('message',$message);
+			}
 
 			$this->template->set_var('th_bg',$phpgw_info['theme']['th_bg']);
 			$this->template->set_var('bgcolor',$phpgw_info['theme']['bgcolor']);
@@ -209,7 +214,7 @@
 				$this->template->parse('rows','row',True);
 			}
 
-			$this->template->set_var('add_link',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.add'));
+			$this->template->set_var('add_link',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.add&news%5Bcategory%5D=' . $cat_id));
 			$this->template->set_var('lang_add',lang('add'));
 
 			$this->template->pfp('out','list');

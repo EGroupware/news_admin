@@ -36,7 +36,7 @@
 			$ui = createobject('news_admin.uiadmin');
 
 			$so->delete($news_id);
-			$ui->news_list();
+			$ui->news_list(lang('Item has been deleted'));
 		}
 
 		function add()
@@ -63,7 +63,7 @@
 			else
 			{
 				$so->add($news);
-				$ui->news_list();
+				$ui->news_list(lang('New item has been added'));
 			}
 		}
 

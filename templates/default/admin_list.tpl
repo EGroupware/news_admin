@@ -1,9 +1,11 @@
 <!-- BEGIN list -->
+<b>{lang_header}</b><hr><p>
+
 <form action="{form_action}" method="POST">
  {lang_category}: <select name="cat_id" onChange="this.form.submit();"><option value="0">{lang_main}</option>{input_category}</select>
 </form>
 
-<b>{lang_header}</b><hr><p>
+ <center>{message}</center><p>
 
  <table border="0" align="center" width="85%">
   <tr bgcolor="{th_bg}">
