@@ -141,7 +141,7 @@
 					'lang_link_statustext'	=> lang('read news item')
 				);
 			}
-			$GLOBALS['phpgw']->template->set_var('phpgw_body',$portalbox->draw(),True);
+			$portalbox->draw();
 		}
 
 		function show_news_website($section='mid')
