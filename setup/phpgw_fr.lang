@@ -1,18 +1,38 @@
 active	news_admin	fr	Actif
+add new news	news_admin	fr	Ajouter des nouvelles "nouvelles"
 add news item	news_admin	fr	Ajouter un objet de nouvelles
+configuration	news_admin	fr	Configuration
+configure access permissions	news_admin	fr	Configurer les permissions d'accès
+configure rss exports	news_admin	fr	Configurer les exports RSS
 content	news_admin	fr	Contenu
 Edit news item	news_admin	fr	Modifier un objet de nouvelles
+format for links to items	news_admin	fr	Format des liens vers les objets
+format of export	news_admin	fr	Format de l'export
+global news	news_admin	fr	Nouvelles globales
+implies read permission	news_admin	fr	Implique la permission en lecture
 item has been deleted	news_admin	fr	L'objet a été effacé
+item not found	news_admin	fr	Objet non trouvé
 Main	news_admin	fr	Principal
+maintain	news_admin	fr	Maintenir
 maintain news	admin	fr	Maintenir les nouvelles
+message has been added	news_admin	fr	Le message a été ajouté
+more news	news_admin	fr	Plus de nouvelles
 new item has been added	news_admin	fr	Le nouvel objet a été ajouté
+news admin	news_admin	fr	Administration des nouvelles
 News item has been added	news_admin	fr	Un objet de nouvelles a été ajouté
 News item has been updated	news_admin	fr	Un objet de nouvelles a été mis à jour
 news_admin	common	fr	Administration des nouvelles
 no entries found	news_admin	fr	Aucune entrée trouvée
+no news	news_admin	fr	Pas de nouvelles
+no rss export	news_admin	fr	Pas d'export RSS
+publish date	news_admin	fr	Date de publication
 read news item	news_admin	fr	Lire un objet de nouvelles
+read permissions	news_admin	fr	Permissions en lecture
 submitted by	common	fr	Soumis par
+teaser	news_admin	fr	Accroche
 the news content is missing	news_admin	fr	Le contenu de la nouvelle est manquant
 the subject is missing	news_admin	fr	Le sujet est manquant
 view this category	news_admin	fr	Voir cette catégorie
 webpage news admin	news_admin	fr	Page Web d'aministration des nouvelles
+write	news_admin	fr	Ecrire
+write permissions	news_admin	fr	Permissions en écriture

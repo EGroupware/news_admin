@@ -1,18 +1,38 @@
 active	news_admin	en	Active
+add new news	news_admin	en	Add new news
 add news item	news_admin	en	Add news item
+configuration	news_admin	en	Configuration
+configure access permissions	news_admin	en	Configure Access Permissions
+configure rss exports	news_admin	en	Configure RSS exports
 content	news_admin	en	Content
 edit news item	news_admin	en	Edit news item
+format for links to items	news_admin	en	Format for links to items
+format of export	news_admin	en	Format of export
+global news	news_admin	en	Global news
+implies read permission	news_admin	en	implies read permission
 item has been deleted	news_admin	en	Item has been deleted
+item not found	news_admin	en	Item not found
 main	news_admin	en	Main
+maintain	news_admin	en	Maintain
 maintain news	admin	en	Maintain News
+message has been added	news_admin	en	Message has been added
+more news	news_admin	en	More news
 new item has been added	news_admin	en	New item has been added
+news admin	news_admin	en	News Admin
 news item has been added	news_admin	en	News item has been added
 news item has been updated	news_admin	en	News item has been updated
 news_admin	common	en	News Admin
 no entries found	news_admin	en	no entries found
+no news	news_admin	en	no news
+no rss export	news_admin	en	No RSS export
+publish date	news_admin	en	Publish Date
 read news item	news_admin	en	read news item
+read permissions	news_admin	en	Read permissions
 submitted by	common	en	Submitted by
+teaser	news_admin	en	teaser
 the news content is missing	news_admin	en	The news content is missing
 the subject is missing	news_admin	en	The subject is missing
 view this category	news_admin	en	View this category
 webpage news admin	news_admin	en	Webpage news admin
+write	news_admin	en	Write
+write permissions	news_admin	en	Write permissions
