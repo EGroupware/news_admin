@@ -33,7 +33,7 @@ $menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Men
 	display_sidebox($appname,$menu_title,$file);
  
 	
- 	$title = 'Preferences';
+ 	$title = lang('Preferences');
 	$file = array(
 		'Preferences'     => $GLOBALS['phpgw']->link('/preferences/preferences.php','appname='.$appname),
 	);
@@ -41,7 +41,7 @@ $menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Men
 
 	if ($GLOBALS['phpgw_info']['user']['apps']['admin'])
 	{
-        $title = 'Administration';
+        $title = lang('Administration');
         $file = Array(
                 'News Administration'  => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
                 'global categories' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
