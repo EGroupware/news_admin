@@ -5,10 +5,10 @@
   $domain           = "default";
   
   // Don't change the follow lines
+  $phpgw_info["flags"]["noapi"] = True;
   include($path_to_header . "header.inc.php");
   include($phpgw_info["server"]["api_dir"] . "/phpgw_template.inc.php");
-  include($phpgw_info["server"]["api_dir"] . "/phpgw_db_".$phpgw_info["server"]["db_type"].".inc.php");
-  include($phpgw_info["server"]["api_dir"] . "/phpgw_template.inc.php");
+  include($phpgw_info["server"]["api_dir"] . "/phpgw_db_".$phpgw_domain[$domain]["db_type"].".inc.php");
   
   $db           = new db;
   $db->Host     = $phpgw_domain[$domain]["server"]["db_host"];
@@ -18,3 +18,4 @@
   $db->Password = $phpgw_domain[$domain]["db_pass"];
 
   $tpl = new Template($template_path);
+
