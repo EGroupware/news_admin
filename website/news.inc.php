@@ -52,4 +52,4 @@
 ?>
 	<p>&nbsp;</p>
 
-	<div align="center"><font size="-1">This page uses the news admin from <a href="http://www.phpgroupware.org">phpGroupWare</a></font></div>
+	<div align="center"><font size="-1">This page uses the news admin from <a href="http://www.egroupware.org">eGroupWare</a></font></div>
