@@ -1,0 +1,59 @@
+active	news_admin	sl	Aktiven
+add new article	news_admin	sl	Dodaj nov članek
+add new news	news_admin	sl	Dodaj novico
+add news item	news_admin	sl	Dodaj nov zapis
+all news	news_admin	sl	Vse novice
+always	news_admin	sl	Vedno
+configuration	news_admin	sl	Konfiguracija
+configure access permissions	common	sl	Konfiguriraj pravice dostopa
+configure rss exports	common	sl	Konfiguriraj RSS izvoz
+contains html	news_admin	sl	Vsebje HTML
+content	news_admin	sl	Vsebina
+edit news item	news_admin	sl	Uredi zapis o novici
+failed to add message	news_admin	sl	Novo sporočilo ni bilo uspešno dodano
+format for links to items	news_admin	sl	Oblika povezav na zapise
+format of export	news_admin	sl	Oblika za izvoz
+from	news_admin	sl	Forma
+global news	news_admin	sl	Globalne novice
+global_news	news_admin	sl	Globalne_novice
+image link	news_admin	sl	Povezava na sliko
+image title	news_admin	sl	Naslov slike
+image url	news_admin	sl	URL slike
+implies read permission	news_admin	sl	povzroči pravice za branje
+item has been deleted	news_admin	sl	Zapis je bil izbrisan
+item not found	news_admin	sl	Ne najdem zapisa
+link	news_admin	sl	Povezava
+main	news_admin	sl	Glavno
+maintain	news_admin	sl	Vzdrževanje
+maintain news	admin	sl	Vzdrževanje novic
+message has been added	news_admin	sl	Sporočilo je bilo dodano.
+more news	news_admin	sl	Več novic
+new item has been added	news_admin	sl	Nov zapis je bil dodan.
+news admin	news_admin	sl	Upravljalec novic
+news administration	news_admin	sl	Upravljanje novic
+news item has been added	news_admin	sl	Zapis o novici je bil dodan.
+news item has been updated	news_admin	sl	Zapis o novici je bil osvežen.
+news_admin	common	sl	Upravljanje novic
+no entries found	news_admin	sl	Ne najdem zapisov.
+no news	news_admin	sl	V tej kategoriji trenutno ni razpoložljivih novic.
+no rss export	news_admin	sl	Ni RSS izvoza.
+number of articles to display on the main screen	news_admin	sl	Število prispevkov, ki se prikažejo na začetnem zaslonu.
+on	news_admin	sl	vključeno
+publish date	news_admin	sl	Datum objave
+read news	news_admin	sl	Beri novice
+read permissions	news_admin	sl	Beri dovoljenja
+should news_admin display the latest article headlines on the main screen.	news_admin	sl	Ali naj Upravljalec novic prikaže zadnji prispevek na začetnem zaslonu?
+show latest news articles?	news_admin	sl	Pokažem zadnje članke?
+show news articles on main page?	news_admin	sl	Pokažem zadnje članke na začetni strani?
+small view	news_admin	sl	Mali pogled
+submitted by	common	sl	Oddal
+teaser	news_admin	sl	Zbadljivec
+the news content is missing	news_admin	sl	Manjka vsebina novice.
+the number of articles to display on the main screen.	news_admin	sl	Število prispevkov na začetnem zaslonu.
+the subject is missing	news_admin	sl	Manjka zadeva
+until	news_admin	sl	dokler
+view this category	news_admin	sl	Preglej kategorijo
+visible	news_admin	sl	Viden
+webpage news admin	news_admin	sl	Upravljanje novic na spletni strani
+write	news_admin	sl	Zapiši
+write permissions	news_admin	sl	Pravice pisanja
