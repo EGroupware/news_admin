@@ -14,6 +14,7 @@ failed to add message	news_admin	es-es	Fallo al añadir mensaje de noticias
 format for links to items	news_admin	es-es	Formato para los enlaces a los elementos
 format of export	news_admin	es-es	Formato de exportación
 from	news_admin	es-es	De
+global categories	news_admin	es-es	Categorías Globales
 global news	news_admin	es-es	Noticias globales
 global_news	news_admin	es-es	Noticias globales
 image link	news_admin	es-es	Enlace a la imagen
