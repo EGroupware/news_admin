@@ -33,7 +33,7 @@
 			$this->db->query("insert into phpgw_news (news_date,news_submittedby,news_content,news_subject,"
 					. "news_status,news_cat) values ('" . time() . "','" . $phpgw_info['user']['account_id'] . "','"
 					. addslashes($news['content']) . "','" . addslashes($news['subject']) . "','"
-					. $news['status'] . "','" . $news['cat'] . "')",__LINE__,__FILE__);
+					. $news['status'] . "','" . $news['category'] . "')",__LINE__,__FILE__);
 		}
 
 		function view($news_id)

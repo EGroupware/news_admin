@@ -1,30 +1,36 @@
-<!-- BEGIN news_form -->
- <div align="right">
-  <table border="0" width="90%" cellspacing="0" cellpadding="0">
-  
-   {rows}
-  
-  </table>
- </div>
-<!-- END news_form -->
+
+<!-- BEGIN list -->
+<b>{lang_header}</b><hr><p>
+
+ <table border="0" align="center" width="85%">
+  <tr bgcolor="{th_bg}">
+   <td width="12%">{header_date}</td>
+   <td>{header_subject}</td>
+   <td width="5%" align="center">{header_status}</td>
+   <td width="5%" align="center">{header_view}</td>
+   <td width="5%" align="center">{header_edit}</td>
+   <td width="5%" align="center">{header_delete}</td>
+  </tr>
+
+  {rows}
+
+  <tr bgcolor="{bgcolor}">
+   <td colspan="5">&nbsp;</td>
+  </tr>
+  <tr bgcolor="{bgcolor}">
+   <td colspan="5"><a href="{add_link}">{lang_add}</a></td>
+  </tr>
+
+ </table>
+<!-- END list -->
 
 <!-- BEGIN row -->
-   <tr bgcolor="c7c3c7">
-    <td width="13" valign="top" valign="top">
-     <img src="{icon}" align="top">
-    </td>
-    <td align="left" width="99%">
-     <b>{subject}</b>&nbsp;
-    </td>
-    <td align="left" width="1%" bgcolor="FFFFFF">
-     &nbsp;
-    </td>
-   </tr>
-   <tr>
-    <td width="100%" colspan="3">
-     {submitedby}
-     <p>{content}</p>
-     <p>&nbsp;</p>
-    </td>
-   </tr>
+  <tr bgcolor="{tr_color}">
+   <td>{row_date}</td>
+   <td>{row_subject}&nbsp;</td>
+   <td align="center">{row_status}</td>
+   <td align="center">{row_view}</td>
+   <td align="center">{row_edit}</td>
+   <td align="center">{row_delete}</td>
+  </tr>
 <!-- END row -->

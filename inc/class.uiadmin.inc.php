@@ -116,7 +116,7 @@
 			$this->common_header();
 
 			$this->template->set_file(array(
-				'_list' => 'list.tpl'
+				'_list' => 'admin_list.tpl'
 			));
 			$this->template->set_block('_list','list');
 			$this->template->set_block('_list','row');
