@@ -26,7 +26,7 @@
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['news_admin']['hooks'][] = 'admin';
 	$setup_info['news_admin']['hooks'][] = 'home';
-	$setup_info['news_admin']['hooks'][] = 'website';
+	$setup_info['news_admin']['hooks'][] = 'website_mid';
 
 	/* Dependencies for this app to work */
 	$setup_info['news_admin']['depends'][] = array(

@@ -171,7 +171,7 @@
 				. '<!-- end News Admin -->'  . "\r\n";
 		}
 
-		function show_news_website()
+		function show_news_website($section='mid')
 		{
 			global $cat_id, $start, $oldnews;
 
@@ -188,7 +188,7 @@
 			}
 
 			$this->template->set_file(array(
-				'_news' => 'news.tpl'
+				'_news' => 'news_' . $section . '.tpl'
 			));
 			$this->template->set_block('_news','news_form');
 			$this->template->set_block('_news','row');

@@ -15,5 +15,5 @@
 	/* $Id$ */
 
 	$news = createobject('news_admin.uinews');
-	return $news->show_news_website();
+	return $news->show_news_website('mid');
 ?>
