@@ -36,6 +36,16 @@
 					. $news['status'] . "','" . $news['category'] . "')",__LINE__,__FILE__);
 		}
 
+		function edit($news_id)
+		{
+		
+		}
+
+		function delete($news_id)
+		{
+			$this->db->query("delete from phpgw_news where news_id='$news_id'",__LINE__,__FILE__);
+		}
+
 		function view($news_id)
 		{
 			$this->db->query("select * from phpgw_news where news_id='$news_id'",__LINE__,__FILE__);
@@ -53,7 +63,7 @@
 			return $items;		
 		}
 
-		function getlist($order,$sort)
+		function getlist($order,$sort,$cat_id)
 		{
 			if ($order)
 			{
@@ -64,7 +74,12 @@
 				$ordermethod = 'order by news_date desc';
 			}
 
-			$this->db->query("select * from phpgw_news $ordermethod",__LINE__,__FILE__);
+			if (! $cat_id)
+			{
+				$cat_id = 0;
+			}
+
+			$this->db->query("select * from phpgw_news where news_cat='$cat_id' $ordermethod",__LINE__,__FILE__);
 			while ($this->db->next_record())
 			{
 				$items[] = array(

@@ -1,4 +1,5 @@
 <!-- BEGIN news_form -->
+ {_category}
  <div align="right">
   <table border="0" width="90%" cellspacing="0" cellpadding="0">
   
@@ -28,3 +29,9 @@
     </td>
    </tr>
 <!-- END row -->
+
+<!-- BEGIN category -->
+<form action="{form_action}" method="POST">
+ {lang_category}: <select name="cat_id" onChange="this.form.submit();"><option value="0">{lang_main}</option>{input_category}</select>
+</form>
+<!-- END category -->

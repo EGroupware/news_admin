@@ -31,9 +31,15 @@
 			$this->template->set_root($phpgw->common->get_tpl_dir('news_admin'));
 		}
 
-		function show_news()
+		function show_news($show_category_select = False)
 		{
-			global $cat_id, $start, $phpgw;
+			global $cat_id, $start, $phpgw, $category_list;
+
+			if (! function_exists('parse_navbar'))
+			{
+				$phpgw->common->phpgw_header();
+				echo parse_navbar();
+			}
 
 			if (! $cat_id)
 			{
@@ -45,6 +51,7 @@
 			));
 			$this->template->set_block('_news','news_form');
 			$this->template->set_block('_news','row');
+			$this->template->set_block('_news','category');
 
 			$this->db->query("select count(*) from phpgw_news where news_status='Active' and news_cat='$cat_id'");
 			$this->db->next_record();
@@ -69,6 +76,17 @@
 				$this->template->set_var('content',nl2br($this->db->f('news_content')));
 		
 				$this->template->parse('rows','row',True);
+			}
+
+			if ($show_category_select || $category_list)
+			{
+				$this->template->set_var('form_action',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uinews.show_news&category_list=True'));
+				$this->template->set_var('lang_category',lang('Category'));
+
+				$cats = createobject('phpgwapi.categories');
+				$this->template->set_var('lang_main',lang('Main'));
+				$this->template->set_var('input_category',$cats->formated_list('select','mains',$cat_id));
+				$this->template->parse('_category','category');
 			}
 
 			$this->template->pfp('_out','news_form');

@@ -111,7 +111,7 @@
 
 		function news_list()
 		{
-			global $phpgw, $phpgw_info, $order, $sort;
+			global $phpgw, $phpgw_info, $order, $sort, $cat_id;
 
 			$this->common_header();
 
@@ -124,6 +124,12 @@
 			$this->template->set_var('th_bg',$phpgw_info['theme']['th_bg']);
 			$this->template->set_var('bgcolor',$phpgw_info['theme']['bgcolor']);
 			$this->template->set_var('lang_header',lang('Webpage news admin'));
+			$this->template->set_var('lang_category',lang('Category'));
+			$this->template->set_var('lang_main',lang('Main'));
+
+			$cats = createobject('phpgwapi.categories');
+			$this->template->set_var('form_action',$phpgw->link('/news_admin/main.php','menuaction=news_admin.uiadmin.news_list'));
+			$this->template->set_var('input_category',$cats->formated_list('select','mains',$cat_id));
 
 			$this->template->set_var('header_date',$phpgw->nextmatchs->show_sort_order($sort,'news_date',$order,'/news_admin/main.php',lang('Date'),'&menuaction=news_admin.uiadmin.news_list'));
 			$this->template->set_var('header_subject',$phpgw->nextmatchs->show_sort_order($sort,'news_subject',$order,'/news_admin/main.php',lang('Subject'),'&menuaction=news_admin.uiadmin.news_list'));
@@ -134,7 +140,7 @@
 
 			$nextmatchs = createobject('phpgwapi.nextmatchs');
 			$bo         = createobject('news_admin.boadmin');
-			$items      = $bo->getlist($order,$sort);
+			$items      = $bo->getlist($order,$sort,$cat_id);
 
 			while (is_array($items) && $_item = each($items))
 			{

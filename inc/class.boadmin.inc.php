@@ -83,13 +83,13 @@
 			return $_item;
 		}
 
-		function getlist($order,$sort)
+		function getlist($order,$sort,$cat_id)
 		{
 			global $phpgw;
 
 			$so    = createobject('news_admin.soadmin');
 
-			$items = $so->getlist($order,$sort);
+			$items = $so->getlist($order,$sort,$cat_id);
 
 			while (is_array($items) && $item = each($items))
 			{
