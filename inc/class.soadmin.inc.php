@@ -35,7 +35,6 @@
 		{
 			$this->db->query("UPDATE phpgw_news SET "
 				. "news_date='" . time() . "',"
-				. "news_submittedby='" . $GLOBALS['phpgw_info']['user']['account_id'] . "',"
 				. "news_content='" . addslashes($news['content']) . "',"
 				. "news_subject='" . addslashes($news['subject']) . "' "
 				. "WHERE news_id=" . intval($news['id']),__LINE__,__FILE__);
