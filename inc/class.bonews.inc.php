@@ -27,6 +27,7 @@
 		var $use_session = False;
 		var $unixtimestampmax;
 		var $dateformat;
+		var $cats = array();
 
 		function bonews($session=False)
 		{
@@ -48,6 +49,7 @@
 			}
 			$this->catbo = createobject('phpgwapi.categories','','news_admin');
 			$this->cats = $this->catbo->return_array('all',0,False,'','','cat_name',True);
+			settype($this->cats,'array');
 			//change this around 19 Jan 2038 03:14:07 GMT
 			$this->unixtimestampmax = 2147483647;
 			$this->dateformat = $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'];
