@@ -14,6 +14,7 @@ failed to add message	news_admin	sl	Novo sporočilo ni bilo uspešno dodano
 format for links to items	news_admin	sl	Oblika povezav na zapise
 format of export	news_admin	sl	Oblika za izvoz
 from	news_admin	sl	Pošiljatelj
+global categories	news_admin	sl	globalne kategorije
 global news	news_admin	sl	Globalne novice
 global_news	news_admin	sl	Globalne_novice
 image link	news_admin	sl	Povezava na sliko
