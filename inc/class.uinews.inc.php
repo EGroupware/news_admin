@@ -19,25 +19,31 @@
 		var $template;
 		var $db;
 		var $public_functions = array(
-					'show_news' => True
-				);
+			'show_news'      => True,
+			'show_news_home' => True
+		);
 
 		function uinews()
 		{
-			global $phpgw;
-
-			$this->template = $phpgw->template;
-			$this->db       = $phpgw->db;
-			$this->template->set_root($phpgw->common->get_tpl_dir('news_admin'));
+			$this->template = $GLOBALS['phpgw']->template;
+			$this->db       = $GLOBALS['phpgw']->db;
+			$this->template->set_root($GLOBALS['phpgw']->common->get_tpl_dir('news_admin'));
 		}
 
 		function show_news($show_category_select = False)
 		{
-			global $cat_id, $start, $phpgw, $category_list, $oldnews;
+			global $cat_id, $start, $category_list, $oldnews;
+
+			$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+
+			if($news_id)
+			{
+				$specific = " AND news_id='" . $news_id . "'";
+			}
 
 			if (! function_exists('parse_navbar'))
 			{
-				$phpgw->common->phpgw_header();
+				$GLOBALS['phpgw']->common->phpgw_header();
 				echo parse_navbar();
 			}
 
@@ -53,34 +59,34 @@
 			$this->template->set_block('_news','row');
 			$this->template->set_block('_news','category');
 
-			$this->db->query("select count(*) from phpgw_news where news_status='Active' and news_cat='$cat_id'",__LINE__,__FILE__);
+			$this->db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id'",__LINE__,__FILE__);
 			$this->db->next_record();
 			$total = $this->db->f(0);
 
 			if (! $oldnews)
 			{
-				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc",0,__LINE__,__FILE__,5);
+				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' $specific ORDER BY news_date DESC",0,__LINE__,__FILE__,5);
 			}
 			else
 			{
-				$this->db->limit_query("select * from phpgw_news where news_status='Active' and news_cat='$cat_id' order by news_date desc ",$start,__LINE__,__FILE__,$total);
+				$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC ",$start,__LINE__,__FILE__,$total);
 			}
 
-			$image_path = $phpgw->common->get_image_path('news_admin');
+			$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
 
 			while ($this->db->next_record())
 			{
 				$this->template->set_var('icon_dir',$image_path);
 				$this->template->set_var('subject',$this->db->f('news_subject'));
-				$this->template->set_var('submitedby','Submitted by ' . $phpgw->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $phpgw->common->show_date($this->db->f('news_date')));
+				$this->template->set_var('submitedby','Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')));
 				$this->template->set_var('content',nl2br($this->db->f('news_content')));
-		
+
 				$this->template->parse('rows','row',True);
 			}
 
 			if ($show_category_select || $category_list)
 			{
-				$this->template->set_var('form_action',$phpgw->link('/index.php','menuaction=news_admin.uinews.show_news&category_list=True'));
+				$this->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&category_list=True'));
 				$this->template->set_var('lang_category',lang('Category'));
 
 				$cats = createobject('phpgwapi.categories');
@@ -99,7 +105,58 @@
 					'category_list' => 'True'
 				);
 
-				echo '<center><a href="' . $phpgw->link('/index.php',$link_values) . '">View news archives</a></center>';
+				echo '<center><a href="' . $GLOBALS['phpgw']->link('/index.php',$link_values) . '">View news archives</a></center>';
 			}
+		}
+
+		function show_news_home()
+		{
+			$title = '<font color="#FFFFFF">'.lang('News Admin').'</font>';
+			$portalbox = CreateObject('phpgwapi.listbox',array(
+				'title'     => $title,
+				'primary'   => $GLOBALS['phpgw_info']['theme']['navbar_bg'],
+				'secondary' => $GLOBALS['phpgw_info']['theme']['navbar_bg'],
+				'tertiary'  => $GLOBALS['phpgw_info']['theme']['navbar_bg'],
+				'width'     => '100%',
+				'outerborderwidth' => '0',
+				'header_background_image' => $GLOBALS['phpgw']->common->image('phpgwapi/templates/phpgw_website','bg_filler.gif')
+			));
+
+			$app_id = $GLOBALS['phpgw']->applications->name2id('news_admin');
+			$GLOBALS['portal_order'][] = $app_id;
+
+			$var = Array(
+				'up'       => Array('url' => '/set_box.php', 'app' => $app_id),
+				'down'     => Array('url' => '/set_box.php', 'app' => $app_id),
+				'close'    => Array('url' => '/set_box.php', 'app' => $app_id),
+				'question' => Array('url' => '/set_box.php', 'app' => $app_id),
+				'edit'     => Array('url' => '/set_box.php', 'app' => $app_id)
+			);
+
+			while(list($key,$value) = each($var))
+			{
+				$portalbox->set_controls($key,$value);
+			}
+
+			$this->db->query("SELECT COUNT(*) FROM phpgw_news WHERE news_status='Active' AND news_cat='0'",__LINE__,__FILE__);
+			$this->db->next_record();
+			$total = $this->db->f(0);
+
+			$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_status='Active' AND news_cat='$cat_id' ORDER BY news_date DESC",0,__LINE__,__FILE__,5);
+
+			$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
+
+			while ($this->db->next_record())
+			{
+				$portalbox->data[] = array(
+					'text' => $this->db->f('news_subject') . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
+					'link' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $this->db->f('news_id'))
+				);
+			}
+
+			echo "\r\n"
+				. '<!-- start News Admin -->' . "\r\n"
+				. $portalbox->draw()
+				. '<!-- end News Admin -->'  . "\r\n";
 		}
 	}

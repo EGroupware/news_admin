@@ -17,5 +17,5 @@
 		'Categories'    => $GLOBALS['phpgw']->link('/preferences/categories.php','cats_app=news_admin')
 	);
 
-	display_section('news_admin','News',$file);
+	display_section('news_admin','News Admin',$file);
 ?>

@@ -20,25 +20,20 @@
 
 		function soadmin()
 		{
-			global $phpgw;
-
-			$this->template = $phpgw->template;
-			$this->db       = $phpgw->db;
+			$this->template = $GLOBALS['phpgw']->template;
+			$this->db       = $GLOBALS['phpgw']->db;
 		}
 
 		function add($news)
 		{
-			global $phpgw_info;
-
 			$this->db->query("insert into phpgw_news (news_date,news_submittedby,news_content,news_subject,"
-					. "news_status,news_cat) values ('" . time() . "','" . $phpgw_info['user']['account_id'] . "','"
-					. addslashes($news['content']) . "','" . addslashes($news['subject']) . "','"
-					. $news['status'] . "','" . $news['category'] . "')",__LINE__,__FILE__);
+				. "news_status,news_cat) values ('" . time() . "','" . $GLOBALS['phpgw_info']['user']['account_id'] . "','"
+				. addslashes($news['content']) . "','" . addslashes($news['subject']) . "','"
+				. $news['status'] . "','" . $news['category'] . "')",__LINE__,__FILE__);
 		}
 
 		function edit($news_id)
 		{
-		
 		}
 
 		function delete($news_id)
@@ -49,7 +44,7 @@
 		function total($cat_id)
 		{
 			$this->db->query("select count(*) from phpgw_news where news_cat='$cat_id'",__LINE__,__FILE__);
-			$this->db->next_record();		
+			$this->db->next_record();
 
 			return $this->db->f(0);
 		}
@@ -68,7 +63,7 @@
 				'status'      => $this->db->f('news_status'),
 				'cat'         => $this->db->f('news_cat')
 			);
-			return $items;		
+			return $items;
 		}
 
 		function getlist($order,$sort,$cat_id)
@@ -102,6 +97,5 @@
 			}
 			return $items;
 		}
-
 	}
 ?>

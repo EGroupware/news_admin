@@ -17,20 +17,18 @@
 	class boadmin
 	{
 		var $public_functions = array(
-					'add'    => True,
-					'edit'   => True,
-					'delete' => True
-				);
+			'add'    => True,
+			'edit'   => True,
+			'delete' => True
+			);
 
 		function boadmin()
 		{
-		
-		
 		}
 
 		function delete()
 		{
-			global $news_id;
+			$news_id = $GLOBALS['HTTP_POST_VARS']['news_id'] ? $GLOBALS['HTTP_POST_VARS']['news_id'] : $GLOBALS['HTTP_GET_VARS']['news_id'];
 
 			$so = createobject('news_admin.soadmin');
 			$ui = createobject('news_admin.uiadmin');
@@ -41,7 +39,7 @@
 
 		function add()
 		{
-			global $news;
+			$news = $GLOBALS['HTTP_POST_VARS']['news'];
 
 			$so = createobject('news_admin.soadmin');
 			$ui = createobject('news_admin.uiadmin');
@@ -69,13 +67,12 @@
 
 		function format_fields($fields)
 		{
-			global $phpgw;
-			$cat    = createobject('phpgwapi.categories','news_admin');
+			$cat = createobject('phpgwapi.categories','news_admin');
 
 			$item = array(
 				'id'          => $fields['id'],
-				'date'        => $phpgw->common->show_date($fields['date']),
-				'subject'     => $phpgw->strip_html($fields['subject']),
+				'date'        => $GLOBALS['phpgw']->common->show_date($fields['date']),
+				'subject'     => $GLOBALS['phpgw']->strip_html($fields['subject']),
 				'submittedby' => $fields['submittedby'],
 				'content'     => $fields['content'],
 				'status'      => lang($fields['status']),
@@ -109,9 +106,7 @@
 
 		function getlist($order,$sort,$cat_id)
 		{
-			global $phpgw;
-
-			$so    = createobject('news_admin.soadmin');
+			$so = createobject('news_admin.soadmin');
 
 			$items = $so->getlist($order,$sort,$cat_id);
 
@@ -121,5 +116,4 @@
 			}
 			return $_items;
 		}
-
 	}
