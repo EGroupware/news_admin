@@ -298,11 +298,17 @@
 
 		function get_news($news_id)
 		{
+			$charset = $GLOBALS['phpgw']->translation->charset();
+			
 			$news = $this->sonews->get_news($news_id);
+			
 			if ($this->acl->is_readable($news['category']))
 			{
 				$this->total = 1;
-				$news['content'] = ($news['is_html'] ? $news['content']: nl2br(htmlentities($news['content'])));
+				$news['content'] = ($news['is_html'] ? 
+							$news['content']: 
+							nl2br(htmlentities($news['content'],ENT_QUOTES,$charset)
+						));
 				return $news;
 			}
 			else
