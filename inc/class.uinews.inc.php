@@ -444,6 +444,7 @@
 				'label_category' => lang('Category') . ':',
 				'value_category' => '<select name="news[category]">' . $this->selectlist('write', (int)$this->news_data['category']) . '</select>',
 				'label_visible' => lang('Visible') . ':',
+				'value_date'	=> $this->news_data['date'],
 				'value_begin_d' =>  $this->sbox->getDays('news[begin_d]',date('j',$this->news_data['begin'])),
 				'value_begin_m' =>  $this->sbox->getMonthText('news[begin_m]',date('n',$this->news_data['begin'])),
 				'value_begin_y' =>  $this->sbox->getYears('news[begin_y]',date('Y',$this->news_data['begin']),date('Y')),

@@ -46,7 +46,8 @@
 	 </span>
     </td>
    </tr>
-   <input type="hidden" name="news[is_html]" value="1">	
+   <input type="hidden" name="news[is_html]" value="1">
+   <input type="hidden" name="news[date]" value="{value_date}">
    <tr class="th">
     <td colspan="2" align="right">
      {form_button}

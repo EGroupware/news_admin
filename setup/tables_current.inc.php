@@ -20,14 +20,14 @@
 		'phpgw_news' => array(
 			'fd' => array(
 				'news_id' => array('type' => 'auto','nullable' => False),
-				'news_date' => array('type' => 'int','precision' => '4','nullable' => True),
-				'news_subject' => array('type' => 'varchar','precision' => '255','nullable' => True),
-				'news_submittedby' => array('type' => 'varchar','precision' => '255','nullable' => True),
-				'news_content' => array('type' => 'blob','nullable' => True),
-				'news_begin' => array('type' => 'int','precision' => '4','nullable' => True),
-				'news_end' => array('type' => 'int','precision' => '4','nullable' => True),
-				'news_cat' => array('type' => 'int','precision' => '4','nullable' => True),
-				'news_teaser' => array('type' => 'varchar','precision' => '255','nullable' => True),
+				'news_date' => array('type' => 'int','precision' => '4'),
+				'news_subject' => array('type' => 'varchar','precision' => '255'),
+				'news_submittedby' => array('type' => 'varchar','precision' => '255'),
+				'news_content' => array('type' => 'blob'),
+				'news_begin' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'news_end' => array('type' => 'int','precision' => '4'),
+				'news_cat' => array('type' => 'int','precision' => '4'),
+				'news_teaser' => array('type' => 'varchar','precision' => '255'),
 				'is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0')
 			),
 			'pk' => array('news_id'),

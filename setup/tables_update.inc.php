@@ -149,4 +149,18 @@
 		$GLOBALS['setup_info']['news_admin']['currentver'] = '1.0.0';
 		return $GLOBALS['setup_info']['news_admin']['currentver'];
 	}
-?>
+
+
+	$test[] = '1.0.0';
+	function news_admin_upgrade1_0_0()
+	{
+		$GLOBALS['phpgw_setup']->oProc->AlterColumn('phpgw_news','news_begin',array(
+			'type' => 'int',
+			'precision' => '4',
+			'nullable' => False,
+			'default' => '0',
+		));
+
+		$GLOBALS['setup_info']['news_admin']['currentver'] = '1.0.0.001';
+		return $GLOBALS['setup_info']['news_admin']['currentver'];
+	}
