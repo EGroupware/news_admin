@@ -60,13 +60,13 @@
 			while($this->db->next_record())
 			{
 				$news[$this->db->f('news_id')] = array(
-					'subject' => htmlentities($this->db->f('news_subject', True)),
+					'subject' => @htmlspecialchars($this->db->f('news_subject', True),ENT_COMPAT,$GLOBALS['phpgw']->translation->charset()),
 					'submittedby' => $this->db->f('news_submittedby'),
 					'date'    => $this->db->f('news_date'),
 					'id'      => $this->db->f('news_id'),
 					'begin'   => $this->db->f('news_begin'),
 					'end'     => $this->db->f('news_end'),
-					'teaser'  => htmlentities($this->db->f('news_teaser', True)),
+					'teaser'  => @htmlspecialchars($this->db->f('news_teaser', True),ENT_COMPAT,$GLOBALS['phpgw']->translation->charset()),
 					'content' => $this->db->f('news_content',True),
 					'is_html' => ($this->db->f('is_html') ? True : False),
 				);

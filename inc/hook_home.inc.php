@@ -51,7 +51,7 @@
 				$text = $newsitem['subject'];
 				if($showevents == 1)
 				{
-					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']);
+					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->common->grab_owner_name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']);
 				}
 				$portalbox->data[] = array(
 					'text' => $text,

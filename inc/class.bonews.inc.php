@@ -107,7 +107,7 @@
 				{
 					$news[$id]['content'] = ($item['is_html'] ? 
 									$item['content'] : 
-									nl2br(htmlentities($item['content'],ENT_QUOTES,$charset)
+									nl2br(@htmlspecialchars($item['content'],ENT_COMPAT,$charset)
 								));
 				}
 				return $news;
@@ -127,7 +127,7 @@
 			{
 				$news[$id]['content'] = ($item['is_html'] ? 
 								$item['content'] : 
-								nl2br(htmlentities($item['content'],ENT_QUOTES,$charset)
+								nl2br(@htmlspecialchars($item['content'],ENT_COMPAT,$charset)
 							));
 			}
 			return $news;
@@ -298,8 +298,6 @@
 
 		function get_news($news_id)
 		{
-			$charset = $GLOBALS['phpgw']->translation->charset();
-			
 			$news = $this->sonews->get_news($news_id);
 			
 			if ($this->acl->is_readable($news['category']))
@@ -307,7 +305,7 @@
 				$this->total = 1;
 				$news['content'] = ($news['is_html'] ? 
 							$news['content']: 
-							nl2br(htmlentities($news['content'],ENT_QUOTES,$charset)
+							nl2br(htmlspecialchars($news['content'],ENT_COMPAT,$GLOBALS['phpgw']->translation->charset())
 						));
 				return $news;
 			}

@@ -117,7 +117,7 @@
 			{
 				$var = Array(
 					'subject' => $newsitem['subject'],
-					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
+					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->common->grab_owner_name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
 					'content' => $newsitem['content'],
 				);
 
@@ -188,7 +188,7 @@
 			foreach($newslist as $newsitem)
 			{
 				$portalbox->data[] = array(
-					'text' => $newsitem['subject'] . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
+					'text' => $newsitem['subject'] . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->common->grab_owner_name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
 					'link' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $newsitem['id'])
 				);
 			}
@@ -243,7 +243,7 @@
 			{
 				$var = Array(
 					'subject'=> $newsitem['subject'],
-					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
+					'submitedby' => 'Submitted by ' . $GLOBALS['phpgw']->common->grab_owner_name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']),
 					'content'    => nl2br($newsitem['content'])
 				);
 
@@ -423,9 +423,9 @@
 				'value_id' => $this->news_id,
 				'done_button' => '<input type="submit" name="cancel" value="' . lang('Done') . '">',
 				'label_subject' => lang('subject') . ':',
-				'value_subject' => '<input name="news[subject]" size="60" value="' . htmlentities($this->news_data['subject']) . '">',
+				'value_subject' => '<input name="news[subject]" size="60" value="' . @htmlspecialchars($this->news_data['subject'],ENT_COMPAT,$GLOBALS['phpgw']->translation->charset()) . '">',
 				'label_teaser' => lang('teaser') . ':',
-				'value_teaser' => '<input name="news[teaser]" size="60" value="' . htmlentities($this->news_data['teaser']) . '" maxLength="100">',
+				'value_teaser' => '<input name="news[teaser]" size="60" value="' . @htmlspecialchars($this->news_data['teaser'],ENT_COMPAT,$GLOBALS['phpgw']->translation->charset()) . '" maxLength="100">',
 				'label_content' => lang('Content') . ':',
 				'value_content' => '<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . $this->news_data['content'] . '</textarea>',
 				'label_category' => lang('Category') . ':',
@@ -474,9 +474,9 @@
 			$this->template->set_var('header_date',$this->nextmatchs->show_sort_order($this->sort,'news_date',$this->order,'/index.php',lang('Date'),'&menuaction=news_admin.uinews.write_news'));
 			$this->template->set_var('header_subject',$this->nextmatchs->show_sort_order($this->sort,'news_subject',$this->order,'/index.php',lang('Subject'),'&menuaction=news_admin.uinews.write_news'));
 			$this->template->set_var('header_status',lang('Visible'));
-			$this->template->set_var('header_edit','edit');
-			$this->template->set_var('header_delete','delete');
-			$this->template->set_var('header_view','view');
+			$this->template->set_var('header_edit',lang('Edit'));
+			$this->template->set_var('header_delete',lang('Delete'));
+			$this->template->set_var('header_view',lang('View'));
 
 			$items      = $this->bo->get_newslist($this->cat_id,$this->start,$this->order,$this->sort);
 
@@ -504,8 +504,8 @@
 				$this->template->set_var('row_subject',$subject);
 				$this->template->set_var('row_status',$this->bo->get_visibility($item));
 
-				$this->template->set_var('row_view','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.read_news&news_id=' . $item['id']) . '">' . lang('view') . '</a>');
-				$this->template->set_var('row_edit','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.edit&news_id=' . $item['id']) . '">' . lang('edit') . '</a>');
+				$this->template->set_var('row_view','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.read_news&news_id=' . $item['id']) . '">' . lang('View') . '</a>');
+				$this->template->set_var('row_edit','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.edit&news_id=' . $item['id']) . '">' . lang('Edit') . '</a>');
 				$this->template->set_var('row_delete','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.delete&news_id=' . $item['id']) . '">' . lang('Delete') . '</a>');
 
 				$this->template->parse('rows','row',True);
