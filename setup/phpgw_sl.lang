@@ -1,59 +1,159 @@
-active	news_admin	sl	Aktiven
-add new article	news_admin	sl	Dodaj nov članek
-add new news	news_admin	sl	Dodaj novico
-add news item	news_admin	sl	Dodaj nov zapis
-all news	news_admin	sl	Vse novice
-always	news_admin	sl	Vedno
-configuration	news_admin	sl	Konfiguracija
-configure access permissions	common	sl	Konfiguriraj pravice dostopa
-configure rss exports	common	sl	Konfiguriraj RSS izvoz
-contains html	news_admin	sl	Vsebje HTML
-content	news_admin	sl	Vsebina
-edit news item	news_admin	sl	Uredi zapis o novici
-failed to add message	news_admin	sl	Novo sporočilo ni bilo uspešno dodano
-format for links to items	news_admin	sl	Oblika povezav na zapise
-format of export	news_admin	sl	Oblika za izvoz
-from	news_admin	sl	Forma
-global news	news_admin	sl	Globalne novice
-global_news	news_admin	sl	Globalne_novice
-image link	news_admin	sl	Povezava na sliko
-image title	news_admin	sl	Naslov slike
-image url	news_admin	sl	URL slike
-implies read permission	news_admin	sl	povzroči pravice za branje
-item has been deleted	news_admin	sl	Zapis je bil izbrisan
-item not found	news_admin	sl	Ne najdem zapisa
-link	news_admin	sl	Povezava
-main	news_admin	sl	Glavno
-maintain	news_admin	sl	Vzdrževanje
-maintain news	admin	sl	Vzdrževanje novic
-message has been added	news_admin	sl	Sporočilo je bilo dodano.
-more news	news_admin	sl	Več novic
-new item has been added	news_admin	sl	Nov zapis je bil dodan.
-news admin	news_admin	sl	Upravljalec novic
-news administration	news_admin	sl	Upravljanje novic
-news item has been added	news_admin	sl	Zapis o novici je bil dodan.
-news item has been updated	news_admin	sl	Zapis o novici je bil osvežen.
-news_admin	common	sl	Upravljanje novic
-no entries found	news_admin	sl	Ne najdem zapisov.
-no news	news_admin	sl	V tej kategoriji trenutno ni razpoložljivih novic.
-no rss export	news_admin	sl	Ni RSS izvoza.
-number of articles to display on the main screen	news_admin	sl	Število prispevkov, ki se prikažejo na začetnem zaslonu.
-on	news_admin	sl	vključeno
-publish date	news_admin	sl	Datum objave
-read news	news_admin	sl	Beri novice
-read permissions	news_admin	sl	Beri dovoljenja
-should news_admin display the latest article headlines on the main screen.	news_admin	sl	Ali naj Upravljalec novic prikaže zadnji prispevek na začetnem zaslonu?
-show latest news articles?	news_admin	sl	Pokažem zadnje članke?
-show news articles on main page?	news_admin	sl	Pokažem zadnje članke na začetni strani?
-small view	news_admin	sl	Mali pogled
-submitted by	common	sl	Oddal
-teaser	news_admin	sl	Zbadljivec
-the news content is missing	news_admin	sl	Manjka vsebina novice.
-the number of articles to display on the main screen.	news_admin	sl	Število prispevkov na začetnem zaslonu.
-the subject is missing	news_admin	sl	Manjka zadeva
-until	news_admin	sl	dokler
-view this category	news_admin	sl	Preglej kategorijo
-visible	news_admin	sl	Viden
-webpage news admin	news_admin	sl	Upravljanje novic na spletni strani
-write	news_admin	sl	Zapiši
-write permissions	news_admin	sl	Pravice pisanja
+%1 records imported	addressbook	sl	%1 zapisov prenesenih
+%1 records read (not yet imported, you may go %2back%3 and uncheck test import)	addressbook	sl	1% zapisov prebranih (niso še uvoženi, lahko greš %2nazaj%3 in odznačiš preizkus uvoza)
+(e.g. 1969)	addressbook	sl	(npr. 1969)
+<b>no conversion type &lt;none&gt; could be located.</b>  please choose a conversion type from the list	addressbook	sl	<b>Ni tipa prevoda &lt;noben&gt; lahko je zaklenjen.</b> Prosim izberite tip prevoda iz seznama
+@-eval() is only availible to admins!!!	addressbook	sl	@-eval() je veljaven samo za administratorje!
+actions	addressbook	sl	Ukrepi
+add a single entry by passing the fields.	addressbook	sl	Dodaj en zapis z vnosom polj.
+add custom field	addressbook	sl	Dodaj polje
+address book	common	sl	Telefonski imenik
+address book - vcard in	addressbook	sl	Telefonski imenik - VCard
+address book - view	addressbook	sl	Telefonski imenik - ogled
+address line 2	addressbook	sl	Naslov - 2. vrstica
+address line 3	addressbook	sl	Naslov - 3. vrstica
+address type	addressbook	sl	Tip naslova
+addressbook	common	sl	Imenik
+addressbook preferences	addressbook	sl	Lastnosti imenika
+addressbook-fieldname	addressbook	sl	Imenik-Ime polja
+addvcard	addressbook	sl	Dodaj VCard
+alt. csv import	addressbook	sl	Uvoz CSV datoteke
+are you sure you want to delete this field?	addressbook	sl	Si prepričan, da želiš izbrisati to polje?
+bbs phone	addressbook	sl	BBS Telefon
+birthday	common	sl	Rojstni dan
+birthdays	common	sl	Rojstni dnevi
+blank	addressbook	sl	Prazen
+business	common	sl	Posel / Služba
+business address type	addressbook	sl	Tip naslova
+business city	addressbook	sl	Kraj
+business email	addressbook	sl	E-pošta
+business email type	addressbook	sl	Tip E-pošte
+business fax	addressbook	sl	Telefaks
+business phone	addressbook	sl	Telefon
+business state	addressbook	sl	Država
+business street	addressbook	sl	Naslov
+business zip code	addressbook	sl	Poštna št.
+cell phone	addressbook	sl	GSM telefon
+charset of file	addressbook	sl	Nabor znakov v datoteki
+city	common	sl	Mesto
+company	common	sl	Podjetje
+company name	common	sl	Ime podjetja
+configuration	common	sl	Nastavitve
+contact	common	sl	Kontakt
+contact application	admin	sl	Kontaktna prijavnica
+contact settings	admin	sl	Kontaktne nastavitve
+copied by %1, from record #%2.	addressbook	sl	Kopirano iz zapisa %2 v zapis %1.
+country	common	sl	Država
+csv-fieldname	addressbook	sl	CSV-Ime polja
+csv-filename	addressbook	sl	CSV-Ime datoteke
+custom	addressbook	sl	Dodatne
+custom fields	addressbook	sl	Dodatna polja
+debug output in browser	addressbook	sl	Preglej izpis v brskalniku
+default filter	addressbook	sl	Privzeti filter
+delete a single entry by passing the id.	addressbook	sl	Zbriši vnos z ID številko
+department	common	sl	Oddelek
+domestic	addressbook	sl	Domači
+download	addressbook	sl	Prenos
+download export file (uncheck to debug output in browser)	addressbook	sl	Prenos izvožene datoteke (Odznači za izpis v brskalniku)
+edit custom field	addressbook	sl	Uredi dodatno polje
+edit custom fields	admin	sl	Uredi dodatna polja
+empty for all	addressbook	sl	izprazni za vse
+enter the path to the exported file here	addressbook	sl	Vnesite pot do izhodne datoteke
+export contacts	addressbook	sl	Izvozi kontakte
+export file name	addressbook	sl	Ime izvožene datoteke
+export from addressbook	addressbook	sl	Izvoz iz imenika
+extra	addressbook	sl	Dodatno
+fax	addressbook	sl	Telefaks
+fax number	common	sl	Telefaks
+field %1 has been added !	addressbook	sl	Polje %1 je bilo dodano!
+field %1 has been updated !	addressbook	sl	Polje %1 je bilo popravljeno!
+field name	addressbook	sl	Ime polja
+fields to show in address list	addressbook	sl	Polja, ki naj se prikažejo v seznamu
+fieldseparator	addressbook	sl	Ločilo polj
+full name	addressbook	sl	Polno ime
+geo	addressbook	sl	GEO
+global categories	addressbook	sl	Globalne kategorije
+grant addressbook access	common	sl	Dostop do glavnega imenika
+home address type	addressbook	sl	Tip naslova
+home city	addressbook	sl	Mesto
+home email	addressbook	sl	E-pošta
+home email type	addressbook	sl	Tip E-pošte
+home phone	addressbook	sl	Telefon
+home state	addressbook	sl	Država
+home street	addressbook	sl	Naslov
+home zip code	addressbook	sl	Poštna št.
+import	addressbook	sl	Uvozi
+import contacts	addressbook	sl	Uvozi  kontakte
+import csv-file into addressbook	addressbook	sl	Uvozi CSV-polja v imenik
+import file	addressbook	sl	Uvozi datoteko
+import from	addressbook	sl	Uvozi iz
+import from ldif, csv, or vcard	addressbook	sl	Uvoz iz LDIF, CSV ali VCard
+import from outlook	addressbook	sl	Uvoz iz Outlook-a
+import multiple vcard	addressbook	sl	Uvoz večih VCard
+import next set	addressbook	sl	Uvozi naslednji niz
+import_instructions	addressbook	sl	V Netscape odprite adresar in izberite <b>Export</b> v meniju <b>File</b>. Izvožena datoteka bo v obliki LDIF.<p>V Outlooku izberite mapo Stiki (Contacts), izberite <b>Uvoz/izvoz (Import/Export)</b> v meniju <b>Datoteka (File)</b>. Izvožena datoteka bo v obliki CSV.
+international	addressbook	sl	Mednarodni
+isdn phone	addressbook	sl	ISDN
+label	addressbook	sl	Etiketa
+ldap context for contacts	admin	sl	LDAP kontekst za kontakte
+ldap host for contacts	admin	sl	LDAP strežnik za kontakte
+ldap root dn for contacts	admin	sl	LDAP root dn za kontakte
+ldap root pw for contacts	admin	sl	LDAP root pw za povezave
+ldif	addressbook	sl	LDIF
+line 2	addressbook	sl	Vrstica 2
+load vcard	addressbook	sl	Naloži VCard
+mark records as private	addressbook	sl	Označi zapise kot zasebne
+message phone	addressbook	sl	Sporočilni telefon
+middle name	addressbook	sl	Srednje ime
+mobile	addressbook	sl	Mobilni
+mobile phone	addressbook	sl	GSM telefon
+multiple vcard	addressbook	sl	Več VCard zapisov
+no vcard	addressbook	sl	Ni VCard zapisov
+number of records to read (%1)	addressbook	sl	Število zapisov za branje (%1)
+number of records to read (<=200)	addressbook	sl	Številka zapisov za branje(<=200)
+other number	addressbook	sl	Številka
+other phone	addressbook	sl	Telefon
+pager	common	sl	Pozivnik
+parcel	addressbook	sl	Dostava
+phone number	common	sl	Telefonska številka
+phone numbers	common	sl	Telefonske številke
+please enter a name for that field !	addressbook	sl	Prosim vpiši ime za to polje!
+postal	common	sl	Poštni
+pref	addressbook	sl	privzeta
+prefix	addressbook	sl	Predpona
+public key	addressbook	sl	Javni ključ
+read a list of entries.	addressbook	sl	Preberi seznam vnosov.
+read a single entry by passing the id and fieldlist.	addressbook	sl	Preberi vnos s podano ID številko in seznamom polj.
+record access	addressbook	sl	Dostop do zapisa
+record owner	addressbook	sl	Lastnik zapisa
+retrieve contacts	admin	sl	pridobi kontakte
+select all	addressbook	sl	Izberi vse
+select the type of conversion	addressbook	sl	Izberite tip pretvorbe
+select the type of conversion:	addressbook	sl	Izberite tip pretvorbe:
+select where you want to store	admin	sl	Izberite kam želite shraniti
+show birthday reminders on main screen	addressbook	sl	Prikaži opomnike rojstnih dni v glavnem oknu
+startrecord	addressbook	sl	Začetni zapis
+state	common	sl	Država
+street	common	sl	Ulica
+successfully imported %1 records into your addressbook.	addressbook	sl	Uspešno prenesenih %1 zapisov v vaš adresar.
+suffix	addressbook	sl	Pripona
+test import (show importable records <u>only</u> in browser)	addressbook	sl	Preizkus uvoza (Pokaže uvožene zapise<u>samo</u> v brskalniku).
+that field name has been used already !	addressbook	sl	To ime polja je že v uporabi!
+this person's first name was not in the address book.	addressbook	sl	Imena te osebe ni v telefonskem imeniku.
+this person's last name was not in the address book.	addressbook	sl	Priimka te osebe ni v telefonskem imeniku.
+to many might exceed your execution-time-limit	addressbook	sl	preveč lahko preseže vaš čas izvajanja
+today is %1's birthday!	common	sl	Danes ima rojstni dan %1.
+tomorrow is %1's birthday.	common	sl	Jutri ima rojstni dan %1.
+translation	addressbook	sl	Prevod.
+update a single entry by passing the fields.	addressbook	sl	Popravi en zapis z vnosom polj.
+use country list	addressbook	sl	Uporabi seznam držav
+vcard	common	sl	VCard
+vcards require a first name entry.	addressbook	sl	VCards zahteva vpis imena.
+vcards require a last name entry.	addressbook	sl	VCards zahteva vpis priimka.
+video phone	addressbook	sl	Videotelefon
+voice phone	addressbook	sl	Glasovni telefon
+warning!! ldap is valid only if you are not using contacts for accounts storage!	admin	sl	OPOZORILO!! LDAP je veljaven samo, če ne uporabljate kontaktov za skladiščenje računov!
+work phone	addressbook	sl	Telefon
+you must select a vcard. (*.vcf)	addressbook	sl	Izbrati morate VCard. (*.vcf)
+you must select at least 1 column to display	addressbook	sl	Izbrati morate najmanj 1 stolpec za prikaz
+zip code	common	sl	Poštna številka
+zip_note	addressbook	sl	<p><b>Opozorilo:</b> Datoteka je lahko arhiv .csv, .vcf, or .ldif datotek. Ne mešajte datotečnih tipov ob uvozu.
