@@ -289,7 +289,7 @@
 			if (! $total)
 			{
 				$nextmatchs->template_alternate_row_color(&$this->template);
-				$this->template->set_var('row_message',lang('No entrys found'));
+				$this->template->set_var('row_message',lang('No entries found'));
 				$this->template->parse('rows','row_empty',True);
 			}
 
