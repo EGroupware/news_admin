@@ -11,7 +11,7 @@
 
   /* $Id$ */
 
-	$oProc->query("INSERT INTO phpgw_news (news_date,news_subject,news_submittedby,news_content,news_status) "
+	$GLOBALS['phpgw_setup']->oProc->query("INSERT INTO phpgw_news (news_date,news_subject,news_submittedby,news_content,news_status) "
 		. "VALUES ('" . time()
 		. "','Sample news item','1','This is a sample item to show what this program does.','Active')");
 ?>
