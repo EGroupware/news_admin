@@ -25,7 +25,15 @@
 	display_sidebox can be called as much as you like
  */
 
-	$title = 'Preferences';
+$menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
+	$file = Array(
+		'read news' => $GLOBALS['phpgw']->link('/news_admin/index.php'),
+		'Add New Article' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.add')
+	);
+	display_sidebox($appname,$menu_title,$file);
+ 
+	
+ 	$title = 'Preferences';
 	$file = array(
 		'Preferences'     => $GLOBALS['phpgw']->link('/preferences/preferences.php','appname='.$appname),
 	);
@@ -36,7 +44,6 @@
         $title = 'Administration';
         $file = Array(
                 'News Administration'  => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
-				'Add New Article' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.add')
         );
 
 		display_sidebox($appname,$title,$file);
