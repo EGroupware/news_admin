@@ -82,6 +82,8 @@
 
 		function get_newslist($cat_id, $start=0, $order='',$sort='',$limit=0,$activeonly=False)
 		{
+			$charset = $GLOBALS['phpgw']->translation->charset();
+			
 			$cats = False;
 			if ($cat_id == 'all')
 			{
@@ -103,7 +105,10 @@
 				$news = $this->sonews->get_newslist($cats, $start,$order,$sort,$limit,$activeonly,$this->total);
 				foreach($news as $id => $item)
 				{
-					$news[$id]['content'] = ($item['is_html'] ? $item['content'] : nl2br(htmlentities($item['content'])));
+					$news[$id]['content'] = ($item['is_html'] ? 
+									$item['content'] : 
+									nl2br(htmlentities($item['content'],ENT_QUOTES,$charset)
+								));
 				}
 				return $news;
 			}
@@ -115,10 +120,15 @@
 
 		function get_all_public_news($limit = 5)
 		{
+			$charset = $GLOBALS['phpgw']->translation->charset();
+			
 			$news = $this->sonews->get_all_public_news($limit);
 			foreach($news as $id => $item)
 			{
-				$news[$id]['content'] = ($item['is_html'] ? $item['content'] : nl2br(htmlentities($item['content'])));
+				$news[$id]['content'] = ($item['is_html'] ? 
+								$item['content'] : 
+								nl2br(htmlentities($item['content'],ENT_QUOTES,$charset)
+							));
 			}
 			return $news;
 		}
