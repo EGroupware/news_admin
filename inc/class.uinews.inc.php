@@ -36,7 +36,6 @@
 			if (! function_exists('parse_navbar'))
 			{
 				$GLOBALS['phpgw']->common->phpgw_header();
-				echo parse_navbar();
 			}
 
 			if (! $cat_id)
@@ -126,7 +125,6 @@
 			(
 				'title'     => $title,
 				'width'     => '100%',
-				'outerborderwidth' => '0',
 				'header_background_image' => $GLOBALS['phpgw']->common->image('phpgwapi/templates/default','bg_filler')
 			));
 
@@ -154,19 +152,13 @@
 
 			foreach($newslist as $newsitem)
 			{
-				$portalbox->data[] = array(
+				$portalbox->data[] = array
+				(
 					'text'					=> $newsitem['subject'] . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
 					'link'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $newsitem['id']),
 					'lang_link_statustext'	=> lang('show the news item')
 				);
 			}
-
-			/*$tmp = "\r\n"
-				. '<!-- start News Admin -->' . "\r\n"
-				. $portalbox->draw()
-				. '<!-- end News Admin -->'  . "\r\n";*/
-
-			//$portalbox->draw();
 
 			$GLOBALS['phpgw']->template->set_var('phpgw_body',$portalbox->draw(),True);
 		}

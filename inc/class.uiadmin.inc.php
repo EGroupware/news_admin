@@ -38,7 +38,7 @@
 		function common_header()
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
+			//echo parse_navbar();
 		}
 
 		function save_session_data()
