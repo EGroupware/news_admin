@@ -20,18 +20,25 @@
   $phpgw->template->set_file(array("list" => "list.tpl",
                                    "row"  => "list_row.tpl"));
 
+  if ($order) {
+     $ordermethod = "order by $order $sort";
+  } else {
+     $ordermethod = "order by news_date desc";
+  }
+
+
   $phpgw->template->set_var("th_bg",$phpgw_info["theme"]["th_bg"]);
   $phpgw->template->set_var("bgcolor",$phpgw_info["theme"]["bgcolor"]);
   $phpgw->template->set_var("lang_header",lang("Webpage news admin"));
 
-  $phpgw->template->set_var("header_date","date");
-  $phpgw->template->set_var("header_subject","subject");
-  $phpgw->template->set_var("header_status","status");
+  $phpgw->template->set_var("header_date",$phpgw->nextmatchs->show_sort_order($sort,"news_date",$order,"index.php",lang("Date")));
+  $phpgw->template->set_var("header_subject",$phpgw->nextmatchs->show_sort_order($sort,"news_subject",$order,"index.php",lang("Subject")));
+  $phpgw->template->set_var("header_status",$phpgw->nextmatchs->show_sort_order($sort,"news_status",$order,"index.php",lang("Status")));
   $phpgw->template->set_var("header_edit","edit");
   $phpgw->template->set_var("header_delete","delete");
   $phpgw->template->set_var("header_view","view");
 
-  $phpgw->db->query("select * from webpage_news order by news_date",__LINE__,__FILE__);
+  $phpgw->db->query("select * from webpage_news $ordermethod",__LINE__,__FILE__);
   while ($phpgw->db->next_record()) {
     $phpgw->template->set_var("tr_color",$phpgw->nextmatchs->alternate_row_color());
     $phpgw->template->set_var("row_date",$phpgw->common->show_date($phpgw->db->f("news_date")));

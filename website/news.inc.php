@@ -32,18 +32,16 @@
   while ($db->next_record()) {
     $tpl->set_var("subject",$db->f("news_subject"));
     $tpl->set_var("submitedby","Submitted by " . $db->f("submittedby") . " on " . date("m/d/Y - h:m:s a",$db->f("news_date")));
-    $tpl->set_var("content",$db->f("news_content"));
+    $tpl->set_var("content",nl2br($db->f("news_content")));
     
     $tpl->parse("rows","row",True);
   }
 
   $tpl->pparse("out","news");
   if ($total > 5 && ! $oldnews) {
-     echo '<center><a href="news.php?oldnews=True">View news archives</a></center>';
+     echo '<center><a href="index.php?oldnews=True">View news archives</a></center>';
   }
 ?>
    <p>&nbsp;</p>
-   <p>&nbsp;</p>
 
    <div align="right"><font size="-1">This page uses the news admin from <a href="http://www.phpgroupware.org">phpGroupWare</a></font></div>
-
