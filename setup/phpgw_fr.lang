@@ -15,7 +15,7 @@ format for links to items	news_admin	fr	Format pour les liens vers les objets
 format of export	news_admin	fr	Format d'export
 from	news_admin	fr	Depuis
 global news	news_admin	fr	Communiqués Globaux
-global_news	news_admin	fr	Communiqués_Gllobaux
+global_news	news_admin	fr	Communiqués_Globaux
 image link	news_admin	fr	Lien Image
 image title	news_admin	fr	Titre Image
 image url	news_admin	fr	URL Image
@@ -27,7 +27,7 @@ main	news_admin	fr	Principal
 maintain	news_admin	fr	Maintenir
 maintain news	admin	fr	Maintenir les communiqués
 message has been added	news_admin	fr	Le message a été ajouté
-more news	news_admin	fr	Plus de communiqués
+more news	news_admin	fr	Autres communiqués
 new item has been added	news_admin	fr	Le nouvel objet a été ajouté
 news admin	news_admin	fr	Communiqués
 news administration	news_admin	fr	Administration des communiqués
@@ -38,7 +38,7 @@ no entries found	news_admin	fr	Aucune entrée trouvée
 no news	news_admin	fr	Aucune communiqué n'est actuellement disponible dans la catégorie
 no rss export	news_admin	fr	Pas d'export RSS
 number of articles to display on the main screen	news_admin	fr	Nombre d'articles à afficher dans l'écran principal
-on	news_admin	fr	sur
+on	news_admin	fr	le
 publish date	news_admin	fr	Date de publication
 read news	news_admin	fr	Lire les communiqués
 read permissions	news_admin	fr	Permissions de lecture
@@ -48,10 +48,10 @@ show news articles on main page?	news_admin	fr	Montrer les communiqués sur la pa
 small view	news_admin	fr	vue réduite
 submitted by	common	fr	Soumis par
 teaser	news_admin	fr	Accroche
-the news content is missing	news_admin	fr	Le contenu communiqué est manquant
+the news content is missing	news_admin	fr	Le contenu du communiqué manque
 the number of articles to display on the main screen.	news_admin	fr	Le nombre d'articles à afficher sur l'écran principal.
-the subject is missing	news_admin	fr	Le sujet est manquant
-until	news_admin	fr	Jusqu'à
+the subject is missing	news_admin	fr	Le sujet manque
+until	news_admin	fr	Jusqu'au
 view this category	news_admin	fr	Voir cette catégorie
 visible	news_admin	fr	Visible
 webpage news admin	news_admin	fr	Page Web d'aministration des communiqués
