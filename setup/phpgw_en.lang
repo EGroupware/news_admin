@@ -6,6 +6,7 @@ all news	news_admin	en	All news
 always	news_admin	en	Always
 configuration	news_admin	en	Configuration
 configure access permissions	news_admin	en	Configure Access Permissions
+configure access permissions	common	en	Configure Access Permissions
 configure rss exports	news_admin	en	Configure RSS exports
 contains html	news_admin	en	Contains HTML
 content	news_admin	en	Content
