@@ -1,0 +1,59 @@
+active	news_admin	zt	啟用
+add new article	news_admin	zt	新增文章
+add new news	news_admin	zt	新增新聞
+add news item	news_admin	zt	新增新聞項目
+all news	news_admin	zt	所有新聞
+always	news_admin	zt	預設
+configuration	news_admin	zt	設定
+configure access permissions	common	zt	設定存取權限
+configure rss exports	common	zt	設定RSS匯出
+contains html	news_admin	zt	包含HTML
+content	news_admin	zt	內容
+edit news item	news_admin	zt	編輯新聞項目
+failed to add message	news_admin	zt	無法新增訊息
+format for links to items	news_admin	zt	連結項目格式
+format of export	news_admin	zt	匯出格式
+from	news_admin	zt	來自
+global news	news_admin	zt	全域新聞
+global_news	news_admin	zt	全域新聞
+image link	news_admin	zt	圖片連結
+image title	news_admin	zt	圖片標題
+image url	news_admin	zt	圖片網址
+implies read permission	news_admin	zt	表示讀取權限
+item has been deleted	news_admin	zt	刪除完成
+item not found	news_admin	zt	沒有這個項目
+link	news_admin	zt	連結
+main	news_admin	zt	主要
+maintain	news_admin	zt	維護
+maintain news	admin	zt	維護新聞
+message has been added	news_admin	zt	新增訊息完成
+more news	news_admin	zt	其他新聞
+new item has been added	news_admin	zt	新增項目完成
+news admin	news_admin	zt	新聞管理
+news administration	news_admin	zt	新聞管理
+news item has been added	news_admin	zt	新增新聞項目完成
+news item has been updated	news_admin	zt	更新新聞項目完成
+news_admin	common	zt	新聞管理
+no entries found	news_admin	zt	找不到任何資料
+no news	news_admin	zt	這個類別目前沒有任何新聞
+no rss export	news_admin	zt	沒有RSS匯出
+number of articles to display on the main screen	news_admin	zt	在主要畫面顯數新聞數量
+on	news_admin	zt	在
+publish date	news_admin	zt	發布日期
+read news	news_admin	zt	讀取新聞
+read permissions	news_admin	zt	讀取權限
+should news_admin display the latest article headlines on the main screen.	news_admin	zt	是否要在主畫面顯示最新文章？
+show latest news articles?	news_admin	zt	顯示最新文章？
+show news articles on main page?	news_admin	zt	在主頁面顯示新聞？
+small view	news_admin	zt	縮小
+submitted by	common	zt	發布者
+teaser	news_admin	zt	維護者
+the news content is missing	news_admin	zt	新聞內容遺失
+the number of articles to display on the main screen.	news_admin	zt	在主要畫面顯示的新聞文章數量。
+the subject is missing	news_admin	zt	您沒有輸入主題
+until	news_admin	zt	直到
+view this category	news_admin	zt	瀏覽這個類別
+visible	news_admin	zt	啟用
+webpage news admin	news_admin	zt	網頁新聞管理
+write	news_admin	zt	寫入
+write permissions	news_admin	zt	寫入權限
