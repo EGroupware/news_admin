@@ -32,7 +32,8 @@
                      . "news_content='" . addslashes($content) . "',news_status='$status',news_date='$date' "
                      . "where news_id='$news_id'",__LINE__,__FILE__);
      Header("Location: " . $phpgw->link("index.php"));
-     exit; 
+     $phpgw->common->phpgw_exit();
+ 
   }
 
   $phpgw->template->set_file(array("form" => "form.tpl",

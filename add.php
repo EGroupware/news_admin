@@ -29,7 +29,7 @@
                      . "news_status) values ('" . time() . "','" . $phpgw_info["user"]["account_id"] . "','"
                      . addslashes($content) . "','" . addslashes($subject) . "','$status')",__LINE__,__FILE__);
      Header("Location: " . $phpgw->link("index.php"));
-     exit;  
+     $phpgw->common->phpgw_exit();
   } else {
 
      $phpgw->template->set_var("th_bg",$phpgw_info["theme"]["th_bg"]);
