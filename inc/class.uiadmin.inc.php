@@ -62,7 +62,7 @@
 			$bo     = createobject('news_admin.boadmin');
 			$fields = $bo->view($news_id);
 
-			$this->template->set_var('icon_dir',$GLOBALS['phpgw']->common->get_image_path('news_admin'));
+			$this->template->set_var('icon',$GLOBALS['phpgw']->common->get_image_path('news_admin') . '/news-corner.gif');
 			$this->template->set_var('subject',$fields['subject']);
 			$this->template->set_var('submitedby','Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($fields['submittedby']) . ' on ' . $fields['date']);
 			$this->template->set_var('content',nl2br($fields['content']));
