@@ -10,7 +10,7 @@ configure rss exports	common	es-es	Configurar exportación RSS
 contains html	news_admin	es-es	Contiene HTML
 content	news_admin	es-es	Contenido
 edit news item	news_admin	es-es	Editar elemento de noticias
-failed to add message	news_admin	es-es	Fallo al añadir mensaje de noticias
+failed to add message	news_admin	es-es	Fallo al añadir un mensaje nuevo
 format for links to items	news_admin	es-es	Formato para los enlaces a los elementos
 format of export	news_admin	es-es	Formato de exportación
 from	news_admin	es-es	De
@@ -50,7 +50,7 @@ small view	news_admin	es-es	Vista reducida
 submitted by	common	es-es	Enviado por
 teaser	news_admin	es-es	Bromista
 the news content is missing	news_admin	es-es	Falta el contenido de las noticias
-the number of articles to display on the main screen.	news_admin	es-es	El número de artículos a mostrar en la pantalla principal
+the number of articles to display on the main screen.	news_admin	es-es	El número de artículos a mostrar en la pantalla principal.
 the subject is missing	news_admin	es-es	Falta el asunto
 until	news_admin	es-es	hasta
 view this category	news_admin	es-es	Ver esta categoría

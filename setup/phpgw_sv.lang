@@ -12,35 +12,35 @@ content	news_admin	sv	Innehåll
 edit news item	news_admin	sv	Redigera artiklar
 failed to add message	news_admin	sv	Kunde inte skapa nytt meddelande
 format for links to items	news_admin	sv	Format på länkar till objekt
-format of export	news_admin	sv	Export format
+format of export	news_admin	sv	Exportformat
 from	news_admin	sv	Från
 global categories	news_admin	sv	Globala kategorier
 global news	news_admin	sv	Globala artiklar
 global_news	news_admin	sv	Globala artiklar
-image link	news_admin	sv	Bild länk
-image title	news_admin	sv	Bild titel
-image url	news_admin	sv	Bild URL
+image link	news_admin	sv	Bildlänk
+image title	news_admin	sv	Bildtitel
+image url	news_admin	sv	BildURL
 implies read permission	news_admin	sv	Ger läsrättighet
-item has been deleted	news_admin	sv	Objekt raderad
+item has been deleted	news_admin	sv	Objekt raderat
 item not found	news_admin	sv	Hittade inte objektet
 link	news_admin	sv	Länk
 main	news_admin	sv	Huvudsida
 maintain	news_admin	sv	Underhåll
 maintain news	admin	sv	Underhåll artiklar
-message has been added	news_admin	sv	Meddelande tillagd
+message has been added	news_admin	sv	Meddelandet tillagt
 more news	news_admin	sv	Mer artiklar
-new item has been added	news_admin	sv	Objekt tillagd
-news admin	news_admin	sv	Artikel hantering
-news administration	news_admin	sv	Artikel hantering
+new item has been added	news_admin	sv	Objekt tillagt
+news admin	news_admin	sv	Artikelhantering
+news administration	news_admin	sv	Artikelhantering
 news item has been added	news_admin	sv	Artikel sparad
 news item has been updated	news_admin	sv	Artikel uppdaterad
-news_admin	common	sv	Artikel hantering
-no entries found	news_admin	sv	Inga ariklar hittade
+news_admin	common	sv	Artikelhantering
+no entries found	news_admin	sv	Inga artiklar hittade
 no news	news_admin	sv	Inga artiklar i denna kategori
 no rss export	news_admin	sv	Ingen RSS export
 number of articles to display on the main screen	news_admin	sv	Antal ariklar att visa på Startsidan
 on	news_admin	sv	På
-publish date	news_admin	sv	Publiserings datum
+publish date	news_admin	sv	Publiseringsdatum
 read news	news_admin	sv	Läs artikel
 read permissions	news_admin	sv	Läsrättighet
 should news_admin display the latest article headlines on the main screen.	news_admin	sv	Visa senaste artikelrubriker på Startsidan
@@ -48,13 +48,13 @@ show latest news articles?	news_admin	sv	Visa senaste artikel
 show news articles on main page?	news_admin	sv	Visa artiklar på Startsidan
 small view	news_admin	sv	Liten vy
 submitted by	common	sv	Postad av
-teaser	news_admin	sv	Smak prov
-the news content is missing	news_admin	sv	Nyhets innehåll saknas
+teaser	news_admin	sv	Smakprov
+the news content is missing	news_admin	sv	Nyhetsinnehåll saknas
 the number of articles to display on the main screen.	news_admin	sv	Antal artiklar att visa på Startsidan?
 the subject is missing	news_admin	sv	Rubrik saknas
 until	news_admin	sv	Tills
 view this category	news_admin	sv	Visa kategori
 visible	news_admin	sv	Synlig
-webpage news admin	news_admin	sv	Webbartikel hantering
+webpage news admin	news_admin	sv	Webbartikelhantering
 write	news_admin	sv	Skriv
 write permissions	news_admin	sv	Skrivrättighet
