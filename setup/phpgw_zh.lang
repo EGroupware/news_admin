@@ -1,9 +1,9 @@
-﻿active	news_admin	zh	启用
+active	news_admin	zh	启用
 add new news	news_admin	zh	添加新闻
 add news item	news_admin	zh	添加新闻项
 all news	news_admin	zh	所有新闻
 always	news_admin	zh	总是
-configuration	news_admin	zh	设置
+configuration	news_admin	zh	配置
 configure access permissions	news_admin	zh	设置访问权限
 configure rss exports	news_admin	zh	设置RSS导出文件
 contains html	news_admin	zh	包含HTML
