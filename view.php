@@ -34,33 +34,5 @@
   $tpl->parse("rows","row",True);
   $tpl->pparse("out","news");
 
-/*  function display_row($label,$value)
-  {
-     global $phpgw;
-
-     $phpgw->template->set_var("tr_color",$phpgw->nextmatchs->alternate_row_color());
-     $phpgw->template->set_var("label",$label);
-     $phpgw->template->set_var("value",$value);
-     $phpgw->template->parse("rows","row",True);     
-  }
-
-  $phpgw->template->set_file(array("form" => "form.tpl",
-                                   "row"  => "form_row.tpl"));
-
-  $phpgw->db->query("select * from webpage_news where news_id='$news_id'",__LINE__,__FILE__);
-  $phpgw->db->next_record();
-
-  $phpgw->template->set_var("th_bg",$phpgw_info["theme"]["th_bg"]);
-  $phpgw->template->set_var("bgcolor",$phpgw_info["theme"]["bgcolor"]);
-
-  $phpgw->template->set_var("lang_header",lang("View news item"));
-  $phpgw->template->set_var("form_action","");
-  $phpgw->template->set_var("form_button","");
-
-  display_row(lang("subject") . ":",$phpgw->strip_html($phpgw->db->f("news_subject")));
-  display_row(lang("Content") . ":",$phpgw->strip_html($phpgw->db->f("news_content")));
-  display_row(lang("Status") . ":",$phpgw->common->show_date($phpgw->db->f("news_date")));
-  display_row(lang("Status") . ":",lang($phpgw->db->f("news_status")));
-
-  $phpgw->template->pparse("out","form");      */
+  $phpgw->common->phpgw_footer();
 ?>
