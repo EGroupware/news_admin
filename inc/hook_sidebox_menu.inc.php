@@ -44,6 +44,9 @@ $menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Men
         $title = 'Administration';
         $file = Array(
                 'News Administration'  => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
+                'global categories' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
+                'configure access permissions' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
+                'configure rss exports' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
         );
 
 		display_sidebox($appname,$title,$file);
