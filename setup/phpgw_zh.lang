@@ -1,0 +1,49 @@
+active	news_admin	zh	启用
+add new news	news_admin	zh	添加新闻
+add news item	news_admin	zh	添加新闻项
+all news	news_admin	zh	所有新闻
+always	news_admin	zh	总是
+configuration	news_admin	zh	设置
+configure access permissions	news_admin	zh	设置访问权限
+configure rss exports	news_admin	zh	设置RSS导出文件
+contains html	news_admin	zh	包含HTML
+content	news_admin	zh	目录
+edit news item	news_admin	zh	编辑新闻项
+format for links to items	news_admin	zh	新闻项的链接格式
+format of export	news_admin	zh	RSS导出文件格式
+from	news_admin	zh	来自
+global news	news_admin	zh	全局新闻
+global_news	news_admin	zh	全局新闻
+image link	news_admin	zh	图片链接
+image title	news_admin	zh	图片标题
+image url	news_admin	zh	图片网址
+implies read permission	news_admin	zh	包含读权限
+item has been deleted	news_admin	zh	项已删除
+item not found	news_admin	zh	找不到项
+link	news_admin	zh	链接
+main	news_admin	zh	主要
+maintain	news_admin	zh	维护
+maintain news	admin	zh	新闻维护
+message has been added	news_admin	zh	消息已添加
+more news	news_admin	zh	更多新闻
+new item has been added	news_admin	zh	新项已添加
+news admin	news_admin	zh	新闻管理
+news item has been added	news_admin	zh	新闻项已添加
+news item has been updated	news_admin	zh	新闻项已更新
+news_admin	common	zh	新闻管理
+no entries found	news_admin	zh	找不到条目
+no news	news_admin	zh	没有新闻
+no rss export	news_admin	zh	无RSS导出文件
+on	news_admin	zh	在
+publish date	news_admin	zh	出版日期
+read permissions	news_admin	zh	读权限
+submitted by	common	zh	提交者
+teaser	news_admin	zh	难题
+the news content is missing	news_admin	zh	新闻目录丢失
+the subject is missing	news_admin	zh	题目丢失
+until	news_admin	zh	直到
+view this category	news_admin	zh	查看类别
+visible	news_admin	zh	可见
+webpage news admin	news_admin	zh	网页新闻管理
+write	news_admin	zh	写
+write permissions	news_admin	zh	写权限
