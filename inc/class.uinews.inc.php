@@ -156,7 +156,7 @@
 				(
 					'text'					=> $newsitem['subject'] . ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
 					'link'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&news_id=' . $newsitem['id']),
-					'lang_link_statustext'	=> lang('show the news item')
+					'lang_link_statustext'	=> lang('read news item')
 				);
 			}
 
