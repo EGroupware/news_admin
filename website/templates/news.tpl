@@ -1,9 +1,11 @@
 
 <!-- BEGIN news -->
 
-<div align="center">
-<table border="0" width="90%" cellspacing="2" cellpadding="2">
-
+<div align="left">
+<table border="0" width="70%" cellspacing="0" cellpadding="0">
+<tr>
+	<td height="5">&nbsp;</td>
+</tr>
 	{rows}
 
 </table>

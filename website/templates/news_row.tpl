@@ -1,18 +1,16 @@
 
 <!-- BEGIN row -->
 
-<tr bgcolor="#c7c3c7">
+<tr bgcolor="#0000A0">
 	<td width="13" valign="top">
 		<img src="templates/images/news-corner.gif">
 	</td>
-	<td align="left" width="99%"><b>{subject}</b>&nbsp;</td>
-	<td align="left" width="1%" bgcolor="#FFFFFF">&nbsp;</td>
+	<td width="99%"><font color="#FFFFFF"<b>{subject}&nbsp;</b></font></td>
 </tr>
-<tr>
-	<td width="100%" colspan="3">
+<tr bgcolor="#0097ff">
+	<td width="100%" colspan="2">
 		{submitedby}
 		<p>{content}</p>
-		<p>&nbsp;</p>
 	</td>
 </tr>
 
