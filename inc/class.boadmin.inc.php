@@ -16,53 +16,27 @@
 
 	class boadmin
 	{
-		var $public_functions = array(
-			'add'    => True,
-			'edit'   => True,
-			'delete' => True
-			);
-
 		function boadmin()
 		{
+			$this->so = createobject('news_admin.soadmin');
 		}
 
 		function delete()
 		{
 			$news_id = $GLOBALS['HTTP_POST_VARS']['news_id'] ? $GLOBALS['HTTP_POST_VARS']['news_id'] : $GLOBALS['HTTP_GET_VARS']['news_id'];
 
-			$so = createobject('news_admin.soadmin');
-			$ui = createobject('news_admin.uiadmin');
-
-			$so->delete($news_id);
-			$ui->news_list(lang('Item has been deleted'));
+			$this->so->delete($news_id);
+			ExecMethod('news_admin.uiadmin.news_list',array('message' => lang('Item has been deleted')));
 		}
 
-		function add()
+		function add($news)
 		{
-			$news = $GLOBALS['HTTP_POST_VARS']['news'];
+			return $this->so->add($news);
+		}
 
-			$so = createobject('news_admin.soadmin');
-			$ui = createobject('news_admin.uiadmin');
-
-			if (! $news['subject'])
-			{
-				$errors[] = lang('The subject is missing');
-			}
-
-			if (! $news['content'])
-			{
-				$errors[] = lang('The news content is missing');
-			}
-
-			if (is_array($errors))
-			{
-				$ui->add($errors);
-			}
-			else
-			{
-				$so->add($news);
-				$ui->news_list(lang('New item has been added'));
-			}
+		function edit($news)
+		{
+			return $this->so->edit($news);
 		}
 
 		function format_fields($fields)
@@ -83,8 +57,7 @@
 
 		function view($news_id, $raw_values = False)
 		{
-			$so     = createobject('news_admin.soadmin');
-			$item   = $so->view($news_id);
+			$item = $this->so->view($news_id);
 
 			if (! $raw_values)
 			{
@@ -100,15 +73,12 @@
 
 		function total($cat_id)
 		{
-			$so = createobject('news_admin.soadmin');
-			return $so->total($cat_id);
+			return $this->so->total($cat_id);
 		}
 
 		function getlist($order,$sort,$cat_id)
 		{
-			$so = createobject('news_admin.soadmin');
-
-			$items = $so->getlist($order,$sort,$cat_id);
+			$items = $this->so->getlist($order,$sort,$cat_id);
 
 			while (is_array($items) && $item = each($items))
 			{

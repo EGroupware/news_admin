@@ -16,7 +16,7 @@
 
 	class uiadmin
 	{
-		var $db;
+		var $bo;
 		var $template;
 		var $session_data;
 		var $public_functions = array(
@@ -25,14 +25,14 @@
 			'view'      => True,
 			'edit'      => True,
 			'delete'    => True
-			);
+		);
 
 		function uiadmin()
 		{
 			$GLOBALS['phpgw']->nextmatchs = createobject('phpgwapi.nextmatchs');
-			$this->template     = $GLOBALS['phpgw']->template;
-			$this->db           = $GLOBALS['phpgw']->db;
 			$this->session_data = $GLOBALS['phpgw']->session->appsession('session_data','news_admin');
+			$this->bo   = createobject('news_admin.boadmin');
+			$this->cats = createobject('phpgwapi.categories');
 		}
 
 		function common_header()
@@ -52,24 +52,23 @@
 
 			$this->common_header();
 
-			$this->template->set_root($GLOBALS['phpgw']->common->get_tpl_dir('news_admin'));
-			$this->template->set_file(array(
+			$GLOBALS['phpgw']->template->set_root($GLOBALS['phpgw']->common->get_tpl_dir('news_admin'));
+			$GLOBALS['phpgw']->template->set_file(array(
 				'_news' => 'news.tpl',
 			));
-			$this->template->set_block('_news','news_form');
-			$this->template->set_block('_news','row');
+			$GLOBALS['phpgw']->template->set_block('_news','news_form');
+			$GLOBALS['phpgw']->template->set_block('_news','row');
 
-			$bo     = createobject('news_admin.boadmin');
-			$fields = $bo->view($news_id);
+			$fields = $this->bo->view($news_id);
 
-			$this->template->set_var('icon',$GLOBALS['phpgw']->common->get_image_path('news_admin') . '/news-corner.gif');
-			$this->template->set_var('subject',$fields['subject']);
-			$this->template->set_var('submitedby','Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($fields['submittedby']) . ' on ' . $fields['date']);
-			$this->template->set_var('content',nl2br($fields['content']));
+			$GLOBALS['phpgw']->template->set_var('icon',$GLOBALS['phpgw']->common->get_image_path('news_admin') . '/news-corner.gif');
+			$GLOBALS['phpgw']->template->set_var('subject',$fields['subject']);
+			$GLOBALS['phpgw']->template->set_var('submitedby','Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($fields['submittedby']) . ' on ' . $fields['date']);
+			$GLOBALS['phpgw']->template->set_var('content',nl2br($fields['content']));
 
-			$this->template->parse('rows','row',True);
+			$GLOBALS['phpgw']->template->parse('rows','row',True);
 
-			$this->template->pfp('_out','news_form');
+			$GLOBALS['phpgw']->template->pfp('_out','news_form');
 		}
 
 		function delete()
@@ -78,26 +77,47 @@
 			$cat_id  = $GLOBALS['HTTP_POST_VARS']['cat_id'] ? $GLOBALS['HTTP_POST_VARS']['cat_id'] : $GLOBALS['HTTP_GET_VARS']['cat_id'];
 
 			$this->common_header();
-			$this->template->set_file(array(
+			$GLOBALS['phpgw']->template->set_file(array(
 				'form' => 'admin_delete.tpl'
 			));
-			$this->template->set_var('lang_message',lang('Are you sure you want to delete this entry ?'));
-			$this->template->set_var('lang_yes',lang('Yes'));
-			$this->template->set_var('lang_no',lang('No'));
+			$GLOBALS['phpgw']->template->set_var('lang_message',lang('Are you sure you want to delete this entry ?'));
+			$GLOBALS['phpgw']->template->set_var('lang_yes',lang('Yes'));
+			$GLOBALS['phpgw']->template->set_var('lang_no',lang('No'));
 
-			$this->template->set_var('link_yes',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.boadmin.delete&news_id=' . $news_id));
-			$this->template->set_var('link_no',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
+			$GLOBALS['phpgw']->template->set_var('link_yes',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.boadmin.delete&news_id=' . $news_id));
+			$GLOBALS['phpgw']->template->set_var('link_no',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
 
-			$this->template->pfp('_out','form');
+			$GLOBALS['phpgw']->template->pfp('_out','form');
 		}
 
 		function add($errors = '')
 		{
-			$news = $GLOBALS['HTTP_POST_VARS']['news'];
+			$news   = $GLOBALS['HTTP_POST_VARS']['news'];
+			$submit = $GLOBALS['HTTP_POST_VARS']['submit'];
+
+			if($GLOBALS['HTTP_POST_VARS']['cancel'])
+			{
+				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
+			}
+			if($submit)
+			{
+				if (! $news['subject'])
+				{
+					$errors[] = lang('The subject is missing');
+				}
+				if (! $news['content'])
+				{
+					$errors[] = lang('The news content is missing');
+				}
+
+				if (!is_array($errors))
+				{
+					$this->bo->add($news);
+					$message = lang('News item has been added');
+				}
+			}
 
 			$this->common_header();
-
-			$cats = createobject('phpgwapi.categories');
 
 			$GLOBALS['phpgw']->template->set_file(array(
 				'form' => 'admin_form.tpl'
@@ -107,6 +127,10 @@
 			{
 				$GLOBALS['phpgw']->template->set_var('errors',$GLOBALS['phpgw']->common->error_list($errors));
 			}
+			elseif($message)
+			{
+				$GLOBALS['phpgw']->template->set_var('errors',$message);
+			}
 
 			$GLOBALS['phpgw']->template->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
 			$GLOBALS['phpgw']->template->set_var('row_on',$GLOBALS['phpgw_info']['theme']['row_on']);
@@ -114,8 +138,9 @@
 			$GLOBALS['phpgw']->template->set_var('bgcolor',$GLOBALS['phpgw_info']['theme']['bgcolor']);
 
 			$GLOBALS['phpgw']->template->set_var('lang_header',lang('Add news item'));
-			$GLOBALS['phpgw']->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.boadmin.add'));
+			$GLOBALS['phpgw']->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.add'));
 			$GLOBALS['phpgw']->template->set_var('form_button','<input type="submit" name="submit" value="' . lang('Add') . '">');
+			$GLOBALS['phpgw']->template->set_var('done_button','<input type="submit" name="cancel" value="' . lang('Done') . '">');
 
 			$GLOBALS['phpgw']->template->set_var('label_subject',lang('subject') . ':');
 			$GLOBALS['phpgw']->template->set_var('value_subject','<input name="news[subject]" size="60" value="' . $news['subject'] . '">');
@@ -124,7 +149,7 @@
 			$GLOBALS['phpgw']->template->set_var('value_content','<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . stripslashes($news['content']) . '</textarea>');
 
 			$GLOBALS['phpgw']->template->set_var('label_category',lang('Category') . ':');
-			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $cats->formated_list('select','mains',$news['category']) . '</select>');
+			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $this->cats->formated_list('select','mains',$news['category']) . '</select>');
 
 			$GLOBALS['phpgw']->template->set_var('label_status',lang('Status') . ':');
 			$GLOBALS['phpgw']->template->set_var('value_status','<select name="news[status]"><option value="Active">'
@@ -136,18 +161,48 @@
 
 		function edit($errors = '')
 		{
-			$news = $GLOBALS['HTTP_POST_VARS']['news'];
+			$news    = $GLOBALS['HTTP_POST_VARS']['news'];
+			$news_id = $GLOBALS['HTTP_GET_VARS']['news_id'];
+
+			if($GLOBALS['HTTP_POST_VARS']['cancel'])
+			{
+				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
+			}
+			if (is_array($news))
+			{
+				if (! $news['subject'])
+				{
+					$errors[] = lang('The subject is missing');
+				}
+				if (! $news['content'])
+				{
+					$errors[] = lang('The news content is missing');
+				}
+
+				if (!is_array($errors))
+				{
+					$this->bo->edit($news);
+					$message = lang('News item has been updated');
+				}
+			}
+			else
+			{
+				$news = $this->bo->view($news_id,True);
+			}
 
 			$this->common_header();
-			$cats = createobject('phpgwapi.categories');
 
 			$GLOBALS['phpgw']->template->set_file(array(
 				'form' => 'admin_form.tpl'
 			));
 
-			if (is_array($errors))
+			if(is_array($errors))
 			{
 				$GLOBALS['phpgw']->template->set_var('errors',$GLOBALS['phpgw']->common->error_list($errors));
+			}
+			elseif($message)
+			{
+				$GLOBALS['phpgw']->template->set_var('errors',$message);
 			}
 
 			$GLOBALS['phpgw']->template->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
@@ -157,14 +212,10 @@
 
 			$GLOBALS['phpgw']->template->set_var('lang_header',lang('Edit news item'));
 
-			if (is_array($fields))
-			{
-				$bo     = createobject('news_admin.boadmin');
-				$fields = $bo->view($news_id,True);
-			}
-
-			$GLOBALS['phpgw']->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.boadmin.edit'));
+			$GLOBALS['phpgw']->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.edit'));
 			$GLOBALS['phpgw']->template->set_var('form_button','<input type="submit" name="submit" value="' . lang('Edit') . '">');
+			$GLOBALS['phpgw']->template->set_var('done_button','<input type="submit" name="cancel" value="' . lang('Done') . '">');
+			$GLOBALS['phpgw']->template->set_var('value_id',$news_id);
 
 			$GLOBALS['phpgw']->template->set_var('label_subject',lang('subject') . ':');
 			$GLOBALS['phpgw']->template->set_var('value_subject','<input name="news[subject]" size="60" value="' . $news['subject'] . '">');
@@ -173,7 +224,7 @@
 			$GLOBALS['phpgw']->template->set_var('value_content','<textarea cols="60" rows="6" name="news[content]" wrap="virtual">' . stripslashes($news['content']) . '</textarea>');
 
 			$GLOBALS['phpgw']->template->set_var('label_category',lang('Category') . ':');
-			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $cats->formated_list('select','mains',$news['category']) . '</select>');
+			$GLOBALS['phpgw']->template->set_var('value_category','<select name="news[category]"><option value="0">' . lang('Main') . '</option>' . $this->cats->formated_list('select','mains',$news['category']) . '</select>');
 
 			$GLOBALS['phpgw']->template->set_var('label_status',lang('Status') . ':');
 			$GLOBALS['phpgw']->template->set_var('value_status','<select name="news[status]"><option value="Active">'
@@ -228,46 +279,44 @@
 			$this->session_data['cat_id'] = $cat_id;
 			$this->save_session_data();
 
-			$this->template->set_file(array(
+			$GLOBALS['phpgw']->template->set_file(array(
 				'_list' => 'admin_list.tpl'
 			));
-			$this->template->set_block('_list','list');
-			$this->template->set_block('_list','row');
-			$this->template->set_block('_list','row_empty');
+			$GLOBALS['phpgw']->template->set_block('_list','list');
+			$GLOBALS['phpgw']->template->set_block('_list','row');
+			$GLOBALS['phpgw']->template->set_block('_list','row_empty');
 
 			if ($message)
 			{
-				$this->template->set_var('message',$message);
+				$GLOBALS['phpgw']->template->set_var('message',$message);
 			}
 
-			$this->template->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
-			$this->template->set_var('bgcolor',$GLOBALS['phpgw_info']['theme']['bgcolor']);
-			$this->template->set_var('lang_header',lang('Webpage news admin'));
-			$this->template->set_var('lang_category',lang('Category'));
-			$this->template->set_var('lang_main',lang('Main'));
+			$GLOBALS['phpgw']->template->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
+			$GLOBALS['phpgw']->template->set_var('bgcolor',$GLOBALS['phpgw_info']['theme']['bgcolor']);
+			$GLOBALS['phpgw']->template->set_var('lang_header',lang('Webpage news admin'));
+			$GLOBALS['phpgw']->template->set_var('lang_category',lang('Category'));
+			$GLOBALS['phpgw']->template->set_var('lang_main',lang('Main'));
 
-			$cats = createobject('phpgwapi.categories');
-			$this->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
-			$this->template->set_var('input_category',$cats->formated_list('select','mains',$cat_id));
+			$GLOBALS['phpgw']->template->set_var('form_action',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'));
+			$GLOBALS['phpgw']->template->set_var('input_category',$this->cats->formated_list('select','mains',$cat_id));
 
-			$this->template->set_var('header_date',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_date',$order,'/index.php',lang('Date'),'&menuaction=news_admin.uiadmin.news_list'));
-			$this->template->set_var('header_subject',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_subject',$order,'/index.php',lang('Subject'),'&menuaction=news_admin.uiadmin.news_list'));
-			$this->template->set_var('header_status',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_status',$order,'/index.php',lang('Status'),'&menuaction=news_admin.uiadmin.news_list'));
-			$this->template->set_var('header_edit','edit');
-			$this->template->set_var('header_delete','delete');
-			$this->template->set_var('header_view','view');
+			$GLOBALS['phpgw']->template->set_var('header_date',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_date',$order,'/index.php',lang('Date'),'&menuaction=news_admin.uiadmin.news_list'));
+			$GLOBALS['phpgw']->template->set_var('header_subject',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_subject',$order,'/index.php',lang('Subject'),'&menuaction=news_admin.uiadmin.news_list'));
+			$GLOBALS['phpgw']->template->set_var('header_status',$GLOBALS['phpgw']->nextmatchs->show_sort_order($sort,'news_status',$order,'/index.php',lang('Status'),'&menuaction=news_admin.uiadmin.news_list'));
+			$GLOBALS['phpgw']->template->set_var('header_edit','edit');
+			$GLOBALS['phpgw']->template->set_var('header_delete','delete');
+			$GLOBALS['phpgw']->template->set_var('header_view','view');
 
 			$nextmatchs = createobject('phpgwapi.nextmatchs');
-			$bo         = createobject('news_admin.boadmin');
-			$total      = $bo->total($cat_id);
-			$items      = $bo->getlist($order,$sort,$cat_id);
+			$total      = $this->bo->total($cat_id);
+			$items      = $this->bo->getlist($order,$sort,$cat_id);
 
 			while (is_array($items) && $_item = each($items))
 			{
 				$item = $_item[1];
 
-				$nextmatchs->template_alternate_row_color(&$this->template);
-				$this->template->set_var('row_date',$item['date']);
+				$nextmatchs->template_alternate_row_color(&$GLOBALS['phpgw']->template);
+				$GLOBALS['phpgw']->template->set_var('row_date',$item['date']);
 				if (strlen($item['news_subject']) > 40)
 				{
 					$subject = $GLOBALS['phpgw']->strip_html(substr($item['subject'],40,strlen($item['subject'])));
@@ -276,35 +325,35 @@
 				{
 					$subject = $GLOBALS['phpgw']->strip_html($item['subject']);
 				}
-				$this->template->set_var('row_subject',$subject);
-				$this->template->set_var('row_status',$item['status']);
+				$GLOBALS['phpgw']->template->set_var('row_subject',$subject);
+				$GLOBALS['phpgw']->template->set_var('row_status',$item['status']);
 
-				$this->template->set_var('row_view','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.view&news_id=' . $item['id']) . '">' . lang('view') . '</a>');
-				$this->template->set_var('row_edit','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.edit&news_id=' . $item['id']) . '">' . lang('edit') . '</a>');
-				$this->template->set_var('row_delete','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.delete&news_id=' . $item['id']) . '">' . lang('Delete') . '</a>');
+				$GLOBALS['phpgw']->template->set_var('row_view','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.view&news_id=' . $item['id']) . '">' . lang('view') . '</a>');
+				$GLOBALS['phpgw']->template->set_var('row_edit','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.edit&news_id=' . $item['id']) . '">' . lang('edit') . '</a>');
+				$GLOBALS['phpgw']->template->set_var('row_delete','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.delete&news_id=' . $item['id']) . '">' . lang('Delete') . '</a>');
 
-				$this->template->parse('rows','row',True);
+				$GLOBALS['phpgw']->template->parse('rows','row',True);
 			}
 
 			if (! $total)
 			{
-				$nextmatchs->template_alternate_row_color(&$this->template);
-				$this->template->set_var('row_message',lang('No entries found'));
-				$this->template->parse('rows','row_empty',True);
+				$nextmatchs->template_alternate_row_color(&$GLOBALS['phpgw']->template);
+				$GLOBALS['phpgw']->template->set_var('row_message',lang('No entries found'));
+				$GLOBALS['phpgw']->template->parse('rows','row_empty',True);
 			}
 
 			if ($total)
 			{
-				$this->template->set_var('link_view_cat','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&cat_id=' . $cat_id) . '">' . lang('View this category') . '</a>');
+				$GLOBALS['phpgw']->template->set_var('link_view_cat','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.show_news&cat_id=' . $cat_id) . '">' . lang('View this category') . '</a>');
 			}
 			else
 			{
-				$this->template->set_var('link_view_cat',lang('View this category'));
+				$GLOBALS['phpgw']->template->set_var('link_view_cat',lang('View this category'));
 			}
 
-			$this->template->set_var('link_add',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.add&news%5Bcategory%5D=' . $cat_id));
-			$this->template->set_var('lang_add',lang('add'));
+			$GLOBALS['phpgw']->template->set_var('link_add',$GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.add&news%5Bcategory%5D=' . $cat_id));
+			$GLOBALS['phpgw']->template->set_var('lang_add',lang('add'));
 
-			$this->template->pfp('out','list');
+			$GLOBALS['phpgw']->template->pfp('out','list');
 		}
 	}
