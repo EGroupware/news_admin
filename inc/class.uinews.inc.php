@@ -491,7 +491,7 @@
 
 			foreach($items as $item)
 			{
-				$this->nextmatchs->template_alternate_row_color(&$this->template);
+				$this->nextmatchs->template_alternate_row_color($this->template);
 				$this->template->set_var('row_date',$GLOBALS['phpgw']->common->show_date($item['date']));
 				if(strlen($item['news_subject']) > 40)
 				{
@@ -513,7 +513,7 @@
 
 			if(!$this->bo->total)
 			{
-				$this->nextmatchs->template_alternate_row_color(&$this->template);
+				$this->nextmatchs->template_alternate_row_color($this->template);
 				$this->template->set_var('row_message',lang('No entries found'));
 				$this->template->parse('rows','row_empty',True);
 			}
