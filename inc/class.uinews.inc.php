@@ -18,6 +18,9 @@
 	{
 		var $template;
 		var $db;
+		var $public_functions = array(
+					'show_news' => True
+				);
 
 		function uinews()
 		{
