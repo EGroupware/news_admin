@@ -99,7 +99,7 @@
 				$var = Array(
 					'subject'	=> $this->db->f('news_subject'),
 					'submitedby'	=> 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($this->db->f('news_submittedby')) . ' on ' . $GLOBALS['phpgw']->common->show_date($this->db->f('news_date')),
-					'content'	=> nl2br($this->db->f('news_content'))
+					'content'	=> nl2br(stripslashes($this->db->f('news_content')))
 				);
 
 				$this->template->set_var($var);

@@ -20,8 +20,7 @@
 	);
 	include('../header.inc.php');
 
-	$news = createobject('news_admin.uinews');
-	$news->show_news(True);
+	ExecMethod('news_admin.uinews.show_news',True);
 
 	$GLOBALS['phpgw']->common->phpgw_footer();
 ?>
