@@ -1,4 +1,5 @@
 active	news_admin	de	Aktiv
+add new article	news_admin	de	Neue Nachricht hinzufügen
 add new news	news_admin	de	Neue Nachricht hinzufügen
 add news item	news_admin	de	Eine neue Nachricht hinzufügen
 all news	news_admin	de	Alle Nachrichten
@@ -9,6 +10,7 @@ configure rss exports	news_admin	de	RSS Export konfigurieren
 contains html	news_admin	de	Beinhaltet HTML
 content	news_admin	de	Inhalt
 edit news item	news_admin	de	Nachricht bearbeiten
+failed to add message	news_admin	de	
 format for links to items	news_admin	de	
 format of export	news_admin	de	Exportformat
 from	news_admin	de	Von
@@ -27,19 +29,26 @@ maintain news	admin	de	Nachrichten pflegen
 message has been added	news_admin	de	Nachricht wurde hinzugefügt
 more news	news_admin	de	Mehr News
 new item has been added	news_admin	de	Neue Nachricht wurde hinzugefügt
-news admin	news_admin	de	Nachrichten Administration
+news admin	news_admin	de	Nachrichten Administrator
+news administration	news_admin	de	Nachrichten Administration
 news item has been added	news_admin	de	Nachrichten wurde hinzugefügt
 news item has been updated	news_admin	de	Nachrichten wurde upgedatet
 news_admin	common	de	Nachrichten
 no entries found	news_admin	de	Keine Einträge gefunden
 no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
 no rss export	news_admin	de	Kein RSS export
+number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten welche auf der Startseite angezeit werden.
 on	news_admin	de	An
 publish date	news_admin	de	Veröffentlichungsdatum
 read permissions	news_admin	de	Leserechte
+should news_admin display the latest article headlines on the main screen.	news_admin	de	
+show latest news articles?	news_admin	de	
+show news articles on main page?	news_admin	de	
+small view	news_admin	de	
 submitted by	common	de	Eingtragen von
 teaser	news_admin	de	Anreiser
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
+the number of articles to display on the main screen.	news_admin	de	
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 until	news_admin	de	bis
 view this category	news_admin	de	Diese Kategorie anzeigen
