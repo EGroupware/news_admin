@@ -1,6 +1,6 @@
 active	news_admin	de	Aktiv
-add new news	news_admin	de	Neue Nachricht hinzufÃ¼gen
-add news item	news_admin	de	Eine neue Nachricht hinzufÃ¼gen
+add new news	news_admin	de	Neue Nachricht hinzufügen
+add news item	news_admin	de	Eine neue Nachricht hinzufügen
 all news	news_admin	de	Alle Nachrichten
 always	news_admin	de	Immer
 configuration	news_admin	de	Konfiguration
@@ -18,24 +18,24 @@ image link	news_admin	de	Link des Bildes
 image title	news_admin	de	Titel des Bildes
 image url	news_admin	de	URL des Bildes
 implies read permission	news_admin	de	beinhaltet Leserechte
-item has been deleted	news_admin	de	Nachricht gelÃ¶scht
+item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
 link	news_admin	de	Link
-main	news_admin	de	HauptmenÃ¼
+main	news_admin	de	Hauptmenü
 maintain	news_admin	de	
 maintain news	admin	de	Nachrichten pflegen
-message has been added	news_admin	de	Nachricht wurde hinzugefÃ¼gt
+message has been added	news_admin	de	Nachricht wurde hinzugefügt
 more news	news_admin	de	Mehr News
-new item has been added	news_admin	de	Neue Nachricht wurde hinzugefÃ¼gt
+new item has been added	news_admin	de	Neue Nachricht wurde hinzugefügt
 news admin	news_admin	de	Nachrichten Administration
-news item has been added	news_admin	de	Nachrichten wurde hinzugefÃ¼gt
+news item has been added	news_admin	de	Nachrichten wurde hinzugefügt
 news item has been updated	news_admin	de	Nachrichten wurde upgedatet
 news_admin	common	de	Nachrichten
-no entries found	news_admin	de	Keine EintrÃ¤ge gefunden
+no entries found	news_admin	de	Keine Einträge gefunden
 no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
 no rss export	news_admin	de	Kein RSS export
 on	news_admin	de	An
-publish date	news_admin	de	VerÃ¶ffentlichungsdatum
+publish date	news_admin	de	Veröffentlichungsdatum
 read permissions	news_admin	de	Leserechte
 submitted by	common	de	Eingtragen von
 teaser	news_admin	de	Anreiser
