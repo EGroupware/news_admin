@@ -13,8 +13,8 @@
   /* $Id$ */
 
 	$file = Array(
-		'Maintain news' => $phpgw->link('/index.php','menuaction=news_admin.uiadmin.news_list'),
-		'Categories'    => $phpgw->link('/preferences/categories.php','cats_app=news_admin')
+		'Maintain news' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'),
+		'Categories'    => $GLOBALS['phpgw']->link('/preferences/categories.php','cats_app=news_admin')
 	);
 
 	display_section('news_admin','News',$file);
