@@ -10,7 +10,7 @@ configure rss exports	news_admin	de	RSS Export konfigurieren
 contains html	news_admin	de	Beinhaltet HTML
 content	news_admin	de	Inhalt
 edit news item	news_admin	de	Nachricht bearbeiten
-failed to add message	news_admin	de	
+failed to add message	news_admin	de	Hinzufügen einer neuen Nachricht fehlgeschlagen
 format for links to items	news_admin	de	
 format of export	news_admin	de	Exportformat
 from	news_admin	de	Von
@@ -43,12 +43,12 @@ publish date	news_admin	de	Veröffentlichungsdatum
 read permissions	news_admin	de	Leserechte
 should news_admin display the latest article headlines on the main screen.	news_admin	de	
 show latest news articles?	news_admin	de	
-show news articles on main page?	news_admin	de	
+show news articles on main page?	news_admin	de	Neue Nachrichten auf der Hauptseite anzeigen
 small view	news_admin	de	
 submitted by	common	de	Eingtragen von
 teaser	news_admin	de	Anreiser
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
-the number of articles to display on the main screen.	news_admin	de	
+the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 until	news_admin	de	bis
 view this category	news_admin	de	Diese Kategorie anzeigen
