@@ -9,13 +9,15 @@
   *  Free Software Foundation; either version 2 of the License, or (at your  *
   *  option) any later version.                                              *
   \**************************************************************************/
-
   /* $Id$ */
 
-	$file = Array(
-		'Maintain news' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'),
-		'Categories'    => $GLOBALS['phpgw']->link('/preferences/categories.php','cats_app=news_admin')
-	);
+	{
+		$file = Array
+		(
+			'Maintain news'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiadmin.news_list'),
+			'Global Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname)
+		);
 
-	display_section('news_admin','News Admin',$file);
+		display_section($appname,$appname,$file);
+	}
 ?>
