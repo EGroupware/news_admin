@@ -128,6 +128,7 @@
 			{
 				$link_data['menuaction'] = 'news_admin.uinews.read_news';
 				$link_data['start'] = $this->start - $limit;
+				$link_data['cat_id'] = $this->cat_id;
 				$this->template->set_var('lesslink',
 					'<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) . '">&lt;&lt;&lt;</a>'
 				);
@@ -136,6 +137,7 @@
 			{
 				$link_data['menuaction'] = 'news_admin.uinews.read_news';
 				$link_data['start'] = $this->start + $limit;
+				$link_data['cat_id'] = $this->cat_id;
 				$this->template->set_var('morelink',
 					'<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) . '">' . lang('More news') . '</a>'
 				);
