@@ -1,13 +1,47 @@
 active	news_admin	fi	Aktiivinen
+add new article	news_admin	fi	Lisää uusi artikkeli
+add new news	news_admin	fi	Lisää uusi uutinen
 add news item	news_admin	fi	Lisää uutinen
+all news	news_admin	fi	Kaikki uutiset
+always	news_admin	fi	Aina
+configuration	news_admin	fi	Konfiguraatio
+configure access permissions	common	fi	Konfiguroinnin pääsy luvat
+contains html	news_admin	fi	Sisältää HTML
 content	news_admin	fi	Sisältö
+edit news item	news_admin	fi	muokkaa uutista
+failed to add message	news_admin	fi	uuden viestin lisääminen epäonnistui
+format of export	news_admin	fi	Viennin formaatti
+from	news_admin	fi	jostakin
+global news	news_admin	fi	maailmanlaajuinen uutinen
+image link	news_admin	fi	Kuva linkki
+image title	news_admin	fi	Kuvan otsikko
+image url	news_admin	fi	Kuvan URL
+implies read permission	news_admin	fi	sisältää lukemis luvat
 item has been deleted	news_admin	fi	Kohde poistettu
+item not found	news_admin	fi	Kohdetta ei löydetty
+link	news_admin	fi	Linkki
+maintain	news_admin	fi	Ylläpito
 maintain news	admin	fi	Uutisten ylläpito
+message has been added	news_admin	fi	Viesti on lisätty
+more news	news_admin	fi	Lisää uutisia
 new item has been added	news_admin	fi	Uusi kohde lisätty
+news item has been added	news_admin	fi	uutisia ollaan lisätty
+news item has been updated	news_admin	fi	uutisia ollaan päivitetty
 news_admin	common	fi	Uutisten ylläpito
 no entries found	news_admin	fi	ei kohteita
+publish date	news_admin	fi	Julkaisu päivä
+read news	news_admin	fi	lue uutisia
+read permissions	news_admin	fi	lukemis luvat
+should news_admin display the latest article headlines on the main screen.	news_admin	fi	Näyttäisikö uutisten hallinta viimeisimmät artikkeleiden otsikot päänäytöllä.
+show latest news articles?	news_admin	fi	Näytä viimeisin uutis artikkeli?
+show news articles on main page?	news_admin	fi	näytä uutis artikkelit pää sivussa
+small view	news_admin	fi	pieni näkymä
 submitted by	common	fi	Luonut
 the news content is missing	news_admin	fi	Uutisen sisältö puuttuu
+the number of articles to display on the main screen.	news_admin	fi	Artikkeleiden määrä näytetään päänäytöllä.
 the subject is missing	news_admin	fi	Uutisen otsikko puuttuu
 view this category	news_admin	fi	Näytä luokka
+visible	news_admin	fi	Näkyvä
 webpage news admin	news_admin	fi	Web-uutisten ylläpito
+write	news_admin	fi	irjoittaa
+write permissions	news_admin	fi	Kirjoitus luvat
