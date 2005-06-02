@@ -46,8 +46,18 @@
 	 </span>
     </td>
    </tr>
-   <input type="hidden" name="news[is_html]" value="1">
-   <input type="hidden" name="news[date]" value="{value_date}">
+		 
+   <!--tr class="row_off">
+    <td>{label_is_html}&nbsp;</td>
+    <td>{value_is_html}&nbsp;</td>
+   </tr-->
+   <input type="hidden" name="news[is_html]" value="1">	
+
+   <tr class="row_off">
+    <td>{label_send_mail}&nbsp;</td>
+    <td>{value_send_mail}&nbsp;</td>
+   </tr>
+
    <tr class="th">
     <td colspan="2" align="right">
      {form_button}

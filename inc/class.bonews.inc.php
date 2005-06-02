@@ -314,5 +314,111 @@
 				 return False;
 			}
 		}
+
+		// The following functions are added by wbshang @ realss, 2005-2-21
+
+		// Get addressbook categories that have received mails
+		function get_receiver_cats($news_id)
+		{
+			if(!$news_id)
+			{
+				return array();
+			}
+			return ($cat_id = $this->sonews->get_receiver_cats($news_id)) ? explode(",", $cat_id) : array();
+		}
+
+		// Send mail to $news['mailto'] with the content of $news
+		function send_mail($news)
+		{
+			// first, get all members who are gonna to receive this mail
+			if(!is_object($GLOBALS['phpgw']->contacts))
+			{
+				$GLOBALS['phpgw']->contacts = CreateObject('phpgwapi.contacts');
+			}
+			$fields = array(
+				'n_family' => True,
+				'n_given'  => True,
+				'email'    => True,
+				'email_home' => True,
+			//	'cat_id' => True
+			);
+			$members = array();
+			foreach($news['mailto'] as $cat_id)
+			{
+				$filter = 'tid=n,cat_id=' . $cat_id;
+        		$members = array_merge($members,$GLOBALS['phpgw']->contacts->read('','',$fields,'',$filter));
+      		}
+
+			// then, prepare to send mail
+      		$mail = CreateObject('phpgwapi.send');
+
+      		// build subject
+      		$subject = lang('News') . ': ' . $news['subject'];
+
+      		// build body
+      		$body  = '';
+      		$body .= lang('Subject') . ': ' . $news['subject'] . "<br/>";
+			$body .= lang('Submitted By') . $GLOBALS['phpgw']->common->grab_owner_name($news['submittedby']) . "<br/>";
+      		$body .= lang('Date') . ': ' . $GLOBALS['phpgw']->common->show_date($news['date']) . "<br/><br/>";
+      		$body .= lang('Content') . ":<br/>";
+			$body .= $news['content'] . "<br/><br/>";
+
+			$mail->Subject = $subject;
+			$mail->Body = $body;
+			$mail->From = $GLOBALS['phpgw_info']['user']['preferences']['news_admin']['EmailFrom'];
+			$mail->FromName = $GLOBALS['phpgw']->common->grab_owner_name($news['submittedby']);
+			$replyto = $GLOBALS['phpgw_info']['user']['preferences']['news_admin']['EmailReplyto'];
+			$mail->AddReplyTo($replyto);
+			$mail->Sender = $replyto;   // the Return-Path
+			$mail->IsHTML(true);
+		/*	attach files, no use now
+			if(!empty($news['fileadded']))
+			{
+				foreach($news['fileadded'] as $file)
+				{
+					$p = $this->vfs->path_parts(array(
+						'string' => '/news_admin/'.$news['id'].'/'.$file['name'],
+						'relatives' => array(
+							RELATIVE_NONE)
+						));
+					$mail->AddAttachment($p->real_full_path,$file['name'],'base64',$file['type']);
+				}  // it seems that the sumsize of attachments is limited
+			} */
+
+	  		foreach($members as $member)
+			{
+				if($sent[$member['id']])
+				{
+					continue;
+				}
+				$sent[$member['id']] = True;
+				if($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['SendtohomeEmail'])  /* send to the home_email if business_email is empty */
+				{
+					$to = strpos($member['email'],'@') ? $member['email'] : $member['email_home'];
+				}
+				else
+				{
+					$to = $member['email'];
+				}
+				if(!strpos($to,'@'))
+				{
+					continue;     // no email address available, just skip it
+				}
+				$toname = $member['n_given'] . ' ' . $member['n_family'];
+
+				$mail->ClearAddresses();
+				$mail->AddAddress($to,$toname);
+
+      			if (!$mail->Send())
+      			{
+					$errors[] = "Error sending mail to $toname &lt;$to&gt;";
+				//	echo $mail->ErrorInfo;
+				}
+			}
+			if(is_array($errors))
+			{
+				return $errors;
+			}
+		}
 	}
 ?>

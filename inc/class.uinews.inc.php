@@ -38,6 +38,7 @@
 
 		function uinews()
 		{
+		  $GLOBALS['phpgw']->html = createobject('phpgwapi.html');
 			$this->nextmatchs = createobject('phpgwapi.nextmatchs');
 			$this->template = $GLOBALS['phpgw']->template;
 			$this->bo   = CreateObject('news_admin.bonews',True);
@@ -47,7 +48,6 @@
 			$this->order = $this->bo->order;
 			$this->sort = $this->bo->sort;
 			$this->cat_id = $this->bo->cat_id;
-			$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
 		}
 
 		//with $default, we are called from the news form
@@ -56,7 +56,7 @@
 			$link_data['menuaction'] = ($type == 'read') ? 'news_admin.uinews.read_news' : 'news_admin.uinews.write_news';
 			$link_data['start'] = 0;
 			$right = ($type == 'read') ? PHPGW_ACL_READ : PHPGW_ACL_ADD;
-			$selectlist = ($default === false) ? ('<option>' . lang($type . ' news') . '</option>') : '';
+			$selectlist = ($default === false) ? ('<option>' . lang($type . ' news') . '</option>') : '<option value="none">' . lang('PLEASE SELECT') . '...</option>';  // wbshang 2005-4-4
 			foreach($this->bo->cats as $cat)
 			{
 				if($this->bo->acl->is_permitted($cat['id'],$right))
@@ -274,7 +274,10 @@
 		{
 			if($_POST['cancel'])
 			{
-				Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.read_news'));
+			// Changed by dawnlinux @ realss.com 
+			// When a user has fininshed adding a news, it will jump to read news page.
+			//Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'));
+			Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.read_news'));
 				return;
 			}
 			if($_POST['submitit'])
@@ -288,6 +291,10 @@
 				{
 					$errors[] = lang('The news content is missing');
 				}
+				if($this->news_data['category'] == "none")
+				{
+					$errors[] = lang('Please select a category');
+				}
 				if(!is_array($errors))
 				{
 					$this->news_data['date'] = time();
@@ -300,6 +307,17 @@
 					else
 					{
 						$this->message = lang('Message has been added');
+
+						//then send mail to receiver, wbshang 2005-5-12
+						if($this->news_data['mailto'])
+						{
+							$errors = $this->bo->send_mail($this->news_data);
+							if(is_array($errors))
+							{
+								$this->message = $errors;
+							}
+						}
+
 						//after having added, we must switch to edit mode instead of stay in add
 						$this->modify('edit');
 						return;
@@ -361,11 +379,12 @@
 			  if(isset($this->news_data['category']))
 			  {
 			      Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news&cat_id='.$this->news_data['category']));
+			      return;
 			  }
 			  else
 			  {
 			      Header('Location: ' . $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'));
-				return;
+			      return;
 			  }
 			}
 
@@ -379,12 +398,41 @@
 				{
 					$errors[] = lang('The news content is missing');
 				}
+				if($this->news_data['category'] == "none")
+				{
+					$errors[] = lang('Please select a category');
+				}
 
 				if(!is_array($errors))
 				{
 					$this->bo->set_dates($_POST['from'],$_POST['until'],$this->news_data);
 					$this->bo->edit($this->news_data);
 					$this->message = lang('News item has been updated');
+
+					// send mail to receiver,wbshang 2005-5-12
+				/*	// the following code is used to detect whether there are new receivers,if do,send them mail.
+					// but I think it is necessary to send new mail to all receivers if the news is modified,so I comment it. wbshang 2005-5-12
+					$cat_id = $this->bo->get_receiver_cats($this->news_id);
+					foreach($this->news_data['mailto'] as $entry)
+					{
+						if(!in_array($entry,$cat_id))
+						{
+							$mailto[] = $entry;
+						}
+					}
+					if(!empty($mailto))
+					{
+						$this->bo->send_mail($news,$mailto);
+					} */
+					if($this->news_data['mailto'])
+					{
+						$errors = $this->bo->send_mail($this->news_data);
+						if(is_array($errors))
+						{
+							$this->message = $errors;
+						}
+					}
+
 				}
 				else
 				{
@@ -404,11 +452,11 @@
 		function modify($type = 'edit')
 		{
 			$options = $this->bo->get_options($this->news_data);
-			$style='width:600px; min-width:500px; height:400px;'; 
+			$style='width:600px; min-width:500px; height:400px;';
 			$content = $GLOBALS['phpgw']->html->htmlarea('news[content]',$this->news_data['content'],$style);
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
-
+			
 			$this->template->set_file(array(
 				'form' => 'admin_form.tpl'
 			));
@@ -444,7 +492,6 @@
 				'label_category' => lang('Category') . ':',
 				'value_category' => '<select name="news[category]">' . $this->selectlist('write', (int)$this->news_data['category']) . '</select>',
 				'label_visible' => lang('Visible') . ':',
-				'value_date'	=> $this->news_data['date'],
 				'value_begin_d' =>  $this->sbox->getDays('news[begin_d]',date('j',$this->news_data['begin'])),
 				'value_begin_m' =>  $this->sbox->getMonthText('news[begin_m]',date('n',$this->news_data['begin'])),
 				'value_begin_y' =>  $this->sbox->getYears('news[begin_y]',date('Y',$this->news_data['begin']),date('Y')),
@@ -453,11 +500,19 @@
 				'value_end_d' =>  $this->sbox->getDays('news[end_d]',date('j',$this->news_data['end'])) ,
 				'value_end_m' =>  $this->sbox->getMonthText('news[end_m]',date('n',$this->news_data['end'])),
 				'value_end_y' =>  $this->sbox->getYears('news[end_y]',date('Y',$this->news_data['end']),date('Y')),
-				//the option is not needed after having added WYSIWYG-htmleditor
-				//for editing news
-				/*'label_is_html' => lang('Contains HTML'),
-				'value_is_html' => '<input type="checkbox" value="1" name="news[is_html]"' . ($this->news_data['is_html'] ? ' checked="1"' : '') .'>',*/
+				'label_is_html' => lang('Contains HTML'),
+				'value_is_html' => '<input type="checkbox" value="1" name="news[is_html]"' . ($this->news_data['is_html'] ? ' checked="1"' : '') .'>',
 			));
+
+			//the following label is added by wbshang,2005-5-12
+			if($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['SendMail'])
+			{
+				$contact_options = $this->cat_options($this->news_data['mailto']);   // added by wbshang,used to send mail
+				$this->template->set_var(array(
+					'label_send_mail' => lang('Send Mail to Others') . '?',
+					'value_send_mail' => '<select multiple="multiple" size="5" name="news[mailto][]">' . $contact_options . '</select>',
+				));
+			}
 			
 			$this->template->pfp('out','form');
 		}
@@ -538,6 +593,15 @@
 			$this->template->set_var('lang_add',lang('Add new news'));
 
 			$this->template->pfp('out','list');
+		}
+
+		// the following functions are added by wbshang @ realss, 2005-5-12
+		// Get the categories list of addressbook,used to send mail
+		function cat_options($selected)
+		{
+			$cat = CreateObject('phpgwapi.categories','','addressbook');
+			$cat_id = is_array($selected) ? $selected : $this->bo->get_receiver_cats($this->news_id);
+			return $cat->formated_list('select','all',$cat_id,True);
 		}
 	}
 ?>

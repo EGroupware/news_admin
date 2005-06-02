@@ -108,6 +108,8 @@
 				'news_teaser'		=> $news['teaser'],
 				'news_cat'			=> (int)$news['category'],
 				'is_html'			=> (int)!!$news['is_html'],
+				//added by wbshang,2005-5-13
+				'mail_receiver'     => @implode(",",$news['mailto']),
 			);
 			$this->db->insert('phpgw_news', $add_array, '', __LINE__, __FILE__);
 
@@ -124,6 +126,8 @@
 				'news_end'		=> $news['end'],
 				'news_cat'		=> $news['category'],
 				'is_html'		=> $news['is_html'] ? 1 : 0,
+				//added by wbshang,2005-5-13
+				'mail_receiver'     => @implode(",",$news['mailto']),
 			);
 			$this->db->update('phpgw_news', $update_array, array('news_id' => (int)$news['id']), __LINE__, __FILE__);
 		}
@@ -179,4 +183,15 @@
 // 			}
 // 			return $items;
 // 		}
+
+		// the following functions are added by wbshang,2005-5-13
+
+		// to get the cat_ids that have received the news by email
+		function get_receiver_cats($news_id)
+		{
+			$sql = "SELECT mail_receiver FROM phpgw_news WHERE news_id=" . (int)$news_id;
+			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->next_record();
+			return $this->db->f('mail_receiver');
+		}
 	}

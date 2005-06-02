@@ -25,4 +25,20 @@
 
 	create_input_box('Number of articles to display on the main screen','homeShowLatestCount',
 			'The number of articles to display on the main screen.','10',3);
+	
+	// added by wbshang @ realss, 2005-3-3
+	create_check_box('Show newsletter option when add news?','SendMail','Do you want to show the newsletter option when add news?');
 
+	$show_entries = array(
+		0 => lang('No'),
+		1 => lang('Yes'),
+	);
+	create_select_box('Send mail to home_email if the business_email is empty?','SendtohomeEmail',$show_entries,
+		'Should News_Admin send mail to home_email if the business_email is empty.');
+	unset($show_entries);
+
+	create_input_box('Where is the email from','EmailFrom',
+			'Where do you want the receiver to see the email is from.','',22);
+
+	create_input_box('Where to receive the replied email','EmailReplyto',
+			'Where the replied email will be sent to.','',22);
