@@ -19,6 +19,7 @@
 		function soacl()
 		{
 			copyobj($GLOBALS['phpgw']->db,$this->db);
+			$this->db->set_app('news_admin');
 		}
 
 		function get_rights($location)

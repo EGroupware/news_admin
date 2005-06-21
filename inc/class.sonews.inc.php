@@ -21,6 +21,7 @@
 		function sonews()
 		{
 			copyobj($GLOBALS['phpgw']->db,$this->db);
+			$this->db->set_app('news_admin');
 		}
 
 		function get_newslist($cat_id, $start, $order,$sort,$limit=0,$activeonly,&$total)
