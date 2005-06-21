@@ -453,7 +453,18 @@
 		{
 			$options = $this->bo->get_options($this->news_data);
 			$style='width:600px; min-width:500px; height:400px;';
-			$content = $GLOBALS['phpgw']->html->htmlarea('news[content]',$this->news_data['content'],$style);
+			if ($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['uploaddir'])
+			{
+				$plugins='UploadImage,ContextMenu,TableOperations,SpellChecker';
+			
+				$UploadImage = array(
+					'app' => 'news_admin',
+					'upload_dir' => $GLOBALS['phpgw_info']['user']['preferences']['news_admin']['uploaddir'],
+					'admin_method' => $GLOBALS['phpgw']->link('/preferences/preferences.php','appname=news_admin'),
+				); 
+				$GLOBALS['phpgw']->session->appsession('UploadImage','phpgwapi',$UploadImage);
+			}
+			$content = $GLOBALS['phpgw']->html->htmlarea('news[content]',$this->news_data['content'],$style,'',$plugins);
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 			

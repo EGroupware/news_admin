@@ -26,6 +26,9 @@
 	create_input_box('Number of articles to display on the main screen','homeShowLatestCount',
 			'The number of articles to display on the main screen.','10',3);
 	
+	create_input_box('Directory for image upload ','uploaddir',
+			'Needs to be writeable by webserver',EGW_SERVER_ROOT. '/news_admin/uploads',22);
+			
 	// added by wbshang @ realss, 2005-3-3
 	create_check_box('Show newsletter option when add news?','SendMail','Do you want to show the newsletter option when add news?');
 
