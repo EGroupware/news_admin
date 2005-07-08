@@ -24,12 +24,23 @@
 
 	display_sidebox can be called as much as you like
  */
-
-$menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
-	$file = Array(
-		'read news' => $GLOBALS['phpgw']->link('/news_admin/index.php'),
-		'Add New Article' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.add')
-	);
+	
+	$menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
+	$file['read news'] = $GLOBALS['phpgw']->link('/news_admin/index.php');
+	
+	$news_admin_acl =& CreateObject('news_admin.boacl');
+	$user_acl = $news_admin_acl->get_permissions(true);
+	foreach($user_acl as $location => $right)
+	{
+		if(!(strpos($location,'L') === false) && ($right & PHPGW_ACL_ADD))
+		{
+			$file['Add New Article'] =  $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.add');
+			break;
+		}
+	}
+	unset($news_admin_acl);
+	unset($user_acl);
+	
 	display_sidebox($appname,$menu_title,$file);
  
 	
