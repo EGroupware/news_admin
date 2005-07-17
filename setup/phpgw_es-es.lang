@@ -9,6 +9,8 @@ configure access permissions	common	es-es	Configurar permisos de acceso
 configure rss exports	common	es-es	Configurar exportación RSS
 contains html	news_admin	es-es	Contiene HTML
 content	news_admin	es-es	Contenido
+directory for image upload	news_admin	es-es	Directorio para subir imágenes
+do you want to show the newsletter option when add news?	news_admin	es-es	¿Desea mostrar la opción de boletín al añadir noticias?
 edit news item	news_admin	es-es	Editar elemento de noticias
 failed to add message	news_admin	es-es	Fallo al añadir un mensaje nuevo
 format for links to items	news_admin	es-es	Formato para los enlaces a los elementos
@@ -29,7 +31,9 @@ maintain	news_admin	es-es	Mantener
 maintain news	admin	es-es	Mantener noticias
 message has been added	news_admin	es-es	El mensaje ha sido añadido
 more news	news_admin	es-es	Más noticias
+needs to be writeable by webserver	news_admin	es-es	Necesita tener permiso de escritura para el servidor web
 new item has been added	news_admin	es-es	Se ha añadido un elemento nuevo
+news	news_admin	es-es	Noticias
 news admin	news_admin	es-es	Administrador de noticias
 news administration	news_admin	es-es	Administración de noticias
 news item has been added	news_admin	es-es	Se ha añadido un elemento de noticias
@@ -40,12 +44,17 @@ no news	news_admin	es-es	Sin noticias está actualmente en la categoría
 no rss export	news_admin	es-es	No se exporta RSS
 number of articles to display on the main screen	news_admin	es-es	Número de artículos a mostrar en la pantalla principal
 on	news_admin	es-es	en
+please select a category	news_admin	es-es	Por favor, seleccione una categoría
 publish date	news_admin	es-es	Fecha de publicación
 read news	news_admin	es-es	Leer noticias
 read permissions	news_admin	es-es	Leer permisos
+send mail to home_email if the business_email is empty?	news_admin	es-es	¿Enviar el correo a home_email si business_email está vacío?
+send mail to others	news_admin	es-es	Enviar correo a otros
 should news_admin display the latest article headlines on the main screen.	news_admin	es-es	¿Mostrar el encabezado del último artículo en la pantalla principal?
+should news_admin send mail to home_email if the business_email is empty.	news_admin	es-es	Si el administrador de noticias debe enviar el correo a home_email si business_email está vacío.
 show latest news articles?	news_admin	es-es	¿Mostrar los últimos artículos de noticias?
 show news articles on main page?	news_admin	es-es	¿Mostrar artículos de noticias en la página principal?
+show newsletter option when add news?	news_admin	es-es	¿Mostrar la opción de boletín al añadir noticias?
 small view	news_admin	es-es	Vista reducida
 submitted by	common	es-es	Enviado por
 teaser	news_admin	es-es	Bromista
@@ -56,5 +65,9 @@ until	news_admin	es-es	hasta
 view this category	news_admin	es-es	Ver esta categoría
 visible	news_admin	es-es	Visible
 webpage news admin	news_admin	es-es	Administrador de noticias por página web
+where do you want the receiver to see the email is from.	news_admin	es-es	De dónde quiere que el receptor vea que viene el correo.
+where is the email from	news_admin	es-es	De dónde es el correo
+where the replied email will be sent to.	news_admin	es-es	Dónde se enviará el correo respondido.
+where to receive the replied email	news_admin	es-es	Dónde recibir el correo respondido
 write	news_admin	es-es	Escribir
 write permissions	news_admin	es-es	Escribir permisos
