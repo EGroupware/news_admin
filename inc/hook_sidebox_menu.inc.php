@@ -24,41 +24,29 @@
 
 	display_sidebox can be called as much as you like
  */
-	
-	$menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
-	$file['read news'] = $GLOBALS['phpgw']->link('/news_admin/index.php');
-	
-	$news_admin_acl =& CreateObject('news_admin.boacl');
-	$user_acl = $news_admin_acl->get_permissions(true);
-	foreach($user_acl as $location => $right)
-	{
-		if(!(strpos($location,'L') === false) && ($right & PHPGW_ACL_ADD))
-		{
-			$file['Add New Article'] =  $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.add');
-			break;
-		}
-	}
-	unset($news_admin_acl);
-	unset($user_acl);
-	
+
+	$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
+	$file = Array(
+		'read news' => $GLOBALS['egw']->link('/news_admin/index.php'),
+		'Add New Article' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.add')
+	);
 	display_sidebox($appname,$menu_title,$file);
- 
-	
- 	$title = lang('Preferences');
+
+	$title = lang('Preferences');
 	$file = array(
-		'Preferences'     => $GLOBALS['phpgw']->link('/preferences/preferences.php','appname='.$appname),
+		'Preferences' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname)
 	);
 	display_sidebox($appname,$title,$file);
 
-	if ($GLOBALS['phpgw_info']['user']['apps']['admin'])
+	if($GLOBALS['egw_info']['user']['apps']['admin'])
 	{
-        $title = lang('Administration');
-        $file = Array(
-                'News Administration'  => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
-                'global categories' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
-                'configure access permissions' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
-                'configure rss exports' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
-        );
+		$title = lang('Administration');
+		$file = Array(
+			'News Administration'  => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
+			'global categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
+			'configure access permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
+			'configure rss exports' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
+		);
 
 		display_sidebox($appname,$title,$file);
 	}

@@ -18,30 +18,74 @@
 		0 => lang('No'),
 		1 => lang('Yes'),
 		2 => lang('Yes').' - '.lang('small view'),
-	);	
-	create_select_box('Show news articles on main page?','homeShowLatest',$show_entries,
-		'Should News_Admin display the latest article headlines on the main screen.');
-	unset($show_entries);
-
-	create_input_box('Number of articles to display on the main screen','homeShowLatestCount',
-			'The number of articles to display on the main screen.','10',3);
-	
-	create_input_box('Directory for image upload ','uploaddir',
-			'Needs to be writeable by webserver',EGW_SERVER_ROOT. '/news_admin/uploads',22);
-			
-	// added by wbshang @ realss, 2005-3-3
-	create_check_box('Show newsletter option when add news?','SendMail','Do you want to show the newsletter option when add news?');
-
-	$show_entries = array(
+	);
+	$_show_entries = array(
 		0 => lang('No'),
 		1 => lang('Yes'),
 	);
-	create_select_box('Send mail to home_email if the business_email is empty?','SendtohomeEmail',$show_entries,
-		'Should News_Admin send mail to home_email if the business_email is empty.');
-	unset($show_entries);
 
-	create_input_box('Where is the email from','EmailFrom',
-			'Where do you want the receiver to see the email is from.','',22);
-
-	create_input_box('Where to receive the replied email','EmailReplyto',
-			'Where the replied email will be sent to.','',22);
+	$GLOBALS['settings'] = array(
+		'homeShowLatest' => array(
+			'type'   => 'select',
+			'label'  => 'Show news articles on main page?',
+			'name'   => 'homeShowLatest',
+			'values' => $show_entries,
+			'help'   => 'Should News_Admin display the latest article headlines on the main screen.',
+			'xmlrpc' => True,
+			'admin'  => False
+		),
+		'homeShowLatestCount' => array(
+			'type'    => 'input',
+			'label'   => 'Number of articles to display on the main screen',
+			'name'    => 'homeShowLatestCount',
+			'size'    => 3,
+			'maxsize' => 10,
+			'xmlrpc'  => True,
+			'admin'   => False
+		),
+		'uploaddir' => array(
+			'type'    => 'input',
+			'label'   => 'Directory for image upload',
+			'name'    => 'uploaddir',
+			'default' => EGW_SERVER_ROOT. '/news_admin/uploads',
+			'help'    => 'Needs to be writeable by webserver',
+			'size'    => 22,
+			'xmlrpc'  => True,
+			'admin'   => False
+		),
+		'SendMail' => array( // added by wbshang @ realss, 2005-3-3
+			'type'   => 'check',
+			'label'  => 'Show newsletter option when add news?',
+			'name'   => 'SendMail',
+			'help'   => 'Do you want to show the newsletter option when add news?',
+			'xmlrpc' => True,
+			'admin'  => False
+		),
+		'SendtohomeEmail' => array(
+			'type'   => 'select',
+			'label'  => 'Send mail to home_email if the business_email is empty?',
+			'name'   => 'SendtohomeEmail',
+			'values' => $_show_entries,
+			'help'   => 'Should News_Admin send mail to home_email if the business_email is empty.',
+			'xmlrpc' => True,
+			'admin'  => False
+		),
+		'EmailFrom' => array(
+			'type'   => 'input',
+			'label'  => 'Where is the email from',
+			'name'   => 'EmailFrom',
+			'help'   => 'Where do you want the receiver to see the email is from.',
+			'size'   => 22,
+			'xmlrpc' => True,
+			'admin'  => False
+		),
+		'EmailReplyto' => array(
+			'type'   => 'input',
+			'label'  => 'Where to receive the replied email',
+			'name'   => 'EmailReplyto',
+			'help'   => 'Where the replied email will be sent to.',
+			'size'   => 22,
+			'xmlrpc' => True,
+			'admin'  => False
+		)
+	);
