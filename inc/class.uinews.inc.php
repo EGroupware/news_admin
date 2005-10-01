@@ -390,6 +390,10 @@
 
 			if(is_array($this->news_data))
 			{
+				$this->news_data['subject'] = stripslashes($this->news_data['subject']);
+				$this->news_data['teaser'] = stripslashes($this->news_data['teaser']);
+				$this->news_data['content'] = stripslashes($this->news_data['content']);
+				
 				if(!$this->news_data['subject'])
 				{
 					$errors[] = lang('The subject is missing');
