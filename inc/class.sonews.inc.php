@@ -65,6 +65,7 @@
 					'submittedby' => $this->db->f('news_submittedby'),
 					'date'    => $this->db->f('news_date'),
 					'id'      => $this->db->f('news_id'),
+					'category' => $this->db->f('news_cat'),
 					'begin'   => $this->db->f('news_begin'),
 					'end'     => $this->db->f('news_end'),
 					'teaser'  => @htmlspecialchars($this->db->f('news_teaser', True),ENT_COMPAT,$GLOBALS['phpgw']->translation->charset()),
