@@ -459,16 +459,19 @@
 			$style='width:600px; min-width:500px; height:400px;';
 			if ($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['uploaddir'])
 			{
-				$plugins='UploadImage,ContextMenu,TableOperations,SpellChecker';
+				$plugins = 	'theme : "advanced",
+						theme_advanced_toolbar_location : "top",
+						plugins : "filemanager,fullscreen",
+						theme_advanced_buttons3_add : "separator,filemanager,fullscreen"';
 			
 				$UploadImage = array(
 					'app' => 'news_admin',
 					'upload_dir' => $GLOBALS['phpgw_info']['user']['preferences']['news_admin']['uploaddir'],
 					'admin_method' => $GLOBALS['phpgw']->link('/preferences/preferences.php','appname=news_admin'),
-				); 
+				);
 				$GLOBALS['phpgw']->session->appsession('UploadImage','phpgwapi',$UploadImage);
 			}
-			$content = $GLOBALS['phpgw']->html->htmlarea('news[content]',$this->news_data['content'],$style,'',$plugins);
+			$content = $GLOBALS['phpgw']->html->tinymce('news[content]',$this->news_data['content'],$style,$plugins);
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 			
