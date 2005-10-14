@@ -14,6 +14,7 @@ failed to add message	news_admin	de	Hinzufügen einer neuen Nachricht fehlgeschla
 format for links to items	news_admin	de	Format für Verweise auf Einträge
 format of export	news_admin	de	Exportformat
 from	news_admin	de	Von
+global categories	news_admin	de	Globale Kategorien
 global news	news_admin	de	Globale Nachrichten
 global_news	news_admin	de	Globale Nachrichten
 image link	news_admin	de	Link des Bildes
@@ -29,6 +30,7 @@ maintain news	admin	de	Nachrichten pflegen
 message has been added	news_admin	de	Nachricht wurde hinzugefügt
 more news	news_admin	de	Mehr News
 new item has been added	news_admin	de	Neue Nachricht wurde hinzugefügt
+news	news_admin	de	Nachrichten
 news admin	news_admin	de	Nachrichten Administrator
 news administration	news_admin	de	Nachrichten Administration
 news item has been added	news_admin	de	Nachrichten wurde hinzugefügt
@@ -39,9 +41,11 @@ no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
 no rss export	news_admin	de	Kein RSS export
 number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten welche auf der Startseite angezeit werden.
 on	news_admin	de	An
+please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
 publish date	news_admin	de	Veröffentlichungsdatum
 read news	news_admin	de	Nachrichten lesen
 read permissions	news_admin	de	Leserechte
+send mail to others	news_admin	de	Mail an andere senden
 should news_admin display the latest article headlines on the main screen.	news_admin	de	Sollen die neuesten Nachrichten auf der Startseite angezeigt werden.
 show latest news articles?	news_admin	de	Neuest Nachrichten anzeigen?
 show news articles on main page?	news_admin	de	Neue Nachrichten auf der Startseite anzeigen

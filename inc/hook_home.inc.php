@@ -14,35 +14,35 @@
 
 	/* $Id$ */
 
-	$showevents = (int)$GLOBALS['phpgw_info']['user']['preferences']['news_admin']['homeShowLatest'];
+	$showevents = (int)$GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowLatest'];
 	if($showevents > 0)
 	{
-		$GLOBALS['phpgw']->translation->add_app('news_admin');
+		$GLOBALS['egw']->translation->add_app('news_admin');
 		$title = lang('News Admin');
-		$portalbox = CreateObject('phpgwapi.listbox',array(
+		$portalbox =& CreateObject('phpgwapi.listbox',array(
 			'title'     => $title,
-			'primary'   => $GLOBALS['phpgw_info']['theme']['navbar_bg'],
-			'secondary' => $GLOBALS['phpgw_info']['theme']['navbar_bg'],
-			'tertiary'  => $GLOBALS['phpgw_info']['theme']['navbar_bg'],
+			'primary'   => $GLOBALS['egw_info']['theme']['navbar_bg'],
+			'secondary' => $GLOBALS['egw_info']['theme']['navbar_bg'],
+			'tertiary'  => $GLOBALS['egw_info']['theme']['navbar_bg'],
 			'width'     => '100%',
 			'outerborderwidth' => '0',
-			'header_background_image' => $GLOBALS['phpgw']->common->image('phpgwapi/templates/default','bg_filler')
+			'header_background_image' => $GLOBALS['egw']->common->image('phpgwapi/templates/default','bg_filler')
 		));
 
-		$latestcount = (int)$GLOBALS['phpgw_info']['user']['preferences']['news_admin']['homeShowLatestCount'];
+		$latestcount = (int)$GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowLatestCount'];
 		if($latestcount<=0) 
 		{
 			$latestcount = 10;
 		}
 		print_debug("showing $latestcount news items");
-		$app_id = $GLOBALS['phpgw']->applications->name2id('news_admin');
+		$app_id = $GLOBALS['egw']->applications->name2id('news_admin');
 		$GLOBALS['portal_order'][] = $app_id;
 
-		$news = CreateObject('news_admin.uinews');
+		$news =& CreateObject('news_admin.uinews');
 
 		$newslist = $news->bo->get_newslist('all',0,'','',$latestcount,True);
 
-		$image_path = $GLOBALS['phpgw']->common->get_image_path('news_admin');
+		$image_path = $GLOBALS['egw']->common->get_image_path('news_admin');
 
 		if(is_array($newslist))
 		{
@@ -51,11 +51,11 @@
 				$text = $newsitem['subject'];
 				if($showevents == 1)
 				{
-					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['phpgw']->common->grab_owner_name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['phpgw']->common->show_date($newsitem['date']);
+					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['egw']->common->grab_owner_name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['egw']->common->show_date($newsitem['date']);
 				}
 				$portalbox->data[] = array(
 					'text' => $text,
-					'link' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.read_news&news_id=' . $newsitem['id'])
+					'link' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.read_news&news_id=' . $newsitem['id'])
 				);
 			}
 			unset($text);

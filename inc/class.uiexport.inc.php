@@ -27,8 +27,8 @@
 
 		function uiexport()
 		{
-			$this->bo = createobject('news_admin.boexport',True);
-			$this->nextmatchs = createobject('phpgwapi.nextmatchs');
+			$this->bo =& CreateObject('news_admin.boexport',True);
+			$this->nextmatchs =& CreateObject('phpgwapi.nextmatchs');
 			$this->start = $this->bo->start;
 			$this->query = $this->bo->query;
 			$this->order = $this->bo->order;
@@ -49,17 +49,17 @@
 		
 		function exportlist()
 		{
-			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
 			{
 				$this->deny();
 			}
 
 			if ($_POST['btnDone'])
 			{
-				$GLOBALS['phpgw']->redirect_link('/admin/index.php');
+				$GLOBALS['egw']->redirect_link('/admin/index.php');
 			}
 
-			$GLOBALS['phpgw']->common->phpgw_header();
+			$GLOBALS['egw']->common->egw_header();
 			echo parse_navbar();
 
 			if ($_POST['btnSave'])
@@ -70,11 +70,11 @@
 				}
 			}
 
-			$GLOBALS['phpgw']->template->set_file('export', 'export.tpl');
-			$GLOBALS['phpgw']->template->set_block('export','cat_list','Cblock');
-			$GLOBALS['phpgw']->template->set_block('cat_list','config','confblock');
-			$GLOBALS['phpgw']->template->set_var(array(
-				'title' => $GLOBALS['phpgw_info']['apps']['news_admin']['title'] . ' - ' . lang('Configure RSS exports'),
+			$GLOBALS['egw']->template->set_file('export', 'export.tpl');
+			$GLOBALS['egw']->template->set_block('export','cat_list','Cblock');
+			$GLOBALS['egw']->template->set_block('cat_list','config','confblock');
+			$GLOBALS['egw']->template->set_var(array(
+				'title' => $GLOBALS['egw_info']['apps']['news_admin']['title'] . ' - ' . lang('Configure RSS exports'),
 				'lang_search' => lang('Search'),
 				'lang_save' => lang('Save'),
 				'lang_done' => lang('Done'),
@@ -86,11 +86,11 @@
 			$right = $this->nextmatchs->right('/index.php',$this->start,$this->bo->catbo->total_records,'menuaction=news_admin.uiexport.exportlist');
 
 			
-			$GLOBALS['phpgw']->template->set_var(array(
+			$GLOBALS['egw']->template->set_var(array(
 				'left' => $left,
 				'right' => $right,
 				'lang_showing' => $this->nextmatchs->show_hits($this->bo->catbo->total_records,$this->start),
-				'th_bg' => $GLOBALS['phpgw_info']['theme']['th_bg'],
+				'th_bg' => $GLOBALS['egw_info']['theme']['th_bg'],
 				'sort_cat' => $this->nextmatchs->show_sort_order(
 					$this->sort,'cat_name','cat_name','/index.php',lang('Category'),'&menuaction=news_admin.uiexport.exportlist'
 				),
@@ -102,7 +102,7 @@
 			{
 				$config = $this->bo->readconfig($cat['id']);
 				$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
-				$GLOBALS['phpgw']->template->set_var(array(
+				$GLOBALS['egw']->template->set_var(array(
 					'tr_color' => $tr_color,
 					'catname' => $cat['name'],
 					'catid' => $cat['id'],
@@ -111,7 +111,7 @@
 					'lang_item' => lang('Format for links to items'),
 					'itemsyntaxselectlist' => $this->selectlist($this->itemsyntaxtypes,$config['itemsyntax'])
 				));
-				$GLOBALS['phpgw']->template->set_var('confblock','');
+				$GLOBALS['egw']->template->set_var('confblock','');
 				foreach (array(
 					'title'        => lang('Title'),
 					'link'         => lang('Link'),
@@ -120,17 +120,17 @@
 					'img_url'      => lang('Image URL'),
 					'img_link'     => lang('Image Link')) as $setting => $label)
 				{
-					$GLOBALS['phpgw']->template->set_var(array(
+					$GLOBALS['egw']->template->set_var(array(
 						'setting' => $label,
 						'value' => ('<input size="80" type="text" name="inputconfig[' . $cat['id'] . '][' . $setting . ']" value="' . 
 							$config[$setting] . '" />'
 						)
 					));
-					$GLOBALS['phpgw']->template->parse('confblock','config',True);
+					$GLOBALS['egw']->template->parse('confblock','config',True);
 				}
-				$GLOBALS['phpgw']->template->parse('Cblock','cat_list',True);
+				$GLOBALS['egw']->template->parse('Cblock','cat_list',True);
 			}
-			$GLOBALS['phpgw']->template->pfp('out','export',True);
+			$GLOBALS['egw']->template->pfp('out','export',True);
 		}
 
 		function selectlist($values,$default)
@@ -150,7 +150,7 @@
 		function deny()
 		{
 			echo '<p><center><b>'.lang('Access not permitted').'</b></center>';
-			$GLOBALS['phpgw']->common->phpgw_exit(True);
+			$GLOBALS['egw']->common->egw_exit(True);
 		}
 	}
 ?>

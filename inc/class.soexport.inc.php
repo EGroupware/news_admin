@@ -18,7 +18,7 @@
 
 		function soexport()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->db = clone($GLOBALS['egw']->db);
 		}
 
 		function readconfig($cat_id)

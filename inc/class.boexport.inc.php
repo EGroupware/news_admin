@@ -27,7 +27,7 @@
 
 		function boexport($session=False)
 		{
-			$this->so = CreateObject('news_admin.soexport');
+			$this->so =& CreateObject('news_admin.soexport');
 			$this->debug = False;
 			if($session)
 			{
@@ -45,7 +45,7 @@
 					}
 				}
 				$this->save_sessiondata();
-				$this->catbo = createobject('phpgwapi.categories');
+				$this->catbo =& CreateObject('phpgwapi.categories');
 				$this->cats = $this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True);
 			}
 		}
@@ -60,12 +60,12 @@
 				'order' => $this->order,
 			);
 			if($this->debug) { echo '<br>Save:'; _debug_array($data); }
-			$GLOBALS['phpgw']->session->appsession('session_data','news_admin_export',$data);
+			$GLOBALS['egw']->session->appsession('session_data','news_admin_export',$data);
 		}
 
 		function read_sessiondata()
 		{
-			$data = $GLOBALS['phpgw']->session->appsession('session_data','news_admin_export');
+			$data = $GLOBALS['egw']->session->appsession('session_data','news_admin_export');
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];

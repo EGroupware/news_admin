@@ -5,9 +5,7 @@ add news item	news_admin	en	Add news item
 all news	news_admin	en	All news
 always	news_admin	en	Always
 configuration	news_admin	en	Configuration
-configure access permissions	news_admin	en	Configure Access Permissions
 configure access permissions	common	en	Configure Access Permissions
-configure rss exports	news_admin	en	Configure RSS exports
 configure rss exports	common	en	Configure RSS exports
 contains html	news_admin	en	Contains HTML
 content	news_admin	en	Content
@@ -16,6 +14,7 @@ failed to add message	news_admin	en	Failed to add new message
 format for links to items	news_admin	en	Format for links to items
 format of export	news_admin	en	Format of export
 from	news_admin	en	From
+global categories	news_admin	en	global categories
 global news	news_admin	en	Global News
 global_news	news_admin	en	Global_News
 image link	news_admin	en	Image Link
@@ -31,6 +30,7 @@ maintain news	admin	en	Maintain News
 message has been added	news_admin	en	Message has been added
 more news	news_admin	en	More news
 new item has been added	news_admin	en	New item has been added
+news	news_admin	en	News
 news admin	news_admin	en	News Admin
 news administration	news_admin	en	News Administration
 news item has been added	news_admin	en	News item has been added
@@ -41,8 +41,11 @@ no news	news_admin	en	No News is Currently Available in the Category
 no rss export	news_admin	en	No RSS export
 number of articles to display on the main screen	news_admin	en	Number of articles to display on the main screen
 on	news_admin	en	on
+please select a category	news_admin	en	Please select a category
 publish date	news_admin	en	Publish Date
+read news	news_admin	en	Read news
 read permissions	news_admin	en	Read permissions
+send mail to others	news_admin	en	Send Mail to Others
 should news_admin display the latest article headlines on the main screen.	news_admin	en	Should News Admin display the latest article headlines on the main screen.
 show latest news articles?	news_admin	en	Show latest news articles?
 show news articles on main page?	news_admin	en	Show news articles on main page?
@@ -58,4 +61,3 @@ visible	news_admin	en	Visible
 webpage news admin	news_admin	en	Webpage news admin
 write	news_admin	en	Write
 write permissions	news_admin	en	Write permissions
-read news	news_admin	en	Read news

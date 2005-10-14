@@ -31,9 +31,9 @@
 
 		function bonews($session=False)
 		{
-			$this->acl = CreateObject('news_admin.boacl');
-			$this->sonews = CreateObject('news_admin.sonews');
-			$this->accounts = $GLOBALS['phpgw']->accounts->get_list();
+			$this->acl =& CreateObject('news_admin.boacl');
+			$this->sonews =& CreateObject('news_admin.sonews');
+			$this->accounts = $GLOBALS['egw']->accounts->get_list();
 			$this->debug = False;
 			if($session)
 			{
@@ -47,12 +47,12 @@
 				$this->cat_id = $this->cat_id ? $this->cat_id : 'all';
 				$this->save_sessiondata();
 			}
-			$this->catbo = createobject('phpgwapi.categories','','news_admin');
+			$this->catbo =& CreateObject('phpgwapi.categories','','news_admin');
 			$this->cats = $this->catbo->return_array('all',0,False,'','','cat_name',True);
 			settype($this->cats,'array');
 			//change this around 19 Jan 2038 03:14:07 GMT
 			$this->unixtimestampmax = 2147483647;
-			$this->dateformat = $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'];
+			$this->dateformat = $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'];
 		}
 
 		function save_sessiondata()
@@ -65,12 +65,12 @@
 				'cat_id' => $this->cat_id,
 			);
 			if($this->debug) { echo '<br>Save:'; _debug_array($data); }
-			$GLOBALS['phpgw']->session->appsession('session_data','news_admin',$data);
+			$GLOBALS['egw']->session->appsession('session_data','news_admin',$data);
 		}
 
 		function read_sessiondata()
 		{
-			$data = $GLOBALS['phpgw']->session->appsession('session_data','news_admin');
+			$data = $GLOBALS['egw']->session->appsession('session_data','news_admin');
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];
@@ -82,18 +82,18 @@
 
 		function get_newslist($cat_id, $start=0, $order='',$sort='',$limit=0,$activeonly=False)
 		{
-			$charset = $GLOBALS['phpgw']->translation->charset();
+			$charset = $GLOBALS['egw']->translation->charset();
 			
 			$cats = False;
 			if ($cat_id == 'all')
 			{
 				foreach($this->cats as $cat)
 				{
-				   if ($this->acl->is_readable($cat['id']))
-				   {
+					 if ($this->acl->is_readable($cat['id']))
+					 {
 						$cats[] = $cat['id'];
-				   }
-			   }
+					 }
+				 }
 			}
 			elseif($this->acl->is_readable($cat_id))
 			{
@@ -120,7 +120,7 @@
 
 		function get_all_public_news($limit = 5)
 		{
-			$charset = $GLOBALS['phpgw']->translation->charset();
+			$charset = $GLOBALS['egw']->translation->charset();
 			
 			$news = $this->sonews->get_all_public_news($limit);
 			foreach($news as $id => $item)
@@ -282,12 +282,12 @@
 
 // 		function format_fields($fields)
 // 		{
-// 			$cat = createobject('phpgwapi.categories','news_admin');
+// 			$cat =& CreateObject('phpgwapi.categories','news_admin');
 
 // 			$item = array(
 // 				'id'          => $fields['id'],
-// 				'date'        => $GLOBALS['phpgw']->common->show_date($fields['date']),
-// 				'subject'     => $GLOBALS['phpgw']->strip_html($fields['subject']),
+// 				'date'        => $GLOBALS['egw']->common->show_date($fields['date']),
+// 				'subject'     => $GLOBALS['egw']->strip_html($fields['subject']),
 // 				'submittedby' => $fields['submittedby'],
 // 				'content'     => $fields['content'],
 // 				'status'      => lang($fields['status']),
@@ -305,7 +305,7 @@
 				$this->total = 1;
 				$news['content'] = ($news['is_html'] ? 
 							$news['content']: 
-							nl2br(htmlspecialchars($news['content'],ENT_COMPAT,$GLOBALS['phpgw']->translation->charset())
+							nl2br(htmlspecialchars($news['content'],ENT_COMPAT,$GLOBALS['egw']->translation->charset())
 						));
 				return $news;
 			}
@@ -331,9 +331,9 @@
 		function send_mail($news)
 		{
 			// first, get all members who are gonna to receive this mail
-			if(!is_object($GLOBALS['phpgw']->contacts))
+			if(!is_object($GLOBALS['egw']->contacts))
 			{
-				$GLOBALS['phpgw']->contacts = CreateObject('phpgwapi.contacts');
+				$GLOBALS['egw']->contacts =& CreateObject('phpgwapi.contacts');
 			}
 			$fields = array(
 				'n_family' => True,
@@ -346,28 +346,28 @@
 			foreach($news['mailto'] as $cat_id)
 			{
 				$filter = 'tid=n,cat_id=' . $cat_id;
-        		$members = array_merge($members,$GLOBALS['phpgw']->contacts->read('','',$fields,'',$filter));
-      		}
+						$members = array_merge($members,$GLOBALS['egw']->contacts->read('','',$fields,'',$filter));
+					}
 
 			// then, prepare to send mail
-      		$mail = CreateObject('phpgwapi.send');
+					$mail =& CreateObject('phpgwapi.send');
 
-      		// build subject
-      		$subject = lang('News') . ': ' . $news['subject'];
+					// build subject
+					$subject = lang('News') . ': ' . $news['subject'];
 
-      		// build body
-      		$body  = '';
-      		$body .= lang('Subject') . ': ' . $news['subject'] . "<br/>";
-			$body .= lang('Submitted By') . $GLOBALS['phpgw']->common->grab_owner_name($news['submittedby']) . "<br/>";
-      		$body .= lang('Date') . ': ' . $GLOBALS['phpgw']->common->show_date($news['date']) . "<br/><br/>";
-      		$body .= lang('Content') . ":<br/>";
+					// build body
+					$body  = '';
+					$body .= lang('Subject') . ': ' . $news['subject'] . "<br/>";
+			$body .= lang('Submitted By') . $GLOBALS['egw']->common->grab_owner_name($news['submittedby']) . "<br/>";
+					$body .= lang('Date') . ': ' . $GLOBALS['egw']->common->show_date($news['date']) . "<br/><br/>";
+					$body .= lang('Content') . ":<br/>";
 			$body .= $news['content'] . "<br/><br/>";
 
 			$mail->Subject = $subject;
 			$mail->Body = $body;
-			$mail->From = $GLOBALS['phpgw_info']['user']['preferences']['news_admin']['EmailFrom'];
-			$mail->FromName = $GLOBALS['phpgw']->common->grab_owner_name($news['submittedby']);
-			$replyto = $GLOBALS['phpgw_info']['user']['preferences']['news_admin']['EmailReplyto'];
+			$mail->From = $GLOBALS['egw_info']['user']['preferences']['news_admin']['EmailFrom'];
+			$mail->FromName = $GLOBALS['egw']->common->grab_owner_name($news['submittedby']);
+			$replyto = $GLOBALS['egw_info']['user']['preferences']['news_admin']['EmailReplyto'];
 			$mail->AddReplyTo($replyto);
 			$mail->Sender = $replyto;   // the Return-Path
 			$mail->IsHTML(true);
@@ -385,14 +385,14 @@
 				}  // it seems that the sumsize of attachments is limited
 			} */
 
-	  		foreach($members as $member)
+				foreach($members as $member)
 			{
 				if($sent[$member['id']])
 				{
 					continue;
 				}
 				$sent[$member['id']] = True;
-				if($GLOBALS['phpgw_info']['user']['preferences']['news_admin']['SendtohomeEmail'])  /* send to the home_email if business_email is empty */
+				if($GLOBALS['egw_info']['user']['preferences']['news_admin']['SendtohomeEmail'])  /* send to the home_email if business_email is empty */
 				{
 					$to = strpos($member['email'],'@') ? $member['email'] : $member['email_home'];
 				}
@@ -409,8 +409,8 @@
 				$mail->ClearAddresses();
 				$mail->AddAddress($to,$toname);
 
-      			if (!$mail->Send())
-      			{
+						if (!$mail->Send())
+						{
 					$errors[] = "Error sending mail to $toname &lt;$to&gt;";
 				//	echo $mail->ErrorInfo;
 				}

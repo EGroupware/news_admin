@@ -18,7 +18,7 @@
 
 		function soacl()
 		{
-			copyobj($GLOBALS['phpgw']->db,$this->db);
+			copyobj($GLOBALS['egw']->db,$this->db);
 			$this->db->set_app('news_admin');
 		}
 
@@ -42,7 +42,7 @@
 
 		function get_permissions($user, $inc_groups)
 		{
-			$groups = $GLOBALS['phpgw']->acl->get_location_list_for_id('phpgw_group', 1, $user);
+			$groups = $GLOBALS['egw']->acl->get_location_list_for_id('phpgw_group', 1, $user);
 			$result = array();
 			$sql  = 'SELECT acl_location, acl_rights FROM phpgw_acl ';
 			$sql .= "WHERE acl_appname = 'news_admin' ";

@@ -12,7 +12,7 @@
 	* http://www.goldenglair.com                                               *
 	\**************************************************************************/
 
-  /* $Id$ */
+	/* $Id$ */
 {
 // Only Modify the $file and $title variables.....
 	$title = $appname;

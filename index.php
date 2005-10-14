@@ -14,16 +14,17 @@
 
 	/* $Id$ */
 
-	$phpgw_info = array();
-	$GLOBALS['phpgw_info']['flags'] = array(
-		'currentapp' => 'news_admin',
-		'noheader' => True,
-		'nonavbar' => True,
+	$GLOBALS['egw_info'] = array(
+		'flags' => array(
+			'currentapp' => 'news_admin',
+			'noheader' => True,
+			'nonavbar' => True,
+		),
 	);
 	include('../header.inc.php');
 
-	$ui = CreateObject('news_admin.uinews');
+	$ui =& CreateObject('news_admin.uinews');
 	$ui->read_news();
 
-	$GLOBALS['phpgw']->common->phpgw_footer();
+	$GLOBALS['egw']->common->egw_footer();
 ?>

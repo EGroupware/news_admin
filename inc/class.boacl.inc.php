@@ -27,8 +27,8 @@
 
 		function boacl($session=False)
 		{
-			$this->so = CreateObject('news_admin.soacl');
-			$this->accounts = $GLOBALS['phpgw']->accounts->get_list();
+			$this->so =& CreateObject('news_admin.soacl');
+			$this->accounts = $GLOBALS['egw']->accounts->get_list();
 			$this->debug = False;
 			//all this is only needed when called from uiacl. not from ui,
 			if($session)
@@ -47,7 +47,7 @@
 					}
 				}
 				$this->save_sessiondata();
-				$this->catbo = createobject('phpgwapi.categories');
+				$this->catbo =& CreateObject('phpgwapi.categories');
 //				$main_cat = array(array('id' => 0, 'name' => lang('Global news')));
 //				$this->cats = array_merge($main_cat,$this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True));
 				$this->cats = $this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True);
@@ -65,12 +65,12 @@
 				'limit' => $this->limit,
 			);
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
-			$GLOBALS['phpgw']->session->appsession('session_data','news_admin_acl',$data);
+			$GLOBALS['egw']->session->appsession('session_data','news_admin_acl',$data);
 		}
 
 		function read_sessiondata()
 		{
-			$data = $GLOBALS['phpgw']->session->appsession('session_data','news_admin_acl');
+			$data = $GLOBALS['egw']->session->appsession('session_data','news_admin_acl');
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];
@@ -92,12 +92,12 @@
 
 		function is_readable($cat_id)
 		{
-			return $this->is_permitted($cat_id,PHPGW_ACL_READ);
+			return $this->is_permitted($cat_id,EGW_ACL_READ);
 		}
 
 		function is_writeable($cat_id)
 		{
-			return $this->is_permitted($cat_id,PHPGW_ACL_ADD);
+			return $this->is_permitted($cat_id,EGW_ACL_ADD);
 		}
 
 		function set_rights($cat_id,$read,$write)
@@ -112,11 +112,11 @@
 				$account_id = $account['account_id'];
 				//write implies read
 				$rights = in_array($account_id,$writecat) ?
-					(PHPGW_ACL_READ | PHPGW_ACL_ADD) :
-					(in_array($account_id,$readcat) ? PHPGW_ACL_READ : False);
+					(EGW_ACL_READ | EGW_ACL_ADD) :
+					(in_array($account_id,$readcat) ? EGW_ACL_READ : False);
 				if ($rights)
 				{
-					$GLOBALS['phpgw']->acl->add_repository('news_admin','L'.$cat_id,$account_id,$rights);
+					$GLOBALS['egw']->acl->add_repository('news_admin','L'.$cat_id,$account_id,$rights);
 				}
 			}
 		}
@@ -124,6 +124,6 @@
 		//access permissions for current user
 		function get_permissions($inc_groups = False)
 		{
-			return $this->so->get_permissions($GLOBALS['phpgw_info']['user']['account_id'], $inc_groups);
+			return $this->so->get_permissions($GLOBALS['egw_info']['user']['account_id'], $inc_groups);
 		}
 	}
