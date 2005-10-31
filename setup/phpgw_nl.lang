@@ -1,14 +1,16 @@
 active	news_admin	nl	Actief
+add new article	news_admin	nl	Nieuw artikel toevoegen
 add new news	news_admin	nl	Nieuw nieuws toevoegen
 add news item	news_admin	nl	Nieuwsitem toevoen
 all news	news_admin	nl	Alle nieuwsitems
 always	news_admin	nl	Altijd
 configuration	news_admin	nl	Configuratie
-configure access permissions	news_admin	nl	Configureer Toegangsrechten
-configure rss exports	news_admin	nl	Configureer RSS export
+configure access permissions	common	nl	Configureer Toegangsrechten
+configure rss exports	common	nl	Configureer RSS export
 contains html	news_admin	nl	Bevat HTML
 content	news_admin	nl	Inhoud
 edit news item	news_admin	nl	Nieuwsitem bewerken
+failed to add message	news_admin	nl	Toevoegen van nieuw bericht is mislukt
 format for links to items	news_admin	nl	Formaat voor links naar item
 format of export	news_admin	nl	Formaat van export
 from	news_admin	nl	Van
@@ -22,24 +24,32 @@ item has been deleted	news_admin	nl	Item is verwijderd
 item not found	news_admin	nl	Item niet gevonden
 link	news_admin	nl	Link
 main	news_admin	nl	Hoofd
-maintain	admin	nl	Beheer
-maintain news	news_admin	nl	Beheer Nieuws
+maintain	news_admin	nl	Beheer
+maintain news	admin	nl	Beheer Nieuws
 message has been added	news_admin	nl	Bericht is toegevoegd
 more news	news_admin	nl	Meer nieuws
 new item has been added	news_admin	nl	Nieuw item is toegevoegd
-news admin	news_admin	nl	Nieuwsbeheer
+news admin	news_admin	nl	Nieuws beheerer
+news administration	news_admin	nl	Nieuws beheer
 news item has been added	news_admin	nl	Nieuwsitem is toegevoegd
 news item has been updated	news_admin	nl	Nieuwsitem is bijgewerkt
 news_admin	common	nl	Nieuwsbeheer
 no entries found	news_admin	nl	geen items gevonden
 no news	news_admin	nl	Er is momenteel geen nieuws beschikbaar in deze categorie
 no rss export	news_admin	nl	Geen RSS export
+number of articles to display on the main screen	news_admin	nl	Aantal artikelen dat op de voorpagina getoond moet worden
 on	news_admin	nl	op
 publish date	news_admin	nl	Publicatiedatum
+read news	news_admin	nl	Lees nieuws
 read permissions	news_admin	nl	Leesrechten
+should news_admin display the latest article headlines on the main screen.	news_admin	nl	Moet de nieuws beheerder de titel van het laatste artikel op de voorpagina tonen.
+show latest news articles?	news_admin	nl	Laatste nieuws artikelen tonen?
+show news articles on main page?	news_admin	nl	Nieuws artikelen op de voorpagina tonen?
+small view	news_admin	nl	verkleinde weergave
 submitted by	common	nl	Toegevoegd door
 teaser	news_admin	nl	teaser
 the news content is missing	news_admin	nl	De tekst ontbreekt
+the number of articles to display on the main screen.	news_admin	nl	Het aantal artikelen dat op de voorpagina getoond wordt.
 the subject is missing	news_admin	nl	Het onderwerp ontbreekt
 until	news_admin	nl	tot
 view this category	news_admin	nl	Deze caterogie weergeven
