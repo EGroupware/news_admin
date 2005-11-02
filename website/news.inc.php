@@ -25,13 +25,13 @@
 
 	if (! $oldnews)
 	{
-		$db->query("SELECT *,account_lid AS submittedby FROM phpgw_news,phpgw_accounts WHERE news_status='Active' "
-					. "AND news_submittedby=phpgw_accounts.account_id ORDER BY news_date DESC LIMIT 5");
+		$db->query("SELECT *,account_lid AS submittedby FROM phpgw_news,egw_accounts WHERE news_status='Active' "
+					. "AND news_submittedby=egw_accounts.account_id ORDER BY news_date DESC LIMIT 5");
 	}
 	else
 	{
-		$db->query("SELECT *,account_lid AS submittedby FROM phpgw_news,phpgw_accounts WHERE news_status='Active' AND "
-					. "news_submittedby=phpgw_accounts.account_id ORDER BY news_date DESC LIMIT 5,$total");
+		$db->query("SELECT *,account_lid AS submittedby FROM phpgw_news,egw_accounts WHERE news_status='Active' AND "
+					. "news_submittedby=egw_accounts.account_id ORDER BY news_date DESC LIMIT 5,$total");
 	}
 
 	while ($db->next_record())

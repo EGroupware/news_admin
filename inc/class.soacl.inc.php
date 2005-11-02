@@ -14,53 +14,18 @@
 
 	class soacl
 	{
-		var $db;
-
-		function soacl()
-		{
-			copyobj($GLOBALS['egw']->db,$this->db);
-			$this->db->set_app('news_admin');
-		}
-
 		function get_rights($location)
 		{
-			$result = array();
-			$sql = "SELECT acl_account, acl_rights from phpgw_acl WHERE acl_appname = 'news_admin' AND acl_location = '$location'";
-			$this->db->query($sql,__LINE__,__FILE__);
-			while($this->db->next_record())
-			{
-				$result[$this->db->f('acl_account')] = $this->db->f('acl_rights');
-			}
-			return $result;
+			return $GLOBALS['egw']->acl->get_all_rights($location,'news_admin');
 		}
 
 		function remove_location($location)
 		{
-			$sql = "delete from phpgw_acl where acl_appname='news_admin' and acl_location='$location'";
-			$this->db->query($sql,__LINE__,__FILE__);
+			$GLOBALS['egw']->acl->delete_repository('news_admin',$location,false);
 		}
 
 		function get_permissions($user, $inc_groups)
 		{
-			$groups = $GLOBALS['egw']->acl->get_location_list_for_id('phpgw_group', 1, $user);
-			$result = array();
-			$sql  = 'SELECT acl_location, acl_rights FROM phpgw_acl ';
-			$sql .= "WHERE acl_appname = 'news_admin' ";
-			if($inc_groups)
-			{
-				$sql .= 'AND acl_account IN('. (int)$user;
-				$sql .= ($groups ? ',' . implode(',', $groups) : '');
-				$sql .= ')';
-			}
-			else
-			{
-				$sql .= 'AND acl_account ='. (int)$user;
-			}
-			$this->db->query($sql,__LINE__,__FILE__);
-			while ($this->db->next_record())
-			{
-				$result[$this->db->f('acl_location')] |= $this->db->f('acl_rights');
-			}
-			return $result;
+			return $GLOBALS['egw']->acl->get_all_location_rights($user,'sitemgr',$inc_groups);
 		}
 	}
