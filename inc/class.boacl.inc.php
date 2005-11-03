@@ -50,7 +50,6 @@
 //				$main_cat = array(array('id' => 0, 'name' => lang('Global news')));
 //				$this->cats = array_merge($main_cat,$this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True));
 				$this->cats = $this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True);
-_debug_array($this->cats);
 			}
 			$this->permissions = $this->get_permissions(True);
 		}
