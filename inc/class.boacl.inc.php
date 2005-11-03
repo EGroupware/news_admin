@@ -27,7 +27,6 @@
 
 		function boacl($session=False)
 		{
-			$this->so =& CreateObject('news_admin.soacl');
 			$this->accounts = $GLOBALS['egw']->accounts->get_list();
 			$this->debug = False;
 			//all this is only needed when called from uiacl. not from ui,
