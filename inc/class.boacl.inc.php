@@ -46,11 +46,11 @@
 						$this->$var = $_GET[$var];
 					}
 				}
-				$this->save_sessiondata();
 				$this->catbo =& CreateObject('phpgwapi.categories');
 //				$main_cat = array(array('id' => 0, 'name' => lang('Global news')));
 //				$this->cats = array_merge($main_cat,$this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True));
 				$this->cats = $this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True);
+_debug_array($this->cats);
 			}
 			$this->permissions = $this->get_permissions(True);
 		}
@@ -82,7 +82,7 @@
 
 		function get_rights($cat_id)
 		{
-			return $this->so->get_rights('L'.$cat_id);
+			return $GLOBALS['egw']->acl->get_all_rights('L'.$cat_id,'news_admin');
 		}
 
 		function is_permitted($cat_id,$right)
@@ -105,15 +105,16 @@
 			$readcat = $read ? $read : array();
 			$writecat = $write ? $write : array();
 
-			$this->so->remove_location('L' . $cat_id);
-			reset($this->accounts);
-			while (list($null,$account) = each($this->accounts))
+			$GLOBALS['egw']->acl->delete_repository('news_admin','L' . $cat_id,false);
+
+			foreach($this->accounts as $account)
 			{
 				$account_id = $account['account_id'];
 				//write implies read
 				$rights = in_array($account_id,$writecat) ?
 					(EGW_ACL_READ | EGW_ACL_ADD) :
 					(in_array($account_id,$readcat) ? EGW_ACL_READ : False);
+
 				if ($rights)
 				{
 					$GLOBALS['egw']->acl->add_repository('news_admin','L'.$cat_id,$account_id,$rights);
@@ -124,6 +125,6 @@
 		//access permissions for current user
 		function get_permissions($inc_groups = False)
 		{
-			return $this->so->get_permissions($GLOBALS['egw_info']['user']['account_id'], $inc_groups);
+			return $GLOBALS['egw']->acl->get_all_location_rights($GLOBALS['egw_info']['user']['account_id'],'news_admin',$inc_groups);
 		}
 	}
