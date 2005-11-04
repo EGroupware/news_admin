@@ -31,11 +31,11 @@ message has been added	news_admin	no	Melding ble lagt til
 more news	news_admin	no	Flere nyheter
 new item has been added	news_admin	no	Ny forekomst ble lagt til
 news	news_admin	no	Nyheter
-news admin	news_admin	no	Nyhetsadministrasjon
-news administration	news_admin	no	Nyhetsadministrasjon
+news admin	news_admin	no	Nyhetsadm.
+news administration	news_admin	no	Nyhetsadm.
 news item has been added	news_admin	no	En nyhet ble lagt til
 news item has been updated	news_admin	no	En nyhet ble oppdatert
-news_admin	common	no	Nyhetsadministrasjon
+news_admin	common	no	Nyhetsadm.
 no entries found	news_admin	no	Ingen forekomster funnet
 no news	news_admin	no	Det er ingen nyheter tilgjengelig i denne kategorien.
 no rss export	news_admin	no	Ingen RSS eksport
