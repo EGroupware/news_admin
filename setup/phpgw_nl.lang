@@ -14,6 +14,7 @@ failed to add message	news_admin	nl	Toevoegen van nieuw bericht is mislukt
 format for links to items	news_admin	nl	Formaat voor links naar item
 format of export	news_admin	nl	Formaat van export
 from	news_admin	nl	Van
+global categories	news_admin	nl	globale categoriën
 global news	news_admin	nl	Globaal Nieuws
 global_news	news_admin	nl	Globaal Nieuws
 image link	news_admin	nl	Link afbeelding
@@ -29,6 +30,7 @@ maintain news	admin	nl	Beheer Nieuws
 message has been added	news_admin	nl	Bericht is toegevoegd
 more news	news_admin	nl	Meer nieuws
 new item has been added	news_admin	nl	Nieuw item is toegevoegd
+news	news_admin	nl	Nieuws
 news admin	news_admin	nl	Nieuws beheerer
 news administration	news_admin	nl	Nieuws beheer
 news item has been added	news_admin	nl	Nieuwsitem is toegevoegd
@@ -39,9 +41,11 @@ no news	news_admin	nl	Er is momenteel geen nieuws beschikbaar in deze categorie
 no rss export	news_admin	nl	Geen RSS export
 number of articles to display on the main screen	news_admin	nl	Aantal artikelen dat op de voorpagina getoond moet worden
 on	news_admin	nl	op
+please select a category	news_admin	nl	Selecteer s.v.p. een categorie
 publish date	news_admin	nl	Publicatiedatum
 read news	news_admin	nl	Lees nieuws
 read permissions	news_admin	nl	Leesrechten
+send mail to others	news_admin	nl	Stuur mail naar anderen
 should news_admin display the latest article headlines on the main screen.	news_admin	nl	Moet de nieuws beheerder de titel van het laatste artikel op de voorpagina tonen.
 show latest news articles?	news_admin	nl	Laatste nieuws artikelen tonen?
 show news articles on main page?	news_admin	nl	Nieuws artikelen op de voorpagina tonen?
