@@ -16,7 +16,7 @@ failed to add message	news_admin	es-es	Fallo al añadir un mensaje nuevo
 format for links to items	news_admin	es-es	Formato para los enlaces a los elementos
 format of export	news_admin	es-es	Formato de exportación
 from	news_admin	es-es	De
-global categories	news_admin	es-es	Categorías Globales
+global categories	news_admin	es-es	Categorías globales
 global news	news_admin	es-es	Noticias globales
 global_news	news_admin	es-es	Noticias globales
 image link	news_admin	es-es	Enlace a la imagen
@@ -41,17 +41,17 @@ news item has been updated	news_admin	es-es	Se ha actualizado un elemento de not
 news_admin	common	es-es	Administrador de noticias
 no entries found	news_admin	es-es	No se encontraron entradas
 no news	news_admin	es-es	Sin noticias está actualmente en la categoría
-no rss export	news_admin	es-es	No se exporta RSS
+no rss export	news_admin	es-es	No hay exportación RSS
 number of articles to display on the main screen	news_admin	es-es	Número de artículos a mostrar en la pantalla principal
 on	news_admin	es-es	en
 please select a category	news_admin	es-es	Por favor, seleccione una categoría
 publish date	news_admin	es-es	Fecha de publicación
 read news	news_admin	es-es	Leer noticias
-read permissions	news_admin	es-es	Leer permisos
+read permissions	news_admin	es-es	Permiso de lectura
 send mail to home_email if the business_email is empty?	news_admin	es-es	¿Enviar el correo a home_email si business_email está vacío?
 send mail to others	news_admin	es-es	Enviar correo a otros
-should news_admin display the latest article headlines on the main screen.	news_admin	es-es	¿Mostrar el encabezado del último artículo en la pantalla principal?
-should news_admin send mail to home_email if the business_email is empty.	news_admin	es-es	Si el administrador de noticias debe enviar el correo a home_email si business_email está vacío.
+should news_admin display the latest article headlines on the main screen.	news_admin	es-es	Mostrar el titular del último artículo en la pantalla principal
+should news_admin send mail to home_email if the business_email is empty.	news_admin	es-es	¿Enviar correo a home_email si business_email está vacío?
 show latest news articles?	news_admin	es-es	¿Mostrar los últimos artículos de noticias?
 show news articles on main page?	news_admin	es-es	¿Mostrar artículos de noticias en la página principal?
 show newsletter option when add news?	news_admin	es-es	¿Mostrar la opción de boletín al añadir noticias?
@@ -70,4 +70,4 @@ where is the email from	news_admin	es-es	De dónde es el correo
 where the replied email will be sent to.	news_admin	es-es	Dónde se enviará el correo respondido.
 where to receive the replied email	news_admin	es-es	Dónde recibir el correo respondido
 write	news_admin	es-es	Escribir
-write permissions	news_admin	es-es	Escribir permisos
+write permissions	news_admin	es-es	Permiso de escritura
