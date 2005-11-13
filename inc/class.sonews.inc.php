@@ -17,47 +17,37 @@
 	class sonews
 	{
 		var $db;
+		var $table = 'egw_news';
 
 		function sonews()
 		{
-			copyobj($GLOBALS['egw']->db,$this->db);
+			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('news_admin');
 		}
 
 		function get_newslist($cat_id, $start, $order,$sort,$limit=0,$activeonly,&$total)
 		{
-			if(!empty($order))
-			{
-				$ordermethod = ' ORDER BY ' . $this->db->db_addslashes($order) . ' ' . $this->db->db_addslashes($sort);
-			}
-			else
+			if(!$order || !preg_match('/^[a-z0-9_]+$/i',$order) || !preg_match('/^(asc|desc)?$/i',$sort))
 			{
 				$ordermethod = ' ORDER BY news_date DESC';
 			}
-
-			if(is_array($cat_id))
-			{
-				$filter = 'IN (' . implode(',',$cat_id) . ')';
-			}
 			else
 			{
-				$filter = '=' . (int)$cat_id;
+				$ordermethod = ' ORDER BY '.$order . ' ' . $sort;
 			}
 
-			$sql = 'SELECT * FROM phpgw_news WHERE news_cat ' . $filter;
+			$where = array('news_cat' => $cat_id);
 			if($activeonly)
 			{
 				$now = time();
-				$sql .= " AND news_begin<=$now AND news_end>=$now";
+				$where[] = "news_begin <= $now AND news_end >= $now";
 			}
-			$sql .= $ordermethod;
+			//$this->db->select($this->table,'COUNT(*)',$where,__LINE__,__FILE__);
+			//$total = $this->db->next_record() ? $this->db->f(0) : 0;
 
-			$this->db->query($sql,__LINE__,__FILE__);
-			$total = $this->db->num_rows();
-			$this->db->limit_query($sql,$start,__LINE__,__FILE__,$limit);
+			$this->db->select($this->table,'*',$where,__LINE__,__FILE__,$start,$ordermethod,false,$limit);
 
 			$news = array();
-
 			while($this->db->next_record())
 			{
 				$news[$this->db->f('news_id')] = array(
@@ -79,10 +69,10 @@
 		function get_all_public_news($limit=5)
 		{
 			$now = time();
-			$this->db->limit_query("SELECT * FROM phpgw_news WHERE news_begin<=$now AND news_end>=$now ORDER BY news_date DESC",0,__LINE__,__FILE__,$limit);
+			$this->db->select($this->table,'*',"news_begin <= $now AND news_end >= $now",__LINE__,__FILE__,
+				0,'ORDER BY news_date DESC',false,$limit);
 
 			$news = array();
-
 			while ($this->db->next_record())
 			{
 				$news[$this->db->f('news_id')] = array(
@@ -100,7 +90,7 @@
 
 		function add($news)
 		{
-			$add_array = array(
+			$this->db->insert($this->table,array(
 				'news_date'			=> (int)$news['date'],
 				'news_submittedby'	=> $GLOBALS['egw_info']['user']['account_id'],
 				'news_content'		=> $news['content'],
@@ -111,16 +101,16 @@
 				'news_cat'			=> (int)$news['category'],
 				'is_html'			=> (int)!!$news['is_html'],
 				//added by wbshang,2005-5-13
-				'mail_receiver'     => @implode(",",$news['mailto']),
-			);
-			$this->db->insert('phpgw_news', $add_array, '', __LINE__, __FILE__);
+				// removed by RalfBecker 2005-11-13, as mail_receiver is no column
+//				'mail_receiver'     => @implode(",",$news['mailto']),
+			),false, __LINE__, __FILE__);
 
-			return $this->db->get_last_insert_id('phpgw_news', 'news_id');
+			return $this->db->get_last_insert_id($this->table, 'news_id');
 		}
 
 		function edit($news)
 		{
-			$update_array = array(
+			$this->db->update($this->table,array(
 				'news_content'	=> $news['content'],
 				'news_subject'	=> $news['subject'],
 				'news_teaser'	=> $news['teaser'],
@@ -129,22 +119,22 @@
 				'news_cat'		=> $news['category'],
 				'is_html'		=> $news['is_html'] ? 1 : 0,
 				//added by wbshang,2005-5-13
-				'mail_receiver'     => @implode(",",$news['mailto']),
-			);
-			$this->db->update('phpgw_news', $update_array, array('news_id' => (int)$news['id']), __LINE__, __FILE__);
+				// removed by RalfBecker 2005-11-13, as mail_receiver is no column
+//				'mail_receiver'     => @implode(",",$news['mailto']),
+			), array('news_id' => (int)$news['id']), __LINE__, __FILE__);
 		}
 
 		function delete($news_id)
 		{
-			$this->db->query('DELETE FROM phpgw_news WHERE news_id=' . (int)$news_id,__LINE__,__FILE__);
+			$this->db->delete($this->table,array('news_id' => $news_id),__LINE__,__FILE__);
 		}
 
 		function get_news($news_id)
 		{
-			$this->db->query('SELECT * FROM phpgw_news WHERE news_id=' . (int)$news_id,__LINE__,__FILE__);
+			$this->db->select($this->table,'*',array('news_id' => $news_id),__LINE__,__FILE__);
 			$this->db->next_record();
 
-			$item = array(
+			return array(
 				'id'       => $this->db->f('news_id'),
 				'date'     => $this->db->f('news_date'),
 				'subject'  => $this->db->f('news_subject', True),
@@ -156,44 +146,19 @@
 				'category' => $this->db->f('news_cat'),
 				'is_html'  => ($this->db->f('is_html') ? True : False),
 			);
-			return $item;
 		}
-
-// 		function getlist($order,$sort,$cat_id)
-// 		{
-// 			if ($order)
-// 			{
-// 				$ordermethod = ' ORDER BY ' . $this->db->db_addslashes($order) . ' ' . $this->db->db_addslashes($sort);
-// 			}
-// 			else
-// 			{
-// 				$ordermethod = ' ORDER BY news_date DESC';
-// 			}
-
-// 			$this->db->query('SELECT * FROM phpgw_news WHERE news_cat=' . (int)$cat_id . $ordermethod,__LINE__,__FILE__);
-// 			while ($this->db->next_record())
-// 			{
-// 				$items[] = array(
-// 					'id'          => $this->db->f('news_id'),
-// 					'date'        => $this->db->f('news_date'),
-// 					'subject'     => $this->db->f('news_subject'),
-// 					'submittedby' => $this->db->f('news_submittedby'),
-// 					'content'     => $this->db->f('news_content'),
-// 					'status'      => $this->db->f('news_status'),
-// 					'cat'         => $this->db->f('news_cat')
-// 				);
-// 			}
-// 			return $items;
-// 		}
 
 		// the following functions are added by wbshang,2005-5-13
 
 		// to get the cat_ids that have received the news by email
 		function get_receiver_cats($news_id)
 		{
+			// removed by RalfBecker 2005-11-13, as mail_receiver is no column
+/*
 			$sql = "SELECT mail_receiver FROM phpgw_news WHERE news_id=" . (int)$news_id;
 			$this->db->query($sql,__LINE__,__FILE__);
 			$this->db->next_record();
 			return $this->db->f('mail_receiver');
+*/
 		}
 	}

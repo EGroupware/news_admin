@@ -14,12 +14,12 @@
 	/* Basic information about this app */
 	$setup_info['news_admin']['name']      = 'news_admin';
 	$setup_info['news_admin']['title']     = 'News Admin';
-	$setup_info['news_admin']['version']   = '1.0.0.001';
+	$setup_info['news_admin']['version']   = '1.2';
 	$setup_info['news_admin']['app_order'] = 16;
 	$setup_info['news_admin']['enable']    = 1;
 
 	/* The tables this app creates */
-	$setup_info['news_admin']['tables']    = array('phpgw_news','phpgw_news_export');
+	$setup_info['news_admin']['tables']    = array('egw_news','egw_news_export');
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['news_admin']['hooks'][] = 'admin';
@@ -31,5 +31,5 @@
 	/* Dependencies for this app to work */
 	$setup_info['news_admin']['depends'][] = array(
 		 'appname' => 'phpgwapi',
-		 'versions' => Array('0.9.14', '0.9.15','1.0.0','1.0.1')
+		 'versions' => Array('1.0.0','1.0.1','1.2')
 	);

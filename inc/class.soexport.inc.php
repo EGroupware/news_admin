@@ -15,41 +15,32 @@
 	class soexport
 	{
 		var $db;
+		var $table = 'egw_news_export';
 
 		function soexport()
 		{
 			$this->db = clone($GLOBALS['egw']->db);
+			$this->db->set_app('news_admin');
 		}
 
 		function readconfig($cat_id)
 		{
-			$sql = "SELECT * FROM phpgw_news_export where cat_id = $cat_id";
-			$this->db->query($sql,__LINE__,__FILE__);
-			if ($this->db->next_record())
-			{
-				$result = array();
-				foreach (array('type','itemsyntax','title','link','description','img_title','img_url','img_link') as $config)
-				{
-					$result[$config] = $this->db->f('export_'.$config);
-				}
-				return $result;
-			}
-			else
-			{
-				return false;
-			}
+			$this->db->select($this->table,'*',array('cat_id' => $cat_id),__LINE__,__FILE__);
+			
+			return $this->db->row(true,'export_');
 		}
 
 		function saveconfig($cat_id,$config)
 		{
-			$sql = "DELETE FROM phpgw_news_export where cat_id = $cat_id";
-			$this->db->query($sql,__LINE__,__FILE__);
-			$sql = "INSERT INTO phpgw_news_export " . 
-				"(cat_id,export_type,export_itemsyntax,export_title,export_link,export_description,export_img_title,export_img_url,export_img_link) " .
-				"VALUES ($cat_id,'" . $config['type']  . "','" . $config['itemsyntax'] . "','" . $config['title'] . 
-				"','" . $config['link'] . "','" . $config['description'] . "','" . $config['img_title'] . 
-				"','" . $config['img_url'] . "','" . $config['img_link'] . "')";
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->insert($this->table,array(
+				'export_type' => $config['type'],
+				'export_itemsyntax' => $config['itemsyntax'],
+				'export_title'      => $config['title'],
+				'export_link'       => $config['link'],
+				'export_description'=> $config['description'],
+				'export_img_title'  => $config['img_title'],
+				'export_img_url'    => $config['img_url'],
+				'export_img_link'   => $config['img_link'],
+			),array('cat_id' => $cat_id),__LINE__,__FILE__);
 		}
-
 	}
