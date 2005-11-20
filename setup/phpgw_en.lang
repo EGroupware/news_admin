@@ -41,6 +41,7 @@ no news	news_admin	en	No News is Currently Available in the Category
 no rss export	news_admin	en	No RSS export
 number of articles to display on the main screen	news_admin	en	Number of articles to display on the main screen
 on	news_admin	en	on
+picture upload (leave the upload directory empty to disable the upload)	admin	en	Picture upload (leave the upload directory empty to disable the upload)
 please select a category	news_admin	en	Please select a category
 publish date	news_admin	en	Publish Date
 read news	news_admin	en	Read news

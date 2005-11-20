@@ -43,16 +43,6 @@
 			'xmlrpc'  => True,
 			'admin'   => False
 		),
-		'uploaddir' => array(
-			'type'    => 'input',
-			'label'   => 'Directory for image upload',
-			'name'    => 'uploaddir',
-			'default' => EGW_SERVER_ROOT. '/news_admin/uploads',
-			'help'    => 'Needs to be writeable by webserver',
-			'size'    => 22,
-			'xmlrpc'  => True,
-			'admin'   => False
-		),
 		'SendMail' => array( // added by wbshang @ realss, 2005-3-3
 			'type'   => 'check',
 			'label'  => 'Show newsletter option when add news?',

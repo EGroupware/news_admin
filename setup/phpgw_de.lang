@@ -41,6 +41,7 @@ no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
 no rss export	news_admin	de	Kein RSS export
 number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten welche auf der Startseite angezeit werden.
 on	news_admin	de	An
+picture upload (leave the upload directory empty to disable the upload)	admin	de	Hochladen von Dateien (Lassen sie die Felder frei um das Hochladen abzuschalten)
 please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
 publish date	news_admin	de	Veröffentlichungsdatum
 read news	news_admin	de	Nachrichten lesen

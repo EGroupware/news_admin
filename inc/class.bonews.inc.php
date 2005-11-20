@@ -53,6 +53,9 @@
 			//change this around 19 Jan 2038 03:14:07 GMT
 			$this->unixtimestampmax = 2147483647;
 			$this->dateformat = $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'];
+			$c =& CreateObject('phpgwapi.config','news_admin');
+			$c->read_repository();
+			$this->config = $c->config_data;
 		}
 
 		function save_sessiondata()

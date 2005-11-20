@@ -456,22 +456,18 @@
 		function modify($type = 'edit')
 		{
 			$options = $this->bo->get_options($this->news_data);
-			$style='width:600px; min-width:500px; height:400px;';
-			if ($GLOBALS['egw_info']['user']['preferences']['news_admin']['uploaddir'])
-			{
-				$plugins = 	'theme : "advanced",
-						theme_advanced_toolbar_location : "top",
-						plugins : "filemanager,fullscreen",
-						theme_advanced_buttons3_add : "separator,filemanager,fullscreen"';
 			
-				$UploadImage = array(
-					'app' => 'news_admin',
-					'upload_dir' => $GLOBALS['egw_info']['user']['preferences']['news_admin']['uploaddir'],
-					'admin_method' => $GLOBALS['egw']->link('/preferences/preferences.php','appname=news_admin'),
-				);
-				$GLOBALS['egw']->session->appsession('UploadImage','phpgwapi',$UploadImage);
-			}
+			// init htmlarea with wysiwyg editor
+			$style='width:600px; min-width:500px; height:400px;';
+			$plugins = 'TableOperations,ContextMenu,ColorChooser,FontChooser,FileManager,SearchReplace,InsertDateTime';
+			$GLOBALS['egw']->session->appsession('UploadImage','phpgwapi',array(
+				'app' => 'news_admin',
+				'upload_dir'   => $this->bo->config['upload_dir'],
+				'upload_url'   => $this->bo->config['upload_url'],
+				'admin_method' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=news_admin'),
+			));
 			$content = $GLOBALS['egw']->html->tinymce('news[content]',$this->news_data['content'],$style,$plugins);
+			
 			$GLOBALS['egw']->common->egw_header();
 			echo parse_navbar();
 			
