@@ -42,7 +42,6 @@
 	{
 		$title = lang('Administration');
 		$file = Array(
-			'Site Configuration' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
 			'News Administration'  => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
 			'global categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
 			'configure access permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
