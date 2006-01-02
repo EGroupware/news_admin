@@ -25,7 +25,7 @@
 			$this->db->set_app('news_admin');
 		}
 
-		function get_newslist($cat_id, $start, $order,$sort,$limit=0,$activeonly,&$total)
+		function get_newslist($cat_id, $start, $order,$sort,$limit=0,$activeonly,$total=false)
 		{
 			if(!$order || !preg_match('/^[a-z0-9_]+$/i',$order) || !preg_match('/^(asc|desc)?$/i',$sort))
 			{

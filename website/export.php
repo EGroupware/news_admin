@@ -13,9 +13,36 @@
 	\**************************************************************************/
 
 	/* $Id$ */
-
-	include('setup.inc.php');
-
+	
+	/**
+	 * Check if we allow anon access and with which creditials
+	 * 
+	 * @param array &$anon_account anon account_info with keys 'login', 'passwd' and optional 'passwd_type'
+	 * @return boolean true if we allow anon access, false otherwise
+	 */
+	function registration_check_anon_access(&$anon_account)
+	{
+		//quick hack for std installations...
+		$anon_account = array(
+			'login'  => 'anonymous',
+			'passwd' => 'anonymous',
+			'passwd_type' => 'text',
+		);
+		return true;
+	}
+	
+	$GLOBALS['egw_info']['flags'] = array(
+		'noheader'  => True,
+		'nonavbar' => True,
+		'currentapp' => 'sitemgr-link',
+		'autocreate_session_callback' => 'registration_check_anon_access',
+	);
+	include('../../header.inc.php');
+	
+	$news_obj =& CreateObject('news_admin.sonews');
+	$export_obj =& CreateObject('news_admin.soexport');
+	$tpl =& $GLOBALS['egw']->template;
+	
 	$cat_id = (int)$_GET['cat_id'];
 //	$format = (isset($_GET['format']) ? strtolower(trim($_GET['format'])) : 'rss');
 	$limit	= (isset($_GET['limit']) ? trim($_GET['limit']) : 5);
@@ -51,7 +78,8 @@
 	);
 	$format = $formats[$site['type']];
 	$itemsyntax = $itemsyntaxs[$site['itemsyntax']];
-
+	
+	$tpl->root = EGW_SERVER_ROOT. '/news_admin/website/templates/';
 	$tpl->set_file(array('news' => $format . '.tpl'));
 	$tpl->set_block('news', 'item', 'items');
 	if($format == 'rss1')
@@ -69,7 +97,6 @@
 // 	{
 		$news = $news_obj->get_newslist($cat_id, 0,'','',$limit,True);
 // 	}
-
 	if(is_array($news))
 	{
 		foreach($news as $news_id => $news_data) 
