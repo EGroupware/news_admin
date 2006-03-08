@@ -30,6 +30,7 @@ maintain news	admin	sv	Underhåll artiklar
 message has been added	news_admin	sv	Meddelandet tillagt
 more news	news_admin	sv	Mer artiklar
 new item has been added	news_admin	sv	Objekt tillagt
+news	news_admin	sv	Nyheter
 news admin	news_admin	sv	Artikelhantering
 news administration	news_admin	sv	Artikelhantering
 news item has been added	news_admin	sv	Artikel sparad
@@ -40,9 +41,12 @@ no news	news_admin	sv	Inga artiklar i denna kategori
 no rss export	news_admin	sv	Ingen RSS export
 number of articles to display on the main screen	news_admin	sv	Antal ariklar att visa på Startsidan
 on	news_admin	sv	På
+picture upload (leave the upload directory empty to disable the upload)	admin	sv	Bild (lämna uppladdnings katalog tom för att inte ladda upp)
+please select a category	news_admin	sv	Var god och välj en kategori
 publish date	news_admin	sv	Publiseringsdatum
 read news	news_admin	sv	Läs artikel
 read permissions	news_admin	sv	Läsrättighet
+send mail to others	news_admin	sv	Skicka e-post till andra
 should news_admin display the latest article headlines on the main screen.	news_admin	sv	Visa senaste artikelrubriker på Startsidan
 show latest news articles?	news_admin	sv	Visa senaste artikel
 show news articles on main page?	news_admin	sv	Visa artiklar på Startsidan
