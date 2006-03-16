@@ -9,11 +9,13 @@ configure access permissions	common	pt-br	Configurar Permissões de Acesso
 configure rss exports	common	pt-br	Configurar arquivos RSS para exportação
 contains html	news_admin	pt-br	Contém HTML
 content	news_admin	pt-br	Conteúdo
+do you want to show the newsletter option when add news?	news_admin	pt-br	Deseja exibir as opções de notícias quando incluir boletins?
 edit news item	news_admin	pt-br	Editar item
 failed to add message	news_admin	pt-br	Publicação falhou
 format for links to items	news_admin	pt-br	Formatar itens para links
 format of export	news_admin	pt-br	Formatar para exportar
 from	news_admin	pt-br	De
+global categories	news_admin	pt-br	Categorias globais
 global news	news_admin	pt-br	Boletins Globais
 global_news	news_admin	pt-br	Boletins_Globais
 image link	news_admin	pt-br	Link da Imagem
@@ -29,6 +31,7 @@ maintain news	admin	pt-br	Manutenção dos Boletins
 message has been added	news_admin	pt-br	Mensagem foi adicionada
 more news	news_admin	pt-br	Mais Boletins
 new item has been added	news_admin	pt-br	Novo item foi adicionado
+news	news_admin	pt-br	Boletins
 news admin	news_admin	pt-br	Boletins Internos
 news administration	news_admin	pt-br	Administração de Boletins
 news item has been added	news_admin	pt-br	Item adicionado
@@ -39,21 +42,31 @@ no news	news_admin	pt-br	Não existe boletins disponíveis para esta categoria
 no rss export	news_admin	pt-br	Não existe conteúdo RSS para exportar
 number of articles to display on the main screen	news_admin	pt-br	Número de artigos a serem apresentados simultaneamente
 on	news_admin	pt-br	em
+picture upload (leave the upload directory empty to disable the upload)	admin	pt-br	Carregar figura (deixe o diretório vazio para desabilitar o carregamento)
+please select a category	news_admin	pt-br	Por favor, selecione uma categoria
 publish date	news_admin	pt-br	Data da Publicação
 read news	news_admin	pt-br	Ler notícias
 read permissions	news_admin	pt-br	Permissões de leitura
-should news_admin display the latest article headlines on the main screen.	news_admin	pt-br	O Módulo Boletim Internos deve mostrar as manchetes dos últimos boletins na Tela Principal.
-show latest news articles?	news_admin	pt-br	Mostrar últimos artigos?
-show news articles on main page?	news_admin	pt-br	Mostrar novos artigos na página inicial?
-small view	news_admin	pt-br	vizão condensada
+send mail to home_email if the business_email is empty?	news_admin	pt-br	Enviar e-mail para endereço pessoal se o endereço comercial estiver vazio?
+send mail to others	news_admin	pt-br	Enviar e-mail para Outros
+should news_admin display the latest article headlines on the main screen.	news_admin	pt-br	Boletim Internos mostra as manchetes dos últimos boletins na Tela Principal.
+should news_admin send mail to home_email if the business_email is empty.	news_admin	pt-br	Boletins Internos deverá enviar e-mail para o endereço pessoal se o endereço comercial estiver vazio.
+show latest news articles?	news_admin	pt-br	Exibir últimos artigos?
+show news articles on main page?	news_admin	pt-br	Exibir novos artigos na página inicial?
+show newsletter option when add news?	news_admin	pt-br	Exibir opção de notícias quando adicionar boletins?
+small view	news_admin	pt-br	Visão Condensada
 submitted by	common	pt-br	Enviado por
 teaser	news_admin	pt-br	Resumo
-the news content is missing	news_admin	pt-br	Falta informar o índice da notícia
+the news content is missing	news_admin	pt-br	O conteúdo do boletim está faltando
 the number of articles to display on the main screen.	news_admin	pt-br	Número de artigos a serem apresentados na tela principal.
-the subject is missing	news_admin	pt-br	Falta informar o assunto
+the subject is missing	news_admin	pt-br	O assunto está faltando
 until	news_admin	pt-br	até
-view this category	news_admin	pt-br	Visualizar esta categoria
+view this category	news_admin	pt-br	Exibir esta categoria
 visible	news_admin	pt-br	Visível
-webpage news admin	news_admin	pt-br	Página de Boletins
+webpage news admin	news_admin	pt-br	Página para administração de Boletins
+where do you want the receiver to see the email is from.	news_admin	pt-br	Onde voê
+where is the email from	news_admin	pt-br	O e-mail remetente é
+where the replied email will be sent to.	news_admin	pt-br	O e-mail para ser usado em respostas é
+where to receive the replied email	news_admin	pt-br	Receber resposta no e-mail
 write	news_admin	pt-br	Escrever
 write permissions	news_admin	pt-br	Permissões para escrita
