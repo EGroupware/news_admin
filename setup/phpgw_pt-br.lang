@@ -64,7 +64,7 @@ until	news_admin	pt-br	até
 view this category	news_admin	pt-br	Exibir esta categoria
 visible	news_admin	pt-br	Visível
 webpage news admin	news_admin	pt-br	Página para administração de Boletins
-where do you want the receiver to see the email is from.	news_admin	pt-br	Onde voê
+where do you want the receiver to see the email is from.	news_admin	pt-br	Onde você quer que destinatário veja o e-mail do remetente.
 where is the email from	news_admin	pt-br	O e-mail remetente é
 where the replied email will be sent to.	news_admin	pt-br	O e-mail para ser usado em respostas é
 where to receive the replied email	news_admin	pt-br	Receber resposta no e-mail
