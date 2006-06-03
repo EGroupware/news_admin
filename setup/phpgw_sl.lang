@@ -30,6 +30,7 @@ maintain news	admin	sl	Vzdrževanje novic
 message has been added	news_admin	sl	Sporočilo je bilo dodano.
 more news	news_admin	sl	Več novic
 new item has been added	news_admin	sl	Nov zapis je bil dodan.
+news	news_admin	sl	Novice
 news admin	news_admin	sl	Upravljalec novic
 news administration	news_admin	sl	Upravljanje novic
 news item has been added	news_admin	sl	Zapis o novici je bil dodan.
@@ -40,9 +41,12 @@ no news	news_admin	sl	V tej kategoriji trenutno ni razpoložljivih novic.
 no rss export	news_admin	sl	Ni RSS izvoza.
 number of articles to display on the main screen	news_admin	sl	Število prispevkov, ki se prikažejo na začetnem zaslonu.
 on	news_admin	sl	vključeno
+picture upload (leave the upload directory empty to disable the upload)	admin	sl	Prenos slik (pustite prazno, če želite onemogočiti prenos)
+please select a category	news_admin	sl	Izberite kategorijo
 publish date	news_admin	sl	Datum objave
 read news	news_admin	sl	Beri novice
 read permissions	news_admin	sl	Beri dovoljenja
+send mail to others	news_admin	sl	Pošlji e-pošto ostalim
 should news_admin display the latest article headlines on the main screen.	news_admin	sl	Ali naj Upravljalec novic prikaže zadnji prispevek na začetnem zaslonu?
 show latest news articles?	news_admin	sl	Pokažem zadnje članke?
 show news articles on main page?	news_admin	sl	Pokažem zadnje članke na začetni strani?

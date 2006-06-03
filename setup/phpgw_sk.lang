@@ -1,0 +1,63 @@
+active	news_admin	sk	Aktívne
+add new article	news_admin	sk	Prida» nový èlánok
+add new news	news_admin	sk	Prida» novú aktualitu
+add news item	news_admin	sk	Prida» polo¾ku Aktualít
+all news	news_admin	sk	V¹etky aktuality
+always	news_admin	sk	V¾dy
+configuration	news_admin	sk	Nastavenia
+configure access permissions	common	sk	Nastavi» prístupové práva
+configure rss exports	common	sk	Nastavi» RSS exporty
+contains html	news_admin	sk	Obsahuje HTML
+content	news_admin	sk	Obsah
+edit news item	news_admin	sk	Upravi» polo¾ku Aktualít
+failed to add message	news_admin	sk	Nepodarilo sa prida» novú správu
+format for links to items	news_admin	sk	Formát pre odkaz na polo¾ky
+format of export	news_admin	sk	Formát exportu
+from	news_admin	sk	Od
+global categories	news_admin	sk	Globálne kategórie
+global news	news_admin	sk	Globálne aktuality
+global_news	news_admin	sk	Globálne_aktuality
+image link	news_admin	sk	Odkaz na obrázok
+image title	news_admin	sk	Titulok obrázka
+image url	news_admin	sk	URL obrázka
+implies read permission	news_admin	sk	implikuje právo èítania
+item has been deleted	news_admin	sk	Polo¾ka bola vymazaná
+item not found	news_admin	sk	Polo¾ka sa nena¹la
+link	news_admin	sk	Odkaz
+main	news_admin	sk	Hlavné
+maintain	news_admin	sk	Udr¾iava»
+maintain news	admin	sk	Udr¾iava» Aktuality
+message has been added	news_admin	sk	Správa bola pridaná
+more news	news_admin	sk	Viacej aktualít
+new item has been added	news_admin	sk	Nová polo¾ka bola pridaná
+news	news_admin	sk	Aktuality
+news admin	news_admin	sk	Správca Aktualít
+news administration	news_admin	sk	Správa Aktualít
+news item has been added	news_admin	sk	Polo¾ka Aktualít bola pridaná
+news item has been updated	news_admin	sk	Polo¾ka Aktualít bola upravená
+news_admin	common	sk	Správca Aktualít
+no entries found	news_admin	sk	¾iadne záznamy sa nena¹li
+no news	news_admin	sk	V kategórii nie sú v súèasnosti ¾iadne dostupné aktuality
+no rss export	news_admin	sk	®iadny RSS export
+number of articles to display on the main screen	news_admin	sk	Poèet èlánkov zobrazených na hlavnej stránke
+on	news_admin	sk	na
+picture upload (leave the upload directory empty to disable the upload)	admin	sk	Nahra» obrázok (ak chcete vypnú» nahrávanie, ponechajte adresár prázdny)
+please select a category	news_admin	sk	Prosím vyberte kategóriu
+publish date	news_admin	sk	Dátum publikovania
+read news	news_admin	sk	Èíta» aktuality
+read permissions	news_admin	sk	Oprávnenia k èítaniu
+send mail to others	news_admin	sk	Posla» ostatným mail
+should news_admin display the latest article headlines on the main screen.	news_admin	sk	Chcete, aby Správca Aktualít zobrazoval hlavièku najnov¹ieho èlánku na hlavnej stránke?
+show latest news articles?	news_admin	sk	Zobrazi» najnov¹í èlánok z Aktualít?
+show news articles on main page?	news_admin	sk	Zobrazi» èlánky Aktualít na hlavnej stránke?
+small view	news_admin	sk	Zmen¹ený pohµad
+submitted by	common	sk	Pridal
+the news content is missing	news_admin	sk	Obsah aktuality chýba
+the number of articles to display on the main screen.	news_admin	sk	Poèet èlánkov zobrazovaných na hlavnej stránke
+the subject is missing	news_admin	sk	Chýba predmet
+until	news_admin	sk	a¾ do
+view this category	news_admin	sk	Zobrazi» túto kategóriu
+visible	news_admin	sk	Viditeµné
+webpage news admin	news_admin	sk	Správca aktualít webstránky
+write	news_admin	sk	Zápis
+write permissions	news_admin	sk	Oprávnenia k zápisu

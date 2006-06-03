@@ -41,6 +41,7 @@ no news	news_admin	nl	Er is momenteel geen nieuws beschikbaar in deze categorie
 no rss export	news_admin	nl	Geen RSS export
 number of articles to display on the main screen	news_admin	nl	Aantal artikelen dat op de voorpagina getoond moet worden
 on	news_admin	nl	op
+picture upload (leave the upload directory empty to disable the upload)	admin	nl	Afbeelding uploaden (laat de upload directory leeg om het uploaden uit te schakelen)
 please select a category	news_admin	nl	Selecteer s.v.p. een categorie
 publish date	news_admin	nl	Publicatiedatum
 read news	news_admin	nl	Lees nieuws
