@@ -8,6 +8,7 @@
 	        <item>
 			<title>{subject}</title>
 			<link>{item_link}</link>
+			<pubDate>{pub_date}</pubDate>
 		</item>
 <!-- END item -->
 	</channel>

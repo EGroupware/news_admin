@@ -107,6 +107,7 @@
 			$tpl->set_var($news_data);
 
 			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_id);
+			$tpl->set_var('pub_date', date("r",$news_data['date']));
 			if($format == 'rss1')
 			{
 				$tpl->parse('seqs','seq',True);
