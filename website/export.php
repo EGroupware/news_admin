@@ -69,6 +69,8 @@
 		die();
 	}
 
+	header('Content-type: text/xml; charset='.$GLOBALS['egw']->translation->charset());
+	
 	$formats = array(1 => 'rss091', 2 => 'rss1', 3 => 'rss2');
 	$itemsyntaxs = array(
 		0 => '?item=',
@@ -87,6 +89,7 @@
 		$tpl->set_block('news', 'seq', 'seqs');
 	}
 
+	$tpl->set_var('encoding', $GLOBALS['egw']->translation->charset());
 	$tpl->set_var($site);
 
 // 	if($all)

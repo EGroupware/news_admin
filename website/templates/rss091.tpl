@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="{encoding}"?>
 <rss version="0.91">
 	<channel>
 		<title>{title}</title>
