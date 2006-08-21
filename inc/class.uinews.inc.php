@@ -42,7 +42,7 @@
 			$this->nextmatchs =& CreateObject('phpgwapi.nextmatchs');
 			$this->template = $GLOBALS['egw']->template;
 			$this->bo   =& CreateObject('news_admin.bonews',True);
-			$this->sbox =& CreateObject('phpgwapi.sbox');
+			$this->sbox =& CreateObject('news_admin.sbox');
 			$this->start = $this->bo->start;
 			$this->query = $this->bo->query;
 			$this->order = $this->bo->order;
