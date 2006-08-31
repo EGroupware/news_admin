@@ -207,9 +207,10 @@ class module_news_admin extends Module
 					break;
 					
 				case 'more':
-					continue;	// not displayed per item
+					$value = '';	// not displayed per item
+					break;
 			}
-			$html .= "\t\t<div class=\"news_$name\">$value</div>\n";
+			if ($value) $html .= "\t\t<div class=\"news_$name\">$value</div>\n";
 		}
 		$html .= "\t</div>\n";
 		
