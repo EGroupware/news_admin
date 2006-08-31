@@ -220,7 +220,7 @@ class uinews extends bonews
 		$total = parent::get_rows($query,$rows,$readonlys);
 		
 		$readonlys = array();
-		foreach($rows as &$row)
+		foreach($rows as $k => $row)
 		{
 			$readonlys['edit['.$row['news_id'].']']   = !$this->check_acl(EGW_ACL_EDIT,$row);
 			$readonlys['delete['.$row['news_id'].']'] = !$this->check_acl(EGW_ACL_DELETE,$row);
@@ -228,10 +228,10 @@ class uinews extends bonews
 			switch($query['filter2'])
 			{
 				case 'headline':
-					unset($row['news_teaser']);
+					unset($rows[$k]['news_teaser']);
 					// fall through
 				case 'teaser':
-					unset($row['news_content']);
+					unset($rows[$k]['news_content']);
 			}
 		}
 		//_debug_array($rows);
