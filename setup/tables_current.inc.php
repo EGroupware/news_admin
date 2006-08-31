@@ -1,38 +1,31 @@
 <?php
-  /**************************************************************************\
-  * eGroupWare - Setup                                                       *
-  * http://www.egroupware.org                                                *
-  * --------------------------------------------                             *
-  *  This program is free software; you can redistribute it and/or modify it *
-  *  under the terms of the GNU General Public License as published by the   *
-  *  Free Software Foundation; either version 2 of the License, or (at your  *
-  *  option) any later version.                                              *
-  \**************************************************************************/
+	/**
+	 * eGroupWare - News admin
+	 * 
+	 * @link http://www.egroupware.org 
+	 * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+	 * @package news_admin
+	 * @subpackage setup
+	 * @version $Id$
+	 */
 
-  /**************************************************************************\
-  * This file should be generated for you. It should never be edited by hand *
-  \**************************************************************************/
-
-  /* $Id$ */
-
-  // table array for news_admin
 	$phpgw_baseline = array(
 		'egw_news' => array(
 			'fd' => array(
 				'news_id' => array('type' => 'auto','nullable' => False),
 				'news_date' => array('type' => 'int','precision' => '8'),
-				'news_subject' => array('type' => 'varchar','precision' => '255'),
-				'news_submittedby' => array('type' => 'varchar','precision' => '255'),
-				'news_content' => array('type' => 'blob'),
+				'news_headline' => array('type' => 'varchar','precision' => '128'),
+				'news_submittedby' => array('type' => 'int','precision' => '4'),
+				'news_content' => array('type' => 'text'),
 				'news_begin' => array('type' => 'int','precision' => '8','nullable' => False,'default' => '0'),
 				'news_end' => array('type' => 'int','precision' => '8'),
-				'news_cat' => array('type' => 'int','precision' => '4'),
-				'news_teaser' => array('type' => 'varchar','precision' => '255'),
-				'is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0')
+				'cat_id' => array('type' => 'int','precision' => '4'),
+				'news_teaser' => array('type' => 'text'),
+				'news_is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1')
 			),
 			'pk' => array('news_id'),
 			'fk' => array(),
-			'ix' => array('news_date','news_subject'),
+			'ix' => array('news_date','news_headline'),
 			'uc' => array()
 		),
 		'egw_news_export' => array(

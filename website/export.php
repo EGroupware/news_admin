@@ -39,7 +39,7 @@
 	);
 	include('../../header.inc.php');
 	
-	$news_obj =& CreateObject('news_admin.sonews');
+	$news_obj =& CreateObject('news_admin.bonews');
 	$export_obj =& CreateObject('news_admin.soexport');
 	$tpl =& $GLOBALS['egw']->template;
 	
@@ -92,22 +92,18 @@
 	$tpl->set_var('encoding', $GLOBALS['egw']->translation->charset());
 	$tpl->set_var($site);
 
-// 	if($all)
-// 	{
-// 		$news = $news_obj->get_all_public_news($limit);
-// 	}
-// 	else
-// 	{
-		$news = $news_obj->get_newslist($cat_id, 0,'','',$limit,True);
-// 	}
+	$filter = $cat_id ? array('cat_id' => $cat_id) : array();
+	$news = $news_obj->search('',false,'news_date DESC','','',false,'AND',array(0,$limit),$filter);
+
 	if(is_array($news))
 	{
-		foreach($news as $news_id => $news_data) 
+		foreach($news as $news_data) 
 		{
-			$tpl->set_var($news_data);
+			$tpl->set_var('subject',$news_data['news_headline']);
+			$tpl->set_var('teaser',$news_data['news_teaser']);
 
-			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_id);
-			$tpl->set_var('pub_date', date("r",$news_data['date']));
+			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_data['news_id']);
+			$tpl->set_var('pub_date', date("r",$news_data['news_date']));
 			if($format == 'rss1')
 			{
 				$tpl->parse('seqs','seq',True);

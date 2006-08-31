@@ -14,6 +14,8 @@
 
 	/* $Id$ */
 
+	return 'Needs work';
+
 	$showevents = (int)$GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowLatest'];
 	if($showevents > 0)
 	{
@@ -38,7 +40,7 @@
 		$app_id = $GLOBALS['egw']->applications->name2id('news_admin');
 		$GLOBALS['portal_order'][] = $app_id;
 
-		$news =& CreateObject('news_admin.uinews');
+		$news =& CreateObject('news_admin.uinews_old');
 
 		$newslist = $news->bo->get_newslist('all',0,'','',$latestcount,True);
 

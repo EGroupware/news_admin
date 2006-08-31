@@ -1,30 +1,12 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare - Webpage news admin                                          *
-	* http://www.egroupware.org                                                *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	* --------------------------------------------                             *
-	* This program was sponsered by Golden Glair productions                   *
-	* http://www.goldenglair.com                                               *
-	\**************************************************************************/
+/**
+ * news_admin - Index
+ *
+ * @link http://www.egroupware.org
+ * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @package news_admin
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @version $Id$ 
+ */
 
-	/* $Id$ */
-
-	$GLOBALS['egw_info'] = array(
-		'flags' => array(
-			'currentapp' => 'news_admin',
-			'noheader' => True,
-			'nonavbar' => True,
-		),
-	);
-	include('../header.inc.php');
-
-	$ui =& CreateObject('news_admin.uinews');
-	$ui->read_news();
-
-	$GLOBALS['egw']->common->egw_footer();
-?>
+header('Location: ../index.php?menuaction=news_admin.uinews.index');

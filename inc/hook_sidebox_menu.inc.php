@@ -27,25 +27,32 @@
 
 	$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
 	$file = Array(
-		'read news' => $GLOBALS['egw']->link('/news_admin/index.php'),
-		'Add New Article' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.add')
+		array(
+			'text' => '<a class="textSidebox" href="'.$GLOBALS['egw']->link('/index.php',array('menuaction' => 'news_admin.uinews.edit')).
+				'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\'); 
+				return false;">'.lang('Add').'</a>',
+			'no_lang' => true,
+			'link' => false
+		),
+		'Read news' => $GLOBALS['egw']->link('/index.php',array('menuaction' => 'news_admin.uinews.index')),
 	);
 	display_sidebox($appname,$menu_title,$file);
 
+/* nothing usefull at the moment
 	$title = lang('Preferences');
 	$file = array(
 		'Preferences' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname)
 	);
 	display_sidebox($appname,$title,$file);
-
+*/
 	if($GLOBALS['egw_info']['user']['apps']['admin'])
 	{
 		$title = lang('Administration');
 		$file = Array(
-			'News Administration'  => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
-			'global categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
-			'configure access permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
-			'configure rss exports' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
+			'Site Configuration' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+			'Global categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
+			'Configure access permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
+			'Configure RSS exports' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
 		);
 
 		display_sidebox($appname,$title,$file);

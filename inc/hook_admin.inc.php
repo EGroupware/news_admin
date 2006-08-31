@@ -13,6 +13,7 @@
 	{
 		$file = Array
 		(
+			'Site Configuration' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
 			'Global Categories'	=> $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
 			'Configure Access Permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
 			'Configure RSS exports' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiexport.exportlist'),

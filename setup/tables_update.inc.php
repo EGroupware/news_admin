@@ -1,18 +1,15 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare - Webpage news admin                                          *
-	* http://www.egroupware.org                                                *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	* --------------------------------------------                             *
-	* This program was sponsered by Golden Glair productions                   *
-	* http://www.goldenglair.com                                               *
-	\**************************************************************************/
-
-	/* $Id$ */
+	/**
+	 * eGroupWare - News admin
+	 * 
+	 * The old version of this program was sponsored by Golden Glair productions
+	 *
+	 * @link http://www.egroupware.org 
+	 * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+	 * @package news_admin
+	 * @subpackage setup
+	 * @version $Id$
+	 */
 
 	$test[] = '0.0.1';
 	function news_admin_upgrade0_0_1()
@@ -171,3 +168,52 @@
 
 		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.2';
 	}
+	$test[] = '1.2';
+	function news_admin_upgrade1_2()
+	{
+		$GLOBALS['egw_setup']->oProc->RenameColumn('egw_news','news_subject','news_headline');
+		$GLOBALS['egw_setup']->oProc->RenameColumn('egw_news','news_cat','cat_id');
+		$GLOBALS['egw_setup']->oProc->RenameColumn('egw_news','is_html','news_is_html');
+		/* done by RefreshTable() anyway
+		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_news','news_headline',array(
+			'type' => 'varchar',
+			'precision' => '128'
+		));*/
+		/* done by RefreshTable() anyway
+		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_news','news_submittedby',array(
+			'type' => 'int',
+			'precision' => '4'
+		));*/
+		/* done by RefreshTable() anyway
+		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_news','news_content',array(
+			'type' => 'text'
+		));*/
+		/* done by RefreshTable() anyway
+		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_news','news_teaser',array(
+			'type' => 'text'
+		));*/
+		$GLOBALS['egw_setup']->oProc->RefreshTable('egw_news',array(
+			'fd' => array(
+				'news_id' => array('type' => 'auto','nullable' => False),
+				'news_date' => array('type' => 'int','precision' => '8'),
+				'news_headline' => array('type' => 'varchar','precision' => '128'),
+				'news_submittedby' => array('type' => 'int','precision' => '4'),
+				'news_content' => array('type' => 'text'),
+				'news_begin' => array('type' => 'int','precision' => '8','nullable' => False,'default' => '0'),
+				'news_end' => array('type' => 'int','precision' => '8'),
+				'cat_id' => array('type' => 'int','precision' => '4'),
+				'news_teaser' => array('type' => 'text'),
+				'news_is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1')
+			),
+			'pk' => array('news_id'),
+			'fk' => array(),
+			'ix' => array('news_date','news_headline'),
+			'uc' => array()
+		));
+
+		// replace former no end-date value with NULL
+		$GLOBALS['egw_setup']->db->query('UPDATE egw_news SET news_end=NULL WHERE news_end=2147483647',__LINE__,__FILE__);
+
+		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.3.001';
+	}
+?>
