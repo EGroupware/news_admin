@@ -2,7 +2,7 @@
 <!-- $Id$ -->
 <overlay>
 	<template id="news_admin.index.right" template="" lang="" group="0" version="1.3.001">
-		<button data="" rows="1" cols="1" id="add" label="Add"/>
+		<button data="" rows="1" cols="1" id="add" label="Add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;"/>
 	</template>
 	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.3.001">
 		<grid width="100%">
