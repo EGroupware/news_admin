@@ -1,19 +1,30 @@
+%1 module	news_admin	sk	%1 modul
+actions	news_admin	sk	Akcie
 active	news_admin	sk	Aktívne
 add new article	news_admin	sk	Prida» nový èlánok
 add new news	news_admin	sk	Prida» novú aktualitu
 add news item	news_admin	sk	Prida» polo¾ku Aktualít
 all news	news_admin	sk	V¹etky aktuality
 always	news_admin	sk	V¾dy
+by date	news_admin	sk	Podµa dátumu
+choose a category	news_admin	sk	Vyberte kategóriu
 configuration	news_admin	sk	Nastavenia
 configure access permissions	common	sk	Nastavi» prístupové práva
 configure rss exports	common	sk	Nastavi» RSS exporty
 contains html	news_admin	sk	Obsahuje HTML
 content	news_admin	sk	Obsah
+date and time	news_admin	sk	Dátum a èas
+delete this news	news_admin	sk	Zmaza» túto správu
+do you want to publish a rss feed for this news category	news_admin	sk	®eláte si publikova» RSS feed pre túto kategóriu aktualít
 edit news item	news_admin	sk	Upravi» polo¾ku Aktualít
+end	news_admin	sk	Koniec
+error saving the news!	news_admin	sk	Chyba poèas ukladania správ!
 failed to add message	news_admin	sk	Nepodarilo sa prida» novú správu
 format for links to items	news_admin	sk	Formát pre odkaz na polo¾ky
 format of export	news_admin	sk	Formát exportu
 from	news_admin	sk	Od
+from all	news_admin	sk	Od v¹etkých
+future	news_admin	sk	Budúce
 global categories	news_admin	sk	Globálne kategórie
 global news	news_admin	sk	Globálne aktuality
 global_news	news_admin	sk	Globálne_aktuality
@@ -33,17 +44,24 @@ new item has been added	news_admin	sk	Nová polo¾ka bola pridaná
 news	news_admin	sk	Aktuality
 news admin	news_admin	sk	Správca Aktualít
 news administration	news_admin	sk	Správa Aktualít
+news deleted.	news_admin	sk	Aktuality vymazané.
 news item has been added	news_admin	sk	Polo¾ka Aktualít bola pridaná
 news item has been updated	news_admin	sk	Polo¾ka Aktualít bola upravená
+news saved.	news_admin	sk	Aktuality ulo¾ené.
 news_admin	common	sk	Správca Aktualít
 no entries found	news_admin	sk	¾iadne záznamy sa nena¹li
+no matching news item	news_admin	sk	Nena¹li sa ¾iadne zodpovedajúce polo¾ky Aktualít
 no news	news_admin	sk	V kategórii nie sú v súèasnosti ¾iadne dostupné aktuality
 no rss export	news_admin	sk	®iadny RSS export
+now	news_admin	sk	Teraz
 number of articles to display on the main screen	news_admin	sk	Poèet èlánkov zobrazených na hlavnej stránke
+number of news items to be displayed on page	news_admin	sk	Poèet aktualít zobrazovaných na stránke
+old	news_admin	sk	Staré
 on	news_admin	sk	na
 picture upload (leave the upload directory empty to disable the upload)	admin	sk	Nahra» obrázok (ak chcete vypnú» nahrávanie, ponechajte adresár prázdny)
 please select a category	news_admin	sk	Prosím vyberte kategóriu
 publish date	news_admin	sk	Dátum publikovania
+read more	news_admin	sk	èíta» ïalej
 read news	news_admin	sk	Èíta» aktuality
 read permissions	news_admin	sk	Oprávnenia k èítaniu
 send mail to others	news_admin	sk	Posla» ostatným mail
@@ -51,13 +69,17 @@ should news_admin display the latest article headlines on the main screen.	news_
 show latest news articles?	news_admin	sk	Zobrazi» najnov¹í èlánok z Aktualít?
 show news articles on main page?	news_admin	sk	Zobrazi» èlánky Aktualít na hlavnej stránke?
 small view	news_admin	sk	Zmen¹ený pohµad
+start	news_admin	sk	Zaèiatok
 submitted by	common	sk	Pridal
+submitted by %1 on %2	news_admin	sk	Odoslal %1 k %2
 the news content is missing	news_admin	sk	Obsah aktuality chýba
 the number of articles to display on the main screen.	news_admin	sk	Poèet èlánkov zobrazovaných na hlavnej stránke
 the subject is missing	news_admin	sk	Chýba predmet
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sk	Tento modul publikuje na Va¹ej webstránke aktuality z aplikácie Správca Aktualít (news_admin). Dajte si pozor na ACL obmedzenia aplikácie Správca Aktualít (news_admin).
 until	news_admin	sk	a¾ do
 view this category	news_admin	sk	Zobrazi» túto kategóriu
 visible	news_admin	sk	Viditeµné
 webpage news admin	news_admin	sk	Správca aktualít webstránky
+which information do you want to show (css class)	news_admin	sk	Ktoré informácie chcete zobrazi» (CSS trieda)
 write	news_admin	sk	Zápis
 write permissions	news_admin	sk	Oprávnenia k zápisu
