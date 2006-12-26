@@ -75,8 +75,8 @@ small view	news_admin	es-es	Vista reducida
 start	news_admin	es-es	Inicio
 submitted by	common	es-es	Enviado por
 submitted by %1 on %2	news_admin	es-es	Enviado por %1 el %2
-teaser	news_admin	es-es	Autor
-teaser with read more link	news_admin	es-es	Autor con enlace de leer más
+teaser	news_admin	es-es	Introducción
+teaser with read more link	news_admin	es-es	Introducción con enlace de leer más
 the news content is missing	news_admin	es-es	Falta el contenido de las noticias
 the number of articles to display on the main screen.	news_admin	es-es	El número de artículos a mostrar en la pantalla principal.
 the subject is missing	news_admin	es-es	Falta el asunto
