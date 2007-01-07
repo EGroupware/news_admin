@@ -9,6 +9,7 @@
 			<title>{subject}</title>
 			<link>{item_link}</link>
 			<pubDate>{pub_date}</pubDate>
+			<description><![CDATA[<p><b>{teaser}</b></p>{content}]]></description>
 		</item>
 <!-- END item -->
 	</channel>
