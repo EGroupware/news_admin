@@ -22,7 +22,56 @@
 	 */
 	function registration_check_anon_access(&$anon_account)
 	{
+		global $site_url, $sitemgr_info;
+
+		$path0 = preg_replace('/\/[^\/]*$/','',$_SERVER['PHP_SELF']) .'/';
+		// Force a single trailing slash. Source: http://www.php.net/manual/en/function.preg-replace.php#70833
+		$site_urls[] = $path = preg_replace('!/*$!', '/', $path0, 1);
+		$site_urls[] = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_ADDR'] . $path ;
+		$site_urls[] = $site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $path;
+
+		//echo "<p>sitemgr_get_site('$site_url')</p>\n";
+		$GLOBALS['egw']->db->select('egw_sitemgr_sites','*',
+			array('site_url' => $site_urls),__LINE__,__FILE__,false,'','sitemgr');
+
+		if ($GLOBALS['egw']->db->next_record())
+		{
+			$GLOBALS['site_id'] = $GLOBALS['egw']->db->f('site_id');
+			if ($GLOBALS['sitemgr_info']['webserver_url'])
+			{
+				$GLOBALS['egw_info']['server']['webserver_url'] = $GLOBALS['sitemgr_info']['webserver_url'] = $GLOBALS['egw']->db->f('site_url');
+			}
+			$anon_account = array(
+				'login'  => $GLOBALS['egw']->db->f('anonymous_user'),
+				'passwd' => $GLOBALS['egw']->db->f('anonymous_passwd'),
+				'passwd_type' => 'text',
+			);
+
+			$sitemgr_info['anonymous_user'] = $anon_account['login'];
+			
+			if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
+			{
+				$eGW_remember = explode('::::',stripslashes($_COOKIE['eGW_remember']));
+
+				if (count($eGW_remember) == 3 && $GLOBALS['egw']->accounts->name2id($eGW_remember[0],'account_lid','u'))
+				{
+					$anon_account = array(
+						'login' => $eGW_remember[0],
+						'passwd' => $eGW_remember[1],
+						'passwd_type' => $eGW_remember[2],
+					);
+				}
+			}
+			if (!$anon_account['login'])
+			{
+				die(lang('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.'));
+			}
+			//echo "<p>sitemgr_get_site('$site_url') site_id=$site_id, anon_account=".print_r($anon_account,true)."</p>\n";
+			return true;
+		}
 		//quick hack for std installations...
+		// Policy: admins who don't (want to) install site manager, must leave the default anonymous user and password
+		// in order to read feeds via export.php directly
 		$anon_account = array(
 			'login'  => 'anonymous',
 			'passwd' => 'anonymous',
@@ -31,13 +80,23 @@
 		return true;
 	}
 	
+	
+	if (!$GLOBALS['sitemgr_info']['egw_path'])
+	{
+          $GLOBALS['sitemgr_info'] = array(
+                'egw_path'         => getcwd().'/../../',
+                'htaccess_rewrite' => False,
+          );
+	}
+
 	$GLOBALS['egw_info']['flags'] = array(
 		'noheader'  => True,
 		'nonavbar' => True,
 		'currentapp' => 'sitemgr-link',
 		'autocreate_session_callback' => 'registration_check_anon_access',
 	);
-	include('../../header.inc.php');
+
+	require_once($GLOBALS['sitemgr_info']['egw_path'].'header.inc.php');
 	
 	$news_obj =& CreateObject('news_admin.sonews');
 	$export_obj =& CreateObject('news_admin.soexport');
