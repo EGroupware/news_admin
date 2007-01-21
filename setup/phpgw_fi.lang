@@ -1,18 +1,34 @@
+%1 module	news_admin	fi	%1 moduli
+actions	news_admin	fi	Toiminnot
 active	news_admin	fi	Aktiivinen
 add new article	news_admin	fi	Lis‰‰ uusi artikkeli
 add new news	news_admin	fi	Lis‰‰ uusi uutinen
 add news item	news_admin	fi	Lis‰‰ uutinen
 all news	news_admin	fi	Kaikki uutiset
 always	news_admin	fi	Aina
+by date	news_admin	fi	p‰iv‰m‰‰ritt‰in
+choose a category	news_admin	fi	Valitse kategoria
 configuration	news_admin	fi	Konfiguraatio
 configure access permissions	common	fi	Konfiguroinnin p‰‰sy luvat
+configure rss exports	common	fi	S‰‰d‰ RSS vienti
 contains html	news_admin	fi	Sis‰lt‰‰ HTML
 content	news_admin	fi	Sis‰ltˆ
+date and time	news_admin	fi	P‰iv‰ ja aika
+delete this news	news_admin	fi	Poista t‰m‰ uutinen
+do you want to publish a rss feed for this news category	news_admin	fi	Haluatko julkaista RSS syˆtteen t‰st‰ uutis-kategoriasta
 edit news item	news_admin	fi	muokkaa uutista
+end	news_admin	fi	Loppu
+error saving the news!	news_admin	fi	Virhe tallentaessa uutisia!
 failed to add message	news_admin	fi	uuden viestin lis‰‰minen ep‰onnistui
 format of export	news_admin	fi	Viennin formaatti
 from	news_admin	fi	jostakin
-global news	news_admin	fi	maailmanlaajuinen uutinen
+from all	news_admin	fi	Kaikille
+future	news_admin	fi	Tulevaisuudessa
+global categories	news_admin	fi	yleiset kategoriat
+global news	news_admin	fi	Yleinen uutinen
+global_news	news_admin	fi	Yleinen_uutinen
+headline	news_admin	fi	Otsikko
+headline with link	news_admin	fi	Otsikko linkill‰
 image link	news_admin	fi	Kuva linkki
 image title	news_admin	fi	Kuvan otsikko
 image url	news_admin	fi	Kuvan URL
@@ -20,26 +36,45 @@ implies read permission	news_admin	fi	sis‰lt‰‰ lukemis luvat
 item has been deleted	news_admin	fi	Kohde poistettu
 item not found	news_admin	fi	Kohdetta ei lˆydetty
 link	news_admin	fi	Linkki
+main	news_admin	fi	P‰‰osa
 maintain	news_admin	fi	Yll‰pito
 maintain news	admin	fi	Uutisten yll‰pito
 message has been added	news_admin	fi	Viesti on lis‰tty
 more news	news_admin	fi	Lis‰‰ uutisia
+more news link	news_admin	fi	Lis‰‰ uutisia linkki
 new item has been added	news_admin	fi	Uusi kohde lis‰tty
-news item has been added	news_admin	fi	uutisia ollaan lis‰tty
-news item has been updated	news_admin	fi	uutisia ollaan p‰ivitetty
+news	news_admin	fi	Uutiset
+news admin	news_admin	fi	Uutisten p‰‰k‰ytt‰j‰
+news administration	news_admin	fi	Uutisten hallinta
+news deleted.	news_admin	fi	Uutinen poistettu
+news item has been added	news_admin	fi	Uutinen lis‰tty
+news item has been updated	news_admin	fi	Uutinen p‰ivitetty
+news saved.	news_admin	fi	Uutinen tallennettu.
 news_admin	common	fi	Uutisten yll‰pito
 no entries found	news_admin	fi	ei kohteita
+no rss export	news_admin	fi	Ei RSS vienti‰
+now	news_admin	fi	Nyt
+old	news_admin	fi	vanha
+picture upload (leave the upload directory empty to disable the upload)	admin	fi	Kuvan lataus (j‰t‰ hakemisto tyhj‰ksi jos haluat est‰‰ lataamiset)
+please select a category	news_admin	fi	Valitse kategoria
 publish date	news_admin	fi	Julkaisu p‰iv‰
-read news	news_admin	fi	lue uutisia
-read permissions	news_admin	fi	lukemis luvat
+read more	news_admin	fi	lue lis‰‰
+read news	news_admin	fi	Lue uutinen
+read permissions	news_admin	fi	Lukuoikeudet
+send mail to others	news_admin	fi	L‰het‰ s‰hkˆpostina muille
 should news_admin display the latest article headlines on the main screen.	news_admin	fi	N‰ytt‰isikˆ uutisten hallinta viimeisimm‰t artikkeleiden otsikot p‰‰n‰ytˆll‰.
 show latest news articles?	news_admin	fi	N‰yt‰ viimeisin uutis artikkeli?
 show news articles on main page?	news_admin	fi	n‰yt‰ uutis artikkelit p‰‰ sivussa
 small view	news_admin	fi	pieni n‰kym‰
+start	news_admin	fi	Alkaa
 submitted by	common	fi	Luonut
+submitted by %1 on %2	news_admin	fi	L‰hetetty %1 %2
+teaser	news_admin	fi	Lyhyt uutinen
+teaser with read more link	news_admin	fi	Lue lis‰‰ lyhytuutisesta
 the news content is missing	news_admin	fi	Uutisen sis‰ltˆ puuttuu
 the number of articles to display on the main screen.	news_admin	fi	Artikkeleiden m‰‰r‰ n‰ytet‰‰n p‰‰n‰ytˆll‰.
 the subject is missing	news_admin	fi	Uutisen otsikko puuttuu
+until	news_admin	fi	kunnes
 view this category	news_admin	fi	N‰yt‰ luokka
 visible	news_admin	fi	N‰kyv‰
 webpage news admin	news_admin	fi	Web-uutisten yll‰pito
