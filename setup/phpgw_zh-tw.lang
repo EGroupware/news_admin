@@ -15,6 +15,7 @@ contains html	news_admin	zh-tw	包含HTML
 content	news_admin	zh-tw	內容
 date and time	news_admin	zh-tw	日期與時間
 delete this news	news_admin	zh-tw	刪除這則新聞
+do you want to publish a rss feed for this news category	news_admin	zh-tw	是否要透過 RSS 發佈這個新聞類別的文章？
 edit news item	news_admin	zh-tw	編輯新聞項目
 end	news_admin	zh-tw	結束
 error saving the news!	news_admin	zh-tw	儲存這則新聞時發生錯誤！
@@ -60,6 +61,7 @@ number of articles to display on the main screen	news_admin	zh-tw	在主要畫�
 number of news items to be displayed on page	news_admin	zh-tw	頁面要顯示的新聞數量
 old	news_admin	zh-tw	舊的
 on	news_admin	zh-tw	在
+picture upload (leave the upload directory empty to disable the upload)	admin	zh-tw	上傳圖片（如果不使用請保留空白）
 please select a category	news_admin	zh-tw	請選擇一個類別
 publish date	news_admin	zh-tw	發布日期
 read more	news_admin	zh-tw	閱讀全文
