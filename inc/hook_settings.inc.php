@@ -43,7 +43,7 @@
 			'xmlrpc'  => True,
 			'admin'   => False
 		),
-		'SendMail' => array( // added by wbshang @ realss, 2005-3-3
+		/*'SendMail' => array( // added by wbshang @ realss, 2005-3-3
 			'type'   => 'check',
 			'label'  => 'Show newsletter option when add news?',
 			'name'   => 'SendMail',
@@ -77,5 +77,5 @@
 			'size'   => 22,
 			'xmlrpc' => True,
 			'admin'  => False
-		)
+		)*/
 	);

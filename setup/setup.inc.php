@@ -21,10 +21,10 @@ $setup_info['news_admin']['tables']    = array('egw_news','egw_news_export');
 
 /* The hooks this app includes, needed for hooks registration */
 $setup_info['news_admin']['hooks'][] = 'admin';
-//	$setup_info['news_admin']['hooks'][] = 'home';
+$setup_info['news_admin']['hooks'][] = 'home';
 $setup_info['news_admin']['hooks'][] = 'sidebox_menu';
-//	$setup_info['news_admin']['hooks'][] = 'settings';
-//	$setup_info['news_admin']['hooks'][] = 'preferences';
+$setup_info['news_admin']['hooks'][] = 'settings';
+$setup_info['news_admin']['hooks'][] = 'preferences';
 
 /* Dependencies for this app to work */
 $setup_info['news_admin']['depends'][] = array(

@@ -38,13 +38,12 @@
 	);
 	display_sidebox($appname,$menu_title,$file);
 
-/* nothing usefull at the moment
 	$title = lang('Preferences');
 	$file = array(
 		'Preferences' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname)
 	);
 	display_sidebox($appname,$title,$file);
-*/
+
 	if($GLOBALS['egw_info']['user']['apps']['admin'])
 	{
 		$title = lang('Administration');

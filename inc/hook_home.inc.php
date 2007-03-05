@@ -13,14 +13,19 @@
 	\**************************************************************************/
 
 	/* $Id$ */
-
-	return 'Needs work';
-
+	
 	$showevents = (int)$GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowLatest'];
 	if($showevents > 0)
 	{
+		$d1 = strtolower(substr(EGW_APP_INC,0,3));
+    		if($d1 == 'htt' || $d1 == 'ftp' ) {
+        	    echo 'Failed attempt to break in via an old Security Hole!<br>'."\n";
+        	    $GLOBALS['egw']->common->egw_exit();
+    		}
+        	unset($d1);
+
 		$GLOBALS['egw']->translation->add_app('news_admin');
-		$title = lang('News Admin');
+		$title = lang('News');
 		$portalbox =& CreateObject('phpgwapi.listbox',array(
 			'title'     => $title,
 			'primary'   => $GLOBALS['egw_info']['theme']['navbar_bg'],
@@ -40,32 +45,33 @@
 		$app_id = $GLOBALS['egw']->applications->name2id('news_admin');
 		$GLOBALS['portal_order'][] = $app_id;
 
-		$news =& CreateObject('news_admin.uinews_old');
-
-		$newslist = $news->bo->get_newslist('all',0,'','',$latestcount,True);
-
+		$news =& CreateObject('news_admin.uinews');
+		$newslist = $news->search("");
 		$image_path = $GLOBALS['egw']->common->get_image_path('news_admin');
 
+		$text = "<ul>";
 		if(is_array($newslist))
 		{
 			foreach($newslist as $newsitem)
 			{
-				$text = $newsitem['subject'];
+				$text .= "<li><b>" . $newsitem['news_headline'];
 				if($showevents == 1)
 				{
-					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['egw']->common->grab_owner_name($newsitem['submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['egw']->common->show_date($newsitem['date']);
+					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['egw']->common->grab_owner_name($newsitem['news_submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['egw']->common->show_date($newsitem['news_date']) . "</b>";
+					$text .= "<br />" . $newsitem['news_teaser'] . "</li><br />";
 				}
-				$portalbox->data[] = array(
-					'text' => $text,
-					'link' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uinews.read_news&news_id=' . $newsitem['id'])
-				);
+				else
+				{
+    					$text .= "</li>";
+				}
 			}
-			unset($text);
 		}
 		else
 		{
-			$portalbox->data[] = array('text' => lang('no news'));
+			$text .= lang('no news');
 		}
+		
+		$text .= "</ul>";
 
 		$GLOBALS['portal_order'][] = $app_id;
 		$var = Array(
@@ -83,7 +89,7 @@
 
 		$tmp = "\r\n"
 			. '<!-- start News Admin -->' . "\r\n"
-			. $portalbox->draw()
+			. $portalbox->draw($text)
 			. '<!-- end News Admin -->'. "\r\n";
 		print $tmp;
 	}
