@@ -1,0 +1,64 @@
+active	news_admin	ru	Активно
+add new article	news_admin	ru	Добавить Новую Статью
+add new news	news_admin	ru	Добавить новую новость
+add news item	news_admin	ru	Добавить новый элемент
+all news	news_admin	ru	Все новости
+always	news_admin	ru	Всегда
+configuration	news_admin	ru	Конфигурация
+configure access permissions	common	ru	Настроить разрешения доступа
+configure rss exports	common	ru	Настроить экспорт RSS
+contains html	news_admin	ru	Содержит HTML
+content	news_admin	ru	Содержание
+edit news item	news_admin	ru	Редактировать новости
+failed to add message	news_admin	ru	Ошибка при добавлении нового сообщения
+format for links to items	news_admin	ru	Формат для ссылок на элементы
+format of export	news_admin	ru	Формат экспорта
+from	news_admin	ru	От
+global categories	news_admin	ru	Общие Категории
+global news	news_admin	ru	Общие Новости
+global_news	news_admin	ru	Общие Новости
+image link	news_admin	ru	Ссылка на изображение
+image title	news_admin	ru	Заголовок изображения
+image url	news_admin	ru	URL изображение
+implies read permission	news_admin	ru	подразумевает разрешение на чтение
+item has been deleted	news_admin	ru	Элемент удален
+item not found	news_admin	ru	Элемент не найден
+link	news_admin	ru	Ссылка
+main	news_admin	ru	Главная
+maintain	news_admin	ru	Обслуживание
+maintain news	admin	ru	Новости Обслуживания (Обслуживать Новости?)
+message has been added	news_admin	ru	Сообщение добавлено
+more news	news_admin	ru	Еще новости
+new item has been added	news_admin	ru	Новый элемент добавлен
+news	news_admin	ru	Новости
+news admin	news_admin	ru	Администратор Новостей
+news administration	news_admin	ru	Администрация Новостей
+news item has been added	news_admin	ru	Элемент Новостей добавлен
+news item has been updated	news_admin	ru	Элемент Новостей обновлен
+news_admin	common	ru	Администратор Новостей
+no entries found	news_admin	ru	записи не найдены
+no news	news_admin	ru	В этой категории в данный момент нет новостей
+no rss export	news_admin	ru	Экспорта RSS нет
+number of articles to display on the main screen	news_admin	ru	Количество новостей, показываемых на главной странице
+on	news_admin	ru	на
+picture upload (leave the upload directory empty to disable the upload)	admin	ru	Выгрузка изображения (оставить каталог выгрузки пустым, чтобы запретить выгрузку)
+please select a category	news_admin	ru	Пожалуйста выберите категорию
+publish date	news_admin	ru	Дата опубликования
+read news	news_admin	ru	Читать новости
+read permissions	news_admin	ru	Разрешения на чтение
+send mail to others	news_admin	ru	Отправить Письмо Остальным
+should news_admin display the latest article headlines on the main screen.	news_admin	ru	Должен ли Администратор Новостей показывать заголовки последних статей на главной странице.
+show latest news articles?	news_admin	ru	Показывать последние статьи?
+show news articles on main page?	news_admin	ru	Показывать статьи на главной странице?
+small view	news_admin	ru	мелкий вид
+submitted by	common	ru	Новость предоставлена
+teaser	news_admin	ru	Завлекалка
+the news content is missing	news_admin	ru	Отсутствует содержание новостей
+the number of articles to display on the main screen.	news_admin	ru	Количество статей, показываемых на главной странице
+the subject is missing	news_admin	ru	Отсутствует предмет
+until	news_admin	ru	до
+view this category	news_admin	ru	Показать эту категорию
+visible	news_admin	ru	Видимый
+webpage news admin	news_admin	ru	Веб-страница администратора новостей
+write	news_admin	ru	Записать
+write permissions	news_admin	ru	Разрешения на запись
