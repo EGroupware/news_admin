@@ -8,14 +8,13 @@
    </tr>
 <!-- END header -->
 <!-- BEGIN body -->
-<tr class="row_on">
- <td>{lang_Path_of_the_upload_directory_(has_to_be_writable_by_the_webserver!)}:</td>
- <td><input name="newsettings[upload_dir]" size="40" value="{value_upload_dir}"></td>
-</tr>
-
 <tr class="row_off">
- <td>{lang_URL_of_the_upload_directory}:</td>
- <td><input name="newsettings[upload_url]" size="40" value="{value_upload_url}"></td>
+ <td>
+  {lang_Image_directory_relative_to_document_root_(use_/_!),_example:} /images<br />
+  {lang_An_existing_AND_by_the_webserver_readable_directory_enables_the_image_browser_and_upload.}<br />
+  {lang_Upload_requires_the_directory_to_be_writable_by_the_webserver!}
+ </td>
+ <td><input name="newsettings[upload_dir]" size="40" value="{value_upload_dir}"></td>
 </tr>
 
 <!-- END body -->

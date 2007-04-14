@@ -25,6 +25,7 @@ $setup_info['news_admin']['hooks'][] = 'home';
 $setup_info['news_admin']['hooks'][] = 'sidebox_menu';
 $setup_info['news_admin']['hooks'][] = 'settings';
 $setup_info['news_admin']['hooks'][] = 'preferences';
+$setup_info['news_admin']['hooks'][] = 'config_validate';
 
 /* Dependencies for this app to work */
 $setup_info['news_admin']['depends'][] = array(

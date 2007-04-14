@@ -40,8 +40,22 @@
 			'name'    => 'homeShowLatestCount',
 			'size'    => 3,
 			'maxsize' => 10,
+			'help'    => 'Number of articles to display on the main screen',
 			'xmlrpc'  => True,
 			'admin'   => False
+		),
+		'rtfEditorFeatures' => array(
+			'type'   => 'select',
+			'label'  => 'Features of the editor?',
+			'name'   => 'rtfEditorFeatures',
+			'values' => array(
+				'simple'   => lang('Simple'),
+				'extended' => lang('Regular'),
+				'advanced' => lang('Everything'), 
+			),
+			'help'   => 'You can customize how many icons and toolbars the editor shows.',
+			'xmlrpc' => True,
+			'admin'  => False
 		),
 		/*'SendMail' => array( // added by wbshang @ realss, 2005-3-3
 			'type'   => 'check',
