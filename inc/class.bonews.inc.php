@@ -149,12 +149,16 @@ class bonews extends so_sql
 	 * saves the content of data to the db
 	 *
 	 * @param array $keys if given $keys are copied to data before saveing => allows a save as
-	 * @return int 0 on success and errno != 0 else
+	 * @return int/boolean 0 on success, true on ACL error and errno != 0 else
 	 */
 	function save($keys=null)
 	{
 		if ($keys) $this->data_merge($keys);
 		
+		if (!$this->data['cat_id'] || !$this->check_acl($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD))
+		{
+			return true;
+		}
 		if (!$this->data['news_id'])	// new entry
 		{
 			$this->data['news_date'] = $this->now;
@@ -190,6 +194,26 @@ class bonews extends so_sql
 	 */
 	function &search($criteria,$only_keys=false,$order_by='news_date DESC',$extra_cols='',$wildcard='',$empty=False,$op='AND',$start=false,$filter=null)
 	{
+		if (is_array($filter) && isset($filter['cat_id']))
+		{
+			$cats = $filter['cat_id'];
+			unset($filter['cat_id']);
+		}
+		elseif(is_array($criteria) && isset($criteria['cat_id']) && $op == 'AND')
+		{
+			$cats = $criteria['cat_id'];
+			unset($criteria['cat_id']);
+		}
+		// return only an intersection of the requested cats and the (by ACL) permitted cats
+		$permitted_cats = array_keys($this->rights2cats(EGW_ACL_READ));
+		if ($cats)
+		{
+			if (!is_array($cats)) $cats = array($cats);
+			$permitted_cats = array_intersect($cats,$permitted_cats);
+		}
+		if (!$permitted_cats) return array();	// no rights to any (requested) cat
+		$filter['cat_id'] = count($permitted_cats) == 1 ? $permitted_cats[0] : $permitted_cats;
+
 		if (is_array($filter) && isset($filter['visible']))
 		{
 			$visible = $filter['visible'];
@@ -235,6 +259,25 @@ class bonews extends so_sql
 				break;
 		}
 		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter);
+	}
+	
+	/**
+	 * Read one news
+	 * 
+	 * reimplemented to check ACL
+	 *
+	 * @param array/int $keys array with keys or integer news_id
+	 * @return array/boolean the news or false on error or not found
+	 */
+	function read($keys)
+	{
+		if (!is_array($keys) && (int)$keys) $keys = array('news_id' => (int)$keys);
+		
+		if (!parent::read($keys) || !$this->check_acl(EGW_ACL_READ))
+		{
+			return false;
+		}
+		return $this->data;
 	}
 
 	/**
