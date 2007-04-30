@@ -168,6 +168,7 @@
 
 		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.2';
 	}
+
 	$test[] = '1.2';
 	function news_admin_upgrade1_2()
 	{
@@ -215,5 +216,11 @@
 		$GLOBALS['egw_setup']->db->query('UPDATE egw_news SET news_end=NULL WHERE news_end=2147483647',__LINE__,__FILE__);
 
 		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.3.001';
+	}
+
+	$test[] = '1.3.001';
+	function news_admin_upgrade1_3_001()
+	{
+		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.4';
 	}
 ?>

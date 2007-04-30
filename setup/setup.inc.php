@@ -12,9 +12,13 @@
 /* Basic information about this app */
 $setup_info['news_admin']['name']      = 'news_admin';
 $setup_info['news_admin']['title']     = 'News Admin';
-$setup_info['news_admin']['version']   = '1.3.001';
+$setup_info['news_admin']['version']   = '1.4';
 $setup_info['news_admin']['app_order'] = 16;
 $setup_info['news_admin']['enable']    = 1;
+
+$setup_info['news_admin']['author']    =
+$setup_info['news_admin']['maintainer'] = 'Ralf Becker';
+$setup_info['news_admin']['maintainer_email'] = 'RalfBecker@outdoor-training.de';
 
 /* The tables this app creates */
 $setup_info['news_admin']['tables']    = array('egw_news','egw_news_export');
@@ -30,5 +34,5 @@ $setup_info['news_admin']['hooks'][] = 'config_validate';
 /* Dependencies for this app to work */
 $setup_info['news_admin']['depends'][] = array(
 	 'appname' => 'phpgwapi',
-	 'versions' => Array('1.0.0','1.0.1','1.2','1.3')
+	 'versions' => Array('1.3','1.4','1.5')
 );
