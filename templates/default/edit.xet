@@ -49,7 +49,7 @@
 				<row class="row">
 					<description value="Visible"/>
 					<menulist>
-						<menupopup id="visible" no_lang="1"/>
+						<menupopup id="visible"/>
 					</menulist>
 					<description options=",,,news_begin" value="Start" align="right"/>
 					<date id="news_begin"/>
