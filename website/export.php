@@ -1,18 +1,14 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare - Webpage news admin                                          *
-	* http://www.egroupware.org                                                *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	* --------------------------------------------                             *
-	* This program was sponsered by Golden Glair productions                   *
-	* http://www.goldenglair.com                                               *
-	\**************************************************************************/
-
-	/* $Id$ */
+	/**
+	 * eGroupWare - Webpage news admin
+	 *
+	 * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+	 * @package news_admin
+	 * @link http://www.egroupware.org
+	 * @maintainer Cornelius Weiss <nelius@cwtech.de>
+	 * @version $Id$
+	 */
+	
 	
 	/**
 	 * Check if we allow anon access and with which creditials
@@ -20,9 +16,9 @@
 	 * @param array &$anon_account anon account_info with keys 'login', 'passwd' and optional 'passwd_type'
 	 * @return boolean true if we allow anon access, false otherwise
 	 */
-	function registration_check_anon_access(&$anon_account)
-	{
-		//quick hack for std installations...
+	function registration_check_anon_access(&$anon_account)	{
+		// quick hack for std installations to reach news stand alone
+		// via egroupware/news_admin/website/export.php
 		$anon_account = array(
 			'login'  => 'anonymous',
 			'passwd' => 'anonymous',
@@ -31,78 +27,96 @@
 		return true;
 	}
 	
-	$GLOBALS['egw_info']['flags'] = array(
-		'noheader'  => True,
-		'nonavbar' => True,
-		'currentapp' => 'sitemgr-link',
-		'autocreate_session_callback' => 'registration_check_anon_access',
-	);
-	include('../../header.inc.php');
+	// check if we are loaded via sitemgr's news_module
+	if (!$GLOBALS['egw_info']['flags']['currentapp'] == 'sitemgr-link') {
+		$GLOBALS['egw_info']['flags'] = array(
+			'noheader'  => True,
+			'nonavbar' => True,
+			'currentapp' => 'sitemgr-link',
+			'autocreate_session_callback' => 'registration_check_anon_access',
+		);
+		include('../../header.inc.php');
+	}
 	
 	$news_obj =& CreateObject('news_admin.bonews');
 	$export_obj =& CreateObject('news_admin.soexport');
-	$tpl =& $GLOBALS['egw']->template;
+	$cats_obj =& CreateObject('phpgwapi.categories');
+	$tpl =& CreateObject('phpgwapi.template');
 	
 	$cat_id = (int)$_GET['cat_id'];
-//	$format = (isset($_GET['format']) ? strtolower(trim($_GET['format'])) : 'rss');
-	$limit	= (isset($_GET['limit']) ? trim($_GET['limit']) : 5);
-//	$all	= (isset($_GET['all']) ? True : False);
-
-	$site = $export_obj->readconfig($cat_id);
-
-	//TODO allow override of configured value by a configurable flag
-	//validate format
-
-// 	$available_formats = array('rss'	=> True, //RSS 0.91
-// 				'rdf-chan'	=> True, //RDF 1.0
-// 				'rdf2'		=> True, //RDF/RSS 2.0
-// 				);
-
-// 	if(!$available_formats[$format])
-// 	{
-// 		$format = 'rss';
-// 	}
-
-	if(!$site['type'])
-	{
-		echo "THIS CATEGORY IS NOT PUBLICLY ACCESSIBLE";
-		die();
-	}
-
-	header('Content-type: text/xml; charset='.$GLOBALS['egw']->translation->charset());
+	$limit	= (isset($_GET['limit']) ? trim($_GET['limit']) : 10);
+	$reqFormat = (isset($_GET['format']) ? strtolower(trim($_GET['format'])) : null);
 	
-	$formats = array(1 => 'rss091', 2 => 'rss1', 3 => 'rss2');
+	$filter = $cat_id > 0 ? array('cat_id' => $cat_id) : false;
+	$news = $news_obj->search('',false,'news_date DESC','','',false,'AND',array(0,$limit),$filter);
+
+	if (empty($news)) {
+		die('
+			There are no news, sorry! Either this system is missconfigured, 
+			you are trying something nasty, or there are really no news.
+			
+			Ask the webmaster to make shure, the access permissions in the
+			news_admin application are set in a way website visitors can access news.
+		');
+	}
+	$formats = array(
+		1 => 'rss091', 
+		2 => 'rss1', 
+		3 => 'rss2'
+	);
+	
 	$itemsyntaxs = array(
 		0 => '?item=',
 		1 => '&item=',
 		2 => '?news%5Bitem%5D=',
 		3 => '&news%5Bitem%5D='
 	);
-	$format = $formats[$site['type']];
-	$itemsyntax = $itemsyntaxs[$site['itemsyntax']];
+	
+	$feedConf = $export_obj->readconfig($cat_id);
+	
+	$format = $reqFormat ? $reqFormat : (
+		$formats[$feedConf['type']] ? $formats[$feedConf['type']] : (
+		'rss2' ));
+
+	//print_r($GLOBALS['egw_info']);
+	$feedConf['title'] = $feedConf['title'] ? $feedConf['title'] : (
+		$sitemgr_info['site_name'] ? $sitemgr_info['site_name'] : (
+		$GLOBALS['egw_info']['server']['site_title'] ? $GLOBALS['egw_info']['server']['site_title'] :
+		lang('News'). ' :' ));
+	
+	$feedConf['link'] = $feedConf['link'] ? $feedConf['link'] :
+		$GLOBALS['sitemgr_info']['site_url'] ? ( stripos($_SERVER['SERVER_PROTOCOL'],'https') !== false ? 'https' : 'http'). '://'. $_SERVER['HTTP_HOST']. $GLOBALS['sitemgr_info']['site_url']. 'index.php' :
+		'';
+	
+	if ( !$feedConf['description'] ) {
+		if ( $cat_id > 0 ) {
+			$cat = $cats_obj->return_single($cat_id);
+			$feedConf['description'] = $cat[0]['description'];
+		} else {
+			$feedConf['description'] = $feedConf['title'];
+		}
+	}
+
+	$itemsyntax = $itemsyntaxs[$feedConf['itemsyntax']];
 	
 	$tpl->root = EGW_SERVER_ROOT. '/news_admin/website/templates/';
 	$tpl->set_file(array('news' => $format . '.tpl'));
 	$tpl->set_block('news', 'item', 'items');
-	if($format == 'rss1')
-	{
+	if($format == 'rss1') {
 		$tpl->set_block('news', 'seq', 'seqs');
 	}
 
 	$tpl->set_var('encoding', $GLOBALS['egw']->translation->charset());
-	$tpl->set_var($site);
+	$tpl->set_var($feedConf);
 
-	$filter = $cat_id ? array('cat_id' => $cat_id) : array();
-	$news = $news_obj->search('',false,'news_date DESC','','',false,'AND',array(0,$limit),$filter);
-
-	if(is_array($news))
-	{
-		foreach($news as $news_data) 
-		{
+	
+	if(is_array($news))	{
+		foreach($news as $news_data) {
+			$tpl->set_var('content',$news_data['news_content']);
 			$tpl->set_var('subject',$news_data['news_headline']);
 			$tpl->set_var('teaser',$news_data['news_teaser']);
 
-			$tpl->set_var('item_link', $site['link'] . $itemsyntax . $news_data['news_id']);
+			$tpl->set_var('item_link', $feedConf['link'] . $itemsyntax . $news_data['news_id']);
 			$tpl->set_var('pub_date', date("r",$news_data['news_date']));
 			if($format == 'rss1')
 			{
@@ -112,9 +126,10 @@
 			$tpl->parse('items','item',True);
 		}
 	}
-	else
-	{
+	else {
 		$tpl->set_var('items', '');
 	}
+	
+	header('Content-type: text/xml; charset='.$GLOBALS['egw']->translation->charset());
 	$tpl->pparse('out','news');
 ?>
