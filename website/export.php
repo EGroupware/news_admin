@@ -78,15 +78,15 @@
 		$formats[$feedConf['type']] ? $formats[$feedConf['type']] : (
 		'rss2' ));
 
-	//print_r($GLOBALS['egw_info']);
 	$feedConf['title'] = $feedConf['title'] ? $feedConf['title'] : (
 		$sitemgr_info['site_name'] ? $sitemgr_info['site_name'] : (
 		$GLOBALS['egw_info']['server']['site_title'] ? $GLOBALS['egw_info']['server']['site_title'] :
 		lang('News'). ' :' ));
 	
 	$feedConf['link'] = $feedConf['link'] ? $feedConf['link'] :
-		$GLOBALS['sitemgr_info']['site_url'] ? ( stripos($_SERVER['SERVER_PROTOCOL'],'https') !== false ? 'https' : 'http'). '://'. $_SERVER['HTTP_HOST']. $GLOBALS['sitemgr_info']['site_url']. 'index.php' :
-		'';
+		( $GLOBALS['sitemgr_info']['site_url'] ? ( stripos($GLOBALS['sitemgr_info']['site_url'],'http') !== false ? $GLOBALS['sitemgr_info']['site_url'] : (
+			( stripos($_SERVER['SERVER_PROTOCOL'],'https') !== false ? 'https' : 'http'). '://'. $_SERVER['HTTP_HOST']. $GLOBALS['sitemgr_info']['site_url'] )) :
+		'' /* add link to news_admin here... maybe we could add an item support in export.php? */ );
 	
 	if ( !$feedConf['description'] ) {
 		if ( $cat_id > 0 ) {
