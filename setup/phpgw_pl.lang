@@ -1,13 +1,90 @@
+%1 module	news_admin	pl	%1 modu³
+actions	news_admin	pl	Operacje
 active	news_admin	pl	Aktywne
-add news item	news_admin	pl	
+add new article	news_admin	pl	Dodaj artyku³
+add new news	news_admin	pl	Dodaj now± wiadomo¶æ
+add news item	news_admin	pl	Dodaj element wiadomo¶ci
+all news	news_admin	pl	Wszystkie wiadomo¶ci
+always	news_admin	pl	Zawsze
+by date	news_admin	pl	Wed³ug daty
+choose a category	news_admin	pl	Wybierz kategoriê
+configuration	news_admin	pl	Konfiguracja
+configure access permissions	common	pl	Skonfiguruj Prawa Dostêpu
+configure rss exports	common	pl	Skonfiguruj eksport do RSS
+contains html	news_admin	pl	Zawiera HTML
 content	news_admin	pl	Tre¶æ
-item has been deleted	news_admin	pl	
-maintain news	admin	pl	
+date and time	news_admin	pl	Data i czas
+delete this news	news_admin	pl	Usuñ tê wiadomo¶æ
+do you want to publish a rss feed for this news category	news_admin	pl	Czy chcesz opublikowaæ ¼ród³o RSS dla tej kategorii
+edit news item	news_admin	pl	Edytuj wiadomo¶æ
+end	news_admin	pl	Zakoñczenie
+error saving the news!	news_admin	pl	B³±d przy zapisywaniu wiadomo¶ci!
+failed to add message	news_admin	pl	B³±d przy dodawaniu nowej wiadomo¶ci
+format for links to items	news_admin	pl	Format odno¶ników do wiadomo¶ci
+format of export	news_admin	pl	Format eksportu
+from	news_admin	pl	Od
+from all	news_admin	pl	Od wszystkich
+future	news_admin	pl	Przysz³e
+global categories	news_admin	pl	kategorie globalne
+global news	news_admin	pl	Wiadomo¶ci globalne
+global_news	news_admin	pl	Globalne
+headline	news_admin	pl	Nag³ówek
+headline with link	news_admin	pl	Nag³ówek z odno¶nikiem
+image link	news_admin	pl	Odno¶nik obrazka
+image title	news_admin	pl	Tytu³ obrazka
+image url	news_admin	pl	URL obrazka
+implies read permission	news_admin	pl	implikuje prawo odczytu
+item has been deleted	news_admin	pl	Wiadomo¶æ zosta³a usuniêta
+item not found	news_admin	pl	Wiadomo¶æ nie znaleziona
+link	news_admin	pl	Odno¶nik
+main	news_admin	pl	G³ówne
+maintain	news_admin	pl	Zarz±dzaj
+maintain news	admin	pl	Zarz±dzaj wiadomo¶ciami
+message has been added	news_admin	pl	Wiadomo¶æ zosta³a usuniêta
+more news	news_admin	pl	Wiêcej wiadomo¶ci
+more news link	news_admin	pl	Odno¶nik wiêcej wiadomo¶ci
 new item has been added	news_admin	pl	Dodano nowy punkt
-news_admin	common	pl	Wiadomo¶ci administratora
-no entries found	news_admin	pl	
+news	news_admin	pl	Wiadomo¶ci
+news admin	news_admin	pl	Administrator wiadomo¶ci
+news administration	news_admin	pl	Administracja wiadomo¶ci
+news deleted.	news_admin	pl	Wiadomo¶ci usuniête
+news item has been added	news_admin	pl	Wiadomo¶æ zosta³a dodana
+news item has been updated	news_admin	pl	Wiadomo¶æ zosta³a zaktualizowana
+news saved.	news_admin	pl	Wiadomo¶ci zachowane
+news_admin	common	pl	Wiadomo¶ci
+no entries found	news_admin	pl	nie znaleziono wpisów
+no matching news item	news_admin	pl	Brak pasuj±cych wiadomo¶ci
+no news	news_admin	pl	Brak aktualnie dostêpnych wiadomo¶ci w tej kategorii
+no rss export	news_admin	pl	Brak eksportu do RSS
+now	news_admin	pl	Obecne
+number of articles to display on the main screen	news_admin	pl	Liczba wiadomo¶ci do wy¶wietlania na stronie g³ównej
+number of news items to be displayed on page	news_admin	pl	Liczba wiadomo¶ci do wy¶wietlania na ka¿dej stronie
+old	news_admin	pl	Stare
+on	news_admin	pl	na
+picture upload (leave the upload directory empty to disable the upload)	admin	pl	£adowanie obrazków (pozostaw katalog ³adowania pusty aby zablokowaæ ³adowanie)
+please select a category	news_admin	pl	Proszê wybraæ kategoriê
+publish date	news_admin	pl	Data publikacji
+read more	news_admin	pl	czytaj ca³o¶æ
+read news	news_admin	pl	Czytaj wiadomo¶ci
+read permissions	news_admin	pl	Prawa odczytu
+send mail to others	news_admin	pl	Wy¶lij wiadomo¶æ do innych
+should news_admin display the latest article headlines on the main screen.	news_admin	pl	Czy pokazywaæ nag³ówki najnowszych wiadomo¶ci na stronie g³ównej?
+show latest news articles?	news_admin	pl	Czy pokazywaæ najnowsze wiadomo¶ci?
+show news articles on main page?	news_admin	pl	Czy pokazywaæ wiadomo¶ci na stronie g³ównej?
+small view	news_admin	pl	widok uproszczony
+start	news_admin	pl	Start
 submitted by	common	pl	Wys³ane przez
-the news content is missing	news_admin	pl	
-the subject is missing	news_admin	pl	
-view this category	news_admin	pl	
-webpage news admin	news_admin	pl	
+submitted by %1 on %2	news_admin	pl	Opublikowane dnia %2, przez %1
+teaser	news_admin	pl	Reklamówka
+teaser with read more link	news_admin	pl	Reklamówka z odno¶nikiem do czytania ca³o¶ci
+the news content is missing	news_admin	pl	Brakuje tre¶ci wiadomo¶ci
+the number of articles to display on the main screen.	news_admin	pl	Liczba wiadomo¶ci do wy¶wietlania na stronie g³ównej.
+the subject is missing	news_admin	pl	Brakuje tematu wiadomo¶ci
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pl	Modu³ publikuje wiadomo¶ci z aplikacji Wiadomo¶ci na stronie internetowej. Zwróæ uwagê na prawa dostêpu do tej aplikacji.
+until	news_admin	pl	do
+view this category	news_admin	pl	Poka¿ tê kategoriê
+visible	news_admin	pl	Widoczny
+webpage news admin	news_admin	pl	Strona internetowa administrowania wiadomo¶ciami
+which information do you want to show (css class)	news_admin	pl	Jakie informacje chcesz pokazywaæ (klasa CSS)
+write	news_admin	pl	Zapisz
+write permissions	news_admin	pl	Uprawnienia do zapisu

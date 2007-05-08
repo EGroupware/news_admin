@@ -135,7 +135,14 @@ class module_news_admin extends Module
 			}
 			if ($arguments['rsslink'])
 			{
-				$link = $GLOBALS['egw_info']['server']['webserver_url'] . '/news_admin/website/export.php?cat_id=' . $arguments['category'];
+				// Use new "holder" to prevent using old news_admin/website/export.php URL when site manager is installed
+				$link = $GLOBALS['sitemgr_info']['site_url'] . 'index.php?module=news_admin&cat_id=' . $arguments['category'];
+
+				// Only add the domain to the url if using the egw common tree instead of a sitemgr-site custom copy
+				if ($GLOBALS['sitemgr_info']['site_url'] == $GLOBALS['egw_info']['server']['webserver_url'])
+				{
+					$link .= '&domain=' . $GLOBALS['egw_info']['user']['domain'];
+				}
 				$link = '<a href="'.$link.'" target="_blank"><img src="images/M_images/rss.png" alt="RSS" /></a>';
 				$html .= "\t<div class=\"news_rss\">$link</div>\n";
 			}
