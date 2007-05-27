@@ -54,7 +54,11 @@
 		{
 			foreach($newslist as $newsitem)
 			{
-				$text .= "<li><b>" . $newsitem['news_headline'];
+				$text .= "<li><b>" . '<a href="'.$GLOBALS['egw']->link('/index.php',array(
+					'menuaction' => 'news_admin.uinews.edit',
+					'news_id' => $newsitem['news_id'],
+				)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\'); 
+				return false;">'.$newsitem['news_headline'].'</a></b>';
 				if($showevents == 1)
 				{
 					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['egw']->common->grab_owner_name($newsitem['news_submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['egw']->common->show_date($newsitem['news_date']) . "</b>";
