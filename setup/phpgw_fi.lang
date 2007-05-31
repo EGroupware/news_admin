@@ -22,7 +22,7 @@ error saving the news!	news_admin	fi	Virhe tallentaessa uutisia!
 failed to add message	news_admin	fi	uuden viestin lis‰‰minen ep‰onnistui
 format for links to items	news_admin	fi	Muotoile linkin kohdetta
 format of export	news_admin	fi	Viennin formaatti
-from	news_admin	fi	Kenelle
+from	news_admin	fi	Aikav‰lill‰
 from all	news_admin	fi	Kaikille
 future	news_admin	fi	Tulevaisuudessa
 global categories	news_admin	fi	yleiset kategoriat
