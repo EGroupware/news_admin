@@ -1,0 +1,90 @@
+%1 module	news_admin	cs	moddul %1
+actions	news_admin	cs	Akce
+active	news_admin	cs	Aktivní
+add new article	news_admin	cs	Pøidat nový èlánek
+add new news	news_admin	cs	Pøidat novou novinku
+add news item	news_admin	cs	Pødat polo¾ku novinek
+all news	news_admin	cs	V¹echny novinky
+always	news_admin	cs	V¾dy
+by date	news_admin	cs	Podle data
+choose a category	news_admin	cs	Vybrat kategorii
+configuration	news_admin	cs	Konfigurace
+configure access permissions	common	cs	Konfigurovat pøístupová práva
+configure rss exports	common	cs	Konfigurovat RSS exporty
+contains html	news_admin	cs	Obsahuje HTML
+content	news_admin	cs	Obsah
+date and time	news_admin	cs	Datum a èas
+delete this news	news_admin	cs	Smazat tuto novinku
+do you want to publish a rss feed for this news category	news_admin	cs	Chcete publikovat RSS feed pro tuto kategorii novinek
+edit news item	news_admin	cs	Editovat polo¾ku novinek
+end	news_admin	cs	Konec
+error saving the news!	news_admin	cs	Chyba pøi ukládání novinek
+failed to add message	news_admin	cs	Nepodaøilo se pøidat novou zprávu
+format for links to items	news_admin	cs	Formát odkazù na polo¾ky
+format of export	news_admin	cs	Formát exportu
+from	news_admin	cs	Od
+from all	news_admin	cs	Od v¹ech
+future	news_admin	cs	Budoucí
+global categories	news_admin	cs	globální kategorie
+global news	news_admin	cs	Globální novinky
+global_news	news_admin	cs	Globální novinky
+headline	news_admin	cs	Nadpis
+headline with link	news_admin	cs	Nadpis s odkazem
+image link	news_admin	cs	Odkaz na obrázek
+image title	news_admin	cs	Titulek obrázku
+image url	news_admin	cs	URL obrázku
+implies read permission	news_admin	cs	z toho vyplývají práva pro ètení
+item has been deleted	news_admin	cs	Polo¾ka byla smazána
+item not found	news_admin	cs	Polo¾ka nebyla nalezena
+link	news_admin	cs	Odkaz
+main	news_admin	cs	Hlavní
+maintain	news_admin	cs	Spravovat
+maintain news	admin	cs	Spravovat novinky
+message has been added	news_admin	cs	Zpráva byla pøidána
+more news	news_admin	cs	Více novinek
+more news link	news_admin	cs	Odkaz na více novinek
+new item has been added	news_admin	cs	Nová polo¾ka byla pøidána
+news	news_admin	cs	Novinky
+news admin	news_admin	cs	Správce novinek
+news administration	news_admin	cs	Administrace novinek
+news deleted.	news_admin	cs	Novinka smazána.
+news item has been added	news_admin	cs	Polo¾ka novinek byla pøidána
+news item has been updated	news_admin	cs	Polo¾ka novinek byla zaktualizována
+news saved.	news_admin	cs	Novinka ulo¾na.
+news_admin	common	cs	Správce novinek
+no entries found	news_admin	cs	¾ádné záznamy nebyly nalezeny
+no matching news item	news_admin	cs	®ádné odpovídající polo¾ky novinek nebyly nalezeny
+no news	news_admin	cs	V kategorii nejsou momentálnì dostupné ¾ádné novinky
+no rss export	news_admin	cs	Bez RSS exportu
+now	news_admin	cs	Nyní
+number of articles to display on the main screen	news_admin	cs	Poèet èlánkù, které se mají zobrazovat na hlavní obrazovce
+number of news items to be displayed on page	news_admin	cs	Poèet polo¾ek novinek, které se mají zobrazovat na stránce
+old	news_admin	cs	Staré
+on	news_admin	cs	na
+picture upload (leave the upload directory empty to disable the upload)	admin	cs	Upload obrázku (chcete-li upload zakázat, ponechte adresáø pro upload prázdný)
+please select a category	news_admin	cs	Vyberte prosím kategorii
+publish date	news_admin	cs	Datum publikování
+read more	news_admin	cs	èíst dále
+read news	news_admin	cs	Èíst novinky
+read permissions	news_admin	cs	Práva ke ètìní
+send mail to others	news_admin	cs	Odeslat mail ostatním
+should news_admin display the latest article headlines on the main screen.	news_admin	cs	Má Správce novinek zobrazovat nadpisy posledních èlánkù na hlavní obrazovce.
+show latest news articles?	news_admin	cs	Zobrazit èlánky posledních novinek?
+show news articles on main page?	news_admin	cs	Zobrazovat èlánky novinek na hlavní obrazovce?
+small view	news_admin	cs	zmen¹ený pohled
+start	news_admin	cs	Zaèátek
+submitted by	common	cs	Odeslal(a)
+submitted by %1 on %2	news_admin	cs	Odeslal(a) %1 k %2
+teaser	news_admin	cs	Úvodník
+teaser with read more link	news_admin	cs	Úvodník s odkazem na ètení dal¹ích
+the news content is missing	news_admin	cs	Obsah novinek chybí
+the number of articles to display on the main screen.	news_admin	cs	Poèet èlánkù, které se mají zobrazit na hlavní obrazovce
+the subject is missing	news_admin	cs	Chybí pøedmìt
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	cs	Tento modul publikuje novinky z aplikace Správce novinek na Va¹em webu. Mìjte na pamìti omezení daná pøístupovými právy (ACL) nastavenými ve Správci novinek.
+until	news_admin	cs	do
+view this category	news_admin	cs	Zobrazit tuto kategorii
+visible	news_admin	cs	Viditelné
+webpage news admin	news_admin	cs	Správce novinek na webové stránce
+which information do you want to show (css class)	news_admin	cs	Které informace chcete zobrazit (CSS tøída)
+write	news_admin	cs	Ulo¾it
+write permissions	news_admin	cs	Práva k zápisu
