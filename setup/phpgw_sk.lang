@@ -8,13 +8,13 @@ all news	news_admin	sk	V¹etky aktuality
 always	news_admin	sk	V¾dy
 by date	news_admin	sk	Podµa dátumu
 choose a category	news_admin	sk	Vyberte kategóriu
-configuration	news_admin	sk	Nastavenia
+configuration	news_admin	sk	Konfigurácia
 configure access permissions	common	sk	Nastavi» prístupové práva
 configure rss exports	common	sk	Nastavi» RSS exporty
 contains html	news_admin	sk	Obsahuje HTML
 content	news_admin	sk	Obsah
 date and time	news_admin	sk	Dátum a èas
-delete this news	news_admin	sk	Zmaza» túto správu
+delete this news	news_admin	sk	Odstráni» túto správu
 do you want to publish a rss feed for this news category	news_admin	sk	®eláte si publikova» RSS feed pre túto kategóriu aktualít
 edit news item	news_admin	sk	Upravi» polo¾ku Aktualít
 end	news_admin	sk	Koniec
@@ -28,11 +28,13 @@ future	news_admin	sk	Budúce
 global categories	news_admin	sk	Globálne kategórie
 global news	news_admin	sk	Globálne aktuality
 global_news	news_admin	sk	Globálne_aktuality
+headline	news_admin	sk	Titulok
+headline with link	news_admin	sk	Titulok s odkazom
 image link	news_admin	sk	Odkaz na obrázok
 image title	news_admin	sk	Titulok obrázka
 image url	news_admin	sk	URL obrázka
 implies read permission	news_admin	sk	implikuje právo èítania
-item has been deleted	news_admin	sk	Polo¾ka bola vymazaná
+item has been deleted	news_admin	sk	Polo¾ka bola odstránená
 item not found	news_admin	sk	Polo¾ka sa nena¹la
 link	news_admin	sk	Odkaz
 main	news_admin	sk	Hlavné
@@ -45,7 +47,7 @@ new item has been added	news_admin	sk	Nová polo¾ka bola pridaná
 news	news_admin	sk	Aktuality
 news admin	news_admin	sk	Správca Aktualít
 news administration	news_admin	sk	Správa Aktualít
-news deleted.	news_admin	sk	Aktuality vymazané.
+news deleted.	news_admin	sk	Aktuality boli odstránené.
 news item has been added	news_admin	sk	Polo¾ka Aktualít bola pridaná
 news item has been updated	news_admin	sk	Polo¾ka Aktualít bola upravená
 news saved.	news_admin	sk	Aktuality ulo¾ené.
@@ -66,13 +68,15 @@ read more	news_admin	sk	èíta» ïalej
 read news	news_admin	sk	Èíta» aktuality
 read permissions	news_admin	sk	Oprávnenia k èítaniu
 send mail to others	news_admin	sk	Posla» ostatným mail
-should news_admin display the latest article headlines on the main screen.	news_admin	sk	Chcete, aby Správca Aktualít zobrazoval hlavièku najnov¹ieho èlánku na hlavnej stránke?
+should news_admin display the latest article headlines on the main screen.	news_admin	sk	Chcete, aby Správca Aktualít zobrazoval titulok najnov¹ieho èlánku na hlavnej stránke?
 show latest news articles?	news_admin	sk	Zobrazi» najnov¹í èlánok z Aktualít?
 show news articles on main page?	news_admin	sk	Zobrazi» èlánky Aktualít na hlavnej stránke?
 small view	news_admin	sk	Zmen¹ený pohµad
 start	news_admin	sk	Zaèiatok
 submitted by	common	sk	Pridal
 submitted by %1 on %2	news_admin	sk	Odoslal %1 k %2
+teaser	news_admin	sk	Spojovaè
+teaser with read more link	news_admin	sk	Spojovaè s odkazom na 'zobrazi» celé'
 the news content is missing	news_admin	sk	Obsah aktuality chýba
 the number of articles to display on the main screen.	news_admin	sk	Poèet èlánkov zobrazovaných na hlavnej stránke
 the subject is missing	news_admin	sk	Chýba predmet
