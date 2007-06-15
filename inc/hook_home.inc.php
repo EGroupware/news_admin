@@ -52,8 +52,11 @@
 		$text = "<ul>";
 		if(is_array($newslist))
 		{
+			$newscount = 0;
 			foreach($newslist as $newsitem)
 			{
+				$newscount++;
+				if ( $newscount > $latestcount ) break;
 				$text .= "<li><b>" . '<a href="'.$GLOBALS['egw']->link('/index.php',array(
 					'menuaction' => 'news_admin.uinews.edit',
 					'news_id' => $newsitem['news_id'],
