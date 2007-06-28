@@ -233,7 +233,7 @@ class bonews extends so_sql
 
 			default:
 			case 'now':
-				$filter[] = "(news_begin=0 AND news_end IS NULL OR news_begin <= $today AND $today <= news_end)";
+				$filter[] = "(news_begin=0 AND news_end IS NULL OR news_begin <= $today AND ($today <= news_end OR news_end IS NULL))";
 				break;
 			
 			case 'future':
