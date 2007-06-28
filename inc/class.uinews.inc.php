@@ -71,7 +71,7 @@ class uinews extends bonews
 				case 'delete':
 					if ($this->check_acl(EGW_ACL_DELETE))
 					{
-						$this->delete($this->data['news_id']);
+						$this->delete(array('news_id' => $this->data['news_id']));
 						$msg = lang('News deleted.');
 						echo "<html><body><script>var referer = opener.location;opener.location.href = referer+(referer.search?'&':'?')+'msg=".
 							addslashes(urlencode($msg))."'; window.close();</script></body></html>\n";
@@ -169,6 +169,14 @@ class uinews extends bonews
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
 		
+		if ($content['nm']['rows']['delete'])
+		{
+			list($id) = each($content['nm']['rows']['delete']);
+			if ($this->delete(array('news_id' => $id)))
+			{
+				$msg = lang('News deleted.');
+			}
+		}
 		$content = array(
 			'msg' => $msg,
 			'nm'  => $GLOBALS['egw']->session->appsession('index','news_admin'),
