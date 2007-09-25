@@ -1,22 +1,35 @@
+%1 module	news_admin	ru	%1 модуль
+actions	news_admin	ru	Действия
 active	news_admin	ru	Активно
 add new article	news_admin	ru	Добавить Новую Статью
 add new news	news_admin	ru	Добавить новую новость
 add news item	news_admin	ru	Добавить новый элемент
 all news	news_admin	ru	Все новости
 always	news_admin	ru	Всегда
+by date	news_admin	ru	По дате
+choose a category	news_admin	ru	Выберите категорию
 configuration	news_admin	ru	Конфигурация
 configure access permissions	common	ru	Настроить разрешения доступа
 configure rss exports	common	ru	Настроить экспорт RSS
 contains html	news_admin	ru	Содержит HTML
 content	news_admin	ru	Содержание
+date and time	news_admin	ru	Дата и время
+delete this news	news_admin	ru	Удалить эту новость
+do you want to publish a rss feed for this news category	news_admin	ru	Хотите ли вы публиковать ленту RSS для этой категории новостей
 edit news item	news_admin	ru	Редактировать новости
+end	news_admin	ru	Конец
+error saving the news!	news_admin	ru	Ошибка записи новости
 failed to add message	news_admin	ru	Ошибка при добавлении нового сообщения
 format for links to items	news_admin	ru	Формат для ссылок на элементы
 format of export	news_admin	ru	Формат экспорта
 from	news_admin	ru	От
+from all	news_admin	ru	От всех
+future	news_admin	ru	Будущие
 global categories	news_admin	ru	Общие Категории
 global news	news_admin	ru	Общие Новости
 global_news	news_admin	ru	Общие Новости
+headline	news_admin	ru	Заголовок
+headline with link	news_admin	ru	Заголовок с линком
 image link	news_admin	ru	Ссылка на изображение
 image title	news_admin	ru	Заголовок изображения
 image url	news_admin	ru	URL изображение
@@ -29,21 +42,29 @@ maintain	news_admin	ru	Обслуживание
 maintain news	admin	ru	Новости Обслуживания (Обслуживать Новости?)
 message has been added	news_admin	ru	Сообщение добавлено
 more news	news_admin	ru	Еще новости
+more news link	news_admin	ru	Другие линки новостей
 new item has been added	news_admin	ru	Новый элемент добавлен
 news	news_admin	ru	Новости
 news admin	news_admin	ru	Администратор Новостей
 news administration	news_admin	ru	Администрация Новостей
+news deleted.	news_admin	ru	Новость удалена.
 news item has been added	news_admin	ru	Элемент Новостей добавлен
 news item has been updated	news_admin	ru	Элемент Новостей обновлен
+news saved.	news_admin	ru	Новост записана.
 news_admin	common	ru	Администратор Новостей
 no entries found	news_admin	ru	записи не найдены
+no matching news item	news_admin	ru	Нет соответствующей новости.
 no news	news_admin	ru	В этой категории в данный момент нет новостей
 no rss export	news_admin	ru	Экспорта RSS нет
+now	news_admin	ru	Сегодня
 number of articles to display on the main screen	news_admin	ru	Количество новостей, показываемых на главной странице
+number of news items to be displayed on page	news_admin	ru	Количество новостей, показываемых на одной странице
+old	news_admin	ru	Старые
 on	news_admin	ru	на
 picture upload (leave the upload directory empty to disable the upload)	admin	ru	Выгрузка изображения (оставить каталог выгрузки пустым, чтобы запретить выгрузку)
 please select a category	news_admin	ru	Пожалуйста выберите категорию
 publish date	news_admin	ru	Дата опубликования
+read more	news_admin	ru	читать дальше
 read news	news_admin	ru	Читать новости
 read permissions	news_admin	ru	Разрешения на чтение
 send mail to others	news_admin	ru	Отправить Письмо Остальным
@@ -51,14 +72,19 @@ should news_admin display the latest article headlines on the main screen.	news_
 show latest news articles?	news_admin	ru	Показывать последние статьи?
 show news articles on main page?	news_admin	ru	Показывать статьи на главной странице?
 small view	news_admin	ru	мелкий вид
+start	news_admin	ru	Начало
 submitted by	common	ru	Новость предоставлена
+submitted by %1 on %2	news_admin	ru	Предоставлено %1 на %2
 teaser	news_admin	ru	Завлекалка
+teaser with read more link	news_admin	ru	Завлекалка с линком "читать далее"
 the news content is missing	news_admin	ru	Отсутствует содержание новостей
 the number of articles to display on the main screen.	news_admin	ru	Количество статей, показываемых на главной странице
 the subject is missing	news_admin	ru	Отсутствует предмет
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	ru	Этот модуль публикует новости из приложения Администратор новостей на вашем сайте. Будьте внимательны с установкой прав (ACL) в Администраторе навостей
 until	news_admin	ru	до
 view this category	news_admin	ru	Показать эту категорию
 visible	news_admin	ru	Видимый
 webpage news admin	news_admin	ru	Веб-страница администратора новостей
+which information do you want to show (css class)	news_admin	ru	Какую информацию вы хотите показать (класс CSS)
 write	news_admin	ru	Записать
 write permissions	news_admin	ru	Разрешения на запись
