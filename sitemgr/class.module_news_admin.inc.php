@@ -6,7 +6,7 @@
  * @author Cornelius Weiss <egw@von-und-zu-weiss.de>
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2005/6 by Cornelius Weiss <egw@von-und-zu-weiss.de> and Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2005-7 by Cornelius Weiss <egw@von-und-zu-weiss.de> and Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$ 
  */
@@ -30,6 +30,7 @@ class module_news_admin extends Module
 				'type' => 'select', 
 				'label' => lang('Choose a category'), 
 				'options' => array(),	// specification of options is postponed into the get_user_interface function
+				'multiple' => 5,
 			),
 			'show' => array(
 				'type' => 'select', 
@@ -56,6 +57,11 @@ class module_news_admin extends Module
 				'type' => 'checkbox', 
 				'label' => lang('Do you want to publish a RSS feed for this news category'),
 			),
+			'linkpage' => array(
+				'type' => 'textfield', 
+				'label' => lang('Page-name the item should be displayed (empty = current page)'),
+				'params' => array('size' => 50)
+			),
 		);
 		$this->get = array('item','start');
 		$this->session = array('item','start');
@@ -68,12 +74,16 @@ class module_news_admin extends Module
 	{
 		//we could put this into the module's constructor, but by putting it here, we make it execute only when the block is edited,
 		//and not when it is generated for the web site, thus speeding the latter up slightly
-		$this->arguments['category']['options'] = array('' => lang('All news'))+$this->bonews->rights2cats(EGW_ACL_READ);
+		$this->arguments['category']['options'] = $this->bonews->rights2cats(EGW_ACL_READ);
 		
 		if (isset($this->block->arguments['layout']) && !isset($this->block->arguments['show']))
 		{
 			$this->block->arguments['show'] = $this->block->arguments['layout'] == 'header' ?
 				array('date','title') : array('headline','submitted','teaser','content');
+		}
+		if ($this->block->arguments['category'] && !is_array($this->block->arguments['category']))
+		{
+			$this->block->arguments['category'] = array($this->block->arguments['category']);
 		}
 		return parent::get_user_interface();
 	}
@@ -93,16 +103,28 @@ class module_news_admin extends Module
 				array('date','title') : array('headline','submitted','teaser','content');
 		}
 		$limit = (int)$arguments['limit'] ? $arguments['limit'] : 5;
-		$item = (int)$arguments['item'] ? $arguments['item'] : $_GET['item'];
+		$show = $arguments['show'];
+		// for the center area you can use a direct link to call a certain item
+		if (!($item = (int)$arguments['item']) && $this->block->area == 'center')
+		{
+			$item = (int)$_GET['item'];
+			$show = array('headline','submitted','teaser','content');
+		}
 
 		$html = '<div class="news_items news_items_'.implode('_',$arguments['show']).'">'."\n";
 
-		if ((int)$item)
+		if ($_GET['module'] == 'news_admin' && isset($_GET['cat_id']))
 		{
-			$news = $this->bonews->read($item);
-			if ($news && ($news['cat_id'] == $arguments['category']))
+			$itemsyntax = (preg_match('/^[-a-z_0-9]+$/i',$_GET['linkpage']) ? '?page_name='.$_GET['linkpage'].'&amp;' : '?').'item=';
+			include(EGW_SERVER_ROOT.'/news_admin/website/export.php');
+			// No more stuff in the generated xml
+			$GLOBALS['egw']->common->egw_exit();			
+		}
+		elseif ((int)$item)
+		{
+			if (($news = $this->bonews->read($item)))
 			{
-				$html .= $this->render($news,$arguments['show']);
+				$html .= $this->render($news,$show);
 			}
 			else
 			{
@@ -114,10 +136,10 @@ class module_news_admin extends Module
 		{
 			$filter = $arguments['category'] ? array('cat_id' => $arguments['category']) : array();
 			$result = $this->bonews->search('',false,'news_date DESC','','',false,'AND',array((int)$arguments['start'],$limit),$filter);
-			
+
 			foreach($result as $news)
 			{
-				$html .= $this->render($news,$arguments['show']);
+				$html .= $this->render($news,$arguments['show'],$arguments['linkpage']);
 			}
 			if (in_array('more',$arguments['show']))
 			{
@@ -136,10 +158,11 @@ class module_news_admin extends Module
 			if ($arguments['rsslink'])
 			{
 				// Use new "holder" to prevent using old news_admin/website/export.php URL when site manager is installed
-				$link = $GLOBALS['sitemgr_info']['site_url'] . 'index.php?module=news_admin&cat_id=' . $arguments['category'];
+				$link = $GLOBALS['sitemgr_info']['site_url'] . 'index.php?module=news_admin&cat_id=' . implode(',',(array)$arguments['category']).
+					($arguments['linkpage'] ? '&linkpage='.$arguments['linkpage'] : '');
 
 				// Only add the domain to the url if using the egw common tree instead of a sitemgr-site custom copy
-				if ($GLOBALS['sitemgr_info']['site_url'] == $GLOBALS['egw_info']['server']['webserver_url'])
+				if ($GLOBALS['sitemgr_info']['site_url'] == $GLOBALS['egw_info']['server']['webserver_url'].'/sitemgr/sitemgr-site/')
 				{
 					$link .= '&domain=' . $GLOBALS['egw_info']['user']['domain'];
 				}
@@ -157,9 +180,10 @@ class module_news_admin extends Module
 	 *
 	 * @param array $news
 	 * @param array $show values: date, title, headline, submitted, teaser, teaser_more, content
+	 * @param string $page page-name the items should link to
 	 * @return string
 	 */
-	function render($news,$show)
+	function render($news,$show,$page='')
 	{
 		$html = "\t".'<div class="news_item news_item_'.implode('_',$show).'">'."\n";
 		
@@ -182,19 +206,20 @@ class module_news_admin extends Module
 					
 				case 'title':
 				case 'teaser_more':
-					$link = $this->link(false,false,array(array(
+					$link = $news['link'] ? $news['link'] : $this->link(false,false,array(array(
 						'module_name' => 'news_admin',
 						'arguments' => array(
 							'show' => array('headline','submitted','teaser','content'),
 							'item' => $news['news_id'],
 							'category' => $news['cat_id'],
 						),
-						'page' => false,
+						'page' => $page,
 						'area' => false,
 						'sort_order' => false
 					)));
 					$value = $name == 'title' ? '' : $news['news_teaser'].' ';
-					$value .= '<a href="'.$link.'" title="'.htmlspecialchars(lang('read more')).'">'.
+					$value .= '<a href="'.$link.'" title="'.htmlspecialchars(lang('read more')).
+						($news['link'] ? '" target="_blank' : '').'">'.
 						($name == 'title' ? $news['news_headline'] : lang('read more')).'</a>';
 					break;
 					

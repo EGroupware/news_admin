@@ -40,7 +40,8 @@
 
 	$title = lang('Preferences');
 	$file = array(
-		'Preferences' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname)
+		'Preferences' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname),
+		'Categories' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.news_admin_ui.cats'),
 	);
 	display_sidebox($appname,$title,$file);
 
@@ -49,8 +50,8 @@
 		$title = lang('Administration');
 		$file = Array(
 			'Site Configuration' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-			'Global categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
-			'Configure access permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
+//			'Global categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
+//			'Configure access permissions' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
 			'Configure RSS exports' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
 		);
 

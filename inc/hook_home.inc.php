@@ -45,31 +45,45 @@
 		$app_id = $GLOBALS['egw']->applications->name2id('news_admin');
 		$GLOBALS['portal_order'][] = $app_id;
 
-		$news =& CreateObject('news_admin.uinews');
-		$newslist = $news->search("");
+		require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
+		$news =& new bonews();
+		$criteria = array();
+		if ($GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowCats'])
+		{
+			$criteria['cat_id'] = explode(',',$GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowCats']);
+		}
+		$newslist = $news->search($criteria,false,'news_date DESC','','',false,'AND',array(0,$latestcount));
 		$image_path = $GLOBALS['egw']->common->get_image_path('news_admin');
 
 		$text = "<ul>";
 		if(is_array($newslist))
 		{
-			$newscount = 0;
 			foreach($newslist as $newsitem)
 			{
-				$newscount++;
-				if ( $newscount > $latestcount ) break;
-				$text .= "<li><b>" . '<a href="'.$GLOBALS['egw']->link('/index.php',array(
-					'menuaction' => 'news_admin.uinews.edit',
-					'news_id' => $newsitem['news_id'],
-				)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\'); 
-				return false;">'.$newsitem['news_headline'].'</a></b>';
-				if($showevents == 1)
+				$text .= "<li>";
+				if ($newsitem['news_is_html'] < 0)	// external feed
 				{
-					$text .= ' - ' . lang('Submitted by') . ' ' . $GLOBALS['egw']->common->grab_owner_name($newsitem['news_submittedby']) . ' ' . lang('on') . ' ' . $GLOBALS['egw']->common->show_date($newsitem['news_date']) . "</b>";
-					$text .= "<br />" . $newsitem['news_teaser'] . "</li><br />";
+					$text .= '<a href="'.htmlspecialchars($newsitem['link']).'" target="_blank">';
 				}
 				else
 				{
-    					$text .= "</li>";
+					$text .= '<a href="'.$GLOBALS['egw']->link('/index.php',array(
+						'menuaction' => 'news_admin.uinews.edit',
+						'news_id' => $newsitem['news_id'],
+					)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\'); return false;">';
+				}
+				$text .= $newsitem['news_headline'].'</a>';
+				
+				if($showevents == 1)
+				{
+					$text .= ' - ' . ($newsitem['news_submittedby'] ? lang('Submitted by').' '.$GLOBALS['egw']->common->grab_owner_name($newsitem['news_submittedby']).' '.lang('on').' ' : '').
+						$GLOBALS['egw']->common->show_date($newsitem['news_date']);
+					if ($newsitem['news_teaser']) $text .= "\n<br />" . $newsitem['news_teaser'];
+					$text .= "</li>\n";
+				}
+				else
+				{
+    				$text .= "</li>\n";
 				}
 			}
 		}

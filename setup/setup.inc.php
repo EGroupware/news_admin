@@ -36,3 +36,13 @@ $setup_info['news_admin']['depends'][] = array(
 	 'appname' => 'phpgwapi',
 	 'versions' => Array('1.3','1.4','1.5')
 );
+
+// installation checks for news_admin (PEAR)
+$setup_info['news_admin']['check_install'] = array(
+	'' => array(
+		'func' => 'pear_check',
+	),
+	'XML_Feed_Parser' => array(
+		'func' => 'pear_check',
+	),
+);

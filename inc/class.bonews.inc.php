@@ -24,6 +24,12 @@ class bonews extends so_sql
 	 */
 	var $acl;
 	/**
+	 * Reference to the categories class
+	 *
+	 * @var categories
+	 */
+	var $cats;
+	/**
 	 * Timestamps which need to be converted to user-time and back
 	 *
 	 * @var array
@@ -78,6 +84,8 @@ class bonews extends so_sql
 		$this->now = time() + $this->tz_offset_s;	// time() is server-time and we need a user-time
 
 		$this->user = $GLOBALS['egw_info']['user']['account_id'];
+		
+		$this->cats =& CreateObject('phpgwapi.categories','','news_admin');
 	}
 	
 	/**
@@ -106,6 +114,18 @@ class bonews extends so_sql
 		else
 		{
 			$data['visible'] = 'date';
+		}
+		switch($data['news_is_html'])
+		{
+			case -1:
+				$data['link'] = $data['news_content'];
+				unset($data['news_content']);
+				break;
+				
+			case -2:
+				$data['link'] = $data['news_teaser'];
+				unset($data['news_teaser']);
+				break;
 		}
 		return $data;
 	}
@@ -149,20 +169,21 @@ class bonews extends so_sql
 	 * saves the content of data to the db
 	 *
 	 * @param array $keys if given $keys are copied to data before saveing => allows a save as
+	 * @param boolean $ignore_acl=false
 	 * @return int/boolean 0 on success, true on ACL error and errno != 0 else
 	 */
-	function save($keys=null)
+	function save($keys=null,$ignore_acl=false)
 	{
 		if ($keys) $this->data_merge($keys);
 		
-		if (!$this->data['cat_id'] || !$this->check_acl($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD))
+		if (!$this->data['cat_id'] || !$ignore_acl && !$this->check_acl($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD))
 		{
 			return true;
 		}
 		if (!$this->data['news_id'])	// new entry
 		{
-			$this->data['news_date'] = $this->now;
-			$this->data['news_submittedby'] = $this->user;
+			if (!$this->data['news_date']) $this->data['news_date'] = $this->now;
+			if (!isset($this->data['news_submittedby'])) $this->data['news_submittedby'] = $this->user;
 		}
 		if (!isset($this->data['news_is_html']))
 		{
@@ -192,28 +213,30 @@ class bonews extends so_sql
 	 * @param array $filter=null if set (!=null) col-data pairs, to be and-ed (!) into the query without wildcards
 	 * @return boolean/array of matching rows (the row is an array of the cols) or False
 	 */
-	function &search($criteria,$only_keys=false,$order_by='news_date DESC',$extra_cols='',$wildcard='',$empty=False,$op='AND',$start=false,$filter=null)
+	function &search($criteria,$only_keys=false,$order_by='news_date DESC',$extra_cols='',$wildcard='',$empty=False,$op='AND',$start=false,$filter=null,$join=null)
 	{
-		if (is_array($filter) && isset($filter['cat_id']))
+		if (!$join)
 		{
-			$cats = $filter['cat_id'];
-			unset($filter['cat_id']);
+			if (is_array($filter) && isset($filter['cat_id']))
+			{
+				$cats = $filter['cat_id'];
+				unset($filter['cat_id']);
+			}
+			elseif(is_array($criteria) && isset($criteria['cat_id']) && $op == 'AND')
+			{
+				$cats = $criteria['cat_id'];
+				unset($criteria['cat_id']);
+			}
+			// return only an intersection of the requested cats and the (by ACL) permitted cats
+			$permitted_cats = array_keys($this->rights2cats(EGW_ACL_READ));
+			if ($cats)
+			{
+				if (!is_array($cats)) $cats = $this->cats->return_all_children($cats);
+				$permitted_cats = array_intersect($cats,$permitted_cats);
+			}
+			if (!$permitted_cats) return array();	// no rights to any (requested) cat
+			$filter['cat_id'] = count($permitted_cats) == 1 ? $permitted_cats[0] : $permitted_cats;
 		}
-		elseif(is_array($criteria) && isset($criteria['cat_id']) && $op == 'AND')
-		{
-			$cats = $criteria['cat_id'];
-			unset($criteria['cat_id']);
-		}
-		// return only an intersection of the requested cats and the (by ACL) permitted cats
-		$permitted_cats = array_keys($this->rights2cats(EGW_ACL_READ));
-		if ($cats)
-		{
-			if (!is_array($cats)) $cats = array($cats);
-			$permitted_cats = array_intersect($cats,$permitted_cats);
-		}
-		if (!$permitted_cats) return array();	// no rights to any (requested) cat
-		$filter['cat_id'] = count($permitted_cats) == 1 ? $permitted_cats[0] : $permitted_cats;
-
 		if (is_array($filter) && isset($filter['visible']))
 		{
 			$visible = $filter['visible'];
@@ -258,7 +281,7 @@ class bonews extends so_sql
 				$filter[] = 'news_begin > 0';
 				break;
 		}
-		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter);
+		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter,$join);
 	}
 	
 	/**
@@ -319,8 +342,7 @@ class bonews extends so_sql
 		static $all_cats;
 		if (!is_array($all_cats))
 		{
-			$catbo =& CreateObject('phpgwapi.categories','','news_admin');
-			if (!($all_cats = $catbo->return_array('all',0,False,'','','cat_name',True))) $all_cats = array();
+			if (!($all_cats = $this->cats->return_array('all',0,False,'','','cat_name',True))) $all_cats = array();
 		}
 		if ($rights == EGW_ACL_EDIT) $rights = EGW_ACL_ADD;	// no edit rights at the moment
 
@@ -334,5 +356,202 @@ class bonews extends so_sql
 			}
 		}
 		return $cats;
+	}
+	
+	/**
+	 * List news categories
+	 *
+	 * @param array $query
+	 * @param array &$cats returned rows
+	 * @return int total number of entries
+	 */
+	function get_cats($query,&$cats,&$readonlys=null,$ignore_acl=false)
+	{
+		$criteria = array();
+		if ($query['search'])
+		{
+			foreach(array('cat_name','cat_description') as $name)
+			{
+				$criteria[$name] = $query['search'];
+			}
+		}
+
+		$order = "GROUP BY {$this->cats->table}.cat_id ORDER BY ".($query['order'] ? $query['order'] : 'cat_name').' '.$query['sort'];
+		$join  = "RIGHT JOIN {$this->cats->table} ON $this->table_name.cat_id={$this->cats->table}.cat_id";
+		$filter = array(
+			'visible'=>'all',
+			"cat_appname='news_admin'",
+		);
+		if (is_array($query['col_filter'])) $filter += $query['col_filter'];
+		if (!$ignore_acl && !isset($GLOBALS['egw_info']['user']['apps']['admin'])) $filter[] = "cat_owner=$this->user OR cat_owner=-1";
+		$cats = $this->search($criteria,'1',$order,array(
+			'cat_name','cat_description','cat_data','cat_parent','cat_owner','cat_appname',
+			'count(news_content) AS num_news','MAX(news_date) AS news_date',$this->cats->table.'.cat_id AS cat_id',
+		),'%',false,'OR',array($query['start'],$query['num_rows']),$filter,$join);
+		if (!$cats) $cats = array();
+		
+		foreach($cats as $k => $cat)
+		{
+			$cats[$k] += $this->_cat_rights($cat['cat_id']);
+			if ($cat['cat_data']) $cats[$k] += unserialize($cat['cat_data']);
+			if ($cats[$k]['import_url']) $cats[$k]['import_host'] = parse_url($cats[$k]['import_url'],PHP_URL_HOST);
+		}
+		//_debug_array($cats);
+		return $this->total;
+	}
+	
+	/**
+	 * Read one category plus extra data
+	 *
+	 * @param int $cat_id
+	 * @return array/boolean category data (with 'cat_' prefix) or false
+	 */
+	function read_cat($cat_id)
+	{
+		if (!($cat = $this->cats->return_single($cat_id)))
+		{
+			return false;
+		}
+		$data = $this->_cat_rights($cat_id);
+		foreach($cat[0] as $name => $value)
+		{
+			$data['cat_'.$name] = $value;
+			if ($name == 'data' && $value) $data += unserialize($value);
+		}
+		$data['old_parent'] = $data['cat_parent'];	// to determine it got modified
+		if ($data['cat_owner'] == -1) $data['cat_owner'] = 0;
+
+		return $data;
+	}
+	
+	/**
+	 * Check if the current user has rights to administrate a category
+	 *
+	 * @param array $cat
+	 * @return boolean 
+	 */
+	function admin_cat($cat)
+	{
+		if (!$cat) return false;
+		
+		if (!is_array($cat)) $cat = $this->read_cat($cat);
+
+		return $cat && ($cat['cat_owner'] == $this->user || isset($GLOBALS['egw_info']['user']['apps']['admin']));
+	}
+	
+	/**
+	 * Save the category data
+	 *
+	 * @param array $cat
+	 * @return boolean/int cat_id on success, false otherwise
+	 */
+	function save_cat($cat)
+	{
+		if (!is_array($cat) || !$this->admin_cat($cat)) return false;
+		
+		$cat['cat_data'] = $cat['cat_data'] ? unserialize($cat['cat_data']) : array();
+		foreach(array('import_url','import_frequency') as $name)
+		{
+			$cat['cat_data'][$name] = $cat[$name];
+		}
+		$cat['cat_data'] = serialize($cat['cat_data']);
+		if (!$cat['cat_access']) $cat['cat_access'] = 'public';
+		
+		foreach($cat as $name => $value)
+		{
+			if ($name == 'cat_description')
+			{
+				$name = 'descr';
+			}
+			elseif (substr($name,0,4) == 'cat_')
+			{
+				$name = substr($name,4);
+			}
+			$cat[$name] = $value;
+		}
+		if (!$cat['cat_owner'] === '') $cat['cat_owner'] = -1;
+		if ($cat['cat_owner'] == '-1') $this->cats->account_id = -1;	// othwerwise the current use get set
+
+		if ($cat['cat_id'])
+		{
+			$cat['cat_id'] = $this->cats->edit($cat);
+		}
+		else
+		{
+			$cat['cat_id'] = $this->cats->add($cat);
+		}
+		if ($cat['cat_id'])
+		{
+			$this->acl->set_rights($cat['cat_id'],$cat['cat_readable'],$cat['cat_writable']);
+			
+			if ($cat['import_url']) $this->_setup_async_job();
+		}
+		return $cat['cat_id'];
+	}
+	
+	/**
+	 * Install an async job once per hour to import the feeds
+	 *
+	 */
+	function _setup_async_job()
+	{
+		require_once(EGW_API_INC.'/class.asyncservice.inc.php');
+		
+		$async =& new asyncservice();
+		//$async->cancel_timer('news_admin-import');
+		
+		if (!$async->read('news_admin-import'))
+		{
+			$async->set_timer(array('hour' => '*'),'news_admin-import','news_admin.news_admin_import.async_import',null);
+		}
+	}
+
+	/**
+	 * Delete a category include the posts
+	 *
+	 * @param array/inc $cat array or integer cat_id
+	 * @return boolean true on success false otherwise
+	 */
+	function delete_cat($cat)
+	{
+		$cat_id = is_array($cat) ? $cat['cat_id'] : $cat;
+
+		if (!$cat_id || !$this->admin_cat($cat)) return false;
+		
+		$this->delete(array('cat_id' => $cat_id));
+		
+		$this->cats->delete($cat_id,false,true);	// reparent the subs to our parent
+		
+		return true;
+	}
+	
+	/**
+	 * Read the rights of one cat from the ACL
+	 *
+	 * @param int $cat_id
+	 * @return array of 2 arrays with account_id's for keys 'cat_readable' and 'cat_writable'
+	 */
+	function _cat_rights($cat_id)
+	{
+		$cat = array();
+		if (($rights = $GLOBALS['egw']->acl->get_all_rights('L'.$cat_id,'news_admin')))
+		{
+			foreach($rights as $user => $right)
+			{
+				if ($right & EGW_ACL_ADD)  $cat['cat_writable'][] = $user;
+				if ($right & EGW_ACL_READ) $cat['cat_readable'][] = $user;
+			}
+		}
+		return $cat;
+	}
+	
+	/**
+	 * Check if the XML_Feed_Parser class is available
+	 *
+	 * @return boolean
+	 */
+	function import_available()
+	{
+		return PHP_VERSION >= 5 && include_once('XML/Feed/Parser.php');
 	}
 }

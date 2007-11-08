@@ -2,7 +2,7 @@
 <!-- $Id$ -->
 <overlay>
 	<template id="news_admin.index.right" template="" lang="" group="0" version="1.3.001">
-		<button data="" rows="1" cols="1" id="add" label="Add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;"/>
+		<button rows="1" cols="1" id="add" label="Add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;"/>
 	</template>
 	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.3.001">
 		<grid width="100%">
@@ -15,7 +15,7 @@
 			<rows>
 				<row class="th">
 					<description value="News"/>
-					<vbox orient=",0,0">
+					<vbox options="0,0">
 						<nextmatch-accountfilter options="From all" id="news_submittedby"/>
 						<nextmatch-sortheader id="news_date" label="Date"/>
 					</vbox>
@@ -24,8 +24,8 @@
 				</row>
 				<row class="row" valign="top">
 					<vbox>
-						<description class="news_headline" id="${row}[news_headline]" no_lang="1"/>
-						<description id="${row}[news_teaser]" class="news_teaser" no_lang="1"/>
+						<description class="news_headline" id="${row}[news_headline]" no_lang="1" options=",$row_cont[link],,,_blank"/>
+						<description id="${row}[news_teaser]" class="news_teaser" no_lang="1" options=",,1"/>
 						<html class="news_content" id="${row}[news_content]"/>
 					</vbox>
 					<vbox>
@@ -34,7 +34,7 @@
 						</menulist>
 						<date-time id="${row}[news_date]" readonly="true"/>
 					</vbox>
-					<vbox orient=",0,0">
+					<vbox options="0,0">
 						<menulist>
 							<menupopup id="${row}[visible]" readonly="true"/>
 						</menulist>

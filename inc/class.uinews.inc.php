@@ -139,6 +139,10 @@ class uinews extends bonews
 			{
 				$readonlys[$name] = true;
 			}
+			if (!isset($sel_options['cat_id'][$content['cat_id']]))
+			{
+				$sel_options['cat_id'][$content['cat_id']] = $this->cats->id2name($content['cat_id']);
+			}
 		}
 		$this->tpl->read('news_admin.edit');
 		return $this->tpl->exec('news_admin.uinews.edit',$content,$sel_options,$readonlys,$preserve,2);
@@ -210,6 +214,7 @@ class uinews extends bonews
 				'col_filter'     => array('visible' => 'now'),
 			);
 		}
+		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];
 		$this->tpl->read('news_admin.index');
 		return $this->tpl->exec('news_admin.uinews.index',$content,array(
 			'filter' => array('' => lang('All news'))+$this->rights2cats(EGW_ACL_READ),

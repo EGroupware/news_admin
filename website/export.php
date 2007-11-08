@@ -41,7 +41,7 @@
 	$news_obj =& CreateObject('news_admin.bonews');
 	$export_obj =& CreateObject('news_admin.soexport');
 	$cats_obj =& CreateObject('phpgwapi.categories');
-	$tpl =& CreateObject('phpgwapi.template');
+	$tpl =& CreateObject('phpgwapi.Template');
 	
 	$cat_id = (int)$_GET['cat_id'];
 	$limit	= (isset($_GET['limit']) ? trim($_GET['limit']) : 10);
@@ -67,9 +67,9 @@
 	
 	$itemsyntaxs = array(
 		0 => '?item=',
-		1 => '&item=',
+		1 => '&amp;item=',
 		2 => '?news%5Bitem%5D=',
-		3 => '&news%5Bitem%5D='
+		3 => '&amp;news%5Bitem%5D='
 	);
 	
 	$feedConf = $export_obj->readconfig($cat_id);
@@ -81,7 +81,7 @@
 	$feedConf['title'] = $feedConf['title'] ? $feedConf['title'] : (
 		$sitemgr_info['site_name'] ? $sitemgr_info['site_name'] : (
 		$GLOBALS['egw_info']['server']['site_title'] ? $GLOBALS['egw_info']['server']['site_title'] :
-		lang('News'). ' :' ));
+		lang('News')));
 	
 	$feedConf['link'] = $feedConf['link'] ? $feedConf['link'] :
 		( $GLOBALS['sitemgr_info']['site_url'] ? ( stripos($GLOBALS['sitemgr_info']['site_url'],'http') !== false ? $GLOBALS['sitemgr_info']['site_url'] : (
@@ -96,9 +96,11 @@
 			$feedConf['description'] = $feedConf['title'];
 		}
 	}
-
-	$itemsyntax = $itemsyntaxs[$feedConf['itemsyntax']];
-	
+	// keep already set itemsyntax from included news_admin module
+	if ($feedConf && isset($itemsyntaxs[$feedConf['itemsyntax']]) || $_REQUEST['itemsyntax']==$itemsyntax)	// gard against register_globals=On
+	{
+		$itemsyntax = $itemsyntaxs[$feedConf['itemsyntax']];
+	}
 	$tpl->root = EGW_SERVER_ROOT. '/news_admin/website/templates/';
 	$tpl->set_file(array('news' => $format . '.tpl'));
 	$tpl->set_block('news', 'item', 'items');
@@ -114,9 +116,10 @@
 		foreach($news as $news_data) {
 			$tpl->set_var('content',$news_data['news_content']);
 			$tpl->set_var('subject',$news_data['news_headline']);
-			$tpl->set_var('teaser',$news_data['news_teaser']);
+			$tpl->set_var('teaser',$format == 'rss2' && $news_data['news_content'] ? '<p><b>'.$news_data['news_teaser']."</b></p>\n" : 
+				$news_data['news_content']);
 
-			$tpl->set_var('item_link', $feedConf['link'] . $itemsyntax . $news_data['news_id']);
+			$tpl->set_var('item_link',$news_data['link'] ? $news_data['link'] : $feedConf['link'] . $itemsyntax . $news_data['news_id']);
 			$tpl->set_var('pub_date', date("r",$news_data['news_date']));
 			if($format == 'rss1')
 			{

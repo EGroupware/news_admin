@@ -1,4 +1,5 @@
 %1 module	news_admin	de	%1 Module
+%s hours	news_admin	de	%1 Stunden
 actions	news_admin	de	Befehle
 active	news_admin	de	Aktiv
 add new article	news_admin	de	Neue Nachricht hinzufügen
@@ -13,6 +14,7 @@ configure access permissions	common	de	Zugriffsrechte konfigurieren
 configure rss exports	common	de	RSS Export konfigurieren
 contains html	news_admin	de	Beinhaltet HTML
 content	news_admin	de	Inhalt
+count	news_admin	de	Anzahl
 date and time	news_admin	de	Datum und Uhrzeit
 delete this news	news_admin	de	Diese Nachricht löschen
 do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS link für diese Kategorie anzeigen
@@ -34,8 +36,12 @@ image link	news_admin	de	Link des Bildes
 image title	news_admin	de	Titel des Bildes
 image url	news_admin	de	URL des Bildes
 implies read permission	news_admin	de	beinhaltet Leserechte
+import every	news_admin	de	Importieren alle
+import now	news_admin	de	Jetzt Importieren
+import url	news_admin	de	Import URL
 item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
+last updated	news_admin	de	Zuletzt aktualisiert
 link	news_admin	de	Link
 main	news_admin	de	Hauptmenü
 maintain	news_admin	de	Pflegen
@@ -61,6 +67,7 @@ number of articles to display on the main screen	news_admin	de	Anzahl der Nachri
 number of news items to be displayed on page	news_admin	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 old	news_admin	de	Alte
 on	news_admin	de	An
+parent	news_admin	de	Eltern
 picture upload (leave the upload directory empty to disable the upload)	admin	de	Hochladen von Dateien (Lassen sie die Felder frei um das Hochladen abzuschalten)
 please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
 publish date	news_admin	de	Veröffentlichungsdatum
@@ -82,6 +89,7 @@ the number of articles to display on the main screen.	news_admin	de	Anzahl der N
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website and. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
 until	news_admin	de	bis
+url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten Feed
 view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
 webpage news admin	news_admin	de	Webseite Nachrichten

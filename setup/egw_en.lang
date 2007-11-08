@@ -1,4 +1,5 @@
 %1 module	news_admin	en	%1 module
+%s hours	news_admin	en	%s hours
 actions	news_admin	en	Actions
 active	news_admin	en	Active
 add new article	news_admin	en	Add New Article
@@ -13,6 +14,7 @@ configure access permissions	common	en	Configure Access Permissions
 configure rss exports	common	en	Configure RSS exports
 contains html	news_admin	en	Contains HTML
 content	news_admin	en	Content
+count	news_admin	en	Count
 date and time	news_admin	en	Date and time
 delete this news	news_admin	en	Delete this news
 do you want to publish a rss feed for this news category	news_admin	en	Do you want to publish a RSS feed for this news category
@@ -34,8 +36,12 @@ image link	news_admin	en	Image Link
 image title	news_admin	en	Image Title
 image url	news_admin	en	Image URL
 implies read permission	news_admin	en	implies read permission
+import every	news_admin	en	Import every
+import now	news_admin	en	Import now
+import url	news_admin	en	Import URL
 item has been deleted	news_admin	en	Item has been deleted
 item not found	news_admin	en	Item not found
+last updated	news_admin	en	Last updated
 link	news_admin	en	Link
 main	news_admin	en	Main
 maintain	news_admin	en	Maintain
@@ -61,6 +67,7 @@ number of articles to display on the main screen	news_admin	en	Number of article
 number of news items to be displayed on page	news_admin	en	Number of news items to be displayed on page
 old	news_admin	en	Old
 on	news_admin	en	on
+parent	news_admin	en	Parent
 picture upload (leave the upload directory empty to disable the upload)	admin	en	Picture upload (leave the upload directory empty to disable the upload)
 please select a category	news_admin	en	Please select a category
 publish date	news_admin	en	Publish Date
@@ -82,6 +89,7 @@ the number of articles to display on the main screen.	news_admin	en	The number o
 the subject is missing	news_admin	en	The subject is missing
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 until	news_admin	en	until
+url of the rss or atom feed, empty for own news feed	news_admin	en	URL of the RSS or Atom feed, empty for own news feed
 view this category	news_admin	en	View this category
 visible	news_admin	en	Visible
 webpage news admin	news_admin	en	Webpage news admin

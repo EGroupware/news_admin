@@ -44,6 +44,15 @@
 			'xmlrpc'  => True,
 			'admin'   => False
 		),
+		'homeShowCats' => array(
+			'type'   => 'multiselect',
+			'label'  => 'Categories to displayed on main page?',
+			'name'   => 'homeShowCats',
+			'values' => ExecMethod('news_admin.bonews.rights2cats',EGW_ACL_READ),
+			'help'   => 'Which news categories should be displayed on the main screen.',
+			'xmlrpc' => True,
+			'admin'  => False		
+		),
 		'rtfEditorFeatures' => array(
 			'type'   => 'select',
 			'label'  => 'Features of the editor?',

@@ -5,11 +5,11 @@
 		<link>{link}</link>
 		<description>{description}</description>
 <!-- BEGIN item -->
-    	<item>
+		<item>
 			<title>{subject}</title>
 			<link>{item_link}</link>
 			<pubDate>{pub_date}</pubDate>
-			<description><![CDATA[<p><b>{teaser}</b></p>{content}]]></description>
+			<description><![CDATA[{teaser}{content}]]></description>
 		</item>
 <!-- END item -->
 	</channel>
