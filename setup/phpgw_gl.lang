@@ -1,0 +1,91 @@
+%1 module	news_admin	gl	módulo %1
+actions	news_admin	gl	Accións
+active	news_admin	gl	Activo
+add new article	news_admin	gl	Engadir novo artigo
+add new news	news_admin	gl	Engadir novas noticias
+add news item	news_admin	gl	Engadir elemento de noticias
+all news	news_admin	gl	Todas as noticias
+always	news_admin	gl	Sempre
+by date	news_admin	gl	Por data
+choose a category	news_admin	gl	Escolla unha categoría
+configuration	news_admin	gl	Configuración
+configure access permissions	common	gl	Configurar permisos de acceso
+configure rss exports	common	gl	Configurar exportación RSS
+contains html	news_admin	gl	Contén HTML
+content	news_admin	gl	Contido
+date and time	news_admin	gl	Data e hora
+delete this news	news_admin	gl	Borrar estas noticias
+do you want to publish a rss feed for this news category	news_admin	gl	desexa publicar unha fonte RSS para esta nova categoría
+edit news item	news_admin	gl	Editar elemento de noticias
+end	news_admin	gl	Fin
+error saving the news!	news_admin	gl	Erro ao gravar as noticias!
+failed to add message	news_admin	gl	Erro ao engadir unha nova mensaxe
+format for links to items	news_admin	gl	Formato para as ligazóns aos elementos
+format of export	news_admin	gl	Formato de exportación
+from	news_admin	gl	De
+from all	news_admin	gl	De todos
+future	news_admin	gl	Futuro
+global categories	news_admin	gl	categorías globais
+global news	news_admin	gl	Noticias globais
+global_news	news_admin	gl	Noticias_globais
+headline	news_admin	gl	Titular
+headline with link	news_admin	gl	Titular con ligazón
+image link	news_admin	gl	Ligazón á imaxe
+image title	news_admin	gl	Título da imaxe
+image url	news_admin	gl	URL da imaxe
+implies read permission	news_admin	gl	implica permiso de lectura
+item has been deleted	news_admin	gl	O elemento foi eliminado
+item not found	news_admin	gl	Elemento non localizado
+link	news_admin	gl	Ligazón
+main	news_admin	gl	Principal
+maintain	news_admin	gl	Mantemento
+maintain news	admin	gl	Mantemento de noticias
+message has been added	news_admin	gl	Engadiuse a  mensaxe
+more news	news_admin	gl	Máis noticias
+more news link	news_admin	gl	Máis ligazóns a noticias
+new item has been added	news_admin	gl	Engadiuse un novo elemento
+news	news_admin	gl	Noticias
+news admin	news_admin	gl	Administrador de noticias
+news administration	news_admin	gl	Administración de noticias
+news deleted.	news_admin	gl	Noticias eliminadas.
+news item has been added	news_admin	gl	Engadiuse un elemento de noticias
+news item has been updated	news_admin	gl	Actualizouse un elemento de noticias
+news saved.	news_admin	gl	Noticias gardadas.
+news_admin	common	gl	Administrador de noticias
+no entries found	news_admin	gl	non se localizaron entradas
+no matching news item	news_admin	gl	non hai noticias coincidentes
+no news	news_admin	gl	Sen noticias está actualmente dispoñible na Categoría
+no rss export	news_admin	gl	Sen exportación RSS
+now	news_admin	gl	Agora
+number of articles to display on the main screen	news_admin	gl	Número de artigos que mostrar na pantalla principal
+number of news items to be displayed on page	news_admin	gl	Número de noticias que se mostrarán por páxina
+old	news_admin	gl	Antigo
+on	news_admin	gl	en
+picture upload (leave the upload directory empty to disable the upload)	admin	gl	Cargar imaxe (deixar o directorio en branco para desactivar a transferencia)
+please select a category	news_admin	gl	Seleccione unha categoría
+publish date	news_admin	gl	Data de publicación
+read more	news_admin	gl	Ler máis
+read news	news_admin	gl	Ler noticias
+read permissions	news_admin	gl	Permisos de lectura
+send mail to others	news_admin	gl	Enviar correo a outros
+should news_admin display the latest article headlines on the main screen.	news_admin	gl	Mostrar o titular do artigo máis recente na pantalla principal
+show latest news articles?	news_admin	gl	Desexa mostrar as noticias máis recentes?
+show news articles on main page?	news_admin	gl	Desexa mostrar noticias na páxina principal?
+small view	news_admin	gl	Visualización reducida
+start	news_admin	gl	Inicio
+submitted by	common	gl	Enviado por
+submitted by %1 on %2	news_admin	gl	Enviado por %1 en %2
+submitted by and date	news_admin	gl	Enviado por e data
+teaser	news_admin	gl	Gancho
+teaser with read more link	news_admin	gl	Gancho con ligazón ler máis
+the news content is missing	news_admin	gl	Falta o contido das noticias
+the number of articles to display on the main screen.	news_admin	gl	Número de artigos que mostrar na pantalla principal.
+the subject is missing	news_admin	gl	Falta o asunto
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	gl	Este módulo publica noticias desde a aplicación administración de noticias da súa páxina web. Teña en conta as restricións ACL da administración de noticias.
+until	news_admin	gl	até
+view this category	news_admin	gl	Ver esta categoría
+visible	news_admin	gl	Visible
+webpage news admin	news_admin	gl	Administrador de noticias da páxina web
+which information do you want to show (css class)	news_admin	gl	Que información quere mostrar (clase CSS)
+write	news_admin	gl	Escribir
+write permissions	news_admin	gl	Permiso de escrita
