@@ -1,75 +1,75 @@
 active	news_admin	pt	Activo/a
 add new article	news_admin	pt	Adicionar novo artigo
-add new news	news_admin	pt	Adicionar novas notícias
-add news item	news_admin	pt	Adicionar item de notícias
-all news	news_admin	pt	Todas as notícias
+add new news	news_admin	pt	Adicionar novas notÃ­cias
+add news item	news_admin	pt	Adicionar item de notÃ­cias
+all news	news_admin	pt	Todas as notÃ­cias
 always	news_admin	pt	Sempre
-configuration	news_admin	pt	Configuração
-configure access permissions	common	pt	Configurar permissões de acesso
-configure rss exports	common	pt	Configurar exportação de RSS
-contains html	news_admin	pt	Contém HTML
-content	news_admin	pt	Conteúdo
-do you want to show the newsletter option when add news?	news_admin	pt	Deseja exibir a opção de listas de distribuição de notícias ao adicionar notícias?
-edit news item	news_admin	pt	Editar item de notícias
+configuration	news_admin	pt	ConfiguraÃ§Ã£o
+configure access permissions	common	pt	Configurar permissÃµes de acesso
+configure rss exports	common	pt	Configurar exportaÃ§Ã£o de RSS
+contains html	news_admin	pt	ContÃ©m HTML
+content	news_admin	pt	ConteÃºdo
+do you want to show the newsletter option when add news?	news_admin	pt	Deseja exibir a opÃ§Ã£o de listas de distribuiÃ§Ã£o de notÃ­cias ao adicionar notÃ­cias?
+edit news item	news_admin	pt	Editar item de notÃ­cias
 failed to add message	news_admin	pt	Falhou ao adicionar nova mensagem
 format for links to items	news_admin	pt	Formatar para ligar a itens
 format of export	news_admin	pt	Formatar para exportar
 from	news_admin	pt	De
 global categories	news_admin	pt	Categorias gerais
-global news	news_admin	pt	Notícias gerais
-global_news	news_admin	pt	Notícias gerais
-image link	news_admin	pt	Ligação da imagem
-image title	news_admin	pt	Título da imagem
+global news	news_admin	pt	NotÃ­cias gerais
+global_news	news_admin	pt	NotÃ­cias gerais
+image link	news_admin	pt	LigaÃ§Ã£o da imagem
+image title	news_admin	pt	TÃ­tulo da imagem
 image url	news_admin	pt	URL da imagem
-implies read permission	news_admin	pt	implica permissões de leitura
+implies read permission	news_admin	pt	implica permissÃµes de leitura
 item has been deleted	news_admin	pt	O item foi eliminado
-item not found	news_admin	pt	O item não foi encontrado
-link	news_admin	pt	Ligação
+item not found	news_admin	pt	O item nÃ£o foi encontrado
+link	news_admin	pt	LigaÃ§Ã£o
 main	news_admin	pt	Principal
 maintain	news_admin	pt	Manter
-maintain news	admin	pt	Manter notícias
+maintain news	admin	pt	Manter notÃ­cias
 message has been added	news_admin	pt	Foi adicionada uma mensagem
-more news	news_admin	pt	Mia notícias
+more news	news_admin	pt	Mia notÃ­cias
 new item has been added	news_admin	pt	Foi adicionardo um novo item
-news	news_admin	pt	Notícias
-news admin	news_admin	pt	Gestor de notícias
-news administration	news_admin	pt	Gestão de notícias
-news item has been added	news_admin	pt	Foi adicionado um item de notícias
-news item has been updated	news_admin	pt	Foi actualizado um item de notícias
-news_admin	common	pt	Gestor de notícias
+news	news_admin	pt	NotÃ­cias
+news admin	news_admin	pt	Gestor de notÃ­cias
+news administration	news_admin	pt	GestÃ£o de notÃ­cias
+news item has been added	news_admin	pt	Foi adicionado um item de notÃ­cias
+news item has been updated	news_admin	pt	Foi actualizado um item de notÃ­cias
+news_admin	common	pt	Gestor de notÃ­cias
 no entries found	news_admin	pt	Nenhum registo encontrado
-no news	news_admin	pt	Não existe nenhuma notícia disponível actualmente na categoria
-no rss export	news_admin	pt	Não exportar RSS
-number of articles to display on the main screen	news_admin	pt	Número de artigos a apresentar no ecrã principal
+no news	news_admin	pt	NÃ£o existe nenhuma notÃ­cia disponÃ­vel actualmente na categoria
+no rss export	news_admin	pt	NÃ£o exportar RSS
+number of articles to display on the main screen	news_admin	pt	NÃºmero de artigos a apresentar no ecrÃ£ principal
 on	news_admin	pt	em
-path of the upload directory (has to be writable by the webserver!)	admin	pt	Caminho para a directoria de envio (tem de ser editável pelo servidor Web!)
+path of the upload directory (has to be writable by the webserver!)	admin	pt	Caminho para a directoria de envio (tem de ser editÃ¡vel pelo servidor Web!)
 picture upload (leave the upload directory empty to disable the upload)	admin	pt	Envio de imagem (deixar a directoria de envio vazia para desactivar o envio)
 please select a category	news_admin	pt	Por favor seleccione uma categoria
-publish date	news_admin	pt	Data de publicação
-read news	news_admin	pt	Ler notícias
-read permissions	news_admin	pt	Permissões de leitura
-send mail to home_email if the business_email is empty?	news_admin	pt	Enviar mensagem para o endereço pessoal se o endereço do emprego estiver vazio?
+publish date	news_admin	pt	Data de publicaÃ§Ã£o
+read news	news_admin	pt	Ler notÃ­cias
+read permissions	news_admin	pt	PermissÃµes de leitura
+send mail to home_email if the business_email is empty?	news_admin	pt	Enviar mensagem para o endereÃ§o pessoal se o endereÃ§o do emprego estiver vazio?
 send mail to others	news_admin	pt	Enviar mensagem para outros
-should news_admin display the latest article headlines on the main screen.	news_admin	pt	O gestor de notícias deve apresentar o cabeçalho do último artigo no ecrã principal?
-should news_admin send mail to home_email if the business_email is empty.	news_admin	pt	O gestor de notícias deve enviar as mensagens para o endereço pessoal se o endereço do emprego estiver vazio?
-show latest news articles?	news_admin	pt	Exibir os últimos artigos?
-show news articles on main page?	news_admin	pt	Exibir artigos na primeira página?
-show newsletter option when add news?	news_admin	pt	Exibir opção de listas de distribuição de notícias ao adicionar notícias?
-site configuration	news_admin	pt	Configuração do sítio
-small view	news_admin	pt	Sumário
+should news_admin display the latest article headlines on the main screen.	news_admin	pt	O gestor de notÃ­cias deve apresentar o cabeÃ§alho do Ãºltimo artigo no ecrÃ£ principal?
+should news_admin send mail to home_email if the business_email is empty.	news_admin	pt	O gestor de notÃ­cias deve enviar as mensagens para o endereÃ§o pessoal se o endereÃ§o do emprego estiver vazio?
+show latest news articles?	news_admin	pt	Exibir os Ãºltimos artigos?
+show news articles on main page?	news_admin	pt	Exibir artigos na primeira pÃ¡gina?
+show newsletter option when add news?	news_admin	pt	Exibir opÃ§Ã£o de listas de distribuiÃ§Ã£o de notÃ­cias ao adicionar notÃ­cias?
+site configuration	news_admin	pt	ConfiguraÃ§Ã£o do sÃ­tio
+small view	news_admin	pt	SumÃ¡rio
 submitted by	common	pt	Submetido por
 teaser	news_admin	pt	Chamada
-the news content is missing	news_admin	pt	Conteúdo da notícia em falta
-the number of articles to display on the main screen.	news_admin	pt	O número de artigos a apresentar no ecrã principal
+the news content is missing	news_admin	pt	ConteÃºdo da notÃ­cia em falta
+the number of articles to display on the main screen.	news_admin	pt	O nÃºmero de artigos a apresentar no ecrÃ£ principal
 the subject is missing	news_admin	pt	Assunto em falta
-until	news_admin	pt	até
+until	news_admin	pt	atÃ©
 url of the upload directory	admin	pt	URL da directoria de envio
 view this category	news_admin	pt	Ver esta categoria
-visible	news_admin	pt	Visível
-webpage news admin	news_admin	pt	Gestão das notícias de páginas Web
-where do you want the receiver to see the email is from.	news_admin	pt	O remetente da mensagem que deseja apresentar ao destinatário.
+visible	news_admin	pt	VisÃ­vel
+webpage news admin	news_admin	pt	GestÃ£o das notÃ­cias de pÃ¡ginas Web
+where do you want the receiver to see the email is from.	news_admin	pt	O remetente da mensagem que deseja apresentar ao destinatÃ¡rio.
 where is the email from	news_admin	pt	De onde vem a mensagem?
-where the replied email will be sent to.	news_admin	pt	Endereço para onde as respostas serão enviadas.
-where to receive the replied email	news_admin	pt	Onde receber as respostas às mensagens?
+where the replied email will be sent to.	news_admin	pt	EndereÃ§o para onde as respostas serÃ£o enviadas.
+where to receive the replied email	news_admin	pt	Onde receber as respostas Ã s mensagens?
 write	news_admin	pt	Editar
-write permissions	news_admin	pt	Permissões de escrita
+write permissions	news_admin	pt	PermissÃµes de escrita

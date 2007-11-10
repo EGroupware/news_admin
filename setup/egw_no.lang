@@ -39,21 +39,21 @@ news_admin	common	no	Nyhetsadm.
 no entries found	news_admin	no	Ingen forekomster funnet
 no news	news_admin	no	Det er ingen nyheter tilgjengelig i denne kategorien.
 no rss export	news_admin	no	Ingen RSS eksport
-number of articles to display on the main screen	news_admin	no	Antall artikler for visning på skrivebord
-on	news_admin	no	på
+number of articles to display on the main screen	news_admin	no	Antall artikler for visning pÃ¥ skrivebord
+on	news_admin	no	pÃ¥
 please select a category	news_admin	no	Velg en kategori
 publish date	news_admin	no	Publiseringsdato
 read news	news_admin	no	Les nyheter
 read permissions	news_admin	no	Lesetillatelser
 send mail to others	news_admin	no	Sende mail til andre
-should news_admin display the latest article headlines on the main screen.	news_admin	no	Skal nyhetsadm. vise de siste artikkeloverskriftene på skrivebordet.
+should news_admin display the latest article headlines on the main screen.	news_admin	no	Skal nyhetsadm. vise de siste artikkeloverskriftene pÃ¥ skrivebordet.
 show latest news articles?	news_admin	no	Vise siste nyhetsartikler
-show news articles on main page?	news_admin	no	Vise nyhetsartikler på hovedsiden
+show news articles on main page?	news_admin	no	Vise nyhetsartikler pÃ¥ hovedsiden
 small view	news_admin	no	Liten visning
 submitted by	common	no	Innsendt av
 teaser	news_admin	no	Teaser
 the news content is missing	news_admin	no	Nyhetens innhold mangler
-the number of articles to display on the main screen.	news_admin	no	Antall artikler som skal vises på skrivebordet.
+the number of articles to display on the main screen.	news_admin	no	Antall artikler som skal vises pÃ¥ skrivebordet.
 the subject is missing	news_admin	no	Overskriften mangler
 until	news_admin	no	til
 view this category	news_admin	no	Vis denne kategorien

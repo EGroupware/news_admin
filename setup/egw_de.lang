@@ -2,13 +2,13 @@
 %s hours	news_admin	de	%1 Stunden
 actions	news_admin	de	Befehle
 active	news_admin	de	Aktiv
-add new article	news_admin	de	Neue Nachricht hinzufügen
-add new news	news_admin	de	Neue Nachricht hinzufügen
-add news item	news_admin	de	Eine neue Nachricht hinzufügen
+add new article	news_admin	de	Neue Nachricht hinzufÃ¼gen
+add new news	news_admin	de	Neue Nachricht hinzufÃ¼gen
+add news item	news_admin	de	Eine neue Nachricht hinzufÃ¼gen
 all news	news_admin	de	Alle Nachrichten
 always	news_admin	de	Immer
 by date	news_admin	de	Nach Datum
-choose a category	news_admin	de	Wählen Sie eine Kategorie
+choose a category	news_admin	de	WÃ¤hlen Sie eine Kategorie
 configuration	news_admin	de	Konfiguration
 configure access permissions	common	de	Zugriffsrechte konfigurieren
 configure rss exports	common	de	RSS Export konfigurieren
@@ -16,17 +16,17 @@ contains html	news_admin	de	Beinhaltet HTML
 content	news_admin	de	Inhalt
 count	news_admin	de	Anzahl
 date and time	news_admin	de	Datum und Uhrzeit
-delete this news	news_admin	de	Diese Nachricht löschen
-do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS link für diese Kategorie anzeigen
+delete this news	news_admin	de	Diese Nachricht lÃ¶schen
+do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS link fÃ¼r diese Kategorie anzeigen
 edit news item	news_admin	de	Nachricht bearbeiten
 end	news_admin	de	Ende
 error saving the news!	news_admin	de	Fehler beim Spechern der Nachricht!
-failed to add message	news_admin	de	Hinzufügen einer neuen Nachricht fehlgeschlagen
-format for links to items	news_admin	de	Format für Verweise auf Einträge
+failed to add message	news_admin	de	HinzufÃ¼gen einer neuen Nachricht fehlgeschlagen
+format for links to items	news_admin	de	Format fÃ¼r Verweise auf EintrÃ¤ge
 format of export	news_admin	de	Exportformat
 from	news_admin	de	Von
 from all	news_admin	de	Von allen
-future	news_admin	de	Zukünftig
+future	news_admin	de	ZukÃ¼nftig
 global categories	news_admin	de	Globale Kategorien
 global news	news_admin	de	Globale Nachrichten
 global_news	news_admin	de	Globale Nachrichten
@@ -39,26 +39,26 @@ implies read permission	news_admin	de	beinhaltet Leserechte
 import every	news_admin	de	Importieren alle
 import now	news_admin	de	Jetzt Importieren
 import url	news_admin	de	Import URL
-item has been deleted	news_admin	de	Nachricht gelöscht
+item has been deleted	news_admin	de	Nachricht gelÃ¶scht
 item not found	news_admin	de	Nachricht nicht gefunden
 last updated	news_admin	de	Zuletzt aktualisiert
 link	news_admin	de	Link
-main	news_admin	de	Hauptmenü
+main	news_admin	de	HauptmenÃ¼
 maintain	news_admin	de	Pflegen
 maintain news	admin	de	Nachrichten pflegen
-message has been added	news_admin	de	Nachricht wurde hinzugefügt
+message has been added	news_admin	de	Nachricht wurde hinzugefÃ¼gt
 more news	news_admin	de	Mehr News
 more news link	news_admin	de	Mehr News Link
-new item has been added	news_admin	de	Neue Nachricht wurde hinzugefügt
+new item has been added	news_admin	de	Neue Nachricht wurde hinzugefÃ¼gt
 news	news_admin	de	Nachrichten
 news admin	news_admin	de	Nachrichten Administrator
 news administration	news_admin	de	Nachrichten Administration
-news deleted.	news_admin	de	Nachricht gelöscht.
-news item has been added	news_admin	de	Nachrichten wurde hinzugefügt
+news deleted.	news_admin	de	Nachricht gelÃ¶scht.
+news item has been added	news_admin	de	Nachrichten wurde hinzugefÃ¼gt
 news item has been updated	news_admin	de	Nachrichten wurde upgedatet
 news saved.	news_admin	de	Nachricht gespeichert.
 news_admin	common	de	Nachrichten
-no entries found	news_admin	de	Keine Einträge gefunden
+no entries found	news_admin	de	Keine EintrÃ¤ge gefunden
 no matching news item	news_admin	de	Keine zutreffenden Nachrichten
 no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
 no rss export	news_admin	de	Kein RSS export
@@ -69,8 +69,8 @@ old	news_admin	de	Alte
 on	news_admin	de	An
 parent	news_admin	de	Eltern
 picture upload (leave the upload directory empty to disable the upload)	admin	de	Hochladen von Dateien (Lassen sie die Felder frei um das Hochladen abzuschalten)
-please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
-publish date	news_admin	de	Veröffentlichungsdatum
+please select a category	news_admin	de	Bitte wÃ¤hlen Sie eine Kategorie
+publish date	news_admin	de	VerÃ¶ffentlichungsdatum
 read more	news_admin	de	weiter lesen
 read news	news_admin	de	Nachrichten lesen
 read permissions	news_admin	de	Leserechte
@@ -85,11 +85,11 @@ submitted by %1 on %2	news_admin	de	Eingetragen von %1 am %2
 teaser	news_admin	de	Anreiser
 teaser with read more link	news_admin	de	Anreise mit weiter lesen Link
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
-the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
+the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Ãœbersichtsseite angezeigt werden sollen
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website and. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
 until	news_admin	de	bis
-url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten Feed
+url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer fÃ¼r einen eigenen Nachrichten Feed
 view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
 webpage news admin	news_admin	de	Webseite Nachrichten

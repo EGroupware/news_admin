@@ -1,50 +1,50 @@
 active	news_admin	ca	Actiu
 add new article	news_admin	ca	Afegir Nou Article
-add new news	news_admin	ca	Afegir noves notícies
-add news item	news_admin	ca	Afegir element de notícies
-all news	news_admin	ca	Totes les notícies
+add new news	news_admin	ca	Afegir noves notÃ­cies
+add news item	news_admin	ca	Afegir element de notÃ­cies
+all news	news_admin	ca	Totes les notÃ­cies
 always	news_admin	ca	Sempre
-configuration	news_admin	ca	Configuració
-configure access permissions	news_admin	ca	Configurar permissos d'accés
-configure rss exports	news_admin	ca	Configurar exportació RSS
-contains html	news_admin	ca	Conté HTML
+configuration	news_admin	ca	ConfiguraciÃ³
+configure access permissions	news_admin	ca	Configurar permissos d'accÃ©s
+configure rss exports	news_admin	ca	Configurar exportaciÃ³ RSS
+contains html	news_admin	ca	ContÃ© HTML
 content	news_admin	ca	Contingut
-edit news item	news_admin	ca	Editar element de notícies
-failed to add message	news_admin	ca	Error afegint missatge de notícies
-format for links to items	news_admin	ca	Format per enllaços als elements
-format of export	news_admin	ca	Format de exportació
+edit news item	news_admin	ca	Editar element de notÃ­cies
+failed to add message	news_admin	ca	Error afegint missatge de notÃ­cies
+format for links to items	news_admin	ca	Format per enllaÃ§os als elements
+format of export	news_admin	ca	Format de exportaciÃ³
 from	news_admin	ca	De
 global news	news_admin	ca	Noticies globales
 global_news	news_admin	ca	Noticies globales
-image link	news_admin	ca	Enllaç a l'imatge
-image title	news_admin	ca	Títol de l'imatge
+image link	news_admin	ca	EnllaÃ§ a l'imatge
+image title	news_admin	ca	TÃ­tol de l'imatge
 image url	news_admin	ca	URL de l'imatge
-implies read permission	news_admin	ca	implica permís de lectura
+implies read permission	news_admin	ca	implica permÃ­s de lectura
 item has been deleted	news_admin	ca	Element esborrat
 item not found	news_admin	ca	Element no trobat
-link	news_admin	ca	Enllaç
+link	news_admin	ca	EnllaÃ§
 main	news_admin	ca	Principal
 maintain	news_admin	ca	Mantenir
-maintain news	admin	ca	Mantenir Notícies
+maintain news	admin	ca	Mantenir NotÃ­cies
 message has been added	news_admin	ca	Missatge afegit
-more news	news_admin	ca	Més notícies
+more news	news_admin	ca	MÃ©s notÃ­cies
 new item has been added	news_admin	ca	Afegit element nou
-news admin	news_admin	ca	Administrador de Notícies
-news administration	news_admin	ca	Administració de Notícies
-news item has been added	news_admin	ca	Element de Notícies afegit
-news item has been updated	news_admin	ca	Element de Notícies actualitzat
-news_admin	common	ca	Administrador de Notícies
+news admin	news_admin	ca	Administrador de NotÃ­cies
+news administration	news_admin	ca	AdministraciÃ³ de NotÃ­cies
+news item has been added	news_admin	ca	Element de NotÃ­cies afegit
+news item has been updated	news_admin	ca	Element de NotÃ­cies actualitzat
+news_admin	common	ca	Administrador de NotÃ­cies
 no entries found	news_admin	ca	No s'han trobat entrades
-no news	news_admin	ca	Sense Notícies actualment disponible a la Categoria
+no news	news_admin	ca	Sense NotÃ­cies actualment disponible a la Categoria
 no rss export	news_admin	ca	No s'exporta a RSS
 number of articles to display on the main screen	news_admin	ca	Nombre d'articles a mostrar a la pantalla principal
 on	news_admin	ca	en
-publish date	news_admin	ca	Data de publicació
+publish date	news_admin	ca	Data de publicaciÃ³
 read permissions	news_admin	ca	Llegir permissos
 should news_admin display the latest article headlines on the main screen.	news_admin	ca	S'ha de mostrar el titular del darrer article a la pantalla principal?
 show latest news articles?	news_admin	ca	Mostrar els darrers articles de noticies?
 show news articles on main page?	news_admin	ca	Mostrar articles de noticies a la plana principal?
-small view	news_admin	ca	Vista reduïda
+small view	news_admin	ca	Vista reduÃ¯da
 submitted by	common	ca	Enviat per
 teaser	news_admin	ca	Bromista
 the news content is missing	news_admin	ca	Falta el contingut de les noticies

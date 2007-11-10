@@ -1,90 +1,90 @@
-%1 module	news_admin	ru	%1 модуль
-actions	news_admin	ru	Действия
-active	news_admin	ru	Активно
-add new article	news_admin	ru	Добавить Новую Статью
-add new news	news_admin	ru	Добавить новую новость
-add news item	news_admin	ru	Добавить новый элемент
-all news	news_admin	ru	Все новости
-always	news_admin	ru	Всегда
-by date	news_admin	ru	По дате
-choose a category	news_admin	ru	Выберите категорию
-configuration	news_admin	ru	Конфигурация
-configure access permissions	common	ru	Настроить разрешения доступа
-configure rss exports	common	ru	Настроить экспорт RSS
-contains html	news_admin	ru	Содержит HTML
-content	news_admin	ru	Содержание
-date and time	news_admin	ru	Дата и время
-delete this news	news_admin	ru	Удалить эту новость
-do you want to publish a rss feed for this news category	news_admin	ru	Хотите ли вы публиковать ленту RSS для этой категории новостей
-edit news item	news_admin	ru	Редактировать новости
-end	news_admin	ru	Конец
-error saving the news!	news_admin	ru	Ошибка записи новости
-failed to add message	news_admin	ru	Ошибка при добавлении нового сообщения
-format for links to items	news_admin	ru	Формат для ссылок на элементы
-format of export	news_admin	ru	Формат экспорта
-from	news_admin	ru	От
-from all	news_admin	ru	От всех
-future	news_admin	ru	Будущие
-global categories	news_admin	ru	Общие Категории
-global news	news_admin	ru	Общие Новости
-global_news	news_admin	ru	Общие Новости
-headline	news_admin	ru	Заголовок
-headline with link	news_admin	ru	Заголовок с линком
-image link	news_admin	ru	Ссылка на изображение
-image title	news_admin	ru	Заголовок изображения
-image url	news_admin	ru	URL изображение
-implies read permission	news_admin	ru	подразумевает разрешение на чтение
-item has been deleted	news_admin	ru	Элемент удален
-item not found	news_admin	ru	Элемент не найден
-link	news_admin	ru	Ссылка
-main	news_admin	ru	Главная
-maintain	news_admin	ru	Обслуживание
-maintain news	admin	ru	Новости Обслуживания (Обслуживать Новости?)
-message has been added	news_admin	ru	Сообщение добавлено
-more news	news_admin	ru	Еще новости
-more news link	news_admin	ru	Другие линки новостей
-new item has been added	news_admin	ru	Новый элемент добавлен
-news	news_admin	ru	Новости
-news admin	news_admin	ru	Администратор Новостей
-news administration	news_admin	ru	Администрация Новостей
-news deleted.	news_admin	ru	Новость удалена.
-news item has been added	news_admin	ru	Элемент Новостей добавлен
-news item has been updated	news_admin	ru	Элемент Новостей обновлен
-news saved.	news_admin	ru	Новост записана.
-news_admin	common	ru	Администратор Новостей
-no entries found	news_admin	ru	записи не найдены
-no matching news item	news_admin	ru	Нет соответствующей новости.
-no news	news_admin	ru	В этой категории в данный момент нет новостей
-no rss export	news_admin	ru	Экспорта RSS нет
-now	news_admin	ru	Сегодня
-number of articles to display on the main screen	news_admin	ru	Количество новостей, показываемых на главной странице
-number of news items to be displayed on page	news_admin	ru	Количество новостей, показываемых на одной странице
-old	news_admin	ru	Старые
-on	news_admin	ru	на
-picture upload (leave the upload directory empty to disable the upload)	admin	ru	Выгрузка изображения (оставить каталог выгрузки пустым, чтобы запретить выгрузку)
-please select a category	news_admin	ru	Пожалуйста выберите категорию
-publish date	news_admin	ru	Дата опубликования
-read more	news_admin	ru	читать дальше
-read news	news_admin	ru	Читать новости
-read permissions	news_admin	ru	Разрешения на чтение
-send mail to others	news_admin	ru	Отправить Письмо Остальным
-should news_admin display the latest article headlines on the main screen.	news_admin	ru	Должен ли Администратор Новостей показывать заголовки последних статей на главной странице.
-show latest news articles?	news_admin	ru	Показывать последние статьи?
-show news articles on main page?	news_admin	ru	Показывать статьи на главной странице?
-small view	news_admin	ru	мелкий вид
-start	news_admin	ru	Начало
-submitted by	common	ru	Новость предоставлена
-submitted by %1 on %2	news_admin	ru	Предоставлено %1 на %2
-teaser	news_admin	ru	Завлекалка
-teaser with read more link	news_admin	ru	Завлекалка с линком "читать далее"
-the news content is missing	news_admin	ru	Отсутствует содержание новостей
-the number of articles to display on the main screen.	news_admin	ru	Количество статей, показываемых на главной странице
-the subject is missing	news_admin	ru	Отсутствует предмет
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	ru	Этот модуль публикует новости из приложения Администратор новостей на вашем сайте. Будьте внимательны с установкой прав (ACL) в Администраторе навостей
-until	news_admin	ru	до
-view this category	news_admin	ru	Показать эту категорию
-visible	news_admin	ru	Видимый
-webpage news admin	news_admin	ru	Веб-страница администратора новостей
-which information do you want to show (css class)	news_admin	ru	Какую информацию вы хотите показать (класс CSS)
-write	news_admin	ru	Записать
-write permissions	news_admin	ru	Разрешения на запись
+%1 module	news_admin	ru	%1 п╪п╬п╢я┐п╩я▄
+actions	news_admin	ru	п■п╣п╧я│я┌п╡п╦я▐
+active	news_admin	ru	п░п╨я┌п╦п╡п╫п╬
+add new article	news_admin	ru	п■п╬п╠п╟п╡п╦я┌я▄ п²п╬п╡я┐я▌ п║я┌п╟я┌я▄я▌
+add new news	news_admin	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╫п╬п╡я┐я▌ п╫п╬п╡п╬я│я┌я▄
+add news item	news_admin	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╫п╬п╡я▀п╧ я█п╩п╣п╪п╣п╫я┌
+all news	news_admin	ru	п▓я│п╣ п╫п╬п╡п╬я│я┌п╦
+always	news_admin	ru	п▓я│п╣пЁп╢п╟
+by date	news_admin	ru	п÷п╬ п╢п╟я┌п╣
+choose a category	news_admin	ru	п▓я▀п╠п╣я─п╦я┌п╣ п╨п╟я┌п╣пЁп╬я─п╦я▌
+configuration	news_admin	ru	п п╬п╫я└п╦пЁя┐я─п╟я├п╦я▐
+configure access permissions	common	ru	п²п╟я│я┌я─п╬п╦я┌я▄ я─п╟п╥я─п╣я┬п╣п╫п╦я▐ п╢п╬я│я┌я┐п©п╟
+configure rss exports	common	ru	п²п╟я│я┌я─п╬п╦я┌я▄ я█п╨я│п©п╬я─я┌ RSS
+contains html	news_admin	ru	п║п╬п╢п╣я─п╤п╦я┌ HTML
+content	news_admin	ru	п║п╬п╢п╣я─п╤п╟п╫п╦п╣
+date and time	news_admin	ru	п■п╟я┌п╟ п╦ п╡я─п╣п╪я▐
+delete this news	news_admin	ru	пёп╢п╟п╩п╦я┌я▄ я█я┌я┐ п╫п╬п╡п╬я│я┌я▄
+do you want to publish a rss feed for this news category	news_admin	ru	п╔п╬я┌п╦я┌п╣ п╩п╦ п╡я▀ п©я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄ п╩п╣п╫я┌я┐ RSS п╢п╩я▐ я█я┌п╬п╧ п╨п╟я┌п╣пЁп╬я─п╦п╦ п╫п╬п╡п╬я│я┌п╣п╧
+edit news item	news_admin	ru	п═п╣п╢п╟п╨я┌п╦я─п╬п╡п╟я┌я▄ п╫п╬п╡п╬я│я┌п╦
+end	news_admin	ru	п п╬п╫п╣я├
+error saving the news!	news_admin	ru	п·я┬п╦п╠п╨п╟ п╥п╟п©п╦я│п╦ п╫п╬п╡п╬я│я┌п╦
+failed to add message	news_admin	ru	п·я┬п╦п╠п╨п╟ п©я─п╦ п╢п╬п╠п╟п╡п╩п╣п╫п╦п╦ п╫п╬п╡п╬пЁп╬ я│п╬п╬п╠я┴п╣п╫п╦я▐
+format for links to items	news_admin	ru	п╓п╬я─п╪п╟я┌ п╢п╩я▐ я│я│я▀п╩п╬п╨ п╫п╟ я█п╩п╣п╪п╣п╫я┌я▀
+format of export	news_admin	ru	п╓п╬я─п╪п╟я┌ я█п╨я│п©п╬я─я┌п╟
+from	news_admin	ru	п·я┌
+from all	news_admin	ru	п·я┌ п╡я│п╣я┘
+future	news_admin	ru	п▒я┐п╢я┐я┴п╦п╣
+global categories	news_admin	ru	п·п╠я┴п╦п╣ п п╟я┌п╣пЁп╬я─п╦п╦
+global news	news_admin	ru	п·п╠я┴п╦п╣ п²п╬п╡п╬я│я┌п╦
+global_news	news_admin	ru	п·п╠я┴п╦п╣ п²п╬п╡п╬я│я┌п╦
+headline	news_admin	ru	п≈п╟пЁп╬п╩п╬п╡п╬п╨
+headline with link	news_admin	ru	п≈п╟пЁп╬п╩п╬п╡п╬п╨ я│ п╩п╦п╫п╨п╬п╪
+image link	news_admin	ru	п║я│я▀п╩п╨п╟ п╫п╟ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╣
+image title	news_admin	ru	п≈п╟пЁп╬п╩п╬п╡п╬п╨ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦я▐
+image url	news_admin	ru	URL п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╣
+implies read permission	news_admin	ru	п©п╬п╢я─п╟п╥я┐п╪п╣п╡п╟п╣я┌ я─п╟п╥я─п╣я┬п╣п╫п╦п╣ п╫п╟ я┤я┌п╣п╫п╦п╣
+item has been deleted	news_admin	ru	п╜п╩п╣п╪п╣п╫я┌ я┐п╢п╟п╩п╣п╫
+item not found	news_admin	ru	п╜п╩п╣п╪п╣п╫я┌ п╫п╣ п╫п╟п╧п╢п╣п╫
+link	news_admin	ru	п║я│я▀п╩п╨п╟
+main	news_admin	ru	п⌠п╩п╟п╡п╫п╟я▐
+maintain	news_admin	ru	п·п╠я│п╩я┐п╤п╦п╡п╟п╫п╦п╣
+maintain news	admin	ru	п²п╬п╡п╬я│я┌п╦ п·п╠я│п╩я┐п╤п╦п╡п╟п╫п╦я▐ (п·п╠я│п╩я┐п╤п╦п╡п╟я┌я▄ п²п╬п╡п╬я│я┌п╦?)
+message has been added	news_admin	ru	п║п╬п╬п╠я┴п╣п╫п╦п╣ п╢п╬п╠п╟п╡п╩п╣п╫п╬
+more news	news_admin	ru	п∙я┴п╣ п╫п╬п╡п╬я│я┌п╦
+more news link	news_admin	ru	п■я─я┐пЁп╦п╣ п╩п╦п╫п╨п╦ п╫п╬п╡п╬я│я┌п╣п╧
+new item has been added	news_admin	ru	п²п╬п╡я▀п╧ я█п╩п╣п╪п╣п╫я┌ п╢п╬п╠п╟п╡п╩п╣п╫
+news	news_admin	ru	п²п╬п╡п╬я│я┌п╦
+news admin	news_admin	ru	п░п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─ п²п╬п╡п╬я│я┌п╣п╧
+news administration	news_admin	ru	п░п╢п╪п╦п╫п╦я│я┌я─п╟я├п╦я▐ п²п╬п╡п╬я│я┌п╣п╧
+news deleted.	news_admin	ru	п²п╬п╡п╬я│я┌я▄ я┐п╢п╟п╩п╣п╫п╟.
+news item has been added	news_admin	ru	п╜п╩п╣п╪п╣п╫я┌ п²п╬п╡п╬я│я┌п╣п╧ п╢п╬п╠п╟п╡п╩п╣п╫
+news item has been updated	news_admin	ru	п╜п╩п╣п╪п╣п╫я┌ п²п╬п╡п╬я│я┌п╣п╧ п╬п╠п╫п╬п╡п╩п╣п╫
+news saved.	news_admin	ru	п²п╬п╡п╬я│я┌ п╥п╟п©п╦я│п╟п╫п╟.
+news_admin	common	ru	п░п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─ п²п╬п╡п╬я│я┌п╣п╧
+no entries found	news_admin	ru	п╥п╟п©п╦я│п╦ п╫п╣ п╫п╟п╧п╢п╣п╫я▀
+no matching news item	news_admin	ru	п²п╣я┌ я│п╬п╬я┌п╡п╣я┌я│я┌п╡я┐я▌я┴п╣п╧ п╫п╬п╡п╬я│я┌п╦.
+no news	news_admin	ru	п▓ я█я┌п╬п╧ п╨п╟я┌п╣пЁп╬я─п╦п╦ п╡ п╢п╟п╫п╫я▀п╧ п╪п╬п╪п╣п╫я┌ п╫п╣я┌ п╫п╬п╡п╬я│я┌п╣п╧
+no rss export	news_admin	ru	п╜п╨я│п©п╬я─я┌п╟ RSS п╫п╣я┌
+now	news_admin	ru	п║п╣пЁп╬п╢п╫я▐
+number of articles to display on the main screen	news_admin	ru	п п╬п╩п╦я┤п╣я│я┌п╡п╬ п╫п╬п╡п╬я│я┌п╣п╧, п©п╬п╨п╟п╥я▀п╡п╟п╣п╪я▀я┘ п╫п╟ пЁп╩п╟п╡п╫п╬п╧ я│я┌я─п╟п╫п╦я├п╣
+number of news items to be displayed on page	news_admin	ru	п п╬п╩п╦я┤п╣я│я┌п╡п╬ п╫п╬п╡п╬я│я┌п╣п╧, п©п╬п╨п╟п╥я▀п╡п╟п╣п╪я▀я┘ п╫п╟ п╬п╢п╫п╬п╧ я│я┌я─п╟п╫п╦я├п╣
+old	news_admin	ru	п║я┌п╟я─я▀п╣
+on	news_admin	ru	п╫п╟
+picture upload (leave the upload directory empty to disable the upload)	admin	ru	п▓я▀пЁя─я┐п╥п╨п╟ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦я▐ (п╬я│я┌п╟п╡п╦я┌я▄ п╨п╟я┌п╟п╩п╬пЁ п╡я▀пЁя─я┐п╥п╨п╦ п©я┐я│я┌я▀п╪, я┤я┌п╬п╠я▀ п╥п╟п©я─п╣я┌п╦я┌я▄ п╡я▀пЁя─я┐п╥п╨я┐)
+please select a category	news_admin	ru	п÷п╬п╤п╟п╩я┐п╧я│я┌п╟ п╡я▀п╠п╣я─п╦я┌п╣ п╨п╟я┌п╣пЁп╬я─п╦я▌
+publish date	news_admin	ru	п■п╟я┌п╟ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫п╦я▐
+read more	news_admin	ru	я┤п╦я┌п╟я┌я▄ п╢п╟п╩я▄я┬п╣
+read news	news_admin	ru	п╖п╦я┌п╟я┌я▄ п╫п╬п╡п╬я│я┌п╦
+read permissions	news_admin	ru	п═п╟п╥я─п╣я┬п╣п╫п╦я▐ п╫п╟ я┤я┌п╣п╫п╦п╣
+send mail to others	news_admin	ru	п·я┌п©я─п╟п╡п╦я┌я▄ п÷п╦я│я▄п╪п╬ п·я│я┌п╟п╩я▄п╫я▀п╪
+should news_admin display the latest article headlines on the main screen.	news_admin	ru	п■п╬п╩п╤п╣п╫ п╩п╦ п░п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─ п²п╬п╡п╬я│я┌п╣п╧ п©п╬п╨п╟п╥я▀п╡п╟я┌я▄ п╥п╟пЁп╬п╩п╬п╡п╨п╦ п©п╬я│п╩п╣п╢п╫п╦я┘ я│я┌п╟я┌п╣п╧ п╫п╟ пЁп╩п╟п╡п╫п╬п╧ я│я┌я─п╟п╫п╦я├п╣.
+show latest news articles?	news_admin	ru	п÷п╬п╨п╟п╥я▀п╡п╟я┌я▄ п©п╬я│п╩п╣п╢п╫п╦п╣ я│я┌п╟я┌я▄п╦?
+show news articles on main page?	news_admin	ru	п÷п╬п╨п╟п╥я▀п╡п╟я┌я▄ я│я┌п╟я┌я▄п╦ п╫п╟ пЁп╩п╟п╡п╫п╬п╧ я│я┌я─п╟п╫п╦я├п╣?
+small view	news_admin	ru	п╪п╣п╩п╨п╦п╧ п╡п╦п╢
+start	news_admin	ru	п²п╟я┤п╟п╩п╬
+submitted by	common	ru	п²п╬п╡п╬я│я┌я▄ п©я─п╣п╢п╬я│я┌п╟п╡п╩п╣п╫п╟
+submitted by %1 on %2	news_admin	ru	п÷я─п╣п╢п╬я│я┌п╟п╡п╩п╣п╫п╬ %1 п╫п╟ %2
+teaser	news_admin	ru	п≈п╟п╡п╩п╣п╨п╟п╩п╨п╟
+teaser with read more link	news_admin	ru	п≈п╟п╡п╩п╣п╨п╟п╩п╨п╟ я│ п╩п╦п╫п╨п╬п╪ "я┤п╦я┌п╟я┌я▄ п╢п╟п╩п╣п╣"
+the news content is missing	news_admin	ru	п·я┌я│я┐я┌я│я┌п╡я┐п╣я┌ я│п╬п╢п╣я─п╤п╟п╫п╦п╣ п╫п╬п╡п╬я│я┌п╣п╧
+the number of articles to display on the main screen.	news_admin	ru	п п╬п╩п╦я┤п╣я│я┌п╡п╬ я│я┌п╟я┌п╣п╧, п©п╬п╨п╟п╥я▀п╡п╟п╣п╪я▀я┘ п╫п╟ пЁп╩п╟п╡п╫п╬п╧ я│я┌я─п╟п╫п╦я├п╣
+the subject is missing	news_admin	ru	п·я┌я│я┐я┌я│я┌п╡я┐п╣я┌ п©я─п╣п╢п╪п╣я┌
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	ru	п╜я┌п╬я┌ п╪п╬п╢я┐п╩я▄ п©я┐п╠п╩п╦п╨я┐п╣я┌ п╫п╬п╡п╬я│я┌п╦ п╦п╥ п©я─п╦п╩п╬п╤п╣п╫п╦я▐ п░п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─ п╫п╬п╡п╬я│я┌п╣п╧ п╫п╟ п╡п╟я┬п╣п╪ я│п╟п╧я┌п╣. п▒я┐п╢я▄я┌п╣ п╡п╫п╦п╪п╟я┌п╣п╩я▄п╫я▀ я│ я┐я│я┌п╟п╫п╬п╡п╨п╬п╧ п©я─п╟п╡ (ACL) п╡ п░п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─п╣ п╫п╟п╡п╬я│я┌п╣п╧
+until	news_admin	ru	п╢п╬
+view this category	news_admin	ru	п÷п╬п╨п╟п╥п╟я┌я▄ я█я┌я┐ п╨п╟я┌п╣пЁп╬я─п╦я▌
+visible	news_admin	ru	п▓п╦п╢п╦п╪я▀п╧
+webpage news admin	news_admin	ru	п▓п╣п╠-я│я┌я─п╟п╫п╦я├п╟ п╟п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─п╟ п╫п╬п╡п╬я│я┌п╣п╧
+which information do you want to show (css class)	news_admin	ru	п п╟п╨я┐я▌ п╦п╫я└п╬я─п╪п╟я├п╦я▌ п╡я▀ я┘п╬я┌п╦я┌п╣ п©п╬п╨п╟п╥п╟я┌я▄ (п╨п╩п╟я│я│ CSS)
+write	news_admin	ru	п≈п╟п©п╦я│п╟я┌я▄
+write permissions	news_admin	ru	п═п╟п╥я─п╣я┬п╣п╫п╦я▐ п╫п╟ п╥п╟п©п╦я│я▄

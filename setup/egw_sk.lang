@@ -1,90 +1,90 @@
 %1 module	news_admin	sk	%1 modul
 actions	news_admin	sk	Akcie
-active	news_admin	sk	Aktívne
-add new article	news_admin	sk	Prida» novı èlánok
-add new news	news_admin	sk	Prida» novú aktualitu
-add news item	news_admin	sk	Prida» polo¾ku Aktualít
-all news	news_admin	sk	V¹etky aktuality
-always	news_admin	sk	V¾dy
-by date	news_admin	sk	Podµa dátumu
-choose a category	news_admin	sk	Vyberte kategóriu
-configuration	news_admin	sk	Konfigurácia
-configure access permissions	common	sk	Nastavi» prístupové práva
-configure rss exports	common	sk	Nastavi» RSS exporty
+active	news_admin	sk	AktÃ­vne
+add new article	news_admin	sk	PridaÅ¥ novÃ½ ÄlÃ¡nok
+add new news	news_admin	sk	PridaÅ¥ novÃº aktualitu
+add news item	news_admin	sk	PridaÅ¥ poloÅ¾ku AktualÃ­t
+all news	news_admin	sk	VÅ¡etky aktuality
+always	news_admin	sk	VÅ¾dy
+by date	news_admin	sk	PodÄ¾a dÃ¡tumu
+choose a category	news_admin	sk	Vyberte kategÃ³riu
+configuration	news_admin	sk	KonfigurÃ¡cia
+configure access permissions	common	sk	NastaviÅ¥ prÃ­stupovÃ© prÃ¡va
+configure rss exports	common	sk	NastaviÅ¥ RSS exporty
 contains html	news_admin	sk	Obsahuje HTML
 content	news_admin	sk	Obsah
-date and time	news_admin	sk	Dátum a èas
-delete this news	news_admin	sk	Odstráni» túto správu
-do you want to publish a rss feed for this news category	news_admin	sk	®eláte si publikova» RSS feed pre túto kategóriu aktualít
-edit news item	news_admin	sk	Upravi» polo¾ku Aktualít
+date and time	news_admin	sk	DÃ¡tum a Äas
+delete this news	news_admin	sk	OdstrÃ¡niÅ¥ tÃºto sprÃ¡vu
+do you want to publish a rss feed for this news category	news_admin	sk	Å½elÃ¡te si publikovaÅ¥ RSS feed pre tÃºto kategÃ³riu aktualÃ­t
+edit news item	news_admin	sk	UpraviÅ¥ poloÅ¾ku AktualÃ­t
 end	news_admin	sk	Koniec
-error saving the news!	news_admin	sk	Chyba poèas ukladania správ!
-failed to add message	news_admin	sk	Nepodarilo sa prida» novú správu
-format for links to items	news_admin	sk	Formát pre odkaz na polo¾ky
-format of export	news_admin	sk	Formát exportu
+error saving the news!	news_admin	sk	Chyba poÄas ukladania sprÃ¡v!
+failed to add message	news_admin	sk	Nepodarilo sa pridaÅ¥ novÃº sprÃ¡vu
+format for links to items	news_admin	sk	FormÃ¡t pre odkaz na poloÅ¾ky
+format of export	news_admin	sk	FormÃ¡t exportu
 from	news_admin	sk	Od
-from all	news_admin	sk	Od v¹etkıch
-future	news_admin	sk	Budúce
-global categories	news_admin	sk	Globálne kategórie
-global news	news_admin	sk	Globálne aktuality
-global_news	news_admin	sk	Globálne_aktuality
+from all	news_admin	sk	Od vÅ¡etkÃ½ch
+future	news_admin	sk	BudÃºce
+global categories	news_admin	sk	GlobÃ¡lne kategÃ³rie
+global news	news_admin	sk	GlobÃ¡lne aktuality
+global_news	news_admin	sk	GlobÃ¡lne_aktuality
 headline	news_admin	sk	Titulok
 headline with link	news_admin	sk	Titulok s odkazom
-image link	news_admin	sk	Odkaz na obrázok
-image title	news_admin	sk	Titulok obrázka
-image url	news_admin	sk	URL obrázka
-implies read permission	news_admin	sk	implikuje právo èítania
-item has been deleted	news_admin	sk	Polo¾ka bola odstránená
-item not found	news_admin	sk	Polo¾ka sa nena¹la
+image link	news_admin	sk	Odkaz na obrÃ¡zok
+image title	news_admin	sk	Titulok obrÃ¡zka
+image url	news_admin	sk	URL obrÃ¡zka
+implies read permission	news_admin	sk	implikuje prÃ¡vo ÄÃ­tania
+item has been deleted	news_admin	sk	PoloÅ¾ka bola odstrÃ¡nenÃ¡
+item not found	news_admin	sk	PoloÅ¾ka sa nenaÅ¡la
 link	news_admin	sk	Odkaz
-main	news_admin	sk	Hlavné
-maintain	news_admin	sk	Udr¾iava»
-maintain news	admin	sk	Udr¾iava» Aktuality
-message has been added	news_admin	sk	Správa bola pridaná
-more news	news_admin	sk	Viacej aktualít
-more news link	news_admin	sk	Odkaz na viacej aktualít
-new item has been added	news_admin	sk	Nová polo¾ka bola pridaná
+main	news_admin	sk	HlavnÃ©
+maintain	news_admin	sk	UdrÅ¾iavaÅ¥
+maintain news	admin	sk	UdrÅ¾iavaÅ¥ Aktuality
+message has been added	news_admin	sk	SprÃ¡va bola pridanÃ¡
+more news	news_admin	sk	Viacej aktualÃ­t
+more news link	news_admin	sk	Odkaz na viacej aktualÃ­t
+new item has been added	news_admin	sk	NovÃ¡ poloÅ¾ka bola pridanÃ¡
 news	news_admin	sk	Aktuality
-news admin	news_admin	sk	Správca Aktualít
-news administration	news_admin	sk	Správa Aktualít
-news deleted.	news_admin	sk	Aktuality boli odstránené.
-news item has been added	news_admin	sk	Polo¾ka Aktualít bola pridaná
-news item has been updated	news_admin	sk	Polo¾ka Aktualít bola upravená
-news saved.	news_admin	sk	Aktuality ulo¾ené.
-news_admin	common	sk	Správca Aktualít
-no entries found	news_admin	sk	¾iadne záznamy sa nena¹li
-no matching news item	news_admin	sk	Nena¹li sa ¾iadne zodpovedajúce polo¾ky Aktualít
-no news	news_admin	sk	V kategórii nie sú v súèasnosti ¾iadne dostupné aktuality
-no rss export	news_admin	sk	®iadny RSS export
+news admin	news_admin	sk	SprÃ¡vca AktualÃ­t
+news administration	news_admin	sk	SprÃ¡va AktualÃ­t
+news deleted.	news_admin	sk	Aktuality boli odstrÃ¡nenÃ©.
+news item has been added	news_admin	sk	PoloÅ¾ka AktualÃ­t bola pridanÃ¡
+news item has been updated	news_admin	sk	PoloÅ¾ka AktualÃ­t bola upravenÃ¡
+news saved.	news_admin	sk	Aktuality uloÅ¾enÃ©.
+news_admin	common	sk	SprÃ¡vca AktualÃ­t
+no entries found	news_admin	sk	Å¾iadne zÃ¡znamy sa nenaÅ¡li
+no matching news item	news_admin	sk	NenaÅ¡li sa Å¾iadne zodpovedajÃºce poloÅ¾ky AktualÃ­t
+no news	news_admin	sk	V kategÃ³rii nie sÃº v sÃºÄasnosti Å¾iadne dostupnÃ© aktuality
+no rss export	news_admin	sk	Å½iadny RSS export
 now	news_admin	sk	Teraz
-number of articles to display on the main screen	news_admin	sk	Poèet èlánkov zobrazenıch na hlavnej stránke
-number of news items to be displayed on page	news_admin	sk	Poèet aktualít zobrazovanıch na stránke
-old	news_admin	sk	Staré
+number of articles to display on the main screen	news_admin	sk	PoÄet ÄlÃ¡nkov zobrazenÃ½ch na hlavnej strÃ¡nke
+number of news items to be displayed on page	news_admin	sk	PoÄet aktualÃ­t zobrazovanÃ½ch na strÃ¡nke
+old	news_admin	sk	StarÃ©
 on	news_admin	sk	na
-picture upload (leave the upload directory empty to disable the upload)	admin	sk	Nahra» obrázok (ak chcete vypnú» nahrávanie, ponechajte adresár prázdny)
-please select a category	news_admin	sk	Prosím vyberte kategóriu
-publish date	news_admin	sk	Dátum publikovania
-read more	news_admin	sk	èíta» ïalej
-read news	news_admin	sk	Èíta» aktuality
-read permissions	news_admin	sk	Oprávnenia k èítaniu
-send mail to others	news_admin	sk	Posla» ostatnım mail
-should news_admin display the latest article headlines on the main screen.	news_admin	sk	Chcete, aby Správca Aktualít zobrazoval titulok najnov¹ieho èlánku na hlavnej stránke?
-show latest news articles?	news_admin	sk	Zobrazi» najnov¹í èlánok z Aktualít?
-show news articles on main page?	news_admin	sk	Zobrazi» èlánky Aktualít na hlavnej stránke?
-small view	news_admin	sk	Zmen¹enı pohµad
-start	news_admin	sk	Zaèiatok
+picture upload (leave the upload directory empty to disable the upload)	admin	sk	NahraÅ¥ obrÃ¡zok (ak chcete vypnÃºÅ¥ nahrÃ¡vanie, ponechajte adresÃ¡r prÃ¡zdny)
+please select a category	news_admin	sk	ProsÃ­m vyberte kategÃ³riu
+publish date	news_admin	sk	DÃ¡tum publikovania
+read more	news_admin	sk	ÄÃ­taÅ¥ Äalej
+read news	news_admin	sk	ÄŒÃ­taÅ¥ aktuality
+read permissions	news_admin	sk	OprÃ¡vnenia k ÄÃ­taniu
+send mail to others	news_admin	sk	PoslaÅ¥ ostatnÃ½m mail
+should news_admin display the latest article headlines on the main screen.	news_admin	sk	Chcete, aby SprÃ¡vca AktualÃ­t zobrazoval titulok najnovÅ¡ieho ÄlÃ¡nku na hlavnej strÃ¡nke?
+show latest news articles?	news_admin	sk	ZobraziÅ¥ najnovÅ¡Ã­ ÄlÃ¡nok z AktualÃ­t?
+show news articles on main page?	news_admin	sk	ZobraziÅ¥ ÄlÃ¡nky AktualÃ­t na hlavnej strÃ¡nke?
+small view	news_admin	sk	ZmenÅ¡enÃ½ pohÄ¾ad
+start	news_admin	sk	ZaÄiatok
 submitted by	common	sk	Pridal
 submitted by %1 on %2	news_admin	sk	Odoslal %1 k %2
-teaser	news_admin	sk	Spojovaè
-teaser with read more link	news_admin	sk	Spojovaè s odkazom na 'zobrazi» celé'
-the news content is missing	news_admin	sk	Obsah aktuality chıba
-the number of articles to display on the main screen.	news_admin	sk	Poèet èlánkov zobrazovanıch na hlavnej stránke
-the subject is missing	news_admin	sk	Chıba predmet
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sk	Tento modul publikuje na Va¹ej webstránke aktuality z aplikácie Správca Aktualít (news_admin). Dajte si pozor na ACL obmedzenia aplikácie Správca Aktualít (news_admin).
-until	news_admin	sk	a¾ do
-view this category	news_admin	sk	Zobrazi» túto kategóriu
-visible	news_admin	sk	Viditeµné
-webpage news admin	news_admin	sk	Správca aktualít webstránky
-which information do you want to show (css class)	news_admin	sk	Ktoré informácie chcete zobrazi» (CSS trieda)
-write	news_admin	sk	Zápis
-write permissions	news_admin	sk	Oprávnenia k zápisu
+teaser	news_admin	sk	SpojovaÄ
+teaser with read more link	news_admin	sk	SpojovaÄ s odkazom na 'zobraziÅ¥ celÃ©'
+the news content is missing	news_admin	sk	Obsah aktuality chÃ½ba
+the number of articles to display on the main screen.	news_admin	sk	PoÄet ÄlÃ¡nkov zobrazovanÃ½ch na hlavnej strÃ¡nke
+the subject is missing	news_admin	sk	ChÃ½ba predmet
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sk	Tento modul publikuje na VaÅ¡ej webstrÃ¡nke aktuality z aplikÃ¡cie SprÃ¡vca AktualÃ­t (news_admin). Dajte si pozor na ACL obmedzenia aplikÃ¡cie SprÃ¡vca AktualÃ­t (news_admin).
+until	news_admin	sk	aÅ¾ do
+view this category	news_admin	sk	ZobraziÅ¥ tÃºto kategÃ³riu
+visible	news_admin	sk	ViditeÄ¾nÃ©
+webpage news admin	news_admin	sk	SprÃ¡vca aktualÃ­t webstrÃ¡nky
+which information do you want to show (css class)	news_admin	sk	KtorÃ© informÃ¡cie chcete zobraziÅ¥ (CSS trieda)
+write	news_admin	sk	ZÃ¡pis
+write permissions	news_admin	sk	OprÃ¡vnenia k zÃ¡pisu

@@ -1,88 +1,88 @@
-%1 module	news_admin	el	%1 ενότητα
-actions	news_admin	el	Ενέργειες
-active	news_admin	el	Ενεργό
-add new article	news_admin	el	Προσθήκη νέου άρθρου
-add new news	news_admin	el	Πρόσθηκη νέων ειδήσεων
-add news item	news_admin	el	Προσθήκη νέου αντικειμένου
-all news	news_admin	el	Όλα τα νέα
-always	news_admin	el	Πάντα
-by date	news_admin	el	Βάσει ημερομηνίας
-choose a category	news_admin	el	Επιλέξτε μία κατηγορία
-configuration	news_admin	el	Τροποποίηση
-configure access permissions	common	el	Τροποποίηση ¶δειας Εισόδου
-configure rss exports	common	el	Τροποποίηση RSS εξαγωγών
-contains html	news_admin	el	Περιέχει HTML
-content	news_admin	el	Περεχόμενο
-date and time	news_admin	el	Ημερομηνία και ώρα
-delete this news	news_admin	el	Διαγραφή αυτών των νέων
-do you want to publish a rss feed for this news category	news_admin	el	Θέλετε να δημοσιεύσετε μία RSS τροφοδοσία για αυτήν την κατηγορία ειδήσεων;
-edit news item	news_admin	el	Επεξεργασία αντικειμένου νέων
-end	news_admin	el	Τέλος
-error saving the news!	news_admin	el	Σφάλμα κατά την αποθήκευση των νέων!
-failed to add message	news_admin	el	Αποτυχία στην προσθήκη νέου μηνύματος
-format of export	news_admin	el	Διαμόρφωση της εξαγωγής
-from	news_admin	el	Από
-from all	news_admin	el	Από όλα
-future	news_admin	el	Μέλλον
-global categories	news_admin	el	παγκόσμιες κατηγορίες
-global news	news_admin	el	Παγκόσμια Νέα
-global_news	news_admin	el	Παγκόσμια_Νέα
-headline	news_admin	el	Τίτλος
-headline with link	news_admin	el	Τίτλος με σύνδεσμο
-image link	news_admin	el	Εικόνα Συνδέσμου
-image title	news_admin	el	Εικόνα Τίτλου
-image url	news_admin	el	Εικόνα URL
-implies read permission	news_admin	el	υπονοεί άδεια ανάγνωσης
-item has been deleted	news_admin	el	Το αντικείμενο έχει διαγραφεί
-item not found	news_admin	el	Δεν βρέθηκε το αντικείμενο
-link	news_admin	el	Σύνδεσμος
-main	news_admin	el	Βασικό
-maintain	news_admin	el	Διατήρηση
-maintain news	admin	el	Διατήρηση νέων
-message has been added	news_admin	el	Το μήνυμα προστέθηκε
-more news	news_admin	el	Περισσότερα νέα
-new item has been added	news_admin	el	Νέο αντικείμενο προστέθηκε
-news	news_admin	el	Νέα
-news admin	news_admin	el	Διαχειρ νέων
-news administration	news_admin	el	Νέα Διαχείρισης
-news deleted.	news_admin	el	Τα νέα διαγράφηκαν.
-news item has been added	news_admin	el	Το αντικείμενο νέων έχει προστεθεί
-news item has been updated	news_admin	el	Το αντικείμενο νέων έχει ενημερωθεί
-news saved.	news_admin	el	Τα νέα αποθηκεύτηκαν
-news_admin	common	el	Διαχειρ νέων
-no entries found	news_admin	el	δεν βρέθηκαν είσοδοι
-no matching news item	news_admin	el	Κανένα ταιριαστό αντικείμενο νέων
-no news	news_admin	el	Κανένα νέο δεν είναι διαθέσιμο στην κατηγορία
-no rss export	news_admin	el	Καμία RSS εξαγωγή
-now	news_admin	el	Τώρα
-number of articles to display on the main screen	news_admin	el	Αριθμός άρθρων προς προβολή στην κλυρια σελίδα
-number of news items to be displayed on page	news_admin	el	Αριθμός αντικειμένων νέων προς προβολή στη σελίδα
-old	news_admin	el	Παλιό
-on	news_admin	el	πάνω
-picture upload (leave the upload directory empty to disable the upload)	admin	el	Φόρτωση εικόνας (αφήστε τον κατάλογο φόρτωσης κενό για να απενεργοποιήσετε τη φόρτωση)
-please select a category	news_admin	el	Παρακαλώ επιλέξτε μία κατηγορία
-publish date	news_admin	el	Δημοσίευση Ημερομηνίας
-read more	news_admin	el	περισσότερη ανάγνωση
-read news	news_admin	el	Ανάγνωση νέων
-read permissions	news_admin	el	Ανάγνωση αδειών
-send mail to others	news_admin	el	Αποστολή μηνύματος σε άλλους
-should news_admin display the latest article headlines on the main screen.	news_admin	el	Θα έπρεπε ο Διαχειρ νέων να προβάλει τον τίτλο του τελευταίου άρθρου στην κύρια οθόνη.
-show latest news articles?	news_admin	el	Προβολή των τελευταίων άρθρων νέων;
-show news articles on main page?	news_admin	el	Προβολή άρθρων νέων στην κύρια σελίδα;
-small view	news_admin	el	μικρή προβολή
-start	news_admin	el	Εκκίνηση
-submitted by	common	el	Υπεβλήθη από
-submitted by %1 on %2	news_admin	el	Υπεβλήθη από %1 στις %2
-teaser	news_admin	el	Προδιαφήμιση
-teaser with read more link	news_admin	el	Προδιαφήμιση με περισσότερη ανάγνωση συνδέσμου
-the news content is missing	news_admin	el	Λείπει το περιεχόμενο των νέων
-the number of articles to display on the main screen.	news_admin	el	Ο αριθμός των άρθρων προς προβολή στην κύρια οθόνη.
-the subject is missing	news_admin	el	Λείπει το θέμα
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	el	Αυτή η ενότητα δημοσιεύει νέα από την εφαρμογή διαχειρ_νέων στην ιστοσελίδα σας. Προσοχή για τυχόν περιορισμούς.
-until	news_admin	el	μέχρι
-view this category	news_admin	el	Προβολή αυτής της κατηγορίας
-visible	news_admin	el	Ορατό
-webpage news admin	news_admin	el	Ιστοσελίδα νέων διαχειρ
-which information do you want to show (css class)	news_admin	el	Ποιες πληροφορίες θέλετε να εμφανίζετε (CSS τάξη)
-write	news_admin	el	Γραφή
-write permissions	news_admin	el	Γραφή αδειών
+%1 module	news_admin	el	%1 ΞµΞ½ΟΟ„Ξ·Ο„Ξ±
+actions	news_admin	el	Ξ•Ξ½Ξ­ΟΞ³ΞµΞΉΞµΟ‚
+active	news_admin	el	Ξ•Ξ½ΞµΟΞ³Ο
+add new article	news_admin	el	Ξ ΟΞΏΟƒΞΈΞ®ΞΊΞ· Ξ½Ξ­ΞΏΟ… Ξ¬ΟΞΈΟΞΏΟ…
+add new news	news_admin	el	Ξ ΟΟΟƒΞΈΞ·ΞΊΞ· Ξ½Ξ­Ο‰Ξ½ ΞµΞΉΞ΄Ξ®ΟƒΞµΟ‰Ξ½
+add news item	news_admin	el	Ξ ΟΞΏΟƒΞΈΞ®ΞΊΞ· Ξ½Ξ­ΞΏΟ… Ξ±Ξ½Ο„ΞΉΞΊΞµΞΉΞΌΞ­Ξ½ΞΏΟ…
+all news	news_admin	el	ΞΞ»Ξ± Ο„Ξ± Ξ½Ξ­Ξ±
+always	news_admin	el	Ξ Ξ¬Ξ½Ο„Ξ±
+by date	news_admin	el	Ξ’Ξ¬ΟƒΞµΞΉ Ξ·ΞΌΞµΟΞΏΞΌΞ·Ξ½Ξ―Ξ±Ο‚
+choose a category	news_admin	el	Ξ•Ο€ΞΉΞ»Ξ­ΞΎΟ„Ξµ ΞΌΞ―Ξ± ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±
+configuration	news_admin	el	Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞ·
+configure access permissions	common	el	Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞ· Ξ†Ξ΄ΞµΞΉΞ±Ο‚ Ξ•ΞΉΟƒΟΞ΄ΞΏΟ…
+configure rss exports	common	el	Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞ· RSS ΞµΞΎΞ±Ξ³Ο‰Ξ³ΟΞ½
+contains html	news_admin	el	Ξ ΞµΟΞΉΞ­Ο‡ΞµΞΉ HTML
+content	news_admin	el	Ξ ΞµΟΞµΟ‡ΟΞΌΞµΞ½ΞΏ
+date and time	news_admin	el	Ξ—ΞΌΞµΟΞΏΞΌΞ·Ξ½Ξ―Ξ± ΞΊΞ±ΞΉ ΟΟΞ±
+delete this news	news_admin	el	Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ® Ξ±Ο…Ο„ΟΞ½ Ο„Ο‰Ξ½ Ξ½Ξ­Ο‰Ξ½
+do you want to publish a rss feed for this news category	news_admin	el	ΞΞ­Ξ»ΞµΟ„Ξµ Ξ½Ξ± Ξ΄Ξ·ΞΌΞΏΟƒΞΉΞµΟΟƒΞµΟ„Ξµ ΞΌΞ―Ξ± RSS Ο„ΟΞΏΟ†ΞΏΞ΄ΞΏΟƒΞ―Ξ± Ξ³ΞΉΞ± Ξ±Ο…Ο„Ξ®Ξ½ Ο„Ξ·Ξ½ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ± ΞµΞΉΞ΄Ξ®ΟƒΞµΟ‰Ξ½;
+edit news item	news_admin	el	Ξ•Ο€ΞµΞΎΞµΟΞ³Ξ±ΟƒΞ―Ξ± Ξ±Ξ½Ο„ΞΉΞΊΞµΞΉΞΌΞ­Ξ½ΞΏΟ… Ξ½Ξ­Ο‰Ξ½
+end	news_admin	el	Ξ¤Ξ­Ξ»ΞΏΟ‚
+error saving the news!	news_admin	el	Ξ£Ο†Ξ¬Ξ»ΞΌΞ± ΞΊΞ±Ο„Ξ¬ Ο„Ξ·Ξ½ Ξ±Ο€ΞΏΞΈΞ®ΞΊΞµΟ…ΟƒΞ· Ο„Ο‰Ξ½ Ξ½Ξ­Ο‰Ξ½!
+failed to add message	news_admin	el	Ξ‘Ο€ΞΏΟ„Ο…Ο‡Ξ―Ξ± ΟƒΟ„Ξ·Ξ½ Ο€ΟΞΏΟƒΞΈΞ®ΞΊΞ· Ξ½Ξ­ΞΏΟ… ΞΌΞ·Ξ½ΟΞΌΞ±Ο„ΞΏΟ‚
+format of export	news_admin	el	Ξ”ΞΉΞ±ΞΌΟΟΟ†Ο‰ΟƒΞ· Ο„Ξ·Ο‚ ΞµΞΎΞ±Ξ³Ο‰Ξ³Ξ®Ο‚
+from	news_admin	el	Ξ‘Ο€Ο
+from all	news_admin	el	Ξ‘Ο€Ο ΟΞ»Ξ±
+future	news_admin	el	ΞΞ­Ξ»Ξ»ΞΏΞ½
+global categories	news_admin	el	Ο€Ξ±Ξ³ΞΊΟΟƒΞΌΞΉΞµΟ‚ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―ΞµΟ‚
+global news	news_admin	el	Ξ Ξ±Ξ³ΞΊΟΟƒΞΌΞΉΞ± ΞΞ­Ξ±
+global_news	news_admin	el	Ξ Ξ±Ξ³ΞΊΟΟƒΞΌΞΉΞ±_ΞΞ­Ξ±
+headline	news_admin	el	Ξ¤Ξ―Ο„Ξ»ΞΏΟ‚
+headline with link	news_admin	el	Ξ¤Ξ―Ο„Ξ»ΞΏΟ‚ ΞΌΞµ ΟƒΟΞ½Ξ΄ΞµΟƒΞΌΞΏ
+image link	news_admin	el	Ξ•ΞΉΞΊΟΞ½Ξ± Ξ£Ο…Ξ½Ξ΄Ξ­ΟƒΞΌΞΏΟ…
+image title	news_admin	el	Ξ•ΞΉΞΊΟΞ½Ξ± Ξ¤Ξ―Ο„Ξ»ΞΏΟ…
+image url	news_admin	el	Ξ•ΞΉΞΊΟΞ½Ξ± URL
+implies read permission	news_admin	el	Ο…Ο€ΞΏΞ½ΞΏΞµΞ― Ξ¬Ξ΄ΞµΞΉΞ± Ξ±Ξ½Ξ¬Ξ³Ξ½Ο‰ΟƒΞ·Ο‚
+item has been deleted	news_admin	el	Ξ¤ΞΏ Ξ±Ξ½Ο„ΞΉΞΊΞµΞ―ΞΌΞµΞ½ΞΏ Ξ­Ο‡ΞµΞΉ Ξ΄ΞΉΞ±Ξ³ΟΞ±Ο†ΞµΞ―
+item not found	news_admin	el	Ξ”ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΞΏ Ξ±Ξ½Ο„ΞΉΞΊΞµΞ―ΞΌΞµΞ½ΞΏ
+link	news_admin	el	Ξ£ΟΞ½Ξ΄ΞµΟƒΞΌΞΏΟ‚
+main	news_admin	el	Ξ’Ξ±ΟƒΞΉΞΊΟ
+maintain	news_admin	el	Ξ”ΞΉΞ±Ο„Ξ®ΟΞ·ΟƒΞ·
+maintain news	admin	el	Ξ”ΞΉΞ±Ο„Ξ®ΟΞ·ΟƒΞ· Ξ½Ξ­Ο‰Ξ½
+message has been added	news_admin	el	Ξ¤ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ± Ο€ΟΞΏΟƒΟ„Ξ­ΞΈΞ·ΞΊΞµ
+more news	news_admin	el	Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞ± Ξ½Ξ­Ξ±
+new item has been added	news_admin	el	ΞΞ­ΞΏ Ξ±Ξ½Ο„ΞΉΞΊΞµΞ―ΞΌΞµΞ½ΞΏ Ο€ΟΞΏΟƒΟ„Ξ­ΞΈΞ·ΞΊΞµ
+news	news_admin	el	ΞΞ­Ξ±
+news admin	news_admin	el	Ξ”ΞΉΞ±Ο‡ΞµΞΉΟ Ξ½Ξ­Ο‰Ξ½
+news administration	news_admin	el	ΞΞ­Ξ± Ξ”ΞΉΞ±Ο‡ΞµΞ―ΟΞΉΟƒΞ·Ο‚
+news deleted.	news_admin	el	Ξ¤Ξ± Ξ½Ξ­Ξ± Ξ΄ΞΉΞ±Ξ³ΟΞ¬Ο†Ξ·ΞΊΞ±Ξ½.
+news item has been added	news_admin	el	Ξ¤ΞΏ Ξ±Ξ½Ο„ΞΉΞΊΞµΞ―ΞΌΞµΞ½ΞΏ Ξ½Ξ­Ο‰Ξ½ Ξ­Ο‡ΞµΞΉ Ο€ΟΞΏΟƒΟ„ΞµΞΈΞµΞ―
+news item has been updated	news_admin	el	Ξ¤ΞΏ Ξ±Ξ½Ο„ΞΉΞΊΞµΞ―ΞΌΞµΞ½ΞΏ Ξ½Ξ­Ο‰Ξ½ Ξ­Ο‡ΞµΞΉ ΞµΞ½Ξ·ΞΌΞµΟΟ‰ΞΈΞµΞ―
+news saved.	news_admin	el	Ξ¤Ξ± Ξ½Ξ­Ξ± Ξ±Ο€ΞΏΞΈΞ·ΞΊΞµΟΟ„Ξ·ΞΊΞ±Ξ½
+news_admin	common	el	Ξ”ΞΉΞ±Ο‡ΞµΞΉΟ Ξ½Ξ­Ο‰Ξ½
+no entries found	news_admin	el	Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞ±Ξ½ ΞµΞ―ΟƒΞΏΞ΄ΞΏΞΉ
+no matching news item	news_admin	el	ΞΞ±Ξ½Ξ­Ξ½Ξ± Ο„Ξ±ΞΉΟΞΉΞ±ΟƒΟ„Ο Ξ±Ξ½Ο„ΞΉΞΊΞµΞ―ΞΌΞµΞ½ΞΏ Ξ½Ξ­Ο‰Ξ½
+no news	news_admin	el	ΞΞ±Ξ½Ξ­Ξ½Ξ± Ξ½Ξ­ΞΏ Ξ΄ΞµΞ½ ΞµΞ―Ξ½Ξ±ΞΉ Ξ΄ΞΉΞ±ΞΈΞ­ΟƒΞΉΞΌΞΏ ΟƒΟ„Ξ·Ξ½ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±
+no rss export	news_admin	el	ΞΞ±ΞΌΞ―Ξ± RSS ΞµΞΎΞ±Ξ³Ο‰Ξ³Ξ®
+now	news_admin	el	Ξ¤ΟΟΞ±
+number of articles to display on the main screen	news_admin	el	Ξ‘ΟΞΉΞΈΞΌΟΟ‚ Ξ¬ΟΞΈΟΟ‰Ξ½ Ο€ΟΞΏΟ‚ Ο€ΟΞΏΞ²ΞΏΞ»Ξ® ΟƒΟ„Ξ·Ξ½ ΞΊΞ»Ο…ΟΞΉΞ± ΟƒΞµΞ»Ξ―Ξ΄Ξ±
+number of news items to be displayed on page	news_admin	el	Ξ‘ΟΞΉΞΈΞΌΟΟ‚ Ξ±Ξ½Ο„ΞΉΞΊΞµΞΉΞΌΞ­Ξ½Ο‰Ξ½ Ξ½Ξ­Ο‰Ξ½ Ο€ΟΞΏΟ‚ Ο€ΟΞΏΞ²ΞΏΞ»Ξ® ΟƒΟ„Ξ· ΟƒΞµΞ»Ξ―Ξ΄Ξ±
+old	news_admin	el	Ξ Ξ±Ξ»ΞΉΟ
+on	news_admin	el	Ο€Ξ¬Ξ½Ο‰
+picture upload (leave the upload directory empty to disable the upload)	admin	el	Ξ¦ΟΟΟ„Ο‰ΟƒΞ· ΞµΞΉΞΊΟΞ½Ξ±Ο‚ (Ξ±Ο†Ξ®ΟƒΟ„Ξµ Ο„ΞΏΞ½ ΞΊΞ±Ο„Ξ¬Ξ»ΞΏΞ³ΞΏ Ο†ΟΟΟ„Ο‰ΟƒΞ·Ο‚ ΞΊΞµΞ½Ο Ξ³ΞΉΞ± Ξ½Ξ± Ξ±Ο€ΞµΞ½ΞµΟΞ³ΞΏΟ€ΞΏΞΉΞ®ΟƒΞµΟ„Ξµ Ο„Ξ· Ο†ΟΟΟ„Ο‰ΟƒΞ·)
+please select a category	news_admin	el	Ξ Ξ±ΟΞ±ΞΊΞ±Ξ»Ο ΞµΟ€ΞΉΞ»Ξ­ΞΎΟ„Ξµ ΞΌΞ―Ξ± ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±
+publish date	news_admin	el	Ξ”Ξ·ΞΌΞΏΟƒΞ―ΞµΟ…ΟƒΞ· Ξ—ΞΌΞµΟΞΏΞΌΞ·Ξ½Ξ―Ξ±Ο‚
+read more	news_admin	el	Ο€ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞ· Ξ±Ξ½Ξ¬Ξ³Ξ½Ο‰ΟƒΞ·
+read news	news_admin	el	Ξ‘Ξ½Ξ¬Ξ³Ξ½Ο‰ΟƒΞ· Ξ½Ξ­Ο‰Ξ½
+read permissions	news_admin	el	Ξ‘Ξ½Ξ¬Ξ³Ξ½Ο‰ΟƒΞ· Ξ±Ξ΄ΞµΞΉΟΞ½
+send mail to others	news_admin	el	Ξ‘Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ® ΞΌΞ·Ξ½ΟΞΌΞ±Ο„ΞΏΟ‚ ΟƒΞµ Ξ¬Ξ»Ξ»ΞΏΟ…Ο‚
+should news_admin display the latest article headlines on the main screen.	news_admin	el	ΞΞ± Ξ­Ο€ΟΞµΟ€Ξµ ΞΏ Ξ”ΞΉΞ±Ο‡ΞµΞΉΟ Ξ½Ξ­Ο‰Ξ½ Ξ½Ξ± Ο€ΟΞΏΞ²Ξ¬Ξ»ΞµΞΉ Ο„ΞΏΞ½ Ο„Ξ―Ο„Ξ»ΞΏ Ο„ΞΏΟ… Ο„ΞµΞ»ΞµΟ…Ο„Ξ±Ξ―ΞΏΟ… Ξ¬ΟΞΈΟΞΏΟ… ΟƒΟ„Ξ·Ξ½ ΞΊΟΟΞΉΞ± ΞΏΞΈΟΞ½Ξ·.
+show latest news articles?	news_admin	el	Ξ ΟΞΏΞ²ΞΏΞ»Ξ® Ο„Ο‰Ξ½ Ο„ΞµΞ»ΞµΟ…Ο„Ξ±Ξ―Ο‰Ξ½ Ξ¬ΟΞΈΟΟ‰Ξ½ Ξ½Ξ­Ο‰Ξ½;
+show news articles on main page?	news_admin	el	Ξ ΟΞΏΞ²ΞΏΞ»Ξ® Ξ¬ΟΞΈΟΟ‰Ξ½ Ξ½Ξ­Ο‰Ξ½ ΟƒΟ„Ξ·Ξ½ ΞΊΟΟΞΉΞ± ΟƒΞµΞ»Ξ―Ξ΄Ξ±;
+small view	news_admin	el	ΞΌΞΉΞΊΟΞ® Ο€ΟΞΏΞ²ΞΏΞ»Ξ®
+start	news_admin	el	Ξ•ΞΊΞΊΞ―Ξ½Ξ·ΟƒΞ·
+submitted by	common	el	Ξ¥Ο€ΞµΞ²Ξ»Ξ®ΞΈΞ· Ξ±Ο€Ο
+submitted by %1 on %2	news_admin	el	Ξ¥Ο€ΞµΞ²Ξ»Ξ®ΞΈΞ· Ξ±Ο€Ο %1 ΟƒΟ„ΞΉΟ‚ %2
+teaser	news_admin	el	Ξ ΟΞΏΞ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·
+teaser with read more link	news_admin	el	Ξ ΟΞΏΞ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· ΞΌΞµ Ο€ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞ· Ξ±Ξ½Ξ¬Ξ³Ξ½Ο‰ΟƒΞ· ΟƒΟ…Ξ½Ξ΄Ξ­ΟƒΞΌΞΏΟ…
+the news content is missing	news_admin	el	Ξ›ΞµΞ―Ο€ΞµΞΉ Ο„ΞΏ Ο€ΞµΟΞΉΞµΟ‡ΟΞΌΞµΞ½ΞΏ Ο„Ο‰Ξ½ Ξ½Ξ­Ο‰Ξ½
+the number of articles to display on the main screen.	news_admin	el	Ξ Ξ±ΟΞΉΞΈΞΌΟΟ‚ Ο„Ο‰Ξ½ Ξ¬ΟΞΈΟΟ‰Ξ½ Ο€ΟΞΏΟ‚ Ο€ΟΞΏΞ²ΞΏΞ»Ξ® ΟƒΟ„Ξ·Ξ½ ΞΊΟΟΞΉΞ± ΞΏΞΈΟΞ½Ξ·.
+the subject is missing	news_admin	el	Ξ›ΞµΞ―Ο€ΞµΞΉ Ο„ΞΏ ΞΈΞ­ΞΌΞ±
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	el	Ξ‘Ο…Ο„Ξ® Ξ· ΞµΞ½ΟΟ„Ξ·Ο„Ξ± Ξ΄Ξ·ΞΌΞΏΟƒΞΉΞµΟΞµΞΉ Ξ½Ξ­Ξ± Ξ±Ο€Ο Ο„Ξ·Ξ½ ΞµΟ†Ξ±ΟΞΌΞΏΞ³Ξ® Ξ΄ΞΉΞ±Ο‡ΞµΞΉΟ_Ξ½Ξ­Ο‰Ξ½ ΟƒΟ„Ξ·Ξ½ ΞΉΟƒΟ„ΞΏΟƒΞµΞ»Ξ―Ξ΄Ξ± ΟƒΞ±Ο‚. Ξ ΟΞΏΟƒΞΏΟ‡Ξ® Ξ³ΞΉΞ± Ο„Ο…Ο‡ΟΞ½ Ο€ΞµΟΞΉΞΏΟΞΉΟƒΞΌΞΏΟΟ‚.
+until	news_admin	el	ΞΌΞ­Ο‡ΟΞΉ
+view this category	news_admin	el	Ξ ΟΞΏΞ²ΞΏΞ»Ξ® Ξ±Ο…Ο„Ξ®Ο‚ Ο„Ξ·Ο‚ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±Ο‚
+visible	news_admin	el	ΞΟΞ±Ο„Ο
+webpage news admin	news_admin	el	Ξ™ΟƒΟ„ΞΏΟƒΞµΞ»Ξ―Ξ΄Ξ± Ξ½Ξ­Ο‰Ξ½ Ξ΄ΞΉΞ±Ο‡ΞµΞΉΟ
+which information do you want to show (css class)	news_admin	el	Ξ ΞΏΞΉΞµΟ‚ Ο€Ξ»Ξ·ΟΞΏΟ†ΞΏΟΞ―ΞµΟ‚ ΞΈΞ­Ξ»ΞµΟ„Ξµ Ξ½Ξ± ΞµΞΌΟ†Ξ±Ξ½Ξ―Ξ¶ΞµΟ„Ξµ (CSS Ο„Ξ¬ΞΎΞ·)
+write	news_admin	el	Ξ“ΟΞ±Ο†Ξ®
+write permissions	news_admin	el	Ξ“ΟΞ±Ο†Ξ® Ξ±Ξ΄ΞµΞΉΟΞ½
