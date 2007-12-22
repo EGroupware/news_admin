@@ -1,4 +1,5 @@
-%1 module	news_admin	pt-br	modulo %1
+%1 module	news_admin	pt-br	módulo %1
+%s hours	news_admin	pt-br	%s horas
 actions	news_admin	pt-br	Ações
 active	news_admin	pt-br	Ativo
 add new article	news_admin	pt-br	Adicionar Artigo
@@ -13,6 +14,7 @@ configure access permissions	common	pt-br	Configurar Permissões de Acesso
 configure rss exports	common	pt-br	Configurar arquivos RSS para exportação
 contains html	news_admin	pt-br	Contém HTML
 content	news_admin	pt-br	Conteúdo
+count	news_admin	pt-br	Quantidade
 date and time	news_admin	pt-br	Data e horário
 delete this news	news_admin	pt-br	Remover esta notícia
 do you want to publish a rss feed for this news category	news_admin	pt-br	Deseja publicar um RSS para esta categoria de notícias
@@ -34,8 +36,12 @@ image link	news_admin	pt-br	Link da Imagem
 image title	news_admin	pt-br	Título da Imagem
 image url	news_admin	pt-br	URL da Imagem
 implies read permission	news_admin	pt-br	requer permissão de leitura
+import every	news_admin	pt-br	Importar tudo
+import now	news_admin	pt-br	Importar agora
+import url	news_admin	pt-br	URL de importação
 item has been deleted	news_admin	pt-br	O item foi apagado
 item not found	news_admin	pt-br	Item não encontrado
+last updated	news_admin	pt-br	Última atualização
 link	news_admin	pt-br	Link
 main	news_admin	pt-br	Principal
 maintain	news_admin	pt-br	Manutenção
@@ -61,6 +67,7 @@ number of articles to display on the main screen	news_admin	pt-br	Número de art
 number of news items to be displayed on page	news_admin	pt-br	Número de novos itens a serem exibidos na página
 old	news_admin	pt-br	Velho
 on	news_admin	pt-br	em
+parent	news_admin	pt-br	Pai
 picture upload (leave the upload directory empty to disable the upload)	admin	pt-br	Carregar figura (deixe o diretório vazio para desabilitar o carregamento)
 please select a category	news_admin	pt-br	Por favor, selecione uma categoria
 publish date	news_admin	pt-br	Data da Publicação
@@ -82,6 +89,7 @@ the number of articles to display on the main screen.	news_admin	pt-br	Número d
 the subject is missing	news_admin	pt-br	O assunto está faltando
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pt-br	Este módulo publica notícias do aplicativo de notícias do seu site. Atente-se às ACL's.
 until	news_admin	pt-br	até
+url of the rss or atom feed, empty for own news feed	news_admin	pt-br	URL do feed RSS ou Atom, vazio para feed próprio.
 view this category	news_admin	pt-br	Exibir esta categoria
 visible	news_admin	pt-br	Visível
 webpage news admin	news_admin	pt-br	Página para administração de Boletins
