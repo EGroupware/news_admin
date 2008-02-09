@@ -1,4 +1,5 @@
 %1 module	news_admin	es-es	Módulo %1
+%s hours	news_admin	es-es	%s horas
 actions	news_admin	es-es	Acciones
 active	news_admin	es-es	Activo
 add new article	news_admin	es-es	Añadir artículo nuevo
@@ -13,6 +14,7 @@ configure access permissions	common	es-es	Configurar permisos de acceso
 configure rss exports	common	es-es	Configurar exportación RSS
 contains html	news_admin	es-es	Contiene HTML
 content	news_admin	es-es	Contenido
+count	news_admin	es-es	Contar
 date and time	news_admin	es-es	Fecha y hora
 delete this news	news_admin	es-es	Borrar esta noticia
 do you want to publish a rss feed for this news category	news_admin	es-es	¿Desea publicar un canal RSS para esta categoría de noticias?
@@ -34,8 +36,12 @@ image link	news_admin	es-es	Enlace a la imagen
 image title	news_admin	es-es	Título de la imagen
 image url	news_admin	es-es	URL de la imagen
 implies read permission	news_admin	es-es	implica permiso de lectura
+import every	news_admin	es-es	Importar cada
+import now	news_admin	es-es	Importar ahora
+import url	news_admin	es-es	URL de importación
 item has been deleted	news_admin	es-es	El elemento ha sido borrado
 item not found	news_admin	es-es	No se encontró el elemento
+last updated	news_admin	es-es	Ultima actualización
 link	news_admin	es-es	Enlace
 main	news_admin	es-es	Principal
 maintain	news_admin	es-es	Mantener
@@ -61,6 +67,7 @@ number of articles to display on the main screen	news_admin	es-es	Número de art
 number of news items to be displayed on page	news_admin	es-es	Número de elementos de noticias a mostrar en la página
 old	news_admin	es-es	Antigua
 on	news_admin	es-es	en
+parent	news_admin	es-es	Nivel superior
 picture upload (leave the upload directory empty to disable the upload)	admin	es-es	Subir imagen (dejar el directorio en blanco para desactivar subir imágenes)
 please select a category	news_admin	es-es	Por favor, seleccione una categoría
 publish date	news_admin	es-es	Fecha de publicación
@@ -82,6 +89,7 @@ the number of articles to display on the main screen.	news_admin	es-es	El númer
 the subject is missing	news_admin	es-es	Falta el asunto
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	es-es	Este módulo publica noticias desde la aplicación Administrador de noticias en su sitio web. Tenga en cuenta las restricciones de ACL de la aplicación.
 until	news_admin	es-es	hasta
+url of the rss or atom feed, empty for own news feed	news_admin	es-es	URL del hilo Atom. En blanco para hilo propio.
 view this category	news_admin	es-es	Ver esta categoría
 visible	news_admin	es-es	Visible
 webpage news admin	news_admin	es-es	Administrador de noticias de la página web
