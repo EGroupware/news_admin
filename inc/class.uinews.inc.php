@@ -85,7 +85,7 @@ class uinews extends bonews
 					{
 						if (!isset($this->data['news_is_html']))
 						{
-							$this->data['news_is_html'] = $this->tpl->html->htmlarea_availible();
+							$this->data['news_is_html'] = html::htmlarea_availible();
 						}
 						if (($err = $this->save()) == 0)
 						{
