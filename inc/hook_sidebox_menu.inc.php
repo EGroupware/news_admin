@@ -39,10 +39,13 @@
 	display_sidebox($appname,$menu_title,$file);
 
 	$title = lang('Preferences');
-	$file = array(
-		'Preferences' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname),
-		'Categories' => $GLOBALS['egw']->link('/index.php','menuaction=news_admin.news_admin_ui.cats'),
-	);
+	$file = array();
+	if ($GLOBALS['egw_info']['apps']['preferences'])
+	{
+		$file['Preferences'] = $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname);
+		
+	}
+	$file['Categories'] = $GLOBALS['egw']->link('/index.php','menuaction=news_admin.news_admin_ui.cats');
 	display_sidebox($appname,$title,$file);
 
 	if($GLOBALS['egw_info']['user']['apps']['admin'])
