@@ -469,15 +469,16 @@ class bonews extends so_sql
 			}
 			$cat[$name] = $value;
 		}
-		if (!$cat['cat_owner'] === '') $cat['cat_owner'] = -1;
-		if ($cat['cat_owner'] == '-1') $this->cats->account_id = -1;	// othwerwise the current use get set
-
 		if ($cat['cat_id'])
 		{
 			$cat['cat_id'] = $this->cats->edit($cat);
 		}
 		else
 		{
+			// cat owner can only be set for new cats!
+			if (!$cat['cat_owner']) $cat['cat_owner'] = -1;
+			if ($cat['cat_owner'] == '-1') $this->cats->account_id = -1;	// othwerwise the current use get set
+
 			$cat['cat_id'] = $this->cats->add($cat);
 		}
 		if ($cat['cat_id'])

@@ -144,6 +144,7 @@ class news_admin_ui extends bonews
 			$readonlys['button[import]'] = $readonlys['button[delete]'] = $readonlys['button[save]'] = $readonlys['button[apply]'] = true;
 		}
 		if (!$content['cat_id']) $readonlys['button[delete]'] = true;
+		if ($content['cat_id']) $readonlys['cat_owner'] = true;	// cat class can only set owner when creating new cats
 		if (!$content['import_url'] || !$content['cat_id']) $readonlys['button[import]'] = true;
 
 		$this->tpl->read('news_admin.cat');
