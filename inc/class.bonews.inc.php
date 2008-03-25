@@ -76,10 +76,6 @@ class bonews extends so_sql
 		
 		$this->acl =& CreateObject('news_admin.boacl');
 		
-		if (!is_object($GLOBALS['egw']->datetime))
-		{
-			$GLOBALS['egw']->datetime =& CreateObject('phpgwapi.datetime');
-		}
 		$this->tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 		$this->now = time() + $this->tz_offset_s;	// time() is server-time and we need a user-time
 
