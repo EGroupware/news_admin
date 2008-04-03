@@ -166,7 +166,7 @@ class module_news_admin extends Module
 				{
 					$link .= '&domain=' . $GLOBALS['egw_info']['user']['domain'];
 				}
-				$link = '<a href="'.$link.'" target="_blank"><img src="images/M_images/rss.png" alt="RSS" /></a>';
+				$link = '<a href="'.$link.'" target="_blank"><img src="images/M_images/rss.png" alt="RSS" border="0"/></a>';
 				$html .= "\t<div class=\"news_rss\">$link</div>\n";
 			}
 		}
