@@ -74,6 +74,7 @@ publish date	news_admin	en	Publish Date
 read more	news_admin	en	read more
 read news	news_admin	en	Read news
 read permissions	news_admin	en	Read permissions
+reload	news_admin	en	Reload
 send mail to others	news_admin	en	Send Mail to Others
 should news_admin display the latest article headlines on the main screen.	news_admin	en	Should News Admin display the latest article headlines on the main screen.
 show latest news articles?	news_admin	en	Show latest news articles?
@@ -87,6 +88,7 @@ teaser with read more link	news_admin	en	Teaser with read more link
 the news content is missing	news_admin	en	The news content is missing
 the number of articles to display on the main screen.	news_admin	en	The number of articles to display on the main screen.
 the subject is missing	news_admin	en	The subject is missing
+there no such translation.	news_admin	en	There no such translation.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 until	news_admin	en	until
 url of the rss or atom feed, empty for own news feed	news_admin	en	URL of the RSS or Atom feed, empty for own news feed

@@ -21,7 +21,9 @@
 				'news_end' => array('type' => 'int','precision' => '8'),
 				'cat_id' => array('type' => 'int','precision' => '4'),
 				'news_teaser' => array('type' => 'text'),
-				'news_is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1')
+				'news_is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1'),
+				'news_source_id' => array('type' => 'int','precision' => '4'),
+				'news_lang' => array('type' => 'varchar','precision' => '5')
 			),
 			'pk' => array('news_id'),
 			'fk' => array(),

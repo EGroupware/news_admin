@@ -74,6 +74,7 @@ publish date	news_admin	de	Veröffentlichungsdatum
 read more	news_admin	de	weiter lesen
 read news	news_admin	de	Nachrichten lesen
 read permissions	news_admin	de	Leserechte
+reload	news_admin	de	Nachladen
 send mail to others	news_admin	de	Mail an andere senden
 should news_admin display the latest article headlines on the main screen.	news_admin	de	Sollen die neuesten Nachrichten auf der Startseite angezeigt werden.
 show latest news articles?	news_admin	de	Neuest Nachrichten anzeigen?
@@ -87,6 +88,7 @@ teaser with read more link	news_admin	de	Anreise mit weiter lesen Link
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
 the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
+there no such translation.	news_admin	de	Für diese Nachricht gibt es keine Übersetzung
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website and. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
 until	news_admin	de	bis
 url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten Feed

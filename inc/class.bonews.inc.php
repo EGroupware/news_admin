@@ -64,6 +64,12 @@ class bonews extends so_sql
 		'never'  => 'Never',
 		'date'   => 'By date',
 	);
+	/**
+	 * Language of the user
+	 *
+	 * @var string
+	 */
+	var $lang;
 
 	/**
 	 * Constructor
@@ -79,7 +85,8 @@ class bonews extends so_sql
 		$this->tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 		$this->now = time() + $this->tz_offset_s;	// time() is server-time and we need a user-time
 
-		$this->user = $GLOBALS['egw_info']['user']['account_id'];
+		$this->user =& $GLOBALS['egw_info']['user']['account_id'];
+		$this->lang =& $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 		
 		$this->cats =& CreateObject('phpgwapi.categories','','news_admin');
 	}
@@ -153,6 +160,10 @@ class bonews extends so_sql
 			case 'date':
 				if (!$data['news_end']) $data['news_end'] = null;
 				break;
+		}
+		if (isset($data['news_lang']) && !$data['news_lang'])
+		{
+			$data['news_lang'] = null;
 		}
 		foreach($this->timestamps as $name)
 		{
@@ -277,6 +288,20 @@ class bonews extends so_sql
 				$filter[] = 'news_begin > 0';
 				break;
 		}
+		// if no lang filter set, use the users lang from his prefs
+		if (!array_key_exists('news_lang',$filter))
+		{
+		//echo "<p>no news_lang set in filter --> setting default</p>\n";
+			$filter['news_lang'] = $this->lang;
+		}
+		// show only the selected language or the default language, if no translation exists
+		if (isset($filter['news_lang']))
+		{
+			$filter[] = '(news_lang='.$this->db->quote($filter['news_lang']).' OR news_lang IS NULL)';
+			$filter[] = "(SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id
+AND translation.news_lang = ".$this->db->quote($filter['news_lang']).') IS NULL';
+			unset($filter['news_lang']);
+		}
 		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter,$join);
 	}
 	
@@ -292,11 +317,47 @@ class bonews extends so_sql
 	{
 		if (!is_array($keys) && (int)$keys) $keys = array('news_id' => (int)$keys);
 		
-		if (!parent::read($keys) || !$this->check_acl(EGW_ACL_READ))
+		if ($keys['news_lang'])
+		{
+			// (news_id=$id AND news_lang IS NULL) OR (news_source_id=$id AND news_lang='$lang'
+			if (!(list($this->data) = self::search(array(),false,'','','',false,'AND',false,array(
+				'news_source_id'=> $keys['news_id'],
+				'news_lang' => $keys['news_lang'] ? $keys['news_lang'] : null,
+			))))
+			{
+				return false;
+			}
+		}
+		elseif (!parent::read($keys) || !$this->check_acl(EGW_ACL_READ))
 		{
 			return false;
 		}
 		return $this->data;
+	}
+	
+	/**
+	 * Set new default entry for all existing translations
+	 *
+	 * @param int $old_id=null old news_source_id, default content of $this->data['news_source_id']
+	 * @param int $new_id=null new news_source_id, default content of $this->data['news_id']
+	 */
+	function set_default($old_id=null,$new_id=null)
+	{
+		if (!$old_id) $old_id = $this->data['news_source_id'];
+		if (!$new_id) $new_id = $this->data['news_id'];
+		
+		// set default on all existing ones
+		$this->db->update($this->table_name,array(
+			'news_source_id' => $new_id,
+		),$this->db->expression($this->table_name,array('news_source_id' => $old_id),' OR ',array('news_id' => $old_id)),
+		__LINE__,__FILE__);
+
+		// remove the default from the new default
+		$this->db->update($this->table_name,array(
+			'news_source_id' => null,
+		),array(
+			'news_id' => $new_id
+		),__LINE__,__FILE__);
 	}
 
 	/**

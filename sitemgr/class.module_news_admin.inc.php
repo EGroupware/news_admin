@@ -136,8 +136,8 @@ class module_news_admin extends Module
 		{
 			$filter = $arguments['category'] ? array('cat_id' => $arguments['category']) : array();
 			$result = $this->bonews->search('',false,'news_date DESC','','',false,'AND',array((int)$arguments['start'],$limit),$filter);
-
-			foreach($result as $news)
+			
+			if (is_array($result)) foreach($result as $news)
 			{
 				$html .= $this->render($news,$arguments['show'],$arguments['linkpage']);
 			}

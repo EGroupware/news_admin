@@ -87,10 +87,39 @@ class uinews extends bonews
 						{
 							$this->data['news_is_html'] = html::htmlarea_availible();
 						}
+						if ($content['news_id'] && ($content['old_lang'] != $content['news_lang']))	// lang changed --> save as new
+						{
+							//first save from Default Language
+							if ($content['old_lang'] == null && $content['news_source_id'] == null)
+							{
+								$this->data['news_source_id'] = $content['news_id'];
+								$content['news_source_id'] = $content['news_id'];
+							}				
+							//set old Language new Default Language
+							if  ($content['old_lang'] != null && $content['news_source_id'] == null && $content['news_lang'] == null)
+							{
+								$content['set_new_default'] = true;
+								$content['set_old_news_id'] = $content['news_id'];							
+							}
+							
+							unset($this->data['news_id']);
+							// check if we already have an entry for the new lang
+							if ($content['news_source_id'] && ($lang_entry = $this->search(array(),true,'','','',false,'AND',false,array(
+									'news_lang' => $content['news_lang'],'news_source_id' => $content['news_source_id']))))
+							{
+								$this->data['news_id'] =$lang_entry[0]['news_id'];
+							}
+						}
 						if (($err = $this->save()) == 0)
 						{
 							$msg = lang('News saved.');
 							$js = "opener.location.href=opener.location.href+'&msg=".addslashes(urlencode($msg))."';";
+							
+							if ($content['set_new_default'])	// created a new default lang for an existing entry
+							{
+								$this->set_default($content['set_old_news_id']);	// set the new default in all existing translations
+								unset($content['set_old_news_id']);
+							}
 						}
 						else
 						{
@@ -109,12 +138,25 @@ class uinews extends bonews
 						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
 					break;
-					
+				case 'reload':
+					$source_id = $content['news_source_id'] ? $content['news_source_id'] : $content['news_id'];
+					if (!$this->read(array('news_id'=>$source_id,'news_lang'=>$content['news_lang'])))
+					{
+						$this->data['news_source_id'] = $source_id;
+						$this->data['news_lang'] = $content['news_lang'];
+						if (!$content['news_source_id'] && $content['old_lang'])
+						{
+							$this->data['set_new_default'] = true;	// remember to set a this entry as new default when saving
+						}
+						$msg = lang('There no such translation.');
+					}
+					break;	
 				case 'cancel':	// should never happen
 					break;
 			}
 		}
 		$content = $preserve = $this->data;
+		$preserve['old_lang'] = $this->data['news_lang'];	// remember old lang
 		$content['msg'] = $msg;
 		if (!($content['rtfEditorFeatures'] = $GLOBALS['egw_info']['user']['preferences']['news_admin']['rtfEditorFeatures']))
 		{
@@ -211,7 +253,10 @@ class uinews extends bonews
 					'teaser'   => 'Teaser',
 					'headline' => 'Headline',
 				),
-				'col_filter'     => array('visible' => 'now'),
+				'col_filter'     => array(
+					'visible' => 'now',
+					'news_lang' => $this->lang,
+				),
 			);
 		}
 		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];

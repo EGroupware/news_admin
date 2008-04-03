@@ -223,4 +223,20 @@
 	{
 		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.4';
 	}
+
+
+	$test[] = '1.4';
+	function news_admin_upgrade1_4()
+	{
+		$GLOBALS['egw_setup']->oProc->AddColumn('egw_news','news_source_id',array(
+			'type' => 'int',
+			'precision' => '4'
+		));
+		$GLOBALS['egw_setup']->oProc->AddColumn('egw_news','news_lang',array(
+			'type' => 'varchar',
+			'precision' => '5'
+		));
+
+		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.5.001';
+	}
 ?>
