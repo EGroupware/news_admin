@@ -27,7 +27,7 @@
 			),
 			'pk' => array('news_id'),
 			'fk' => array(),
-			'ix' => array('news_date','news_headline'),
+			'ix' => array('news_date','news_headline','cat_id','news_lang'),
 			'uc' => array()
 		),
 		'egw_news_export' => array(

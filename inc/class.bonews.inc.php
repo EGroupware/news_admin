@@ -222,6 +222,7 @@ class bonews extends so_sql
 	 */
 	function &search($criteria,$only_keys=false,$order_by='news_date DESC',$extra_cols='',$wildcard='',$empty=False,$op='AND',$start=false,$filter=null,$join=null)
 	{
+		//error_log(__METHOD__."(".print_r($criteria,true).",$only_keys,$order_by,".print_r($extra_cols,true).",$wildcard,$empty,$op,".print_r($start,true).",".print_r($filter,true).",$join)");
 		if (!$join)
 		{
 			if (is_array($filter) && isset($filter['cat_id']))
@@ -243,6 +244,13 @@ class bonews extends so_sql
 			}
 			if (!$permitted_cats) return array();	// no rights to any (requested) cat
 			$filter['cat_id'] = count($permitted_cats) == 1 ? $permitted_cats[0] : $permitted_cats;
+
+			// if no lang filter set, use the users lang from his prefs
+			if (!array_key_exists('news_lang',$filter))
+			{
+				//echo "<p>no news_lang set in filter --> setting default</p>\n";
+				$filter['news_lang'] = $this->lang;
+			}
 		}
 		if (is_array($filter) && isset($filter['visible']))
 		{
@@ -288,18 +296,11 @@ class bonews extends so_sql
 				$filter[] = 'news_begin > 0';
 				break;
 		}
-		// if no lang filter set, use the users lang from his prefs
-		if (!array_key_exists('news_lang',$filter))
-		{
-		//echo "<p>no news_lang set in filter --> setting default</p>\n";
-			$filter['news_lang'] = $this->lang;
-		}
 		// show only the selected language or the default language, if no translation exists
 		if (isset($filter['news_lang']))
 		{
-			$filter[] = '(news_lang='.$this->db->quote($filter['news_lang']).' OR news_lang IS NULL)';
-			$filter[] = "(SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id
-AND translation.news_lang = ".$this->db->quote($filter['news_lang']).') IS NULL';
+			$filter[] = '(news_lang='.$this->db->quote($filter['news_lang']).' OR news_lang IS NULL AND '.
+				 "(SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id AND translation.news_lang = ".$this->db->quote($filter['news_lang']).') IS NULL)';
 			unset($filter['news_lang']);
 		}
 		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter,$join);

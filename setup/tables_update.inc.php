@@ -224,7 +224,6 @@
 		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.4';
 	}
 
-
 	$test[] = '1.4';
 	function news_admin_upgrade1_4()
 	{
@@ -239,4 +238,13 @@
 
 		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.5.001';
 	}
-?>
+
+	$test[] = '1.5.001';
+	function news_admin_upgrade1_5_001()
+	{
+		// adding two necessary indexes (without them the new translation of news causes query times of more then 10min for ~15000 rows)
+		$GLOBALS['egw_setup']->oProc->CreateIndex('egw_news','cat_id',false);
+		$GLOBALS['egw_setup']->oProc->CreateIndex('egw_news','news_lang',false);
+
+		return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.5.002';
+	}
