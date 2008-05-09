@@ -8,7 +8,7 @@
  * @package news_admin
  * @copyright (c) 2005-7 by Cornelius Weiss <egw@von-und-zu-weiss.de> and Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$ 
+ * @version $Id$
  */
 
 class module_news_admin extends Module
@@ -27,14 +27,14 @@ class module_news_admin extends Module
 
 		$this->arguments = array(
 			'category' => array(
-				'type' => 'select', 
-				'label' => lang('Choose a category'), 
+				'type' => 'select',
+				'label' => lang('Choose a category'),
 				'options' => array(),	// specification of options is postponed into the get_user_interface function
 				'multiple' => 5,
 			),
 			'show' => array(
-				'type' => 'select', 
-				'label' => lang('Which information do you want to show (CSS class)'), 
+				'type' => 'select',
+				'label' => lang('Which information do you want to show (CSS class)'),
 				'multiple' => 9,
 				'options' => array(
 					'date'        => lang('Date').' (news_date)',
@@ -49,16 +49,16 @@ class module_news_admin extends Module
 				),
 			),
 			'limit' => array(
-				'type' => 'textfield', 
+				'type' => 'textfield',
 				'label' => lang('Number of news items to be displayed on page'),
 				'params' => array('size' => 3)
 			),
 			'rsslink' => array(
-				'type' => 'checkbox', 
+				'type' => 'checkbox',
 				'label' => lang('Do you want to publish a RSS feed for this news category'),
 			),
 			'linkpage' => array(
-				'type' => 'textfield', 
+				'type' => 'textfield',
 				'label' => lang('Page-name the item should be displayed (empty = current page)'),
 				'params' => array('size' => 50)
 			),
@@ -75,7 +75,7 @@ class module_news_admin extends Module
 		//we could put this into the module's constructor, but by putting it here, we make it execute only when the block is edited,
 		//and not when it is generated for the web site, thus speeding the latter up slightly
 		$this->arguments['category']['options'] = $this->bonews->rights2cats(EGW_ACL_READ);
-		
+
 		if (isset($this->block->arguments['layout']) && !isset($this->block->arguments['show']))
 		{
 			$this->block->arguments['show'] = $this->block->arguments['layout'] == 'header' ?
@@ -116,9 +116,10 @@ class module_news_admin extends Module
 		if ($_GET['module'] == 'news_admin' && isset($_GET['cat_id']))
 		{
 			$itemsyntax = (preg_match('/^[-a-z_0-9]+$/i',$_GET['linkpage']) ? '?page_name='.$_GET['linkpage'].'&amp;' : '?').'item=';
+			ob_end_clean();		// for mos templates, stop the output buffering
 			include(EGW_SERVER_ROOT.'/news_admin/website/export.php');
 			// No more stuff in the generated xml
-			$GLOBALS['egw']->common->egw_exit();			
+			$GLOBALS['egw']->common->egw_exit();
 		}
 		elseif ((int)$item)
 		{
@@ -136,7 +137,7 @@ class module_news_admin extends Module
 		{
 			$filter = $arguments['category'] ? array('cat_id' => $arguments['category']) : array();
 			$result = $this->bonews->search('',false,'news_date DESC','','',false,'AND',array((int)$arguments['start'],$limit),$filter);
-			
+
 			if (is_array($result)) foreach($result as $news)
 			{
 				$html .= $this->render($news,$arguments['show'],$arguments['linkpage']);
@@ -171,10 +172,10 @@ class module_news_admin extends Module
 			}
 		}
 		$html .= "</div>\n";
-		
+
 		return $html;
 	}
-	
+
 	/**
 	 * Return one formatted news item
 	 *
@@ -186,7 +187,7 @@ class module_news_admin extends Module
 	function render($news,$show,$page='')
 	{
 		$html = "\t".'<div class="news_item news_item_'.implode('_',$show).'">'."\n";
-		
+
 		foreach($show as $name)
 		{
 			switch($name)
@@ -203,7 +204,7 @@ class module_news_admin extends Module
 				case 'teaser':
 					$value = $news['news_'.$name];
 					break;
-					
+
 				case 'title':
 				case 'teaser_more':
 					$link = $news['link'] ? $news['link'] : $this->link(false,false,array(array(
@@ -222,7 +223,7 @@ class module_news_admin extends Module
 						($news['link'] ? '" target="_blank' : '').'">'.
 						($name == 'title' ? $news['news_headline'] : lang('read more')).'</a>';
 					break;
-					
+
 				case 'submitted':
 					$value = lang('Submitted by %1 on %2',$GLOBALS['egw']->common->grab_owner_name($news['news_submittedby']),
 						$GLOBALS['egw']->common->show_date($news['news_date'],'',false));
@@ -237,7 +238,7 @@ class module_news_admin extends Module
 					}
 					$value = $GLOBALS['egw']->common->show_date($news['news_date'],$format,false);
 					break;
-					
+
 				case 'more':
 					$value = '';	// not displayed per item
 					break;
@@ -245,7 +246,7 @@ class module_news_admin extends Module
 			if ($value) $html .= "\t\t<div class=\"news_$name\">$value</div>\n";
 		}
 		$html .= "\t</div>\n";
-		
+
 		return $html;
 	}
 }
