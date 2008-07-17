@@ -434,7 +434,7 @@ class bonews extends so_sql
 			}
 		}
 
-		$order = "GROUP BY {$this->cats->table}.cat_id ORDER BY ".($query['order'] ? $query['order'] : 'cat_name').' '.$query['sort'];
+		$order = "GROUP BY {$this->cats->table}.cat_id, cat_name,cat_description,cat_data,cat_parent,cat_owner,cat_appname ORDER BY ".($query['order'] ? $query['order'] : 'cat_name').' '.$query['sort'];
 		$join  = "RIGHT JOIN {$this->cats->table} ON $this->table_name.cat_id={$this->cats->table}.cat_id";
 		$filter = array(
 			'visible'=>'all',
