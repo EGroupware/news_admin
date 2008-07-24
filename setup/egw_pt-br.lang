@@ -74,6 +74,7 @@ publish date	news_admin	pt-br	Data da Publicação
 read more	news_admin	pt-br	ler mais
 read news	news_admin	pt-br	Ler notícias
 read permissions	news_admin	pt-br	Permissões de leitura
+reload	news_admin	pt-br	Recarregar
 send mail to others	news_admin	pt-br	Enviar e-mail para Outros
 should news_admin display the latest article headlines on the main screen.	news_admin	pt-br	Boletim Internos mostra as manchetes dos últimos boletins na Tela Principal.
 show latest news articles?	news_admin	pt-br	Exibir últimos artigos?
@@ -87,6 +88,7 @@ teaser with read more link	news_admin	pt-br	Chamada com link "ler mais"
 the news content is missing	news_admin	pt-br	O conteúdo do boletim está faltando
 the number of articles to display on the main screen.	news_admin	pt-br	Número de artigos a serem apresentados na tela principal.
 the subject is missing	news_admin	pt-br	O assunto está faltando
+there no such translation.	news_admin	pt-br	Esta tradução não existe
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pt-br	Este módulo publica notícias do aplicativo de notícias do seu site. Atente-se às ACL's.
 until	news_admin	pt-br	até
 url of the rss or atom feed, empty for own news feed	news_admin	pt-br	URL do feed RSS ou Atom, vazio para feed próprio.
