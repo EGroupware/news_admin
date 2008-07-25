@@ -1,4 +1,5 @@
 %1 module	news_admin	cs	moddul %1
+%s hours	news_admin	cs	%s hodin(y)
 actions	news_admin	cs	Akce
 active	news_admin	cs	Aktivní
 add new article	news_admin	cs	Přidat nový článek
@@ -13,6 +14,7 @@ configure access permissions	common	cs	Konfigurovat přístupová práva
 configure rss exports	common	cs	Konfigurovat RSS exporty
 contains html	news_admin	cs	Obsahuje HTML
 content	news_admin	cs	Obsah
+count	news_admin	cs	Počet
 date and time	news_admin	cs	Datum a čas
 delete this news	news_admin	cs	Smazat tuto novinku
 do you want to publish a rss feed for this news category	news_admin	cs	Chcete publikovat RSS feed pro tuto kategorii novinek
@@ -34,8 +36,12 @@ image link	news_admin	cs	Odkaz na obrázek
 image title	news_admin	cs	Titulek obrázku
 image url	news_admin	cs	URL obrázku
 implies read permission	news_admin	cs	z toho vyplývají práva pro čtení
+import every	news_admin	cs	Importovat každé
+import now	news_admin	cs	Importovat nyní
+import url	news_admin	cs	Importovat URL
 item has been deleted	news_admin	cs	Položka byla smazána
 item not found	news_admin	cs	Položka nebyla nalezena
+last updated	news_admin	cs	Poslední aktualizace
 link	news_admin	cs	Odkaz
 main	news_admin	cs	Hlavní
 maintain	news_admin	cs	Spravovat
@@ -61,6 +67,7 @@ number of articles to display on the main screen	news_admin	cs	Počet článků,
 number of news items to be displayed on page	news_admin	cs	Počet položek novinek, které se mají zobrazovat na stránce
 old	news_admin	cs	Staré
 on	news_admin	cs	na
+parent	news_admin	cs	Nadřazený
 picture upload (leave the upload directory empty to disable the upload)	admin	cs	Upload obrázku (chcete-li upload zakázat, ponechte adresář pro upload prázdný)
 please select a category	news_admin	cs	Vyberte prosím kategorii
 publish date	news_admin	cs	Datum publikování
@@ -82,6 +89,7 @@ the number of articles to display on the main screen.	news_admin	cs	Počet člá
 the subject is missing	news_admin	cs	Chybí předmět
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	cs	Tento modul publikuje novinky z aplikace Správce novinek na Vašem webu. Mějte na paměti omezení daná přístupovými právy (ACL) nastavenými ve Správci novinek.
 until	news_admin	cs	do
+url of the rss or atom feed, empty for own news feed	news_admin	cs	URL RSS nebo Atom kanálu, ponechte prázdné pro vlastní kanál
 view this category	news_admin	cs	Zobrazit tuto kategorii
 visible	news_admin	cs	Viditelné
 webpage news admin	news_admin	cs	Správce novinek na webové stránce
