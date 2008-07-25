@@ -1,0 +1,35 @@
+actions	news_admin	et	Tegevused
+active	news_admin	et	Aktiivne
+add new article	news_admin	et	Lisa Uus Artikkel
+add new news	news_admin	et	Lisa uued uudised
+all news	news_admin	et	Kõik uudised
+always	news_admin	et	Alati
+by date	news_admin	et	Kuupäeva järgi
+choose a category	news_admin	et	Vali kategooria
+configuration	news_admin	et	Kinnitamine
+contains html	news_admin	et	Sisaldab HTML
+content	news_admin	et	Sisu
+date and time	news_admin	et	Kuupäev ja aeg
+delete this news	news_admin	et	Kustuta need uudised
+end	news_admin	et	Lõpp
+future	news_admin	et	Tulevikus
+global news	news_admin	et	Globaalsed Uudised
+image link	news_admin	et	Pildi Link
+image title	news_admin	et	Pildi Pealkiri
+image url	news_admin	et	Pildi URL
+link	news_admin	et	Link
+more news	news_admin	et	Rohkem uudiseid
+news	news_admin	et	Uudised
+news admin	news_admin	et	Uuudiste Admin
+news administration	news_admin	et	Uudiste Administreerimine
+news deleted.	news_admin	et	Uudised kustutatud.
+news saved.	news_admin	et	Uudised salvestatud.
+news_admin	common	et	Uudiste Admin
+now	news_admin	et	Nüüd
+old	news_admin	et	Vana
+on	news_admin	et	sees
+please select a category	news_admin	et	Palun vali kategooria
+read more	news_admin	et	loe rohkem
+read news	news_admin	et	Loe uudiseid
+read permissions	news_admin	et	Lugemise õigused
+send mail to others	news_admin	et	Sada Teistele Mail
