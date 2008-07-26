@@ -1,4 +1,5 @@
 %1 module	news_admin	en	%1 module
+%1 news imported (%2 new).	news_admin	en	%1 news imported (%2 new).
 %s hours	news_admin	en	%s hours
 actions	news_admin	en	Actions
 active	news_admin	en	Active
@@ -8,6 +9,9 @@ add news item	news_admin	en	Add news item
 all news	news_admin	en	All news
 always	news_admin	en	Always
 by date	news_admin	en	By date
+categories to displayed on main page?	news_admin	en	Categories to displayed on main page?
+category deleted.	news_admin	en	Category deleted.
+category saved.	news_admin	en	Category saved.
 choose a category	news_admin	en	Choose a category
 configuration	news_admin	en	Configuration
 configure access permissions	common	en	Configure Access Permissions
@@ -20,6 +24,8 @@ delete this news	news_admin	en	Delete this news
 do you want to publish a rss feed for this news category	news_admin	en	Do you want to publish a RSS feed for this news category
 edit news item	news_admin	en	Edit news item
 end	news_admin	en	End
+error importing the feed!	news_admin	en	Error importing the feed!
+error saving the category!	news_admin	en	Error saving the category!
 error saving the news!	news_admin	en	Error saving the news!
 failed to add message	news_admin	en	Failed to add new message
 format for links to items	news_admin	en	Format for links to items
@@ -39,6 +45,7 @@ implies read permission	news_admin	en	implies read permission
 import every	news_admin	en	Import every
 import now	news_admin	en	Import now
 import url	news_admin	en	Import URL
+imported feeds can not be writable!	news_admin	en	Imported feeds can NOT be writable!
 item has been deleted	news_admin	en	Item has been deleted
 item not found	news_admin	en	Item not found
 last updated	news_admin	en	Last updated
@@ -67,6 +74,7 @@ number of articles to display on the main screen	news_admin	en	Number of article
 number of news items to be displayed on page	news_admin	en	Number of news items to be displayed on page
 old	news_admin	en	Old
 on	news_admin	en	on
+page-name the item should be displayed (empty = current page)	news_admin	en	Page-name the item should be displayed (empty = current page)
 parent	news_admin	en	Parent
 picture upload (leave the upload directory empty to disable the upload)	admin	en	Picture upload (leave the upload directory empty to disable the upload)
 please select a category	news_admin	en	Please select a category
@@ -83,6 +91,7 @@ small view	news_admin	en	small view
 start	news_admin	en	Start
 submitted by	common	en	Submitted by
 submitted by %1 on %2	news_admin	en	Submitted by %1 on %2
+submitted by and date	news_admin	en	Submitted by and date
 teaser	news_admin	en	Teaser
 teaser with read more link	news_admin	en	Teaser with read more link
 the news content is missing	news_admin	en	The news content is missing
@@ -96,5 +105,6 @@ view this category	news_admin	en	View this category
 visible	news_admin	en	Visible
 webpage news admin	news_admin	en	Webpage news admin
 which information do you want to show (css class)	news_admin	en	Which information do you want to show (CSS class)
+which news categories should be displayed on the main screen.	news_admin	en	Which news categories should be displayed on the main screen.
 write	news_admin	en	Write
 write permissions	news_admin	en	Write permissions
