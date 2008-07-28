@@ -40,6 +40,7 @@ class module_news_admin extends Module
 					'date'        => lang('Date').' (news_date)',
 					'datetime'    => lang('Date and time').' (news_date)',
 					'title'       => lang('Headline with link').' (news_title)',
+					'title_list'  => lang('Headline with link').' (news_title)'.' (with List Stylesheets)',
 					'headline'    => lang('Headline').' (news_headline)',
 					'submitted'   => lang('Submitted by and date').' (news_submitted)',
 					'teaser'      => lang('Teaser').' (news_teaser)',
@@ -105,13 +106,22 @@ class module_news_admin extends Module
 		$limit = (int)$arguments['limit'] ? $arguments['limit'] : 5;
 		$show = $arguments['show'];
 		// for the center area you can use a direct link to call a certain item
+		if ($show[0] == 'title_list') $listview = true;  //for Joomla Style news
 		if (!($item = (int)$arguments['item']) && $this->block->area == 'center')
 		{
 			$item = (int)$_GET['item'];
 			$show = array('headline','submitted','teaser','content');
 		}
 
-		$html = '<div class="news_items news_items_'.implode('_',$arguments['show']).'">'."\n";
+		if (!$listview)
+		{
+			$html = '<div class="news_items news_items_'.implode('_',$arguments['show']).'">'."\n";
+		}
+		else
+		{
+			if ($listview) $html = '<ul class="latestnews">'."\n";
+		}
+
 
 		if ($_GET['module'] == 'news_admin' && isset($_GET['cat_id']))
 		{
@@ -171,7 +181,8 @@ class module_news_admin extends Module
 				$html .= "\t<div class=\"news_rss\">$link</div>\n";
 			}
 		}
-		$html .= "</div>\n";
+		if (!$listview) $html .= "</div>\n";
+		if ($listview) $html .= "</ul>\n";
 
 		return $html;
 	}
@@ -185,8 +196,7 @@ class module_news_admin extends Module
 	 * @return string
 	 */
 	function render($news,$show,$page='')
-	{
-		$html = "\t".'<div class="news_item news_item_'.implode('_',$show).'">'."\n";
+	{	if (!$listview) $html = "\t".'<div class="news_item news_item_'.implode('_',$show).'">'."\n";
 
 		foreach($show as $name)
 		{
@@ -223,6 +233,23 @@ class module_news_admin extends Module
 						($news['link'] ? '" target="_blank' : '').'">'.
 						($name == 'title' ? $news['news_headline'] : lang('read more')).'</a>';
 					break;
+				case 'title_list':
+					$link = $news['link'] ? $news['link'] : $this->link(false,false,array(array(
+						'module_name' => 'news_admin',
+						'arguments' => array(
+							'show' => array('headline','submitted','teaser','content'),
+							'item' => $news['news_id'],
+							'category' => $news['cat_id'],
+						),
+						'page' => $page,
+						'area' => false,
+						'sort_order' => false
+					)));
+					$value = $name == 'title_list' ? '' : $news['news_teaser'].' ';
+					$value .= '<a href="'.$link.'" title="'.htmlspecialchars(lang('read more')).
+						($news['link'] ? '" target="_blank' : '').'">'.
+						($name == 'title_list' ? $news['news_headline'] : lang('read more')).'</a>';
+					break;
 
 				case 'submitted':
 					$value = lang('Submitted by %1 on %2',$GLOBALS['egw']->common->grab_owner_name($news['news_submittedby']),
@@ -243,9 +270,13 @@ class module_news_admin extends Module
 					$value = '';	// not displayed per item
 					break;
 			}
-			if ($value) $html .= "\t\t<div class=\"news_$name\">$value</div>\n";
+			if ($value)
+			{
+				if ($name != 'title_list') $html .= "\t\t<div class=\"news_$name\">$value</div>\n";
+				if ($name == 'title_list') $html .= "\t\t<li class=\"latestnews\">$value</li>\n";
+			}
 		}
-		$html .= "\t</div>\n";
+		if (!$listview) $html .= "\t</div>\n";
 
 		return $html;
 	}
