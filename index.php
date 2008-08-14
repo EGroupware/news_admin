@@ -6,7 +6,8 @@
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$ 
+ * @version $Id$
  */
 
-header('Location: ../index.php?menuaction=news_admin.uinews.index');
+header('Location: ../index.php?menuaction=news_admin.uinews.index'.
+	(isset($_GET['sessionid']) ? '&sessionid='.$_GET['sessionid'].'&kp3='.$_GET['kp3'] : ''));
