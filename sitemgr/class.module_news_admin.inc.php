@@ -200,6 +200,11 @@ class module_news_admin extends Module
 
 		foreach($show as $name)
 		{
+			$news_link = $this->link(false,array(
+						'page_name' => $page,
+						'category_id' => $news['cat_id'],
+						'item' => $news['news_id'],
+					));
 			switch($name)
 			{
 				case 'content':
@@ -217,34 +222,15 @@ class module_news_admin extends Module
 
 				case 'title':
 				case 'teaser_more':
-					$link = $news['link'] ? $news['link'] : $this->link(false,false,array(array(
-						'module_name' => 'news_admin',
-						'arguments' => array(
-							'show' => array('headline','submitted','teaser','content'),
-							'item' => $news['news_id'],
-							'category' => $news['cat_id'],
-						),
-						'page' => $page,
-						'area' => false,
-						'sort_order' => false
-					)));
+					$link = $news['link'] ? $news['link'] : $news_link;
+					$link=$news_link;
 					$value = $name == 'title' ? '' : $news['news_teaser'].' ';
 					$value .= '<a href="'.$link.'" title="'.htmlspecialchars(lang('read more')).
 						($news['link'] ? '" target="_blank' : '').'">'.
 						($name == 'title' ? $news['news_headline'] : lang('read more')).'</a>';
 					break;
 				case 'title_list':
-					$link = $news['link'] ? $news['link'] : $this->link(false,false,array(array(
-						'module_name' => 'news_admin',
-						'arguments' => array(
-							'show' => array('headline','submitted','teaser','content'),
-							'item' => $news['news_id'],
-							'category' => $news['cat_id'],
-						),
-						'page' => $page,
-						'area' => false,
-						'sort_order' => false
-					)));
+					$link = $news['link'] ? $news['link'] : $news_link;
 					$value = $name == 'title_list' ? '' : $news['news_teaser'].' ';
 					$value .= '<a href="'.$link.'" title="'.htmlspecialchars(lang('read more')).
 						($news['link'] ? '" target="_blank' : '').'">'.
