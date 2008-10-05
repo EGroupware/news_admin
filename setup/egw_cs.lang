@@ -1,4 +1,5 @@
-%1 module	news_admin	cs	moddul %1
+%1 module	news_admin	cs	modul %1
+%1 news imported (%2 new).	news_admin	cs	%1 novinek bylo naimportováno (nové %2).
 %s hours	news_admin	cs	%s hodin(y)
 actions	news_admin	cs	Akce
 active	news_admin	cs	Aktivní
@@ -8,6 +9,9 @@ add news item	news_admin	cs	Přdat položku novinek
 all news	news_admin	cs	Všechny novinky
 always	news_admin	cs	Vždy
 by date	news_admin	cs	Podle data
+categories to displayed on main page?	news_admin	cs	Které kategorie by se měly zobrazit na hlavní straně?
+category deleted.	news_admin	cs	Kategorie byla smazána.
+category saved.	news_admin	cs	Kategorie byla uložena.
 choose a category	news_admin	cs	Vybrat kategorii
 configuration	news_admin	cs	Konfigurace
 configure access permissions	common	cs	Konfigurovat přístupová práva
@@ -20,6 +24,8 @@ delete this news	news_admin	cs	Smazat tuto novinku
 do you want to publish a rss feed for this news category	news_admin	cs	Chcete publikovat RSS feed pro tuto kategorii novinek
 edit news item	news_admin	cs	Editovat položku novinek
 end	news_admin	cs	Konec
+error importing the feed!	news_admin	cs	Chyba při importu feedu!
+error saving the category!	news_admin	cs	Chyba při ukládání kategorie!
 error saving the news!	news_admin	cs	Chyba při ukládání novinek
 failed to add message	news_admin	cs	Nepodařilo se přidat novou zprávu
 format for links to items	news_admin	cs	Formát odkazů na položky
@@ -39,6 +45,7 @@ implies read permission	news_admin	cs	z toho vyplývají práva pro čtení
 import every	news_admin	cs	Importovat každé
 import now	news_admin	cs	Importovat nyní
 import url	news_admin	cs	Importovat URL
+imported feeds can not be writable!	news_admin	cs	Naimportované feedy nemou být dostupné pro zápis!
 item has been deleted	news_admin	cs	Položka byla smazána
 item not found	news_admin	cs	Položka nebyla nalezena
 last updated	news_admin	cs	Poslední aktualizace
@@ -67,6 +74,7 @@ number of articles to display on the main screen	news_admin	cs	Počet článků,
 number of news items to be displayed on page	news_admin	cs	Počet položek novinek, které se mají zobrazovat na stránce
 old	news_admin	cs	Staré
 on	news_admin	cs	na
+page-name the item should be displayed (empty = current page)	news_admin	cs	Název stránky, na které by měla být položka zobrazena (nevyplněno = na aktuální straně)
 parent	news_admin	cs	Nadřazený
 picture upload (leave the upload directory empty to disable the upload)	admin	cs	Upload obrázku (chcete-li upload zakázat, ponechte adresář pro upload prázdný)
 please select a category	news_admin	cs	Vyberte prosím kategorii
@@ -74,6 +82,7 @@ publish date	news_admin	cs	Datum publikování
 read more	news_admin	cs	číst dále
 read news	news_admin	cs	Číst novinky
 read permissions	news_admin	cs	Práva ke čtění
+reload	news_admin	cs	Načíst znovu
 send mail to others	news_admin	cs	Odeslat mail ostatním
 should news_admin display the latest article headlines on the main screen.	news_admin	cs	Má Správce novinek zobrazovat nadpisy posledních článků na hlavní obrazovce.
 show latest news articles?	news_admin	cs	Zobrazit články posledních novinek?
@@ -82,11 +91,13 @@ small view	news_admin	cs	zmenšený pohled
 start	news_admin	cs	Začátek
 submitted by	common	cs	Odeslal(a)
 submitted by %1 on %2	news_admin	cs	Odeslal(a) %1 k %2
+submitted by and date	news_admin	cs	Odesláno kdykoli
 teaser	news_admin	cs	Úvodník
 teaser with read more link	news_admin	cs	Úvodník s odkazem na čtení dalších
 the news content is missing	news_admin	cs	Obsah novinek chybí
 the number of articles to display on the main screen.	news_admin	cs	Počet článků, které se mají zobrazit na hlavní obrazovce
 the subject is missing	news_admin	cs	Chybí předmět
+there no such translation.	news_admin	cs	Takový překlad neexistuje.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	cs	Tento modul publikuje novinky z aplikace Správce novinek na Vašem webu. Mějte na paměti omezení daná přístupovými právy (ACL) nastavenými ve Správci novinek.
 until	news_admin	cs	do
 url of the rss or atom feed, empty for own news feed	news_admin	cs	URL RSS nebo Atom kanálu, ponechte prázdné pro vlastní kanál
@@ -94,5 +105,6 @@ view this category	news_admin	cs	Zobrazit tuto kategorii
 visible	news_admin	cs	Viditelné
 webpage news admin	news_admin	cs	Správce novinek na webové stránce
 which information do you want to show (css class)	news_admin	cs	Které informace chcete zobrazit (CSS třída)
+which news categories should be displayed on the main screen.	news_admin	cs	Které kategorie novinek by měly být zobrazeny na hlavní obrazovce.
 write	news_admin	cs	Uložit
 write permissions	news_admin	cs	Práva k zápisu
