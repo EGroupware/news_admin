@@ -157,11 +157,13 @@ class module_news_admin extends Module
 				if ($arguments['start'])
 				{
 					$link_data['start'] = $arguments['start'] - $limit;
+					if ($link_data['start']<0) $link_data['start']=0;
 					$more = '<a href="' . $this->link($link_data) . '">&lt;&lt;&lt; '.lang('Back').'</a> ';
 				}
 				if ($this->bonews->total > $arguments['start'] + $limit)
 				{
 					$link_data['start'] = $arguments['start'] + $limit;
+					if ($link_data['start']<0) $link_data['start']=0;
 					$more .= '<a href="' . $this->link($link_data) . '">' . lang('More news') . '</a>';
 				}
 				if ($more) $html .= "\t<div class=\"news_more_news\">$more</div>\n";
