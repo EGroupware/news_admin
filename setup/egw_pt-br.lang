@@ -1,4 +1,5 @@
 %1 module	news_admin	pt-br	módulo %1
+%1 news imported (%2 new).	news_admin	pt-br	%1 notícia(s) importada(s) (%2 nova(s))
 %s hours	news_admin	pt-br	%s horas
 actions	news_admin	pt-br	Ações
 active	news_admin	pt-br	Ativo
@@ -8,6 +9,9 @@ add news item	news_admin	pt-br	Adicionar novo item
 all news	news_admin	pt-br	Todas as Notícias
 always	news_admin	pt-br	Disponíveis
 by date	news_admin	pt-br	Por data
+categories to displayed on main page?	news_admin	pt-br	Categorias a serem exibidas na página principal
+category deleted.	news_admin	pt-br	Categoria removida.
+category saved.	news_admin	pt-br	Categoria salva.
 choose a category	news_admin	pt-br	Escolha uma categoria
 configuration	news_admin	pt-br	Configuração
 configure access permissions	common	pt-br	Configurar Permissões de Acesso
@@ -20,6 +24,8 @@ delete this news	news_admin	pt-br	Remover esta notícia
 do you want to publish a rss feed for this news category	news_admin	pt-br	Deseja publicar um RSS para esta categoria de notícias
 edit news item	news_admin	pt-br	Editar item
 end	news_admin	pt-br	Fim
+error importing the feed!	news_admin	pt-br	Erro importando o feed!
+error saving the category!	news_admin	pt-br	Erro salvando a categoria!
 error saving the news!	news_admin	pt-br	Erro salvando a notícia!
 failed to add message	news_admin	pt-br	Publicação falhou
 format for links to items	news_admin	pt-br	Formatar itens para links
@@ -39,6 +45,7 @@ implies read permission	news_admin	pt-br	requer permissão de leitura
 import every	news_admin	pt-br	Importar tudo
 import now	news_admin	pt-br	Importar agora
 import url	news_admin	pt-br	URL de importação
+imported feeds can not be writable!	news_admin	pt-br	Escrita não permitida aos feeds importados!
 item has been deleted	news_admin	pt-br	O item foi apagado
 item not found	news_admin	pt-br	Item não encontrado
 last updated	news_admin	pt-br	Última atualização
@@ -67,6 +74,7 @@ number of articles to display on the main screen	news_admin	pt-br	Número de art
 number of news items to be displayed on page	news_admin	pt-br	Número de novos itens a serem exibidos na página
 old	news_admin	pt-br	Velho
 on	news_admin	pt-br	em
+page-name the item should be displayed (empty = current page)	news_admin	pt-br	Nome da página que o item deverá ser exibido (vazio = página atual)
 parent	news_admin	pt-br	Pai
 picture upload (leave the upload directory empty to disable the upload)	admin	pt-br	Carregar figura (deixe o diretório vazio para desabilitar o carregamento)
 please select a category	news_admin	pt-br	Por favor, selecione uma categoria
@@ -83,6 +91,7 @@ small view	news_admin	pt-br	Visão Condensada
 start	news_admin	pt-br	Início
 submitted by	common	pt-br	Enviado por
 submitted by %1 on %2	news_admin	pt-br	Enviado por %1 em %2
+submitted by and date	news_admin	pt-br	Enviado por e data
 teaser	news_admin	pt-br	Resumo
 teaser with read more link	news_admin	pt-br	Chamada com link "ler mais"
 the news content is missing	news_admin	pt-br	O conteúdo do boletim está faltando
@@ -96,5 +105,6 @@ view this category	news_admin	pt-br	Exibir esta categoria
 visible	news_admin	pt-br	Visível
 webpage news admin	news_admin	pt-br	Página para administração de Boletins
 which information do you want to show (css class)	news_admin	pt-br	Que informação você deseja exibir (classe CSS)
+which news categories should be displayed on the main screen.	news_admin	pt-br	Quais categorias de notícias deverão ser exibidas na página principal.
 write	news_admin	pt-br	Escrever
 write permissions	news_admin	pt-br	Permissões para escrita
