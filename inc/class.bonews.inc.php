@@ -7,7 +7,7 @@
  * @package news_admin
  * @copyright (c) 2006 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$ 
+ * @version $Id$
  */
 
 require_once(EGW_INCLUDE_ROOT.'/etemplate/inc/class.so_sql.inc.php');
@@ -38,13 +38,13 @@ class bonews extends so_sql
 	/**
 	 * offset in secconds between user and server-time,
 	 *	it need to be add to a server-time to get the user-time or substracted from a user-time to get the server-time
-	 * 
+	 *
 	 * @var int
 	 */
 	var $tz_offset_s;
 	/**
 	 * Timestamp with actual user-time
-	 * 
+	 *
 	 * @var int
 	 */
 	var $now;
@@ -79,18 +79,18 @@ class bonews extends so_sql
 	function bonews()
 	{
 		$this->so_sql('news_admin','egw_news');
-		
+
 		$this->acl =& CreateObject('news_admin.boacl');
-		
+
 		$this->tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 		$this->now = time() + $this->tz_offset_s;	// time() is server-time and we need a user-time
 
 		$this->user =& $GLOBALS['egw_info']['user']['account_id'];
 		$this->lang =& $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
-		
+
 		$this->cats =& CreateObject('phpgwapi.categories','','news_admin');
 	}
-	
+
 	/**
 	 * changes the data from the db-format to your work-format
 	 *
@@ -124,7 +124,7 @@ class bonews extends so_sql
 				$data['link'] = $data['news_content'];
 				unset($data['news_content']);
 				break;
-				
+
 			case -2:
 				$data['link'] = $data['news_teaser'];
 				unset($data['news_teaser']);
@@ -171,7 +171,7 @@ class bonews extends so_sql
 		}
 		return $data;
 	}
-	
+
 	/**
 	 * saves the content of data to the db
 	 *
@@ -182,7 +182,7 @@ class bonews extends so_sql
 	function save($keys=null,$ignore_acl=false)
 	{
 		if ($keys) $this->data_merge($keys);
-		
+
 		if (!$this->data['cat_id'] || !$ignore_acl && !$this->check_acl($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD))
 		{
 			return true;
@@ -198,7 +198,7 @@ class bonews extends so_sql
 		}
 		return parent::save();
 	}
-	
+
 	/**
 	 * Search / list news
 	 *
@@ -209,7 +209,7 @@ class bonews extends so_sql
 	 * - "date": news active by date
 	 *
 	 * @param array/string $criteria array of key and data cols, OR a SQL query (content for WHERE), fully quoted (!)
-	 * @param boolean/string/array $only_keys=false True returns only keys, False returns all cols. or 
+	 * @param boolean/string/array $only_keys=false True returns only keys, False returns all cols. or
 	 *	comma seperated list or array of columns to return
 	 * @param string $order_by='news_date DESC' fieldnames + {ASC|DESC} separated by colons ',', can also contain a GROUP BY (if it contains ORDER BY)
 	 * @param string/array $extra_cols='' string or array of strings to be added to the SELECT, eg. "count(*) as num"
@@ -273,7 +273,7 @@ class bonews extends so_sql
 			case 'now':
 				$filter[] = "(news_begin=0 AND news_end IS NULL OR news_begin <= $today AND ($today <= news_end OR news_end IS NULL))";
 				break;
-			
+
 			case 'future':
 				$filter[] = "news_begin > $today";
 				break;
@@ -282,12 +282,12 @@ class bonews extends so_sql
 				$filter[] = "news_end < $today";
 				$filter[] = 'news_end != 0';
 				break;
-				
+
 			case 'always':
 				$filter['news_begin'] = 0;
 				$filter[] = 'news_end IS NULL';
 				break;
-				
+
 			case 'never':
 				$filter['news_end'] = 0;
 				break;
@@ -305,10 +305,10 @@ class bonews extends so_sql
 		}
 		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter,$join);
 	}
-	
+
 	/**
 	 * Read one news
-	 * 
+	 *
 	 * reimplemented to check ACL
 	 *
 	 * @param array/int $keys array with keys or integer news_id
@@ -317,7 +317,7 @@ class bonews extends so_sql
 	function read($keys)
 	{
 		if (!is_array($keys) && (int)$keys) $keys = array('news_id' => (int)$keys);
-		
+
 		if ($keys['news_lang'])
 		{
 			// (news_id=$id AND news_lang IS NULL) OR (news_source_id=$id AND news_lang='$lang'
@@ -335,7 +335,7 @@ class bonews extends so_sql
 		}
 		return $this->data;
 	}
-	
+
 	/**
 	 * Set new default entry for all existing translations
 	 *
@@ -346,7 +346,7 @@ class bonews extends so_sql
 	{
 		if (!$old_id) $old_id = $this->data['news_source_id'];
 		if (!$new_id) $new_id = $this->data['news_id'];
-		
+
 		// set default on all existing ones
 		$this->db->update($this->table_name,array(
 			'news_source_id' => $new_id,
@@ -363,7 +363,7 @@ class bonews extends so_sql
 
 	/**
 	 * Check if user has the necessary rights for a given operation
-	 * 
+	 *
 	 * @param int $rights=EGW_ACL_READ
 	 * @param array $data=null array with news or null to use $this->data
 	 * @return boolean true if use has the necessary rights, false otherwise
@@ -373,7 +373,7 @@ class bonews extends so_sql
 		if ($rights == EGW_ACL_EDIT || $rights == EGW_ACL_DELETE) $rights = EGW_ACL_ADD;	// no edit or delete rights at the moment
 
 		if (is_null($data)) $data =& $this->data;
-		
+
 		if (is_array($data))
 		{
 			if (!$data['news_id'] && $rights != EGW_ACL_ADD)	// new items can only be added
@@ -388,7 +388,7 @@ class bonews extends so_sql
 		}
 		return $this->acl->is_permitted($cat_id,$rights);
 	}
-	
+
 	/**
 	 * Returns the cats the user has certain rights to
 	 *
@@ -415,7 +415,7 @@ class bonews extends so_sql
 		}
 		return $cats;
 	}
-	
+
 	/**
 	 * List news categories
 	 *
@@ -447,17 +447,17 @@ class bonews extends so_sql
 			'count(news_content) AS num_news','MAX(news_date) AS news_date',$this->cats->table.'.cat_id AS cat_id',
 		),'%',false,'OR',array($query['start'],$query['num_rows']),$filter,$join);
 		if (!$cats) $cats = array();
-		
+
 		foreach($cats as $k => $cat)
 		{
 			$cats[$k] += $this->_cat_rights($cat['cat_id']);
-			if ($cat['cat_data']) $cats[$k] += unserialize($cat['cat_data']);
+			if ($cat['cat_data'] && is_array($data = unserialize($cat['cat_data']))) $cats[$k] += $data;
 			if ($cats[$k]['import_url']) $cats[$k]['import_host'] = parse_url($cats[$k]['import_url'],PHP_URL_HOST);
 		}
 		//_debug_array($cats);
 		return $this->total;
 	}
-	
+
 	/**
 	 * Read one category plus extra data
 	 *
@@ -481,22 +481,22 @@ class bonews extends so_sql
 
 		return $data;
 	}
-	
+
 	/**
 	 * Check if the current user has rights to administrate a category
 	 *
 	 * @param array $cat
-	 * @return boolean 
+	 * @return boolean
 	 */
 	function admin_cat($cat)
 	{
 		if (!$cat) return false;
-		
+
 		if (!is_array($cat)) $cat = $this->read_cat($cat);
 
 		return $cat && ($cat['cat_owner'] == $this->user || isset($GLOBALS['egw_info']['user']['apps']['admin']));
 	}
-	
+
 	/**
 	 * Save the category data
 	 *
@@ -506,7 +506,7 @@ class bonews extends so_sql
 	function save_cat($cat)
 	{
 		if (!is_array($cat) || !$this->admin_cat($cat)) return false;
-		
+
 		$cat['cat_data'] = $cat['cat_data'] ? unserialize($cat['cat_data']) : array();
 		foreach(array('import_url','import_frequency') as $name)
 		{
@@ -514,7 +514,7 @@ class bonews extends so_sql
 		}
 		$cat['cat_data'] = serialize($cat['cat_data']);
 		if (!$cat['cat_access']) $cat['cat_access'] = 'public';
-		
+
 		foreach($cat as $name => $value)
 		{
 			if ($name == 'cat_description')
@@ -542,12 +542,12 @@ class bonews extends so_sql
 		if ($cat['cat_id'])
 		{
 			$this->acl->set_rights($cat['cat_id'],$cat['cat_readable'],$cat['cat_writable']);
-			
+
 			if ($cat['import_url']) $this->_setup_async_job();
 		}
 		return $cat['cat_id'];
 	}
-	
+
 	/**
 	 * Install an async job once per hour to import the feeds
 	 *
@@ -555,10 +555,10 @@ class bonews extends so_sql
 	function _setup_async_job()
 	{
 		require_once(EGW_API_INC.'/class.asyncservice.inc.php');
-		
+
 		$async =& new asyncservice();
 		//$async->cancel_timer('news_admin-import');
-		
+
 		if (!$async->read('news_admin-import'))
 		{
 			$async->set_timer(array('hour' => '*'),'news_admin-import','news_admin.news_admin_import.async_import',null);
@@ -576,14 +576,14 @@ class bonews extends so_sql
 		$cat_id = is_array($cat) ? $cat['cat_id'] : $cat;
 
 		if (!$cat_id || !$this->admin_cat($cat)) return false;
-		
+
 		$this->delete(array('cat_id' => $cat_id));
-		
+
 		$this->cats->delete($cat_id,false,true);	// reparent the subs to our parent
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Read the rights of one cat from the ACL
 	 *
@@ -603,7 +603,7 @@ class bonews extends so_sql
 		}
 		return $cat;
 	}
-	
+
 	/**
 	 * Check if the XML_Feed_Parser class is available
 	 *
