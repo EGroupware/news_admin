@@ -28,7 +28,7 @@
 	}
 	
 	// check if we are loaded via sitemgr's news_module
-	if (!$GLOBALS['egw_info']['flags']['currentapp'] == 'sitemgr-link') {
+	if (!(isset($GLOBALS['egw_info']) && isset($GLOBALS['egw_info']['flags']) && isset($GLOBALS['egw_info']['flags']['currentapp']) && $GLOBALS['egw_info']['flags']['currentapp'] == 'sitemgr-link')) {
 		$GLOBALS['egw_info']['flags'] = array(
 			'noheader'  => True,
 			'nonavbar' => True,
