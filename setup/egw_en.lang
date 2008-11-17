@@ -91,7 +91,6 @@ small view	news_admin	en	small view
 start	news_admin	en	Start
 submitted by	common	en	Submitted by
 submitted by %1 on %2	news_admin	en	Submitted by %1 on %2
-submitted by and date	news_admin	en	Submitted by and date
 teaser	news_admin	en	Teaser
 teaser with read more link	news_admin	en	Teaser with read more link
 the news content is missing	news_admin	en	The news content is missing

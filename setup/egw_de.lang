@@ -1,5 +1,6 @@
 %1 module	news_admin	de	%1 Module
-%s hours	news_admin	de	%1 Stunden
+%1 news imported (%2 new).	news_admin	de	%1 Nachrichten importiert (%2 neue).
+%s hours	news_admin	de	%s Stunden
 actions	news_admin	de	Befehle
 active	news_admin	de	Aktiv
 add new article	news_admin	de	Neue Nachricht hinzufügen
@@ -8,6 +9,9 @@ add news item	news_admin	de	Eine neue Nachricht hinzufügen
 all news	news_admin	de	Alle Nachrichten
 always	news_admin	de	Immer
 by date	news_admin	de	Nach Datum
+categories to displayed on main page?	news_admin	de	Kategorien zum Anzeigen auf der Startseite?
+category deleted.	news_admin	de	Kategorie gelöscht.
+category saved.	news_admin	de	Kategorie gespeichert.
 choose a category	news_admin	de	Wählen Sie eine Kategorie
 configuration	news_admin	de	Konfiguration
 configure access permissions	common	de	Zugriffsrechte konfigurieren
@@ -20,6 +24,8 @@ delete this news	news_admin	de	Diese Nachricht löschen
 do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS link für diese Kategorie anzeigen
 edit news item	news_admin	de	Nachricht bearbeiten
 end	news_admin	de	Ende
+error importing the feed!	news_admin	de	Fehler beim Importieren des Feeds!
+error saving the category!	news_admin	de	Fehler beim Speichern der Kategorie!
 error saving the news!	news_admin	de	Fehler beim Spechern der Nachricht!
 failed to add message	news_admin	de	Hinzufügen einer neuen Nachricht fehlgeschlagen
 format for links to items	news_admin	de	Format für Verweise auf Einträge
@@ -39,6 +45,7 @@ implies read permission	news_admin	de	beinhaltet Leserechte
 import every	news_admin	de	Importieren alle
 import now	news_admin	de	Jetzt Importieren
 import url	news_admin	de	Import URL
+imported feeds can not be writable!	news_admin	de	Importierte Feeds können NICHT beschreibbar sein!
 item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
 last updated	news_admin	de	Zuletzt aktualisiert
@@ -67,6 +74,7 @@ number of articles to display on the main screen	news_admin	de	Anzahl der Nachri
 number of news items to be displayed on page	news_admin	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 old	news_admin	de	Alte
 on	news_admin	de	An
+page-name the item should be displayed (empty = current page)	news_admin	de	Seitenname auf der die Einträge angezeigt werden sollen (leer = aktuelle Seite)
 parent	news_admin	de	Eltern
 picture upload (leave the upload directory empty to disable the upload)	admin	de	Hochladen von Dateien (Lassen sie die Felder frei um das Hochladen abzuschalten)
 please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
@@ -96,5 +104,6 @@ view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
 webpage news admin	news_admin	de	Webseite Nachrichten
 which information do you want to show (css class)	news_admin	de	Welche Informationen sollen angezeigt werden (CSS Klasse)
+which news categories should be displayed on the main screen.	news_admin	de	Welche Nachrichten Kategorien sollen auf der Startseite angezeigt werden.
 write	news_admin	de	Schreiben
 write permissions	news_admin	de	Schreibrechte
