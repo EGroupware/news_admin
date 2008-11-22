@@ -65,6 +65,7 @@ news item has been added	news_admin	es-es	Se ha añadido un elemento de noticias
 news item has been updated	news_admin	es-es	Se ha actualizado un elemento de noticias
 news saved.	news_admin	es-es	Noticia guardada
 news_admin	common	es-es	Administrador de noticias
+no anonymous user accounts installed.  notify the administrator.	news_admin	es-es	NO HAY CUENTA INSTALADA PARA EL USUARIO ANONIMO. NOTIFIQUELO AL ADMINISTRADOR.
 no entries found	news_admin	es-es	No se encontraron entradas
 no matching news item	news_admin	es-es	No coincide ninguna noticia
 no news	news_admin	es-es	Sin noticias está actualmente en la categoría

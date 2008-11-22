@@ -65,6 +65,7 @@ news item has been added	news_admin	en	News item has been added
 news item has been updated	news_admin	en	News item has been updated
 news saved.	news_admin	en	News saved.
 news_admin	common	en	News Admin
+no anonymous user accounts installed.  notify the administrator.	news_admin	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no entries found	news_admin	en	no entries found
 no matching news item	news_admin	en	No matching news item
 no news	news_admin	en	No News is Currently Available in the Category
@@ -91,6 +92,7 @@ small view	news_admin	en	small view
 start	news_admin	en	Start
 submitted by	common	en	Submitted by
 submitted by %1 on %2	news_admin	en	Submitted by %1 on %2
+submitted by and date	news_admin	en	Submitted by and date
 teaser	news_admin	en	Teaser
 teaser with read more link	news_admin	en	Teaser with read more link
 the news content is missing	news_admin	en	The news content is missing
