@@ -65,6 +65,7 @@ news item has been added	news_admin	nl	Nieuwsitem is toegevoegd
 news item has been updated	news_admin	nl	Nieuwsitem is bijgewerkt
 news saved.	news_admin	nl	Nieuws opgeslagen.
 news_admin	common	nl	Nieuwsbeheer
+no anonymous user accounts installed.  notify the administrator.	news_admin	nl	GEEN ANONIEME GEBRUIKERS ACCOUNTS GEINSTALLEERD. WAARSCHUW DE BEHEERDER.
 no entries found	news_admin	nl	geen items gevonden
 no matching news item	news_admin	nl	Geen overeenkomende nieuws items
 no news	news_admin	nl	Er is momenteel geen nieuws beschikbaar in deze categorie
