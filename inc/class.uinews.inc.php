@@ -65,7 +65,7 @@ class uinews extends bonews
 		else
 		{
 			$referer = $content['referer'];
-			echo "$referer<br>";
+			#echo "$referer<br>";
 			list($button) = each($content['button']);
 			unset($content['button']);
 			$this->data = $content;
