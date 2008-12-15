@@ -52,6 +52,8 @@ class uinews extends bonews
 	 */
 	function edit($content=null,$msg='')
 	{
+		$referer = $GLOBALS['egw']->common->get_referer();
+		#_debug_array($content);
 		if (!is_array($content))
 		{
 			if (!(int) $_GET['news_id'] || !$this->read($_GET['news_id']))
@@ -62,6 +64,8 @@ class uinews extends bonews
 		}
 		else
 		{
+			$referer = $content['referer'];
+			echo "$referer<br>";
 			list($button) = each($content['button']);
 			unset($content['button']);
 			$this->data = $content;
@@ -73,8 +77,7 @@ class uinews extends bonews
 					{
 						$this->delete(array('news_id' => $this->data['news_id']));
 						$msg = lang('News deleted.');
-						echo "<html><body><script>var referer = opener.location;opener.location.href = referer+(referer.search?'&':'?')+'msg=".
-							addslashes(urlencode($msg))."'; window.close();</script></body></html>\n";
+						echo "<html><body><script>var referer = '".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."'; window.close();</script></body></html>\n";
 						$GLOBALS['egw']->common->egw_exit();
 					}
 					break;
@@ -113,7 +116,7 @@ class uinews extends bonews
 						if (($err = $this->save()) == 0)
 						{
 							$msg = lang('News saved.');
-							$js = "opener.location.href=opener.location.href+'&msg=".addslashes(urlencode($msg))."';";
+							$js = "opener.location.href='".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."';";
 							
 							if ($content['set_new_default'])	// created a new default lang for an existing entry
 							{
@@ -150,13 +153,17 @@ class uinews extends bonews
 						}
 						$msg = lang('There no such translation.');
 					}
+					$this->data['referer'] = $content['referer'];
 					break;	
 				case 'cancel':	// should never happen
 					break;
 			}
+			// set the referer info to null, so the original referer will be preserved
+			$referer = NULL;
 		}
 		$content = $preserve = $this->data;
 		$preserve['old_lang'] = $this->data['news_lang'];	// remember old lang
+		if ($referer) $content['referer'] = $preserve['referer'] = $referer;
 		$content['msg'] = $msg;
 		if (!($content['rtfEditorFeatures'] = $GLOBALS['egw_info']['user']['preferences']['news_admin']['rtfEditorFeatures']))
 		{
