@@ -27,12 +27,14 @@
 
 		function boacl($session=False)
 		{
-			$this->accounts = $GLOBALS['egw']->accounts->get_list();
+			//error_log(__METHOD__."($name)".function_backtrace());
+			#$this->accounts = $GLOBALS['egw']->accounts->get_list();
 			$this->debug = False;
 			//all this is only needed when called from uiacl. not from ui,
 			if($session)
 			{
 				$this->read_sessiondata();
+				if (!is_array($this->accounts) || !isset($this->accounts)) $this->accounts = $GLOBALS['egw']->accounts->get_list();
 				$this->use_session = True;
 				foreach(array('start','query','sort','order') as $var)
 				{
@@ -61,6 +63,7 @@
 				'sort'  => $this->sort,
 				'order' => $this->order,
 				'limit' => $this->limit,
+				'accounts' => $this->accounts,
 			);
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
 			$GLOBALS['egw']->session->appsession('session_data','news_admin_acl',$data);
@@ -76,6 +79,7 @@
 			$this->sort   = $data['sort'];
 			$this->order  = $data['order'];
 			$this->limit = $data['limit'];
+			$this->accounts = $data['accounts'];
 		}
 
 		function get_rights($cat_id)
@@ -100,6 +104,8 @@
 
 		function set_rights($cat_id,$read,$write)
 		{
+			// fetch it if not existing
+			if (!is_array($this->accounts) || !isset($this->accounts)) $this->accounts = $GLOBALS['egw']->accounts->get_list();
 			$readcat = $read ? $read : array();
 			$writecat = $write ? $write : array();
 
