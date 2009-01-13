@@ -29,7 +29,8 @@
 		function uiacl()
 		{
 			$this->bo =& CreateObject('news_admin.boacl',True);
-			$this->accounts = $GLOBALS['egw']->accounts->get_list();
+			#$this->accounts = $GLOBALS['egw']->accounts->get_list();
+			$this->accounts = $this->bo->accounts;
 			$this->nextmatchs =& CreateObject('phpgwapi.nextmatchs');
 			$this->start = $this->bo->start;
 			$this->query = $this->bo->query;
