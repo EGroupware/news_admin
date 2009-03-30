@@ -15,6 +15,7 @@ $setup_info['news_admin']['title']     = 'News Admin';
 $setup_info['news_admin']['version']   = '1.6';
 $setup_info['news_admin']['app_order'] = 16;
 $setup_info['news_admin']['enable']    = 1;
+$setup_info['news_admin']['index']     = 'news_admin.uinews.index';
 
 $setup_info['news_admin']['author']    =
 $setup_info['news_admin']['maintainer'] = 'Ralf Becker';
