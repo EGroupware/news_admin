@@ -65,6 +65,7 @@ news item has been added	news_admin	de	Nachrichten wurde hinzugefügt
 news item has been updated	news_admin	de	Nachrichten wurde upgedatet
 news saved.	news_admin	de	Nachricht gespeichert.
 news_admin	common	de	Nachrichten
+no anonymous user accounts installed.  notify the administrator.	news_admin	de	ES ist keine Anonymer Benutzeraccount installiert. Benachrichtigen Sie den Administrator.
 no entries found	news_admin	de	Keine Einträge gefunden
 no matching news item	news_admin	de	Keine zutreffenden Nachrichten
 no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
@@ -91,6 +92,7 @@ small view	news_admin	de	schmale Anzeige
 start	news_admin	de	Anfang
 submitted by	common	de	Eingetragen von
 submitted by %1 on %2	news_admin	de	Eingetragen von %1 am %2
+submitted by and date	news_admin	de	Eingetragen von und mit Datum
 teaser	news_admin	de	Anreiser
 teaser with read more link	news_admin	de	Anreise mit weiter lesen Link
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
