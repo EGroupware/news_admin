@@ -556,7 +556,7 @@ class bonews extends so_sql
 	{
 		require_once(EGW_API_INC.'/class.asyncservice.inc.php');
 
-		$async =& new asyncservice();
+		$async = new asyncservice();
 		//$async->cancel_timer('news_admin-import');
 
 		if (!$async->read('news_admin-import'))

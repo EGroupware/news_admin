@@ -111,7 +111,7 @@ class news_admin_ui extends bonews
 					
 				case 'import':
 					require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_admin_import.inc.php');
-					$import =& new news_admin_import($this);
+					$import = new news_admin_import($this);
 					if ((list($imported,$newly) = $import->import($content['cat_id'],$content['import_url'])) === false)
 					{
 						$msg = lang('Error importing the feed!');

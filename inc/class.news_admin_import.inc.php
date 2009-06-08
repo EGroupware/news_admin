@@ -34,7 +34,7 @@ class news_admin_import
 	{
 		if (is_null($bonews))
 		{
-			$this->bonews =& new bonews();
+			$this->bonews = new bonews();
 		}
 		else
 		{
