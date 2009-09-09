@@ -65,6 +65,7 @@ news item has been added	news_admin	cs	Položka novinek byla přidána
 news item has been updated	news_admin	cs	Položka novinek byla zaktualizována
 news saved.	news_admin	cs	Novinka uložna.
 news_admin	common	cs	Správce novinek
+no anonymous user accounts installed.  notify the administrator.	news_admin	cs	Nejsou nainstalovány žádné anonymní uživatelské účty. Upozorněte správce.
 no entries found	news_admin	cs	žádné záznamy nebyly nalezeny
 no matching news item	news_admin	cs	Žádné odpovídající položky novinek nebyly nalezeny
 no news	news_admin	cs	V kategorii nejsou momentálně dostupné žádné novinky
