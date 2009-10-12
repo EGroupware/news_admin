@@ -5,8 +5,8 @@ add news item	news_admin	no	Opprett nyhetsdetaljer
 all news	news_admin	no	Alle nyheter
 always	news_admin	no	Alltid
 configuration	news_admin	no	Konfigurasjon
-configure access permissions	common	no	Konfigurer aksesstillatelser
-configure rss exports	common	no	Konfigurer RSS eksport
+configure access permissions	news_admin	no	Konfigurer aksesstillatelser
+configure rss exports	news_admin	no	Konfigurer RSS eksport
 contains html	news_admin	no	Inneholde HTML
 content	news_admin	no	Innhold
 edit news item	news_admin	no	Redigere nyheter
@@ -35,7 +35,7 @@ news admin	news_admin	no	Nyhetsadm.
 news administration	news_admin	no	Nyhetsadm.
 news item has been added	news_admin	no	En nyhet ble lagt til
 news item has been updated	news_admin	no	En nyhet ble oppdatert
-news_admin	common	no	Nyhetsadm.
+news_admin	news_admin	no	Nyhetsadm.
 no entries found	news_admin	no	Ingen forekomster funnet
 no news	news_admin	no	Det er ingen nyheter tilgjengelig i denne kategorien.
 no rss export	news_admin	no	Ingen RSS eksport
