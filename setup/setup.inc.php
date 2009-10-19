@@ -25,11 +25,11 @@ $setup_info['news_admin']['maintainer_email'] = 'RalfBecker@outdoor-training.de'
 $setup_info['news_admin']['tables']    = array('egw_news','egw_news_export');
 
 /* The hooks this app includes, needed for hooks registration */
-$setup_info['news_admin']['hooks'][] = 'admin';
+$setup_info['news_admin']['hooks']['admin'] = 'news_admin.news_admin_hooks.admin';
+$setup_info['news_admin']['hooks']['sidebox_menu'] = 'news_admin.news_admin_hooks.sidebox_menu';
+$setup_info['news_admin']['hooks']['settings'] = 'news_admin.news_admin_hooks.settings';
+$setup_info['news_admin']['hooks']['preferences'] = 'news_admin.news_admin_hooks.preferences';
 $setup_info['news_admin']['hooks'][] = 'home';
-$setup_info['news_admin']['hooks'][] = 'sidebox_menu';
-$setup_info['news_admin']['hooks'][] = 'settings';
-$setup_info['news_admin']['hooks'][] = 'preferences';
 $setup_info['news_admin']['hooks'][] = 'config_validate';
 
 /* Dependencies for this app to work */

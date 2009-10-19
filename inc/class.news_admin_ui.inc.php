@@ -7,7 +7,7 @@
  * @package news_admin
  * @copyright (c) 2007 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$ 
+ * @version $Id$
  */
 
 require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
@@ -41,10 +41,10 @@ class news_admin_ui extends bonews
 	function news_admin_ui()
 	{
 		$this->bonews();
-		
+
 		$this->tpl =& CreateObject('etemplate.etemplate');
 	}
-	
+
 	/**
 	 * Edit a news
 	 *
@@ -65,8 +65,17 @@ class news_admin_ui extends bonews
 		}
 		else
 		{
-			list($button) = each($content['button']);
-			unset($content['button']);
+			if ($content['button'])
+			{
+				list($button) = each($content['button']);
+				unset($content['button']);
+			}
+			elseif($content['delete'])
+			{
+				list($id) = each($content['button']);
+				unset($content['delete']);
+				$button = 'delete';
+			}
 
 			switch($button)
 			{
@@ -108,7 +117,7 @@ class news_admin_ui extends bonews
 						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
 					break;
-					
+
 				case 'import':
 					require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_admin_import.inc.php');
 					$import = new news_admin_import($this);
@@ -123,7 +132,7 @@ class news_admin_ui extends bonews
 						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
 					break;
-					
+
 				case 'cancel':	// should never happen
 					break;
 			}
@@ -150,7 +159,7 @@ class news_admin_ui extends bonews
 		$this->tpl->read('news_admin.cat');
 		return $this->tpl->exec('news_admin.news_admin_ui.cat',$content,$sel_options,$readonlys,$preserve,2);
 	}
-	
+
 	/**
 	 * List the categories to administrate them
 	 *
@@ -161,7 +170,7 @@ class news_admin_ui extends bonews
 	function cats($content=null,$msg='')
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
-		
+
 		if ($content['nm']['rows']['delete'])
 		{
 			list($id) = each($content['nm']['rows']['delete']);
@@ -198,7 +207,7 @@ class news_admin_ui extends bonews
 	/**
 	 * rows callback for index nextmatch
 	 *
-	 * @internal 
+	 * @internal
 	 * @param array &$query
 	 * @param array &$rows returned rows/cups
 	 * @param array &$readonlys eg. to disable buttons based on acl
@@ -207,14 +216,14 @@ class news_admin_ui extends bonews
 	function get_cats(&$query_in,&$rows,&$readonlys,$id_only=false)
 	{
 		$GLOBALS['egw']->session->appsession('cats','news_admin',$query=$query_in);
-		
+
 		$total = parent::get_cats($query,$rows);
-		
+
 		$readonlys = array();
 		foreach($rows as $k => $row)
 		{
 			$readonlys['edit['.$row['cat_id'].']']   = $readonlys['delete['.$row['cat_id'].']'] = !$this->admin_cat($row);
-			
+
 			if ($row['cat_owner'] == -1) $rows[$k]['cat_owner'] = '';	// not display #-1
 		}
 		//_debug_array($rows);
