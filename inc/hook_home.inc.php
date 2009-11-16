@@ -46,7 +46,7 @@
 		$GLOBALS['portal_order'][] = $app_id;
 
 		require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
-		$news =& new bonews();
+		$news = new bonews();
 		$criteria = array();
 		if ($GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowCats'])
 		{
