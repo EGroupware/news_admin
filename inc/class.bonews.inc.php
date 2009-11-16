@@ -403,14 +403,30 @@ class bonews extends so_sql
 			if (!($all_cats = $this->cats->return_array('all',0,False,'','','cat_name',True))) $all_cats = array();
 		}
 		if ($rights == EGW_ACL_EDIT) $rights = EGW_ACL_ADD;	// no edit rights at the moment
-
+		$accountId = $GLOBALS['egw_info']['user']['account_id'];
 		$cats = array();
 		foreach($all_cats as $cat)
 		{
 			if ($this->acl->is_permitted($cat['id'],$rights))
 			{
-				$cats[$cat['id']] = str_repeat('&nbsp;',$cat['level']).stripslashes($cat['name']).
-					($cat['app_name'] == 'phpgw' || $cat['owner'] == '-1' ? ' &#9830;' : '');
+				if ($cat['app_name'] == 'phpgw' || $cat['owner'] == '-1')
+				{
+					$appendix = ' &#9830;';
+				}
+				elseif ($cat['owner'] != $accountId)
+				{
+					$appendix = '&lt;' . $GLOBALS['egw']->accounts->id2name($cat['owner'], 'account_fullname') . '&gt;';
+				}
+				elseif ($cat['access'] == 'private')
+				{
+					$appendix = ' &#9829;';
+				}
+				else
+				{
+					$appendix = '';
+				}
+				$cats[$cat['id']] = str_repeat('&nbsp;',$cat['level']).stripslashes($cat['name'])
+									. $appendix;
 			}
 		}
 		return $cats;
@@ -556,7 +572,7 @@ class bonews extends so_sql
 	{
 		require_once(EGW_API_INC.'/class.asyncservice.inc.php');
 
-		$async =& new asyncservice();
+		$async = new asyncservice();
 		//$async->cancel_timer('news_admin-import');
 
 		if (!$async->read('news_admin-import'))
