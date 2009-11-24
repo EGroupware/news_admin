@@ -63,6 +63,7 @@ news item has been added	news_admin	sl	Zapis o novici je bil dodan.
 news item has been updated	news_admin	sl	Zapis o novici je bil osvežen.
 news saved.	news_admin	sl	Novica shranjena.
 news_admin	common	sl	Upravljanje novic
+no anonymous user accounts installed.  notify the administrator.	news_admin	sl	Anonimni uporabnik ni določen. Obvestite oskrbnika.
 no entries found	news_admin	sl	Ne najdem zapisov.
 no matching news item	news_admin	sl	Ni ustreznih novic
 no news	news_admin	sl	V tej kategoriji trenutno ni razpoložljivih novic.
