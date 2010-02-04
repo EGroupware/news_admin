@@ -223,8 +223,6 @@ class news_admin_ui extends bonews
 		foreach($rows as $k => $row)
 		{
 			$readonlys['edit['.$row['cat_id'].']']   = $readonlys['delete['.$row['cat_id'].']'] = !$this->admin_cat($row);
-
-			if ($row['cat_owner'] == -1) $rows[$k]['cat_owner'] = '';	// not display #-1
 		}
 		//_debug_array($rows);
 		return $total;

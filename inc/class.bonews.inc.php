@@ -88,7 +88,7 @@ class bonews extends so_sql
 		$this->user =& $GLOBALS['egw_info']['user']['account_id'];
 		$this->lang =& $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 
-		$this->cats =& CreateObject('phpgwapi.categories','','news_admin');
+		$this->cats = new categories('','news_admin');
 	}
 
 	/**
@@ -410,7 +410,7 @@ class bonews extends so_sql
 			if ($this->acl->is_permitted($cat['id'],$rights))
 			{
 				$cats[$cat['id']] = str_repeat('&nbsp;',$cat['level']).stripslashes($cat['name']).
-					($cat['app_name'] == 'phpgw' || $cat['owner'] == '-1' ? ' &#9830;' : '');
+					(categories::is_global($cat) ? ' &#9830;' : '');
 			}
 		}
 		return $cats;
@@ -466,18 +466,17 @@ class bonews extends so_sql
 	 */
 	function read_cat($cat_id)
 	{
-		if (!($cat = $this->cats->return_single($cat_id)))
+		if (!($cat = categories::read($cat_id)))
 		{
 			return false;
 		}
 		$data = $this->_cat_rights($cat_id);
-		foreach($cat[0] as $name => $value)
+		foreach($cat as $name => $value)
 		{
 			$data['cat_'.$name] = $value;
-			if ($name == 'data' && $value) $data += unserialize($value);
+			if ($name == 'data' && $value) $data += $value;
 		}
 		$data['old_parent'] = $data['cat_parent'];	// to determine it got modified
-		if ($data['cat_owner'] == -1) $data['cat_owner'] = 0;
 
 		return $data;
 	}
@@ -534,9 +533,10 @@ class bonews extends so_sql
 		else
 		{
 			// cat owner can only be set for new cats!
-			if (!$cat['cat_owner']) $cat['cat_owner'] = -1;
-			if ($cat['cat_owner'] == '-1') $this->cats->account_id = -1;	// othwerwise the current use get set
-
+			if ($cat['cat_owner'] == categories::GLOBAL_ACCOUNT)
+			{
+				$this->cats->account_id = categories::GLOBAL_ACCOUNT;	// othwerwise the current use get set
+			}
 			$cat['cat_id'] = $this->cats->add($cat);
 		}
 		if ($cat['cat_id'])
