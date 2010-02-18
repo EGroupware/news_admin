@@ -532,6 +532,7 @@ class bonews extends so_sql
 		}
 		else
 		{
+			if (empty($cat['cat_owner'])) $cat['cat_owner'] =  categories::GLOBAL_ACCOUNT;
 			// cat owner can only be set for new cats!
 			if ($cat['cat_owner'] == categories::GLOBAL_ACCOUNT)
 			{
