@@ -53,7 +53,6 @@ class uinews extends bonews
 	function edit($content=null,$msg='')
 	{
 		$referer = $GLOBALS['egw']->common->get_referer();
-		#_debug_array($content);
 		if (!is_array($content))
 		{
 			if (!(int) $_GET['news_id'] || !$this->read($_GET['news_id']))
@@ -115,6 +114,8 @@ class uinews extends bonews
 						}
 						if (($err = $this->save()) == 0)
 						{
+							// make sure $content gets all the data of the new/updated entry
+							$content = $this->data;
 							$msg = lang('News saved.');
 							$js = "opener.location.href='".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."';";
 							
@@ -140,7 +141,7 @@ class uinews extends bonews
 					{
 						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
-					break;
+					//break; // fall through, as the user did hit apply. So we want to redisplay our new or modified article
 				case 'reload':
 					$source_id = $content['news_source_id'] ? $content['news_source_id'] : $content['news_id'];
 					if (!$this->read(array('news_id'=>$source_id,'news_lang'=>$content['news_lang'])))
