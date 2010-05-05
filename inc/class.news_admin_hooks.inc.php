@@ -120,28 +120,41 @@ class news_admin_hooks
 	public static function sidebox_menu($hook_data)
 	{
 		$appname = 'news_admin';
+		$categories = new categories('',$appname);
+		$enableadd = false;
+		foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
+		{
+			if ($categories->check_perms(EGW_ACL_EDIT,$cat))
+			{
+				$enableadd = true;
+				break;
+			}
+		}
 		$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
-		$file = Array(
-			array(
-				'text' => '<a class="textSidebox" href="'.egw::link('/index.php',array('menuaction' => 'news_admin.uinews.edit')).
-					'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\');
-					return false;">'.lang('Add').'</a>',
-				'no_lang' => true,
-				'link' => false
-			),
-			'Read news' => egw::link('/index.php',array('menuaction' => 'news_admin.uinews.index')),
-		);
+		$file = array();
+		if ($enableadd)
+		{
+			$file = Array(
+				array(
+					'text' => '<a class="textSidebox" href="'.egw::link('/index.php',array('menuaction' => 'news_admin.uinews.edit')).
+						'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\');
+						return false;">'.lang('Add').'</a>',
+					'no_lang' => true,
+					'link' => false
+				));
+		}
+		$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.uinews.index'));
+
 		display_sidebox($appname,$menu_title,$file);
 
 		$title = lang('Preferences');
 		$file = array();
-		if ($GLOBALS['egw_info']['apps']['preferences'])
+		if ($GLOBALS['egw_info']['user']['apps']['preferences'])
 		{
 			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname);
-
+			$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
+			display_sidebox($appname,$title,$file);
 		}
-		$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
-		display_sidebox($appname,$title,$file);
 
 		if($GLOBALS['egw_info']['user']['apps']['admin'])
 		{
