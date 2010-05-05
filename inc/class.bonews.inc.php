@@ -441,7 +441,7 @@ class bonews extends so_sql
 			"cat_appname='news_admin'",
 		);
 		if (is_array($query['col_filter'])) $filter += $query['col_filter'];
-		if (!$ignore_acl && !isset($GLOBALS['egw_info']['user']['apps']['admin'])) $filter[] = "cat_owner=$this->user OR cat_owner=-1";
+		if (!$ignore_acl && !isset($GLOBALS['egw_info']['user']['apps']['admin'])) $filter[] = "(cat_owner=$this->user OR cat_owner=".categories::GLOBAL_ACCOUNT.")";
 		$cats = $this->search($criteria,'1',$order,array(
 			'cat_name','cat_description','cat_data','cat_parent','cat_owner','cat_appname',
 			'count(news_content) AS num_news','MAX(news_date) AS news_date',$this->cats->table.'.cat_id AS cat_id',
