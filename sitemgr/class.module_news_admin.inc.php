@@ -105,12 +105,15 @@ class module_news_admin extends Module
 		}
 		$limit = (int)$arguments['limit'] ? $arguments['limit'] : 5;
 		$show = $arguments['show'];
+		// If not set, assume default values.
+		if (count($show) == 0) {
+			$show = array('headline','teaser','content');
+		}
 		// for the center area you can use a direct link to call a certain item
 		if ($show[0] == 'title_list') $listview = true;  //for Joomla Style news
 		if (!($item = (int)$arguments['item']) && $this->block->area == 'center')
 		{
 			$item = (int)$_GET['item'];
-			$show = array('headline','submitted','teaser','content');
 		}
 
 		if (!$listview)
