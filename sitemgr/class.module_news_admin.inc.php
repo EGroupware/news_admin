@@ -63,6 +63,11 @@ class module_news_admin extends Module
 				'label' => lang('Page-name the item should be displayed (empty = current page)'),
 				'params' => array('size' => 50)
 			),
+			'items' => array(
+				'type' => 'textfield',
+				'label' => lang('Comma separated item IDs which shall be shown (empty = all)'),
+				'params' => array('size' => 50)
+			),
 		);
 		$this->get = array('item','start');
 		$this->session = array('item','start');
@@ -148,13 +153,60 @@ class module_news_admin extends Module
 		}
 		else
 		{
-			$filter = $arguments['category'] ? array('cat_id' => $arguments['category']) : array();
-			$result = $this->bonews->search('',false,'news_date DESC','','',false,'AND',array((int)$arguments['start'],$limit),$filter);
+			$filter = array();
+			$result = array();
 
-			if (is_array($result)) foreach($result as $news)
+			if ($GLOBALS['sitemgr_info']['userlang'])
 			{
-				$html .= $this->render($news,$arguments['show'],$arguments['linkpage']);
+				$filter['news_lang'] = $GLOBALS['sitemgr_info']['userlang'];
 			}
+
+			if ($arguments['category'])
+			{
+				$filter = array('cat_id' => $arguments['category']);
+			}
+
+			if ($arguments['items'])
+			{
+				$count = 0;
+				$items_array = array();
+				// Normalize the sting user input for later uniqueness 
+				foreach (explode(',', $arguments['items']) as $news_id)
+				{
+					$items_array[] = (int) trim($news_id);
+				}
+				// Let the order of the entries matter.
+				// Loop here instead of putting the news IDs into the DB search.
+				foreach (array_unique($items_array) as $news_id)
+				{
+					$criteria = array('news_id' => (int) trim($news_id));
+					$result_int = $this->bonews->search($criteria,false,'news_date DESC','','',false,'OR',false,$filter);
+					if (is_array($result_int))
+					{
+						$result = array_merge($result, $result_int);
+						$count++;
+					}
+					if (($limit) && ($count >= $limit))
+					{
+						break;
+					}
+				}
+			}
+			else
+			{
+				$result = $this->bonews->search('',false,'news_date DESC','','',false,'AND',array((int)$arguments['start'],$limit),$filter);
+			}
+
+			// Catch the error case of the last search (not an array).
+			// If none is found but none is found, $result is an empty array with a quick loop exit.
+			if (is_array($result))
+			{
+				foreach($result as $news)
+				{
+					$html .= $this->render($news,$arguments['show'],$arguments['linkpage']);
+				}
+			}
+
 			if (in_array('more',$arguments['show']))
 			{
 				if ($arguments['start'])
@@ -201,7 +253,8 @@ class module_news_admin extends Module
 	 * @return string
 	 */
 	function render($news,$show,$page='')
-	{	if (!$listview) $html = "\t".'<div class="news_item news_item_'.implode('_',$show).'">'."\n";
+	{
+		if (!$listview) $html = "\t".'<div class="news_item news_item_'.implode('_',$show).'">'."\n";
 
 		foreach($show as $name)
 		{
