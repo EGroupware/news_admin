@@ -24,7 +24,7 @@ class news_admin_import
 	 * @var bonews
 	 */
 	var $bonews;
-	
+
 	/**
 	 * Constructor
 	 *
@@ -41,12 +41,12 @@ class news_admin_import
 			$this->bonews =& $bonews;
 		}
 	}
-	
+
 	/**
 	 * Read the feed of the given URL
 	 *
 	 * @param string $url
-	 * @return 
+	 * @return
 	 */
 	function read($url)
 	{
@@ -54,10 +54,11 @@ class news_admin_import
 		if (!in_array($parts['scheme'],array('http','https','ftp'))) return false;	// security!
 
 		$feed_xml = file_get_contents($url,false);
-		
+
 		// if the xml-file specifes an encoding, convert it to our own encoding
 		if (preg_match('/\<\?xml.*encoding="([^"]+)"/i',$feed_xml,$matches) && $matches[1])
 		{
+			$feed_xml = preg_replace('/(\<\?xml.*encoding=")([^"]+)"/i','$1'.$GLOBALS['egw']->translation->charset().'"',$feed_xml);
 			$feed_xml = $GLOBALS['egw']->translation->convert($feed_xml,$matches[1]);
 		}
 		try {
@@ -67,7 +68,7 @@ class news_admin_import
 		}
 		return $parser;
 	}
-	
+
 	/**
 	 * Import the feed of one category
 	 *
@@ -78,11 +79,11 @@ class news_admin_import
 	function import($cat_id,$url)
 	{
 		$parser = $this->read($url);
-		
+
 		if (!is_object($parser)) return false;
-		
+
 		$imported = $newly = 0;
-		foreach ($parser as $entry) 
+		foreach ($parser as $entry)
 		{
 			$check = array('cat_id' => $cat_id);
 			if ($entry->content)
@@ -119,7 +120,7 @@ class news_admin_import
 		}
 		return array($imported,$newly);
 	}
-	
+
 	/**
 	 * Import all categories, called via the async timed service
 	 *
@@ -130,7 +131,7 @@ class news_admin_import
 			'num_rows' => 999,
 			'start' => 0,
 		),$cats,$nul,true)) return;
-		
+
 		foreach($cats as $cat)
 		{
 			if ($cat['import_url'] && !((int)date('H') % $cat['import_frequency']))
