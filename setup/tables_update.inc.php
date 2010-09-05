@@ -1,6 +1,6 @@
 <?php
 /**
- * eGroupWare - News admin
+ * EGroupware - News admin
  *
  * The old version of this program was sponsored by Golden Glair productions
  *
@@ -249,4 +249,10 @@ function news_admin_upgrade1_5_001()
 function news_admin_upgrade1_5_002()
 {
 	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.6';
+}
+
+
+function news_admin_upgrade1_6()
+{
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.8';
 }
