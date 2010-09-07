@@ -170,7 +170,7 @@ class uinews extends bonews
 		{
 			$content['rtfEditorFeatures'] = 'extended';	// better default than simple for news_admin
 		}
-		$content['upload_dir'] = $this->_get_upload_dir();
+		$content['upload_dir'] = $GLOBALS['egw_info']['user']['preferences']['news_admin']['upload_dir'];
 		$sel_options = array(
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
 			'visible' => $this->visiblity,
@@ -196,20 +196,6 @@ class uinews extends bonews
 		}
 		$this->tpl->read('news_admin.edit');
 		return $this->tpl->exec('news_admin.uinews.edit',$content,$sel_options,$readonlys,$preserve,2);
-	}
-	
-	/**
-	 * Read the upload dir from site configuration
-	 *
-	 * @return string
-	 */
-	function _get_upload_dir()
-	{
-		include_once(EGW_API_INC.'/class.config.inc.php');
-		$config = new config('news_admin');
-		$config->read_repository();
-		
-		return $config->config_data['upload_dir'];
 	}
 	
 	/**

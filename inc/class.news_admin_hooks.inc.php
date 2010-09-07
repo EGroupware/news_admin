@@ -31,7 +31,7 @@ class news_admin_hooks
 			1 => lang('Yes'),
 		);
 
-		return array(
+		$prefs = array(
 			'homeShowLatest' => array(
 				'type'   => 'select',
 				'label'  => 'Show news articles on main page?',
@@ -77,94 +77,125 @@ class news_admin_hooks
 				'default'=> 'extended',
 			),
 		);
+		if ($GLOBALS['egw_info']['user']['apps']['filemanager'])
+		{
+			$prefs['upload_dir'] = array(
+				'type'  => 'input',
+				'label' => 'VFS upload directory',
+				'name'  => 'upload_dir',
+				'size'  => 50,
+				'help'  => 'Start directory for image browser of rich text editor in EGroupware VFS (filemanager).',
+				'xmlrpc' => True,
+				'admin'  => False,
+			);
+		}
+		return $prefs;
+	}
+
+	/**
+	 * Hook for sidebox, admin or preferences menu
+	 *
+	 * @param array|string $hook_data
+	 */
+	public static function all_hooks($hook_data)
+	{
+		$location = is_array($hook_data) ? $hook_data['location'] : $hook_data;
+		$appname = 'news_admin';
+		
+		if ($location == 'sidebox_menu')
+		{
+			$categories = new categories('',$appname);
+			$enableadd = false;
+			foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
+			{
+				if ($categories->check_perms(EGW_ACL_EDIT,$cat))
+				{
+					$enableadd = true;
+					break;
+				}
+			}
+			$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
+			$file = array();
+			if ($enableadd)
+			{
+				$file = Array(
+					array(
+						'text' => '<a class="textSidebox" href="'.egw::link('/index.php',array('menuaction' => 'news_admin.uinews.edit')).
+							'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\');
+							return false;">'.lang('Add').'</a>',
+						'no_lang' => true,
+						'link' => false
+					));
+			}
+			$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.uinews.index'));
+	
+			display_sidebox($appname,$menu_title,$file);
+		}
+		if ($location != 'admin' && $GLOBALS['egw_info']['user']['apps']['preferences'])
+		{
+			$title = lang('Preferences');
+			$file = array();
+			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname);
+			$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
+			
+			if ($location == 'sidebox_menu')
+			{
+				display_sidebox($appname,$title,$file);
+			}
+			else
+			{
+				display_section($appname,$title,$file);
+			}
+		}
+		if($location != 'preferences' && $GLOBALS['egw_info']['user']['apps']['admin'])
+		{
+			$title = lang('Administration');
+			$file = Array(
+				//'Site Configuration' => egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+				'Configure RSS exports' => egw::link('/index.php','menuaction=news_admin.uiexport.exportlist')
+			);
+
+			if ($location == 'sidebox_menu')
+			{
+				display_sidebox($appname,$title,$file);
+			}
+			else
+			{
+				display_section($appname,$title,$file);
+			}
+		}
 	}
 
 	/**
 	 * Hook for admin menu
 	 *
+	 * @deprecated use all_hooks
 	 * @param array|string $hook_data
 	 */
 	public static function admin($hook_data)
 	{
-		$appname = 'news_admin';
-		$file = Array
-		(
-			'Site Configuration' => egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-			'Global Categories'	=> egw::link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
-			'Configure Access Permissions' => egw::link('/index.php','menuaction=news_admin.uiacl.acllist'),
-			'Configure RSS exports' => egw::link('/index.php','menuaction=news_admin.uiexport.exportlist'),
-		);
-		display_section($appname,$appname,$file);
+		return self::all_hooks($hook_data);
 	}
 
 	/**
 	 * Hook for preferences menu
 	 *
+	 * @deprecated use all_hooks
 	 * @param array|string $hook_data
 	 */
 	public static function preferences($hook_data)
 	{
-		$appname = 'news_admin';
-		$title = $appname;
-		$file = array(
-			'Preferences' => egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname)
-		);
-		display_section($appname,$title,$file);
+		return self::all_hooks($hook_data);
 	}
 
 	/**
 	 * Hook for sidebox menu
 	 *
+	 * @deprecated use all_hooks
 	 * @param array|string $hook_data
 	 */
 	public static function sidebox_menu($hook_data)
 	{
-		$appname = 'news_admin';
-		$categories = new categories('',$appname);
-		$enableadd = false;
-		foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
-		{
-			if ($categories->check_perms(EGW_ACL_EDIT,$cat))
-			{
-				$enableadd = true;
-				break;
-			}
-		}
-		$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
-		$file = array();
-		if ($enableadd)
-		{
-			$file = Array(
-				array(
-					'text' => '<a class="textSidebox" href="'.egw::link('/index.php',array('menuaction' => 'news_admin.uinews.edit')).
-						'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\');
-						return false;">'.lang('Add').'</a>',
-					'no_lang' => true,
-					'link' => false
-				));
-		}
-		$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.uinews.index'));
-
-		display_sidebox($appname,$menu_title,$file);
-
-		$title = lang('Preferences');
-		$file = array();
-		if ($GLOBALS['egw_info']['user']['apps']['preferences'])
-		{
-			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname);
-			$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
-			display_sidebox($appname,$title,$file);
-		}
-
-		if($GLOBALS['egw_info']['user']['apps']['admin'])
-		{
-			$title = lang('Administration');
-			$file = Array(
-				'Site Configuration' => egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-				'Configure RSS exports' => egw::link('/index.php','menuaction=news_admin.uiexport.exportlist')
-			);
-
-			display_sidebox($appname,$title,$file);
-		}
-	}
+		return self::all_hooks($hook_data);
+	}	
 }
