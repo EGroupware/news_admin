@@ -198,7 +198,7 @@ class module_news_admin extends Module
 			}
 
 			// Catch the error case of the last search (not an array).
-			// If none is found but none is found, $result is an empty array with a quick loop exit.
+			// If none is found, $result is an empty array with a quick loop exit.
 			if (is_array($result))
 			{
 				foreach($result as $news)
