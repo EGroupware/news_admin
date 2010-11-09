@@ -85,8 +85,16 @@ class news_admin_import
 		$imported = $newly = 0;
 		foreach ($parser as $entry)
 		{
+			$content_is_html = $entry->content && strip_tags($entry->content) != $entry->content;
+
+			/* Update comma to the %ASCII encoding in the link to cope with the etemplate display.
+			 * This cannot be done inside the eTemplate as this does not know the content type
+			 * (URL / HTML / Plain Text) when converting variables to values in etemplate:expand_name()
+			 */
+			$entry->link = preg_replace('/,/','%2C', $entry->link);
+
 			$check = array('cat_id' => $cat_id);
-			if ($entry->content)
+			if ($content_is_html)
 			{
 				$check['news_teaser'] = $entry->link;
 			}
@@ -103,7 +111,6 @@ class news_admin_import
 			{
 				$date = strtotime($date);
 			}
-			$content_is_html = $entry->content && strip_tags($entry->content) != $entry->content;
 			if (!($err = $this->bonews->save($item=array(
 				'cat_id' => $cat_id,
 				'news_date' => $date,
