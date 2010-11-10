@@ -91,7 +91,7 @@ class news_admin_import
 			 * This cannot be done inside the eTemplate as this does not know the content type
 			 * (URL / HTML / Plain Text) when converting variables to values in etemplate:expand_name()
 			 */
-			$entry->link = preg_replace('/,/','%2C', $entry->link);
+			$entry->link = str_replace(',', '%2C', $entry->link);
 
 			$check = array('cat_id' => $cat_id);
 			if ($content_is_html)
