@@ -73,16 +73,33 @@ class news_admin_import
 	 * Import the feed of one category
 	 *
 	 * @param int $cat_id
-	 * @param string $url
 	 * @return array/boolean array(total imported,newly imported) or false on error
 	 */
-	function import($cat_id,$url)
+	function import($cat_id)
 	{
+		if (($cat = $this->bonews->read_cat($cat_id)) === false) return false;
+		if (! ($url = $cat['import_url'])) return false;
+		if (!isset($cat['keep_imported'])) $cat['keep_imported'] = -1; // keep all was the default.
+
 		$parser = $this->read($url);
 
 		if (!is_object($parser)) return false;
 
-		$imported = $newly = 0;
+		$imported = $newly = $deleted = 0;
+
+		$news_delete = array();
+		if ($cat['keep_imported'] >= 0)
+		{
+			$check = array('cat_id' => $cat_id);
+			$count = 0;
+			foreach($this->bonews->search($check,array('news_id'),'news_date DESC') as $key => $news)
+			{
+				if (++$count > $cat['keep_imported']) {
+					$news_delete[$news['news_id']] = true;
+				}
+			}
+		}
+
 		foreach ($parser as $entry)
 		{
 			$content_is_html = $entry->content && strip_tags($entry->content) != $entry->content;
@@ -102,8 +119,13 @@ class news_admin_import
 			{
 				$check['news_content'] = $entry->link;
 			}
-			if (!$this->bonews->read($check))
+			if ($newsitem = $this->bonews->read($check))
 			{
+				if (0 == $cat['keep_imported'])
+				{
+					unset($news_delete[$newsitem['news_id']]);
+				}
+			} else {
 				$this->bonews->init();
 				++$newly;
 			}
@@ -125,7 +147,20 @@ class news_admin_import
 			}
 			//var_dump($err); print "<li><a href=\"$entry->link\" target=\"_blank\">$entry->title</a></li>\n"; //_debug_array($this->bonews->data);
 		}
-		return array($imported,$newly);
+
+		foreach($news_delete as $news_id => $delete)
+		{
+			if ($this->bonews->delete(array('news_id' => $news_id)) == 1)
+			{
+				$deleted++;
+			}
+		}
+
+		/* Update the category timestamp on successful import */
+		$cat['import_timestamp'] = $this->bonews->now;
+		$this->bonews->save_cat($cat);
+
+		return array($imported,$newly,$deleted);
 	}
 
 	/**
@@ -141,9 +176,9 @@ class news_admin_import
 
 		foreach($cats as $cat)
 		{
-			if ($cat['import_url'] && !((int)date('H') % $cat['import_frequency']))
+			if ($cat['import_url'] && $cat['import_frequency'] && !((int)date('H') % $cat['import_frequency']))
 			{
-				$this->import($cat['cat_id'],$cat['import_url']);
+				$this->import($cat['cat_id']);
 			}
 		}
 	}

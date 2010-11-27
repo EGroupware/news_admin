@@ -40,10 +40,10 @@ class uinews extends bonews
 	function uinews()
 	{
 		$this->bonews();
-		
+
 		$this->tpl =& CreateObject('etemplate.etemplate');
 	}
-	
+
 	/**
 	 * Edit a news
 	 *
@@ -96,14 +96,14 @@ class uinews extends bonews
 							{
 								$this->data['news_source_id'] = $content['news_id'];
 								$content['news_source_id'] = $content['news_id'];
-							}				
+							}
 							//set old Language new Default Language
 							if  ($content['old_lang'] != null && $content['news_source_id'] == null && $content['news_lang'] == null)
 							{
 								$content['set_new_default'] = true;
-								$content['set_old_news_id'] = $content['news_id'];							
+								$content['set_old_news_id'] = $content['news_id'];
 							}
-							
+
 							unset($this->data['news_id']);
 							// check if we already have an entry for the new lang
 							if ($content['news_source_id'] && ($lang_entry = $this->search(array(),true,'','','',false,'AND',false,array(
@@ -118,7 +118,7 @@ class uinews extends bonews
 							$content = $this->data;
 							$msg = lang('News saved.');
 							$js = "opener.location.href='".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."';";
-							
+
 							if ($content['set_new_default'])	// created a new default lang for an existing entry
 							{
 								$this->set_default($content['set_old_news_id']);	// set the new default in all existing translations
@@ -155,7 +155,7 @@ class uinews extends bonews
 						$msg = lang('There no such translation.');
 					}
 					$this->data['referer'] = $content['referer'];
-					break;	
+					break;
 				case 'cancel':	// should never happen
 					break;
 			}
@@ -197,7 +197,7 @@ class uinews extends bonews
 		$this->tpl->read('news_admin.edit');
 		return $this->tpl->exec('news_admin.uinews.edit',$content,$sel_options,$readonlys,$preserve,2);
 	}
-	
+
 	/**
 	 * List the news
 	 *
@@ -208,7 +208,7 @@ class uinews extends bonews
 	function index($content=null,$msg='')
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
-		
+
 		if ($content['nm']['rows']['delete'])
 		{
 			list($id) = each($content['nm']['rows']['delete']);
@@ -255,25 +255,27 @@ class uinews extends bonews
 		}
 		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];
 		$this->tpl->read('news_admin.index');
-		return $this->tpl->exec('news_admin.uinews.index',$content,array(
+		return $this->tpl->exec('news_admin.uinews.index',$content,
+			array(
 			'filter' => array('' => lang('All news'))+$this->rights2cats(EGW_ACL_READ),
 			'visible' => array('now' => 'Current','future' => 'Future','old' => 'Old')+$this->visiblity,
-		),$readonlys);
+			),
+			$readonlys);
 	}
 
 	/**
 	 * rows callback for index nextmatch
 	 *
-	 * @internal 
+	 * @internal
 	 * @param array &$query
 	 * @param array &$rows returned rows/cups
 	 * @param array &$readonlys eg. to disable buttons based on acl
-	 * @return int total number of contacts matching the selection
+	 * @return int total number of news matching the selection
 	 */
 	function get_rows(&$query_in,&$rows,&$readonlys,$id_only=false)
 	{
 		$GLOBALS['egw']->session->appsession('index','news_admin',$query=$query_in);
-		
+
 		if ((int)$query['filter'])
 		{
 			$query['col_filter']['cat_id'] = $query['filter'];
@@ -289,13 +291,13 @@ class uinews extends bonews
 		if (!$query['col_filter']['visible']) $query['col_filter']['visible'] = 'all';
 
 		$total = parent::get_rows($query,$rows,$readonlys);
-		
+
 		$readonlys = array();
 		foreach($rows as $k => $row)
 		{
 			$readonlys['edit['.$row['news_id'].']']   = !$this->check_acl(EGW_ACL_EDIT,$row);
 			$readonlys['delete['.$row['news_id'].']'] = !$this->check_acl(EGW_ACL_DELETE,$row);
-			
+
 			switch($query['filter2'])
 			{
 				case 'headline':

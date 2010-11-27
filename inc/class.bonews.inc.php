@@ -400,7 +400,7 @@ class bonews extends so_sql
 		static $all_cats;
 		if (!is_array($all_cats))
 		{
-			if (!($all_cats = $this->cats->return_array('all',0,False,'','','cat_name',True))) $all_cats = array();
+			if (!($all_cats = $this->cats->return_array('all',0,False,'','','',True))) $all_cats = array();
 		}
 		if ($rights == EGW_ACL_EDIT) $rights = EGW_ACL_ADD;	// no edit rights at the moment
 
@@ -506,8 +506,8 @@ class bonews extends so_sql
 	{
 		if (!is_array($cat) || !$this->admin_cat($cat)) return false;
 
-		$cat['cat_data'] = $cat['cat_data'] ? unserialize($cat['cat_data']) : array();
-		foreach(array('import_url','import_frequency') as $name)
+		$cat['cat_data'] = array();
+		foreach(array('import_url','import_frequency','import_timestamp','keep_imported') as $name)
 		{
 			$cat['cat_data'][$name] = $cat[$name];
 		}
@@ -535,7 +535,7 @@ class bonews extends so_sql
 			// cat owner can only be set for new cats!
 			if ($cat['cat_owner'] == categories::GLOBAL_ACCOUNT)
 			{
-				$this->cats->account_id = categories::GLOBAL_ACCOUNT;	// othwerwise the current use get set
+				$this->cats->account_id = categories::GLOBAL_ACCOUNT;	// otherwise the current use get set
 			}
 			$cat['cat_id'] = $this->cats->add($cat);
 		}

@@ -1,5 +1,5 @@
 %1 module	news_admin	en	%1 module
-%1 news imported (%2 new).	news_admin	en	%1 news imported (%2 new).
+%1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported (%2 new, %3 deleted).
 %s hours	news_admin	en	%s hours
 actions	news_admin	en	Actions
 active	news_admin	en	Active

@@ -46,7 +46,7 @@ class news_admin_ui extends bonews
 	}
 
 	/**
-	 * Edit a news
+	 * Handle a news category
 	 *
 	 * @param array $content=null submitted etemplate content
 	 * @param string $msg=''
@@ -121,13 +121,13 @@ class news_admin_ui extends bonews
 				case 'import':
 					require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_admin_import.inc.php');
 					$import = new news_admin_import($this);
-					if ((list($imported,$newly) = $import->import($content['cat_id'],$content['import_url'])) === false)
+					if ((list($imported,$newly,$deleted) = $import->import($content['cat_id'])) === false)
 					{
 						$msg = lang('Error importing the feed!');
 					}
 					else
 					{
-						$msg = lang('%1 news imported (%2 new).',$imported,$newly);
+						$msg = lang('%1 news imported (%2 new, %3 deleted).',$imported,$newly,$deleted);
 						$js = "opener.location.href=opener.location.href+'&msg=".addslashes(urlencode($msg))."';";
 						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
@@ -143,6 +143,18 @@ class news_admin_ui extends bonews
 		$content['import_available'] = $this->import_available();
 		if (!$content['import_frequency']) $content['import_frequency'] = 4;	// every 4h
 
+		if (!$content['keep_imported']) $content['keep_imported'] = 0; // Keep all
+		$content['options-keep_imported'] = array(
+			0 => lang('As imported'),
+			-1 => lang('Keep all'),
+			10 => '10',
+			20 => '20',
+			30 => '30',
+			50 => '50',
+			75 => '75',
+			100 => '100',
+		);
+
 		$readonlys = array();
 		if ($content['cat_id'] && !$this->admin_cat($content))
 		{
@@ -157,7 +169,11 @@ class news_admin_ui extends bonews
 		if (!$content['import_url'] || !$content['cat_id']) $readonlys['button[import]'] = true;
 
 		$this->tpl->read('news_admin.cat');
-		return $this->tpl->exec('news_admin.news_admin_ui.cat',$content,$sel_options,$readonlys,$preserve,2);
+		return $this->tpl->exec('news_admin.news_admin_ui.cat',$content,
+			array(
+				'cat_parent' => $this->rights2cats(EGW_ACL_READ, $content['cat_id']),
+			),
+			$readonlys,$preserve,2);
 	}
 
 	/**
@@ -177,6 +193,18 @@ class news_admin_ui extends bonews
 			if ($this->delete_cat($id))
 			{
 				$msg = lang('Category deleted.');
+			}
+		} else if ($content['nm']['rows']['update']) {
+			list($id) = each($content['nm']['rows']['update']);
+			require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_admin_import.inc.php');
+			$import = new news_admin_import($this);
+			if ((list($imported,$newly,$deleted) = $import->import($id)) === false)
+			{
+				$msg = lang('Error importing the feed!');
+			}
+			else
+			{
+				$msg = lang('%1 news imported (%2 new, %3 deleted).',$imported,$newly,$deleted);
 			}
 		}
 		$content = array(
@@ -222,7 +250,8 @@ class news_admin_ui extends bonews
 		$readonlys = array();
 		foreach($rows as $k => $row)
 		{
-			$readonlys['edit['.$row['cat_id'].']']   = $readonlys['delete['.$row['cat_id'].']'] = !$this->admin_cat($row);
+			$readonlys['edit['.$row['cat_id'].']'] = $readonlys['delete['.$row['cat_id'].']'] = !$this->admin_cat($row);
+			$readonlys['update['.$row['cat_id'].']'] = !(($this->admin_cat($row)) && ($row['import_url']));
 		}
 		//_debug_array($rows);
 		return $total;
