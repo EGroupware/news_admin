@@ -1,4 +1,4 @@
         <item>
-                <title>{title}</title>
-                <link>{link}</link>
+                <title><![CDATA[{title}]]></title>
+                <link><![CDATA[{link}]]></link>
         </item>

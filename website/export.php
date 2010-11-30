@@ -78,15 +78,15 @@
 		$formats[$feedConf['type']] ? $formats[$feedConf['type']] : (
 		'rss2' ));
 
-	$feedConf['title'] = htmlspecialchars($feedConf['title'] ? $feedConf['title'] : (
+	$feedConf['title'] = $feedConf['title'] ? $feedConf['title'] : (
 		$sitemgr_info['site_name'] ? $sitemgr_info['site_name'] : (
 		$GLOBALS['egw_info']['server']['site_title'] ? $GLOBALS['egw_info']['server']['site_title'] :
-		lang('News'))));
+		lang('News')));
 
-	$feedConf['link'] = htmlspecialchars($feedConf['link'] ? $feedConf['link'] :
+	$feedConf['link'] = $feedConf['link'] ? $feedConf['link'] :
 		( $GLOBALS['sitemgr_info']['site_url'] ? ( stripos($GLOBALS['sitemgr_info']['site_url'],'http') !== false ? $GLOBALS['sitemgr_info']['site_url'] : (
 			( stripos($_SERVER['SERVER_PROTOCOL'],'https') !== false ? 'https' : 'http'). '://'. $_SERVER['HTTP_HOST']. $GLOBALS['sitemgr_info']['site_url'] )) :
-		'' /* add link to news_admin here... maybe we could add an item support in export.php? */ ));
+		'' /* add link to news_admin here... maybe we could add an item support in export.php? */ );
 
 	if ( !$feedConf['description'] ) {
 		if ( $cat_id > 0 ) {
@@ -114,10 +114,10 @@
 
 	if(is_array($news))	{
 		foreach($news as $news_data) {
-			$tpl->set_var('content',htmlspecialchars($news_data['news_content']));
-			$tpl->set_var('subject',htmlspecialchars($news_data['news_headline']));
-			$tpl->set_var('teaser',htmlspecialchars($format == 'rss2' && $news_data['news_content'] ? '<p><b>'.$news_data['news_teaser']."</b></p>\n" :
-				$news_data['news_content']));
+			$tpl->set_var('content',$news_data['news_content']);
+			$tpl->set_var('subject',$news_data['news_headline']);
+			$tpl->set_var('teaser',$format == 'rss2' && $news_data['news_content'] ? '<p><b>'.$news_data['news_teaser']."</b></p>\n" :
+				$news_data['news_content']);
 
 			$tpl->set_var('item_link',htmlspecialchars($news_data['link'] ? $news_data['link'] : $feedConf['link'] . $itemsyntax . $news_data['news_id']));
 			$tpl->set_var('pub_date', date("r",$news_data['news_date']));
