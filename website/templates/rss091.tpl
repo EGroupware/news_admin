@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="{encoding}"?>
 <rss version="0.91">
 	<channel>
-		<title>{title}</title>
+		<title><![CDATA[{title}]]></title>
 		<link>{link}</link>
-		<description>{description}</description>
+		<description><![CDATA[{description}]]></description>
 		<image>
-			<title>{image_title}</title> 
-			<url>{image_url}</url> 
-			<link>{image_link}</link> 
+			<title><![CDATA[{image_title}]]></title>
+			<url>{image_url}</url>
+			<link>{image_link}</link>
 		</image>
 <!-- BEGIN item -->
 	<item>
-		<title>{subject}</title>
+		<title><![CDATA[{subject}]]></title>
 		<link>{item_link}</link>
-		<description>{teaser}</description>
+		<description><![CDATA[{teaser}]]></description>
 	</item>
 <!-- END item -->
 	</channel>
