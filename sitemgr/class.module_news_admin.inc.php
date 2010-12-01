@@ -110,8 +110,10 @@ class module_news_admin extends Module
 		}
 		$limit = (int)$arguments['limit'] ? $arguments['limit'] : 5;
 		$show = $arguments['show'];
+
 		// If not set, assume default values.
-		if (count($show) == 0) {
+		if (count($show) == 0)
+		{
 			$show = array('headline','teaser','content');
 		}
 		// for the center area you can use a direct link to call a certain item
@@ -119,6 +121,12 @@ class module_news_admin extends Module
 		if (!($item = (int)$arguments['item']) && $this->block->area == 'center')
 		{
 			$item = (int)$_GET['item'];
+			// if no page-target is given (display on same page), we have to show everything
+			// otherwise a list showing just headlines and optional teaser is not able to show a full news
+			if (!$arguments['linkpage'])
+			{
+				$show = array('headline','submitted','teaser','content');
+			}
 		}
 
 		if (!$listview)
@@ -170,7 +178,7 @@ class module_news_admin extends Module
 			{
 				$count = 0;
 				$items_array = array();
-				// Normalize the sting user input for later uniqueness 
+				// Normalize the sting user input for later uniqueness
 				foreach (explode(',', $arguments['items']) as $news_id)
 				{
 					$items_array[] = (int) trim($news_id);
