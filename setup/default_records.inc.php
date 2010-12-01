@@ -24,7 +24,7 @@ $anonymous = $GLOBALS['egw_setup']->add_account($anonuser='anonymous','SiteMgr',
 $GLOBALS['egw_setup']->add_acl('news_admin','run',$anonymous);
 $GLOBALS['egw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
 
-// Create news category "news" writable be Admins group and readable by everyone
+// Create news category "news" writable be Admins group and readable by every user (not anonymous)
 $global_cat_owner = categories::GLOBAL_ACCOUNT;
 $oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod)
 	VALUES (0,$global_cat_owner,'public','news_admin','News','Category for news',".time().")");
@@ -32,7 +32,6 @@ $cat_id = $oProc->m_odb->get_last_insert_id($GLOBALS['egw_setup']->cats_table,'c
 foreach(array(
 	$admingroup => 3,
 	$defaultgroup => 1,
-	$anonymous => 1,
 ) as $user => $rights)
 {
 	$GLOBALS['egw_setup']->add_acl('news_admin','L'.$cat_id,$user,$rights);
