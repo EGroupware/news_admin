@@ -65,6 +65,7 @@ news item has been added	news_admin	sk	Položka Aktualít bola pridaná
 news item has been updated	news_admin	sk	Položka Aktualít bola upravená
 news saved.	news_admin	sk	Aktuality uložené.
 news_admin	common	sk	Správca Aktualít
+no anonymous user accounts installed.  notify the administrator.	news_admin	sk	NEBOL NAINŠTALOVANÝ ŽIADNY ANONYMNÝ POUŽÍVATEĽSKÝ ÚČET. POZORNITE SPRÁVCU.
 no entries found	news_admin	sk	žiadne záznamy sa nenašli
 no matching news item	news_admin	sk	Nenašli sa žiadne zodpovedajúce položky Aktualít
 no news	news_admin	sk	V kategórii nie sú v súčasnosti žiadne dostupné aktuality
