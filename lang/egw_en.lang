@@ -8,11 +8,13 @@ add new news	news_admin	en	Add new news
 add news item	news_admin	en	Add news item
 all news	news_admin	en	All news
 always	news_admin	en	Always
+as imported	news_admin	en	As imported
 by date	news_admin	en	By date
 categories to displayed on main page?	news_admin	en	Categories to displayed on main page?
 category deleted.	news_admin	en	Category deleted.
 category saved.	news_admin	en	Category saved.
 choose a category	news_admin	en	Choose a category
+comma separated item ids which shall be shown (empty = all)	news_admin	en	Comma separated item IDs which shall be shown (empty = all)
 configuration	news_admin	en	Configuration
 configure access permissions	common	en	Configure Access Permissions
 configure rss exports	common	en	Configure RSS exports
@@ -38,6 +40,7 @@ global news	news_admin	en	Global News
 global_news	news_admin	en	Global_News
 headline	news_admin	en	Headline
 headline with link	news_admin	en	Headline with link
+if you specify an export definition, it will be used when you export	news_admin	en	If you specify an export definition, it will be used when you export
 image link	news_admin	en	Image Link
 image title	news_admin	en	Image Title
 image url	news_admin	en	Image URL
@@ -48,6 +51,7 @@ import url	news_admin	en	Import URL
 imported feeds can not be writable!	news_admin	en	Imported feeds can NOT be writable!
 item has been deleted	news_admin	en	Item has been deleted
 item not found	news_admin	en	Item not found
+keep all	news_admin	en	Keep all
 last updated	news_admin	en	Last updated
 link	news_admin	en	Link
 main	news_admin	en	Main

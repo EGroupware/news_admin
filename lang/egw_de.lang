@@ -8,11 +8,13 @@ add new news	news_admin	de	Neue Nachricht hinzufügen
 add news item	news_admin	de	Eine neue Nachricht hinzufügen
 all news	news_admin	de	Alle Nachrichten
 always	news_admin	de	Immer
+as imported	news_admin	de	wie importiert
 by date	news_admin	de	Nach Datum
 categories to displayed on main page?	news_admin	de	Kategorien zum Anzeigen auf der Startseite?
 category deleted.	news_admin	de	Kategorie gelöscht.
 category saved.	news_admin	de	Kategorie gespeichert.
 choose a category	news_admin	de	Wählen Sie eine Kategorie
+comma separated item ids which shall be shown (empty = all)	news_admin	de	Komma getrennte IDs der Einträge, die angezeigt werden sollen: (Leer = alle)
 configuration	news_admin	de	Konfiguration
 configure access permissions	common	de	Zugriffsrechte konfigurieren
 configure rss exports	common	de	RSS Export konfigurieren
@@ -38,6 +40,7 @@ global news	news_admin	de	Globale Nachrichten
 global_news	news_admin	de	Globale Nachrichten
 headline	news_admin	de	Schlagzeile
 headline with link	news_admin	de	Schlagzeile mit Link
+if you specify an export definition, it will be used when you export	news_admin	de	Wählen Sie eine Export Definition für den Export
 image link	news_admin	de	Link des Bildes
 image title	news_admin	de	Titel des Bildes
 image url	news_admin	de	URL des Bildes
@@ -48,6 +51,7 @@ import url	news_admin	de	Import URL
 imported feeds can not be writable!	news_admin	de	Importierte Feeds können NICHT beschreibbar sein!
 item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
+keep all	news_admin	de	Alle Einträge behalten
 last updated	news_admin	de	Zuletzt aktualisiert
 link	news_admin	de	Link
 main	news_admin	de	Hauptmenü
