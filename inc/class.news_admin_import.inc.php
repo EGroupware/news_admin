@@ -5,9 +5,9 @@
  * @link http://www.egroupware.org
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2007 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2007-11 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$ 
+ * @version $Id$
  */
 
 require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
@@ -46,14 +46,17 @@ class news_admin_import
 	 * Read the feed of the given URL
 	 *
 	 * @param string $url
-	 * @return
+	 * @return XML_Feed_Parser|boolean false on error
 	 */
 	function read($url)
 	{
 		$parts = parse_url($url);
 		if (!in_array($parts['scheme'],array('http','https','ftp'))) return false;	// security!
 
-		$feed_xml = file_get_contents($url,false);
+		if (!($feed_xml = file_get_contents($url,false)))
+		{
+			return false;
+		}
 
 		// if the xml-file specifes an encoding, convert it to our own encoding
 		if (preg_match('/\<\?xml.*encoding="([^"]+)"/i',$feed_xml,$matches) && $matches[1])
@@ -61,11 +64,15 @@ class news_admin_import
 			$feed_xml = preg_replace('/(\<\?xml.*encoding=")([^"]+)"/i','$1'.$GLOBALS['egw']->translation->charset().'"',$feed_xml);
 			$feed_xml = $GLOBALS['egw']->translation->convert($feed_xml,$matches[1]);
 		}
+		// stop "unsupported encoding" warnings
+		error_reporting(($level = error_reporting()) & !E_WARNING);
 		try {
 		    $parser = new XML_Feed_Parser($feed_xml);
 		} catch (XML_Feed_Parser_Exception $e) {
-		    return false;
+		    $parser = false;
 		}
+		error_reporting($level);
+
 		return $parser;
 	}
 
