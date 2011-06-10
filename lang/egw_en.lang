@@ -1,5 +1,5 @@
 %1 module	news_admin	en	%1 module
-%1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported (%2 new, %3 deleted).
+%1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported. %2 new, %3 deleted.
 %s hours	news_admin	en	%s hours
 actions	news_admin	en	Actions
 active	news_admin	en	Active
@@ -10,11 +10,11 @@ all news	news_admin	en	All news
 always	news_admin	en	Always
 as imported	news_admin	en	As imported
 by date	news_admin	en	By date
-categories to displayed on main page?	news_admin	en	Categories to displayed on main page?
+categories to displayed on main page?	news_admin	en	Categories to display on Home page
 category deleted.	news_admin	en	Category deleted.
 category saved.	news_admin	en	Category saved.
 choose a category	news_admin	en	Choose a category
-comma separated item ids which shall be shown (empty = all)	news_admin	en	Comma separated item IDs which shall be shown, empty = all
+comma separated item ids which shall be shown (empty = all)	news_admin	en	Comma separated item IDs which shall be shown. Empty = all
 configuration	news_admin	en	Configuration
 configure access permissions	common	en	Configure ACL
 configure rss exports	common	en	Configure RSS exports
@@ -23,13 +23,13 @@ content	news_admin	en	Content
 count	news_admin	en	Count
 date and time	news_admin	en	Date and time
 delete this news	news_admin	en	Delete this news
-do you want to publish a rss feed for this news category	news_admin	en	Do you want to publish a RSS feed for this news category
+do you want to publish a rss feed for this news category	news_admin	en	Publish a RSS feed for this news category.
 edit news item	news_admin	en	Edit news
 end	news_admin	en	End
 error importing the feed!	news_admin	en	Error importing the feed!
 error saving the category!	news_admin	en	Error saving the category!
 error saving the news!	news_admin	en	Error saving the news!
-failed to add message	news_admin	en	Failed to add new message
+failed to add message	news_admin	en	Failed to add new message.
 format for links to items	news_admin	en	Format for links to items
 format of export	news_admin	en	Format of export
 from	news_admin	en	From
@@ -40,7 +40,7 @@ global news	news_admin	en	Global news
 global_news	news_admin	en	Global_News
 headline	news_admin	en	Head line
 headline with link	news_admin	en	Head line with link
-if you specify an export definition, it will be used when you export	news_admin	en	If you specify an export definition, it will be used when you export
+if you specify an export definition, it will be used when you export	news_admin	en	If you specify an export definition, it will be used when you export.
 image link	news_admin	en	Image link
 image title	news_admin	en	Image title
 image url	news_admin	en	Image URL
@@ -49,40 +49,40 @@ import every	news_admin	en	Import every
 import now	news_admin	en	Import now
 import url	news_admin	en	Import URL
 imported feeds can not be writable!	news_admin	en	Imported feeds can NOT be writable!
-item has been deleted	news_admin	en	Entry has been deleted
-item not found	news_admin	en	Entry not found
+item has been deleted	news_admin	en	Entry has been deleted.
+item not found	news_admin	en	Entry not found.
 keep all	news_admin	en	Keep all
 last updated	news_admin	en	Last updated
 link	news_admin	en	Link
 main	news_admin	en	Main
 maintain	news_admin	en	Maintain
 maintain news	admin	en	Maintain news
-message has been added	news_admin	en	Message has been added
+message has been added	news_admin	en	Message has been added.
 more news	news_admin	en	More news
 more news link	news_admin	en	More news link
-new item has been added	news_admin	en	New item has been added
+new item has been added	news_admin	en	New entry has been added.
 news	news_admin	en	News
 news admin	news_admin	en	News
 news administration	news_admin	en	News administration
 news deleted.	news_admin	en	News deleted.
-news item has been added	news_admin	en	News item has been added
-news item has been updated	news_admin	en	News item has been updated
+news item has been added	news_admin	en	News entry has been added.
+news item has been updated	news_admin	en	News entry has been updated.
 news saved.	news_admin	en	News saved.
 news_admin	common	en	News
 no anonymous user accounts installed.  notify the administrator.	news_admin	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
-no entries found	news_admin	en	No entries found
-no matching news item	news_admin	en	No matching news item
-no news	news_admin	en	No news available in the category
+no entries found	news_admin	en	No entries found.
+no matching news item	news_admin	en	No matching news item.
+no news	news_admin	en	No news available in the category.
 no rss export	news_admin	en	No RSS export
 now	news_admin	en	Now
-number of articles to display on the main screen	news_admin	en	Number of articles to display on the main screen
-number of news items to be displayed on page	news_admin	en	Number of news items to be displayed on page
+number of articles to display on the main screen	news_admin	en	Number of articles to display on the Home page
+number of news items to be displayed on page	news_admin	en	Number of news to display on page
 old	news_admin	en	Old
 on	news_admin	en	On
-page-name the item should be displayed (empty = current page)	news_admin	en	Page name the item should be displayed, empty = current page
+page-name the item should be displayed (empty = current page)	news_admin	en	Page name the item should be displayed. Empty = current page.
 parent	news_admin	en	Parent
-picture upload (leave the upload directory empty to disable the upload)	admin	en	Picture upload . Leave the upload directory empty to disable the upload.
-please select a category	news_admin	en	Please select a category
+picture upload (leave the upload directory empty to disable the upload)	admin	en	Picture upload. Leave the upload directory empty to disable the upload.
+please select a category	news_admin	en	Select a category
 publish date	news_admin	en	Publish date
 read more	news_admin	en	Read more
 read news	news_admin	en	Read news
@@ -90,8 +90,8 @@ read permissions	news_admin	en	Read permissions
 reload	news_admin	en	Reload
 send mail to others	news_admin	en	Send mail
 should news_admin display the latest article headlines on the main screen.	news_admin	en	Should News display the latest article headlines on the main screen.
-show latest news articles?	news_admin	en	Show latest news articles?
-show news articles on main page?	news_admin	en	Show news articles on main page?
+show latest news articles?	news_admin	en	Show latest news articles
+show news articles on main page?	news_admin	en	Show news articles on Home page
 small view	news_admin	en	Small view
 start	news_admin	en	Start
 submitted by	common	en	Submitted by
@@ -99,10 +99,10 @@ submitted by %1 on %2	news_admin	en	Submitted by %1 on %2
 submitted by and date	news_admin	en	Submitted by and date
 teaser	news_admin	en	Teaser
 teaser with read more link	news_admin	en	Teaser with read more link
-the news content is missing	news_admin	en	The news content is missing
+the news content is missing	news_admin	en	There is no news content
 the number of articles to display on the main screen.	news_admin	en	The number of articles to display on the main screen.
-the subject is missing	news_admin	en	The subject is missing
-there no such translation.	news_admin	en	There no such translation.
+the subject is missing	news_admin	en	There is no subject.
+there no such translation.	news_admin	en	There no translation.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 until	news_admin	en	Until
 url of the rss or atom feed, empty for own news feed	news_admin	en	URL of the RSS or Atom feed, empty for own news feed
@@ -110,6 +110,6 @@ view this category	news_admin	en	View this category
 visible	news_admin	en	Visible
 webpage news admin	news_admin	en	Web page news admin
 which information do you want to show (css class)	news_admin	en	Which information do you want to show (CSS class)
-which news categories should be displayed on the main screen.	news_admin	en	Which news categories should be displayed on the main screen.
+which news categories should be displayed on the main screen.	news_admin	en	Which news categories should be displayed on the Home page
 write	news_admin	en	Write
 write permissions	news_admin	en	Write permissions
