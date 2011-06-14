@@ -22,6 +22,7 @@ class uinews extends bonews
 	 * @var array
 	 */
 	var $public_functions = array(
+		'view'	=> true,
 		'edit'  => true,
 		'index' => true,
 	);
@@ -42,6 +43,30 @@ class uinews extends bonews
 		$this->bonews();
 
 		$this->tpl =& CreateObject('etemplate.etemplate');
+	}
+
+	/**
+	 * View a news item
+	 *
+	 */
+	public function view($content = array())
+	{
+		$news_id = $content['news_id'] ? $content['news_id'] : $_GET['news_id'];
+		if(!$this->read($_GET['news_id']))
+		{
+		}
+
+		$content = $this->data;
+		$sel_options = array(
+			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
+			'visible' => $this->visiblity,
+		);
+		if (!$content['cat_id']) list($content['cat_id']) = @each($sel_options['cat_id']);
+		$readonlys['edit'] = !$this->check_acl(EGW_ACL_EDIT);
+		$readonlys['delete'] = !$this->check_acl(EGW_ACL_DELETE);
+
+		$this->tpl->read('news_admin.view');
+		return $this->tpl->exec('news_admin.uinews.view',$content,$sel_options,$readonlys,$preserve,2);
 	}
 
 	/**

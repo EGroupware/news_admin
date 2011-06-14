@@ -68,7 +68,7 @@
 				else
 				{
 					$text .= '<a href="'.$GLOBALS['egw']->link('/index.php',array(
-						'menuaction' => 'news_admin.uinews.edit',
+						'menuaction' => 'news_admin.uinews.view',
 						'news_id' => $newsitem['news_id'],
 					)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\'); return false;">';
 				}
