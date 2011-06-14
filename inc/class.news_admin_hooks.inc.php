@@ -229,4 +229,20 @@ class news_admin_hooks
 	{
 		return self::all_hooks($hook_data);
 	}	
+
+	public static function links() {
+		return array(
+			'view' => array(
+				'menuaction' => 'news_admin.uinews.view'
+			),
+			'view_id' => 'news_id',
+			'view_popup'  => '700x600',
+			'view_list'	=>	'news_admin.uinews.index',
+			'edit' => array(
+				'menuaction' => 'news_admin.uinews.edit'
+			),
+			'edit_id' => 'news_id',
+			'edit_popup'  => '700x600',
+		);
+	}
 }

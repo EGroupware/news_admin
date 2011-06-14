@@ -242,6 +242,15 @@ class uinews extends bonews
 				$msg = lang('News deleted.');
 			}
 		}
+		elseif ($content['nm']['action'] == 'delete')
+		{
+			$success = 0;
+			foreach($content['nm']['selected'] as $id)
+			{
+				if ($this->delete(array('news_id' => $id))) $success++;
+			}
+			if($success) $msg = $success . ' ' . lang('News deleted.');
+		}
 		$content = array(
 			'msg' => $msg,
 			'nm'  => $GLOBALS['egw']->session->appsession('index','news_admin'),
@@ -276,6 +285,9 @@ class uinews extends bonews
 					'visible' => 'now',
 					'news_lang' => $this->lang,
 				),
+				'default_columns' => '!legacy_actions',
+				'row_id'	=> 'news_id',
+				'actions'	=> $this->get_actions(),
 			);
 		}
 		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];
@@ -320,8 +332,16 @@ class uinews extends bonews
 		$readonlys = array();
 		foreach($rows as $k => $row)
 		{
-			$readonlys['edit['.$row['news_id'].']']   = !$this->check_acl(EGW_ACL_EDIT,$row);
-			$readonlys['delete['.$row['news_id'].']'] = !$this->check_acl(EGW_ACL_DELETE,$row);
+			if(!$this->check_acl(EGW_ACL_EDIT,$row))
+			{
+				$readonlys['edit['.$row['news_id'].']']   = true;
+				$rows[$k]['class'] .= 'rowNoEdit ';
+			}
+			if(!$this->check_acl(EGW_ACL_DELETE,$row))
+			{
+				$readonlys['delete['.$row['news_id'].']']   = true;
+				$rows[$k]['class'] .= 'rowNoDelete ';
+			}
 
 			switch($query['filter2'])
 			{
@@ -334,5 +354,38 @@ class uinews extends bonews
 		}
 		//_debug_array($rows);
 		return $total;
+	}
+
+	/**
+	 * Nextmatch actions
+	 * see nextmatch_widget::get_actions()
+	 */
+	protected function get_actions()
+	{
+		$actions = array(
+			'open' => array(
+				'caption' => 'Open',
+				'default' => true,
+				'allowOnMultiple' => false,
+				'url' => 'menuaction=news_admin.uinews.edit&news_id=$id',
+				'popup' => egw_link::get_registry('news_admin', 'edit_popup'),
+				'group' => $group=1,
+			),
+			'view' => array(
+				'caption' => 'View',
+				'allowOnMultiple' => false,
+				'url' => 'menuaction=news_admin.uinews.view&news_id=$id',
+				'popup' => egw_link::get_registry('news_admin', 'view_popup'),
+				'group' => $group,
+			),
+			'delete' => array(
+				'caption' => 'Delete',
+				'confirm' => 'Delete this entry',
+				'confirm_multiple' => 'Delete these entries',
+				'group' => $group,
+				'disableClass' => 'rowNoDelete',
+			),
+		);
+		return $actions;
 	}
 }
