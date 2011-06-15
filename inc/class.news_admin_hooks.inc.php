@@ -236,7 +236,7 @@ class news_admin_hooks
 				'menuaction' => 'news_admin.uinews.view'
 			),
 			'view_id' => 'news_id',
-			'view_popup'  => '700x600',
+			'view_popup'  => '700x390',
 			'view_list'	=>	'news_admin.uinews.index',
 			'edit' => array(
 				'menuaction' => 'news_admin.uinews.edit'
