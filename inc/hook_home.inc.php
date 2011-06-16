@@ -67,10 +67,11 @@
 				}
 				else
 				{
+					list($width, $height) = explode('x',egw_link::get_registry('news_admin', 'view_popup'));
 					$text .= '<a href="'.$GLOBALS['egw']->link('/index.php',array(
 						'menuaction' => 'news_admin.uinews.view',
 						'news_id' => $newsitem['news_id'],
-					)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\'); return false;">';
+					)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width='.$width.',height='.$height.',scrollbars=yes,status=yes\'); return false;">';
 				}
 				$text .= $newsitem['news_headline'].'</a>';
 				

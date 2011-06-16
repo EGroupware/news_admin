@@ -65,6 +65,7 @@ class uinews extends bonews
 		$readonlys['edit'] = !$this->check_acl(EGW_ACL_EDIT);
 		$readonlys['delete'] = !$this->check_acl(EGW_ACL_DELETE);
 
+		egw_framework::set_onload('$(document).ready(popup_resize);');
 		$this->tpl->read('news_admin.view');
 		return $this->tpl->exec('news_admin.uinews.view',$content,$sel_options,$readonlys,$preserve,2);
 	}

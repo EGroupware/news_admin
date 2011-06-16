@@ -20,6 +20,5 @@
 }
 .news_content
 {
-  max-height: 25em;
   overflow: auto;
 }
