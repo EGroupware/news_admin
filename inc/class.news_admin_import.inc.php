@@ -11,7 +11,6 @@
  */
 
 require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
-require_once('XML/Feed/Parser.php');
 
 /**
  * Import RSS and Atom feeds via PEAR's XML_Feed_Parser class
@@ -53,7 +52,7 @@ class news_admin_import
 		$parts = parse_url($url);
 		if (!in_array($parts['scheme'],array('http','https','ftp'))) return false;	// security!
 
-		if (!($feed_xml = file_get_contents($url,false)))
+		if (!($feed_xml = file_get_contents($url,false)) || !@include_once('XML/Feed/Parser.php'))
 		{
 			return false;
 		}
