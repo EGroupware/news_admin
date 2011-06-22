@@ -1,5 +1,5 @@
 %1 module	news_admin	fi	%1 moduli
-%1 news imported (%2 new).	news_admin	fi	%1 uutista tuotu (%2 uutta).
+%1 news imported (%2 new, %3 deleted).	news_admin	fi	%1 uutista tuotu. %2 uutta, %3 poistettu
 %s hours	news_admin	fi	%s tuntia
 actions	news_admin	fi	Toiminnot
 active	news_admin	fi	Aktiivinen
@@ -38,6 +38,7 @@ global news	news_admin	fi	Yleiset uutiset
 global_news	news_admin	fi	Yleiset_uutiset
 headline	news_admin	fi	Otsikko
 headline with link	news_admin	fi	Otsikko linkillä
+if you specify an export definition, it will be used when you export	news_admin	fi	Valitse viennin oletusasetus
 image link	news_admin	fi	Kuva linkki
 image title	news_admin	fi	Kuvan otsikko
 image url	news_admin	fi	Kuvan URL
@@ -48,6 +49,7 @@ import url	news_admin	fi	Tuo URL
 imported feeds can not be writable!	news_admin	fi	Tuodut feedit eivät ole kirjoitettavissa!
 item has been deleted	news_admin	fi	Kohde poistettu
 item not found	news_admin	fi	Kohdetta ei löydetty
+keep all	news_admin	fi	Pidä kaikki
 last updated	news_admin	fi	Viimeksi päivitetty
 link	news_admin	fi	Linkki
 main	news_admin	fi	Pääosa
