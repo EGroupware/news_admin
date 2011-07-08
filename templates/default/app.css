@@ -21,4 +21,5 @@
 .news_content
 {
   overflow: auto;
+  width: 100%;
 }

@@ -292,6 +292,17 @@ class uinews extends bonews
 			);
 		}
 		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];
+
+		 // add scrollbar to long description, if user choose so in his prefs
+		$prefs = $GLOBALS['egw_info']['user']['preferences']['news_admin'];
+                if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '');
+                {
+                        $content['css'] .= '<style type="text/css">@media screen { .news_content {  '.
+                                ' max-height: '.
+                                (($prefs['limit_des_lines'] ? $prefs['limit_des_lines'] : 5) * 1.35).       // dono why em is not real lines
+                                'em; overflow: auto; }}</style>';
+                }
+
 		$this->tpl->read('news_admin.index');
 		return $this->tpl->exec('news_admin.uinews.index',$content,
 			array(

@@ -349,6 +349,7 @@ class news_admin_ui extends bonews
 			),
 			'update' => array(
 				'caption' => 'Update RSS feed',
+				'icon' => 'down2',
 				'allowOnMultiple' => true,
 				'disableClass' => 'rowNoUpdate',
 				'group' => $group,
@@ -358,7 +359,6 @@ class news_admin_ui extends bonews
 				'confirm' => 'Delete this category, and all news in it',
                                 'confirm_multiple' => 'Delete these categories, and all news in them',
 				'allowOnMultiple' => true,
-				'nm_action' => 'open_popup',
 				'group' => ++$group,
 				'disableClass' => 'rowNoDelete',
 			),
