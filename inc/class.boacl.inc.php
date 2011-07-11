@@ -91,7 +91,11 @@
 		{
 			if($right & EGW_ACL_READ)
 			{
-				return $GLOBALS['egw']->categories->check_perms($right, $cat_id);
+				if(!is_object($this->catbo))
+				{
+					$this->catbo = new categories('','news_admin');
+				}
+				return $this->catbo->check_perms($right, $cat_id);
 			}
 			if($right & EGW_ACL_ADD)
 			{
