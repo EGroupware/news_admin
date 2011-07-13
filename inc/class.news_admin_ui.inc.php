@@ -168,7 +168,12 @@ class news_admin_ui extends bonews
 		{
 			// Regular users can't give write access to others
 			$content['cat_owner'] = $content['cat_writable'] = array($GLOBALS['egw_info']['user']['account_id']);
+			$content['read_accounts'] = 'accounts';
 			$readonlys['cat_writable'] = true;
+		}
+		else
+		{
+			$content['read_accounts'] = 'both';
 		}
 		if (!$content['cat_id']) $readonlys['button[delete]'] = true;
 		if ($content['cat_id']) $readonlys['cat_owner'] = true;	// cat class can only set owner when creating new cats
