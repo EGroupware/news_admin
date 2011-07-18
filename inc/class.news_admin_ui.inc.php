@@ -96,6 +96,10 @@ class news_admin_ui extends bonews
 					{
 						$msg = lang('Imported feeds can NOT be writable!').' ';
 					}
+					if($content['read_all_users'])
+					{
+						$content['cat_readable'] = array(categories::GLOBAL_ACCOUNT);
+					}
 					if (($content['cat_id'] = $this->save_cat($content)))
 					{
 						$msg .= lang('Category saved.');
@@ -175,8 +179,13 @@ class news_admin_ui extends bonews
 		{
 			$content['read_accounts'] = 'both';
 		}
+		if($content['cat_owner'] == categories::GLOBAL_ACCOUNT)
+		{
+			$content['read_all_users'] = true;
+			egw_framework::set_onload('var read = document.getElementById("eT_accountsel_exec_cat_readable_"); if(read) {$j(read).val(""); $j(read).next().hide(); read.disabled = true;}');
+		}
+
 		if (!$content['cat_id']) $readonlys['button[delete]'] = true;
-		if ($content['cat_id']) $readonlys['cat_owner'] = true;	// cat class can only set owner when creating new cats
 		if (!$content['import_url'] || !$content['cat_id']) $readonlys['button[import]'] = true;
 
 		$this->tpl->read('news_admin.cat');

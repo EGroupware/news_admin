@@ -547,7 +547,10 @@ class bonews extends so_sql
 
 		// Write permission implies read permission
 		if(!is_array($cat['cat_writable'])) $cat['cat_writable'] = $cat['cat_writable'] ? explode(',',$cat['cat_writable']) : array();
-		$cat['owner'] = implode(',',array_unique(array_merge($cat['cat_readable'], $cat['cat_writable'])));
+		if($cat['owner'] !== categories::GLOBAL_ACCOUNT)
+		{
+			$cat['owner'] = implode(',',array_unique(array_merge($cat['cat_readable'], $cat['cat_writable'])));
+		}
 
 		// Imported news is not writable
 		if($cat['import_url']) $cat['cat_writable'] = array();
