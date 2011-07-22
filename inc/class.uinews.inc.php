@@ -295,7 +295,7 @@ class uinews extends bonews
 
 		 // add scrollbar to long description, if user choose so in his prefs
 		$prefs = $GLOBALS['egw_info']['user']['preferences']['news_admin'];
-                if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '');
+                if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '')
                 {
                         $content['css'] .= '<style type="text/css">@media screen { .news_content {  '.
                                 ' max-height: '.
