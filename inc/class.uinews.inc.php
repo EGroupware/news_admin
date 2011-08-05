@@ -52,11 +52,22 @@ class uinews extends bonews
 	public function view($content = array())
 	{
 		$news_id = $content['news_id'] ? $content['news_id'] : $_GET['news_id'];
-		if(!$this->read($_GET['news_id']))
+		if(!$this->read($news_id))
 		{
 		}
 
-		$content = $this->data;
+		$content = array_merge($this->data, $content);
+		if($content['edit'])
+		{
+			return $this->edit($content);
+		}
+		elseif ($content['delete'] && $this->check_acl(EGW_ACL_DELETE))
+		{
+			$this->delete(array('news_id' => $this->data['news_id']));
+			$msg = lang('News deleted.');
+			echo "<html><body><script>var referer = '".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."'; window.close();</script></body></html>\n";
+			$GLOBALS['egw']->common->egw_exit();
+		}
 		$sel_options = array(
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
 			'visible' => $this->visiblity,
@@ -65,6 +76,7 @@ class uinews extends bonews
 		$readonlys['edit'] = !$this->check_acl(EGW_ACL_EDIT);
 		$readonlys['delete'] = !$this->check_acl(EGW_ACL_DELETE);
 
+		$preserve['news_id'] = $news_id;
 		egw_framework::set_onload('$j(document).ready(popup_resize);');
 		$this->tpl->read('news_admin.view');
 		return $this->tpl->exec('news_admin.uinews.view',$content,$sel_options,$readonlys,$preserve,2);
