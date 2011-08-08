@@ -232,6 +232,7 @@ class uinews extends bonews
 				$sel_options['cat_id'][$content['cat_id']] = $this->cats->id2name($content['cat_id']);
 			}
 		}
+		egw_framework::set_onload('$j(document).ready(popup_resize);');
 		$this->tpl->read('news_admin.edit');
 		return $this->tpl->exec('news_admin.uinews.edit',$content,$sel_options,$readonlys,$preserve,2);
 	}
