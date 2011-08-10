@@ -89,7 +89,19 @@
 
 		function is_permitted($cat_id,$right)
 		{
-			return $this->permissions['L'.$cat_id] & $right;
+			if($right & EGW_ACL_READ)
+			{
+				if(!is_object($this->catbo))
+				{
+					$this->catbo = new categories('','news_admin');
+				}
+				return $this->catbo->check_perms($right, $cat_id);
+			}
+			if($right & EGW_ACL_ADD)
+			{
+				return $this->permissions['L'.$cat_id] & $right;
+			}
+echo __METHOD__ . ':' . __LINE__ . ' Different perms: ' . $right . '<br />';
 		}
 
 		function is_readable($cat_id)
@@ -114,10 +126,7 @@
 			foreach($this->accounts as $account)
 			{
 				$account_id = $account['account_id'];
-				//write implies read
-				$rights = in_array($account_id,$writecat) ?
-					(EGW_ACL_READ | EGW_ACL_ADD) :
-					(in_array($account_id,$readcat) ? EGW_ACL_READ : False);
+				$rights = in_array($account_id,$writecat) ? EGW_ACL_ADD : False;
 
 				if ($rights)
 				{

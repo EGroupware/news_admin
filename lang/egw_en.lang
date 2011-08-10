@@ -1,13 +1,16 @@
 %1 module	news_admin	en	%1 module
 %1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported. %2 new, %3 deleted.
 %s hours	news_admin	en	%s hours
+%s imported news items	news_admin	en	%s imported news items
 actions	news_admin	en	Actions
 active	news_admin	en	Active
 add new article	news_admin	en	Add new article
 add new news	news_admin	en	Add new news
 add news item	news_admin	en	Add news item
 all news	news_admin	en	All news
+all users	news_admin	en	All users
 always	news_admin	en	Always
+as	news_admin	en	as
 as imported	news_admin	en	As imported
 by date	news_admin	en	By date
 categories to displayed on main page?	news_admin	en	Categories to display on Home page
@@ -22,6 +25,9 @@ contains html	news_admin	en	Contains HTML
 content	news_admin	en	Content
 count	news_admin	en	Count
 date and time	news_admin	en	Date and time
+default languages	news_admin	en	Default languages
+delete these categories, and all news in them	news_admin	en	Delete these categories, and all news in them
+delete this category, and all news in it	news_admin	en	Delete this category, and all news in it
 delete this news	news_admin	en	Delete this news
 do you want to publish a rss feed for this news category	news_admin	en	Publish a RSS feed for this news category.
 edit news item	news_admin	en	Edit news
@@ -49,9 +55,12 @@ import every	news_admin	en	Import every
 import now	news_admin	en	Import now
 import url	news_admin	en	Import URL
 imported feeds can not be writable!	news_admin	en	Imported feeds can NOT be writable!
+imported news items	news_admin	en	imported news items
 item has been deleted	news_admin	en	Entry has been deleted.
 item not found	news_admin	en	Entry not found.
+keep	news_admin	en	Keep
 keep all	news_admin	en	Keep all
+last imported	news_admin	en	Last imported
 last updated	news_admin	en	Last updated
 link	news_admin	en	Link
 main	news_admin	en	Main
@@ -79,6 +88,7 @@ number of articles to display on the main screen	news_admin	en	Number of article
 number of news items to be displayed on page	news_admin	en	Number of news to display on page
 old	news_admin	en	Old
 on	news_admin	en	On
+owner / read permissions	news_admin	en	Owner / Read permissions
 page-name the item should be displayed (empty = current page)	news_admin	en	Page name the item should be displayed. Empty = current page.
 parent	news_admin	en	Parent
 picture upload (leave the upload directory empty to disable the upload)	admin	en	Picture upload. Leave the upload directory empty to disable the upload.
@@ -105,6 +115,7 @@ the subject is missing	news_admin	en	There is no subject.
 there no such translation.	news_admin	en	There no translation.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 until	news_admin	en	Until
+update rss feed	news_admin	en	Update RSS feed
 url of the rss or atom feed, empty for own news feed	news_admin	en	URL of the RSS or Atom feed, empty for own news feed
 view this category	news_admin	en	View this category
 visible	news_admin	en	Visible

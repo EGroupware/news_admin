@@ -400,10 +400,30 @@ class bonews extends so_sql
 		static $all_cats;
 		if (!is_array($all_cats))
 		{
-			if (!($all_cats = $this->cats->return_array('all',0,False,'','','',True))) $all_cats = array();
-		}
-		if ($rights == EGW_ACL_EDIT) $rights = EGW_ACL_ADD;	// no edit rights at the moment
+			if (!($all_cats = $this->cats->return_array('all',0,False,'','','',false))) $all_cats = array();
+			
+			// Check for read permissions stored in ACL, move to owner
+			foreach($all_cats as &$cat)
+			{
+				if ($readers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'],EGW_ACL_READ, 'news_admin'))
+				{
+					$cat['owner'] = implode(',',$readers);
+					$this->cats->edit($cat);
+					$writers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'],EGW_ACL_ADD, 'news_admin');
+					foreach($readers as $account_id)
+					{
+						$GLOBALS['egw']->acl->delete_repository('news_admin', 'L'.$cat['id'], $account_id);
+					}
+					foreach($writers as $account_id)
+					{
+						$GLOBALS['egw']->acl->add_repository('news_admin', 'L'.$cat['id'], $account_id, EGW_ACL_ADD);
+					}
+				}
 
+			}
+		}
+		unset($cat);
+		if ($rights == EGW_ACL_EDIT) $rights = EGW_ACL_ADD;	// no edit rights at the moment
 		$cats = array();
 		foreach($all_cats as $cat)
 		{
@@ -425,37 +445,35 @@ class bonews extends so_sql
 	 */
 	function get_cats($query,&$cats,&$readonlys=null,$ignore_acl=false)
 	{
-		$criteria = array();
-		if ($query['search'])
-		{
-			foreach(array('cat_name','cat_description') as $name)
-			{
-				$criteria[$name] = $query['search'];
-			}
-		}
-
-		$order = "GROUP BY {$this->cats->table}.cat_id, cat_name,cat_description,cat_data,cat_parent,cat_owner,cat_appname ORDER BY ".($query['order'] ? $query['order'] : 'cat_name').' '.$query['sort'];
-		$join  = "RIGHT JOIN {$this->cats->table} ON $this->table_name.cat_id={$this->cats->table}.cat_id";
-		$filter = array(
-			'visible'=>'all',
-			"cat_appname='news_admin'",
-		);
+		$filter = array('appname' => 'news_admin');
 		if (is_array($query['col_filter'])) $filter += $query['col_filter'];
-		if (!$ignore_acl && !isset($GLOBALS['egw_info']['user']['apps']['admin'])) $filter[] = "(cat_owner=$this->user OR cat_owner=".categories::GLOBAL_ACCOUNT.")";
-		$cats = $this->search($criteria,'1',$order,array(
-			'cat_name','cat_description','cat_data','cat_parent','cat_owner','cat_appname',
-			'count(news_content) AS num_news','MAX(news_date) AS news_date',$this->cats->table.'.cat_id AS cat_id',
-		),'%',false,'OR',array($query['start'],$query['num_rows']),$filter,$join);
+
+		$globalcats = $GLOBALS['egw_info']['user']['apps']['admin'] ? 'all_no_acl' : false;
+		$cats = $this->cats->return_sorted_array($query['start'],false,$query['search'],$query['sort'],$query['order'],$globalcats,0,true,$filter);
 		if (!$cats) $cats = array();
 
+		$cat_ids = array();
 		foreach($cats as $k => $cat)
 		{
-			$cats[$k] += $this->_cat_rights($cat['cat_id']);
-			if ($cat['cat_data'] && is_array($data = unserialize($cat['cat_data']))) $cats[$k] += $data;
+			$cats[$k] += $this->_cat_rights($cat['id']);
+			if (is_array($data = $cat['data'])) $cats[$k] += $data;
 			if ($cats[$k]['import_url']) $cats[$k]['import_host'] = parse_url($cats[$k]['import_url'],PHP_URL_HOST);
+			$cat_ids[$cat['id']] = $k;
+		}
+
+		// Get latest news time
+		foreach($GLOBALS['egw']->db->select(
+			$this->table_name,
+			array('cat_id', 'MAX(news_date) as news_date', 'count(news_content) AS num_news'),
+			array('cat_id' => array_keys($cat_ids)),
+			__LINE__, __FILE__, false, 'GROUP BY cat_id', 'news_admin'
+		) as $news)
+		{
+			$cats[$cat_ids[$news['cat_id']]]['news_date'] = $news['news_date'];
+			$cats[$cat_ids[$news['cat_id']]]['num_news'] = $news['num_news'];
 		}
 		//_debug_array($cats);
-		return $this->total;
+		return $this->cats->total_records;
 	}
 
 	/**
@@ -493,7 +511,7 @@ class bonews extends so_sql
 
 		if (!is_array($cat)) $cat = $this->read_cat($cat);
 
-		return $cat && ($cat['cat_owner'] == $this->user || isset($GLOBALS['egw_info']['user']['apps']['admin']));
+		return $cat && (@in_array($this->user, $cat['cat_writable']) || isset($GLOBALS['egw_info']['user']['apps']['admin']));
 	}
 
 	/**
@@ -526,6 +544,17 @@ class bonews extends so_sql
 			}
 			$cat[$name] = $value;
 		}
+
+		// Write permission implies read permission
+		if(!is_array($cat['cat_writable'])) $cat['cat_writable'] = $cat['cat_writable'] ? explode(',',$cat['cat_writable']) : array();
+		if($cat['owner'] !== categories::GLOBAL_ACCOUNT)
+		{
+			$cat['owner'] = implode(',',array_unique(array_merge($cat['cat_readable'], $cat['cat_writable'])));
+		}
+
+		// Imported news is not writable
+		if($cat['import_url']) $cat['cat_writable'] = array();
+
 		if ($cat['cat_id'])
 		{
 			$cat['cat_id'] = $this->cats->edit($cat);
@@ -541,7 +570,7 @@ class bonews extends so_sql
 		}
 		if ($cat['cat_id'])
 		{
-			$this->acl->set_rights($cat['cat_id'],$cat['cat_readable'],$cat['cat_writable']);
+			$this->acl->set_rights($cat['cat_id'],array(),$cat['cat_writable']);
 
 			if ($cat['import_url']) $this->_setup_async_job();
 		}
@@ -598,9 +627,10 @@ class bonews extends so_sql
 			foreach($rights as $user => $right)
 			{
 				if ($right & EGW_ACL_ADD)  $cat['cat_writable'][] = $user;
-				if ($right & EGW_ACL_READ) $cat['cat_readable'][] = $user;
 			}
 		}
+		$category = categories::read($cat_id);
+		$cat['cat_readable'] = explode(',',$category['owner']);
 		return $cat;
 	}
 

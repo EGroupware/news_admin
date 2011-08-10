@@ -52,11 +52,25 @@ class uinews extends bonews
 	public function view($content = array())
 	{
 		$news_id = $content['news_id'] ? $content['news_id'] : $_GET['news_id'];
-		if(!$this->read($_GET['news_id']))
+		if(!$this->read($news_id))
 		{
 		}
 
-		$content = $this->data;
+		$content = array_merge($this->data, $content);
+		if($content['edit'])
+		{
+			echo "<html><body><script>
+			window.opener.egw_open($news_id,'news_admin','edit');
+			window.close();
+			</script></body></html>\n";
+		}
+		elseif ($content['delete'] && $this->check_acl(EGW_ACL_DELETE))
+		{
+			$this->delete(array('news_id' => $this->data['news_id']));
+			$msg = lang('News deleted.');
+			echo "<html><body><script>var referer = '".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."'; window.close();</script></body></html>\n";
+			$GLOBALS['egw']->common->egw_exit();
+		}
 		$sel_options = array(
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
 			'visible' => $this->visiblity,
@@ -65,6 +79,7 @@ class uinews extends bonews
 		$readonlys['edit'] = !$this->check_acl(EGW_ACL_EDIT);
 		$readonlys['delete'] = !$this->check_acl(EGW_ACL_DELETE);
 
+		$preserve['news_id'] = $news_id;
 		egw_framework::set_onload('$j(document).ready(popup_resize);');
 		$this->tpl->read('news_admin.view');
 		return $this->tpl->exec('news_admin.uinews.view',$content,$sel_options,$readonlys,$preserve,2);
@@ -292,6 +307,17 @@ class uinews extends bonews
 			);
 		}
 		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];
+
+		 // add scrollbar to long description, if user choose so in his prefs
+		$prefs = $GLOBALS['egw_info']['user']['preferences']['news_admin'];
+                if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '')
+                {
+                        $content['css'] .= '<style type="text/css">@media screen { .news_content {  '.
+                                ' max-height: '.
+                                (($prefs['limit_des_lines'] ? $prefs['limit_des_lines'] : 5) * 1.35).       // dono why em is not real lines
+                                'em; overflow: auto; }}</style>';
+                }
+
 		$this->tpl->read('news_admin.index');
 		return $this->tpl->exec('news_admin.uinews.index',$content,
 			array(

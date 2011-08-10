@@ -2,13 +2,14 @@
 <!-- $Id$ -->
 <overlay>
 	<template id="news_admin.index.right" template="" lang="" group="0" version="1.3.001">
-		<button rows="1" cols="1" id="add" label="Add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;"/>
+		<button cols="1" label="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;" rows="1"/>
 	</template>
-	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.3.001">
+	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
 				<column/>
 				<column width="20%"/>
+				<column width="10%"/>
 				<column width="10%"/>
 				<column width="50"/>
 			</columns>
@@ -16,17 +17,20 @@
 				<row class="th">
 					<description value="News"/>
 					<vbox options="0,0">
-						<nextmatch-accountfilter options="From all" id="news_submittedby"/>
-						<nextmatch-sortheader id="news_date" label="Date"/>
+						<nextmatch-accountfilter id="news_submittedby" options="From all"/>
+						<nextmatch-sortheader label="Date" id="news_date"/>
 					</vbox>
 					<nextmatch-filterheader label="Visible" id="visible"/>
-					<description value="Actions" align="center"/>
+					<nextmatch-customfilter id="news_lang" options="select-lang,Default language"/>
+					<nextmatch-header align="center" label="Actions" id="legacy_actions"/>
 				</row>
-				<row class="row" valign="top">
-					<vbox>
-						<description class="news_headline" id="${row}[news_headline]" no_lang="1" options=",$row_cont[link],,,_blank"/>
-						<description id="${row}[news_teaser]" class="news_teaser" no_lang="1" options=",,1"/>
-						<html class="news_content" id="${row}[news_content]"/>
+				<row class="row $row_cont[class]" valign="top">
+					<vbox class="news_container">
+						<description id="${row}[news_headline]" no_lang="1" options=",$row_cont[link],,,_blank" class="news_headline"/>
+						<description id="${row}[news_teaser]" no_lang="1" options=",,1" class="news_teaser"/>
+						<box class="news_content">
+							<html id="${row}[news_content]"/>
+						</box>
 					</vbox>
 					<vbox>
 						<menulist>
@@ -41,33 +45,44 @@
 						<date id="${row}[news_begin]" readonly="true"/>
 						<date id="${row}[news_end]" readonly="true"/>
 					</vbox>
+					<menulist>
+						<menupopup type="select-lang" id="${row}[news_lang]" readonly="true"/>
+					</menulist>
 					<hbox align="center">
-						<button image="edit" label="Edit" id="edit[$row_cont[news_id]]" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit&amp;news_id=$row_cont[news_id]'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;"/>
-						<button image="delete" label="Delete" id="delete[$row_cont[news_id]]" onclick="return confirm('Delete this news');"/>
+						<button label="Edit" id="edit[$row_cont[news_id]]" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit&amp;news_id=$row_cont[news_id]'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;" image="edit"/>
+						<button label="Delete" id="delete[$row_cont[news_id]]" onclick="return confirm('Delete this news');" image="delete"/>
 					</hbox>
 				</row>
 			</rows>
 		</grid>
 	</template>
-	<template id="news_admin.index" template="" lang="" group="0" version="1.3.001">
+	<template id="news_admin.index" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
 				<column/>
 			</columns>
 			<rows>
+				<row>
+					<html id="css" span="all"/>
+				</row>
 				<row disabled="!@msg">
-					<description span="all" class="redItalic" align="center" id="msg" no_lang="1"/>
+					<description align="center" id="msg" no_lang="1" span="all" class="redItalic"/>
 				</row>
 				<row disabled="1">
 					<template align="right" id="news_admin.index.right"/>
 				</row>
 				<row>
-					<nextmatch options="news_admin.index.rows" id="nm"/>
+					<nextmatch id="nm" options="news_admin.index.rows"/>
 				</row>
 				<row>
-					<button label="Add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;" id="add"/>
+					<button label="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;"/>
 				</row>
 			</rows>
 		</grid>
+		<styles>
+			.news_container {
+  width: 100%;
+}
+		</styles>
 	</template>
 </overlay>
