@@ -45,18 +45,18 @@ class news_admin_import
 	 * Read the feed of the given URL
 	 *
 	 * @param string $url
+	 * @param resource $context Context for file_get_contents to pass headers to server
 	 * @return XML_Feed_Parser|boolean false on error
 	 */
-	function read($url)
+	function read($url, $context = null)
 	{
 		$parts = parse_url($url);
 		if (!in_array($parts['scheme'],array('http','https','ftp'))) return false;	// security!
 
-		if (!($feed_xml = file_get_contents($url,false)) || !@include_once('XML/Feed/Parser.php'))
+		if (!($feed_xml = file_get_contents($url,false,$context)) || !@include_once('XML/Feed/Parser.php'))
 		{
 			return false;
 		}
-
 		// if the xml-file specifes an encoding, convert it to our own encoding
 		if (preg_match('/\<\?xml.*encoding="([^"]+)"/i',$feed_xml,$matches) && $matches[1])
 		{
@@ -68,7 +68,16 @@ class news_admin_import
 		try {
 		    $parser = new XML_Feed_Parser($feed_xml);
 		} catch (XML_Feed_Parser_Exception $e) {
-		    $parser = false;
+			if(!$context) {
+				// Try again with a user agent
+				$context = stream_context_create(array('http'=>array(
+					'method'=>'GET',
+					'user_agent' => 'Mozilla/5.0'
+				)));
+				$parser = $this->read($url, $context);
+			} else {
+				$parser = false;
+			}
 		}
 		error_reporting($level);
 
