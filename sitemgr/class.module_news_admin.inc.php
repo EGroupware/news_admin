@@ -118,12 +118,15 @@ class module_news_admin extends Module
 		}
 		// for the center area you can use a direct link to call a certain item
 		if ($show[0] == 'title_list') $listview = true;  //for Joomla Style news
-		if (!($item = (int)$arguments['item']) && $this->block->area == 'center')
+
+		$item = (int)$arguments['item'];
+		if (!($item) && $this->block->area == 'center')
 		{
 			$item = (int)$_GET['item'];
-			// if no page-target is given (display on same page), we have to show everything
-			// otherwise a list showing just headlines and optional teaser is not able to show a full news
-			if (!$arguments['linkpage'])
+
+			// Override the show selection if a news item is selected but
+			// the content is not part of the standard news display on this page.
+			if (!(in_array('content', $show)))
 			{
 				$show = array('headline','submitted','teaser','content');
 			}
