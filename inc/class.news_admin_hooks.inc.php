@@ -107,7 +107,7 @@ class news_admin_hooks
 				'application' => 'news_admin'
 			));
 			$options = array(
-				'~nextmatch~'	=>	lang('No definition')
+				'~nextmatch~'	=>	lang('Old fixed definition')
 			);
 			foreach ((array)$definitions->get_definitions() as $identifier) {
 				try {
