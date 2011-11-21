@@ -106,7 +106,9 @@ class news_admin_hooks
 				'type' => 'export',
 				'application' => 'news_admin'
 			));
-			$options = array();
+			$options = array(
+				'~nextmatch~'	=>	lang('Old fixed definition')
+			);
 			foreach ((array)$definitions->get_definitions() as $identifier) {
 				try {
 					$definition = new importexport_definition($identifier);
