@@ -14,7 +14,7 @@
 {
   font-size: 90%;
 }
-.news_teaser,.news_teaser textarea
+.news_teaser,.news_teaser /*textarea*/
 {
   font-weight: bold; 
 }

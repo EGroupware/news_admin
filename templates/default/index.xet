@@ -2,9 +2,9 @@
 <!-- $Id$ -->
 <overlay>
 	<template id="news_admin.index.right" template="" lang="" group="0" version="1.3.001">
-		<button cols="1" label="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;" rows="1"/>
+		<buttononly cols="1" label="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.uinews.edit'),'_blank','dependent=yes,width=700,height=600,scrollbars=yes,status=yes'); return false;" rows="1"/>
 	</template>
-	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.9.001">
+	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.9.002">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -26,8 +26,8 @@
 				</row>
 				<row class="row $row_cont[class]" valign="top">
 					<vbox class="news_container">
-						<description id="${row}[news_headline]" no_lang="1" options=",$row_cont[link],,,_blank" class="news_headline"/>
-						<description id="${row}[news_teaser]" no_lang="1" options=",,1" class="news_teaser"/>
+						<description id="${row}[news_headline]" no_lang="1" href="$row_cont[link]" extra_link_target="_blank" class="news_headline"/>
+						<html id="${row}[news_teaser]" no_lang="1" options=",,1" class="news_teaser"/>
 						<box class="news_content">
 							<html id="${row}[news_content]"/>
 						</box>
