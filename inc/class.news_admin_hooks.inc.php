@@ -161,14 +161,10 @@ class news_admin_hooks
 			$file = array();
 			if ($enableadd)
 			{
-				$file = Array(
-					array(
-						'text' => '<a class="textSidebox" href="'.egw::link('/index.php',array('menuaction' => 'news_admin.uinews.edit')).
-							'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width=700,height=580,scrollbars=yes,status=yes\');
-							return false;">'.lang('Add').'</a>',
-						'no_lang' => true,
-						'link' => false
-					));
+				list($w,$h) = explode('x',egw_link::get_registry('news_admin', 'edit_popup'));
+				$file['Add'] = "javascript:egw_openWindowCentered2('".egw::link('/index.php',array(
+						'menuaction' => 'news_admin.uinews.edit',
+					),false)."','_blank',".$w.",".$h.",'yes');";
 			}
 			$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.uinews.index'));
 	
@@ -254,7 +250,7 @@ class news_admin_hooks
 				'menuaction' => 'news_admin.uinews.edit'
 			),
 			'edit_id' => 'news_id',
-			'edit_popup'  => '700x600',
+			'edit_popup'  => '700x750',
 		);
 	}
 }
