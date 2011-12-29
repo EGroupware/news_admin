@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- $Id$ -->
 <overlay>
-	<template id="news_admin.edit" template="" lang="" group="0" version="1.9.002">
+	<template id="news_admin.edit" template="" lang="" group="0" version="1.9.003">
 		<grid>
 			<columns>
 				<column/>
@@ -21,13 +21,13 @@
 					<description/>
 				</row>
 				<row class="th" height="28">
-					<description value="Category" for="cat_id"/>
+					<description value="Category" options=",,,cat_id"/>
 					<menulist span="all">
 						<menupopup id="cat_id" needed="1" no_lang="1" options="Select one"/>
 					</menulist>
 				</row>
 				<row class="row">
-					<description value="Headline" for="news_headline"/>
+					<description value="Headline" options=",,,news_headline"/>
 					<textbox id="news_headline" needed="1" size="70" maxlength="128" span="all" class="news_headline"/>
 					<description/>
 					<description/>
@@ -35,11 +35,11 @@
 					<description/>
 				</row>
 				<row class="row" valign="top">
-					<description value="Teaser" for="news_teaser"/>
-					<htmlarea id="news_teaser" mode="$cont[rtfEditorFeatures]" height="120px" width="100%" base_href="$cont[upload_dir]" span="all"/>
+					<description value="Teaser" options=",,,news_teaser"/>
+					<htmlarea id="news_teaser" mode="$cont[rtfEditorFeatures]" height="220px" width="100%" base_href="$cont[upload_dir]" span="all"/>
 				</row>
 				<row class="row" valign="top">
-					<description value="Content" for="news_content"/>
+					<description value="Content" options=",,,news_content"/>
 					<htmlarea id="news_content" needed="1" mode="$cont[rtfEditorFeatures]" height="320px" width="100%" toolbar="true" base_href="$cont[upload_dir]" span="all"/>
 				</row>
 				<row class="row">
@@ -47,9 +47,9 @@
 					<menulist>
 						<menupopup id="visible"/>
 					</menulist>
-					<description align="right" value="Start" for="news_begin"/>
+					<description align="right" value="Start" options=",,,news_begin"/>
 					<date id="news_begin"/>
-					<description align="right" value="End" for="news_end"/>
+					<description align="right" value="End" options=",,,news_end"/>
 					<date id="news_end"/>
 				</row>
 				<row class="row" disabled="!@news_submittedby">
