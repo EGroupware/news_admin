@@ -643,4 +643,55 @@ class bonews extends so_sql
 	{
 		return PHP_VERSION >= 5 && include_once('XML/Feed/Parser.php');
 	}
-}
+
+	/**
+	 * query for articles matching $pattern
+	 *
+	 * Is called as hook to participate in the linking
+	 *
+	 * @param string|array $pattern pattern to search, or an array with a 'search' key
+	 * @param array $options Array of options for the search
+	 * @return array with id - title pairs of the matching entries
+	 */
+	function link_query($pattern, Array &$options = array())
+	{
+		$filter = $result = $criteria = array();
+		$limit = false;
+		if ($pattern)
+		{
+			$criteria = is_array($pattern) ? $pattern['search'] : $pattern;
+		}
+		if($options['start'] || $options['num_rows'])
+		{
+			$limit = array($options['start'], $options['num_rows']);
+		}
+		$filter = (array)$options['filter'];
+		if (($results =& $this->search($criteria,false,'news_date DESC','','',False,'AND', $limit, $filter)))
+		{
+			foreach($results as $article)
+			{
+				$result[$article['news_id']] = $this->link_title($article);
+			}
+		}
+		$options['total'] = $this->total;
+		return $result;
+	}
+
+	/**
+	 * get title for an article identified by $id
+	 *
+	 * Is called as hook to participate in the linking. 
+	 *
+	 * @param int/string/array $article int/string id or array with article
+	 * @return string/boolean string with the title, null if article does not exitst, false if no perms to view it
+	 */
+	function link_title($article)
+	{
+		if (!is_array($article) && $article)
+		{
+			$article = $this->read($article);
+		}
+		if(!$article) return false;
+		return $article['news_headline'] . ' ('.egw_time::to($article['news_date'],true) . ')';
+	}
+}		

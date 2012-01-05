@@ -240,6 +240,8 @@ class news_admin_hooks
 
 	public static function links() {
 		return array(
+			'query' => 'news_admin.bonews.link_query',
+			'title' => 'news_admin.bonews.link_title',
 			'view' => array(
 				'menuaction' => 'news_admin.uinews.view'
 			),
