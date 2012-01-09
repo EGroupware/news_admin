@@ -39,7 +39,7 @@ foreach(array(
 
 // Create egroupware.org news category importing news from egroupware.org readable by everyone
 $data = serialize(array(
-	'import_url' => 'http://www.egroupware.org//index.php?module=news_admin&cat_id=95,200',
+	'import_url' => 'http://www.egroupware.org/index.php?module=news_admin&cat_id=3,200',
 	'import_frequency' => 4,
 	'keep_imported' => 0,
 ));

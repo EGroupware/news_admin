@@ -256,3 +256,27 @@ function news_admin_upgrade1_6()
 {
 	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.8';
 }
+
+function news_admin_upgrade1_8()
+{
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.8.001';
+}
+
+
+function news_admin_upgrade1_8_001()
+{
+	// Update egroupware.org news category importing news from egroupware.org readable by everyone
+	$dataOld = serialize(array(
+		'import_url' => 'http://www.egroupware.org//index.php?module=news_admin&cat_id=95,200',
+		'import_frequency' => 4,
+		'keep_imported' => 0,
+	));
+	$data = serialize(array(
+		'import_url' => 'http://www.egroupware.org/index.php?module=news_admin&cat_id=3,200',
+		'import_frequency' => 4,
+		'keep_imported' => 0,
+	));
+	$GLOBALS['egw_setup']->oProc->query("update {$GLOBALS['egw_setup']->cats_table} set cat_data='$data' where cat_appname='news_admin' and cat_data='$dataOld'",__LINE__,__FILE__);
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.9.001';
+}
+
