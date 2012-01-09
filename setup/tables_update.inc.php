@@ -259,6 +259,12 @@ function news_admin_upgrade1_6()
 
 function news_admin_upgrade1_8()
 {
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.8.001';
+}
+
+
+function news_admin_upgrade1_8_001()
+{
 	// Update egroupware.org news category importing news from egroupware.org readable by everyone
 	$dataOld = serialize(array(
 		'import_url' => 'http://www.egroupware.org//index.php?module=news_admin&cat_id=95,200',
