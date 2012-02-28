@@ -1,16 +1,14 @@
 <?php
 /**
- * news_admin - business object
+ * EGroupware news_admin - business object
  *
  * @link http://www.egroupware.org
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2006 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2006-12 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$
  */
-
-require_once(EGW_INCLUDE_ROOT.'/etemplate/inc/class.so_sql.inc.php');
 
 /**
  * Business object of the news_admin
@@ -73,12 +71,10 @@ class bonews extends so_sql
 
 	/**
 	 * Constructor
-	 *
-	 * @return bonews
 	 */
-	function bonews()
+	function __construct()
 	{
-		$this->so_sql('news_admin','egw_news');
+		parent::__construct('news_admin','egw_news');
 
 		$this->acl =& CreateObject('news_admin.boacl');
 
@@ -89,6 +85,16 @@ class bonews extends so_sql
 		$this->lang =& $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 
 		$this->cats = new categories('','news_admin');
+	}
+
+	/**
+	 * PHP4 constructor
+	 *
+	 * @deprecated use __construct()
+	 */
+	function bonews()
+	{
+		$this->__construct();
 	}
 
 	/**
@@ -300,7 +306,7 @@ class bonews extends so_sql
 		if (isset($filter['news_lang']))
 		{
 			$filter[] = '(news_lang='.$this->db->quote($filter['news_lang']).' OR news_lang IS NULL AND '.
-				 "(SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id AND translation.news_lang = ".$this->db->quote($filter['news_lang']).') IS NULL)';
+				 "NOT EXISTS (SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id AND translation.news_lang = ".$this->db->quote($filter['news_lang']).'))';
 			unset($filter['news_lang']);
 		}
 		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter,$join);
@@ -401,7 +407,7 @@ class bonews extends so_sql
 		if (!is_array($all_cats))
 		{
 			if (!($all_cats = $this->cats->return_array('all',0,False,'','','',false))) $all_cats = array();
-			
+
 			// Check for read permissions stored in ACL, move to owner
 			foreach($all_cats as &$cat)
 			{
@@ -680,7 +686,7 @@ class bonews extends so_sql
 	/**
 	 * get title for an article identified by $id
 	 *
-	 * Is called as hook to participate in the linking. 
+	 * Is called as hook to participate in the linking.
 	 *
 	 * @param int/string/array $article int/string id or array with article
 	 * @return string/boolean string with the title, null if article does not exitst, false if no perms to view it
@@ -694,4 +700,4 @@ class bonews extends so_sql
 		if(!$article) return false;
 		return $article['news_headline'] . ' ('.egw_time::to($article['news_date'],true) . ')';
 	}
-}		
+}
