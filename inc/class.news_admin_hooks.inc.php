@@ -90,7 +90,7 @@ class news_admin_hooks
 		if ($GLOBALS['egw_info']['user']['apps']['filemanager'])
 		{
 			$prefs['upload_dir'] = array(
-				'type'  => 'input',
+				'type'  => 'vfs_dir',
 				'label' => 'VFS upload directory',
 				'name'  => 'upload_dir',
 				'size'  => 50,
@@ -144,7 +144,7 @@ class news_admin_hooks
 	{
 		$location = is_array($hook_data) ? $hook_data['location'] : $hook_data;
 		$appname = 'news_admin';
-		
+
 		if ($location == 'sidebox_menu')
 		{
 			$categories = new categories('',$appname);
@@ -175,7 +175,7 @@ class news_admin_hooks
 			$file = array();
 			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname);
 			$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
-			
+
 			if ($location == 'sidebox_menu')
 			{
 				display_sidebox($appname,$title,$file);
@@ -235,7 +235,7 @@ class news_admin_hooks
 	public static function sidebox_menu($hook_data)
 	{
 		return self::all_hooks($hook_data);
-	}	
+	}
 
 	public static function links() {
 		return array(
