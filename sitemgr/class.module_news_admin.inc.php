@@ -308,7 +308,7 @@ class module_news_admin extends Module
 
 				case 'submitted':
 					$value = lang('Submitted by %1 on %2',$GLOBALS['egw']->common->grab_owner_name($news['news_submittedby']),
-						$GLOBALS['egw']->common->show_date($news['news_date'],'',false));
+						egw_time::to($news['news_date']));
 					break;
 
 				case 'date':
