@@ -318,7 +318,7 @@ class module_news_admin extends Module
 					{
 						$format .= ' '.($GLOBALS['egw_info']['user']['preferences']['common']['timeformat'] == 12 ? 'h:i a' : 'H:i');
 					}
-					$value = $GLOBALS['egw']->common->show_date($news['news_date'],$format,false);
+					$value = egw_time::to($news['news_date'], $name == 'date' ? true : '');
 					break;
 
 				case 'more':
