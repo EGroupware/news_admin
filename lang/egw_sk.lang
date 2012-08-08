@@ -1,18 +1,25 @@
+%1 entries %2	news_admin	sk	%1 položiek %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	sk	%1 položiek %2, %3 zlyhalo kvôli nedostatočným oprávneniam!
 %1 module	news_admin	sk	%1 modul
-%1 news imported (%2 new).	news_admin	sk	%1 aktualít bolo naimportovaných (%2 nových).
+%1 news imported (%2 new, %3 deleted).	news_admin	sk	%1 aktualít naimportovaných. %2 nových, %3 odstránených.
 %s hours	news_admin	sk	%s hodín
+%s imported news items	news_admin	sk	%s importovaných položiek aktualít
 actions	news_admin	sk	Akcie
 active	news_admin	sk	Aktívne
 add new article	news_admin	sk	Pridať nový článok
 add new news	news_admin	sk	Pridať novú aktualitu
 add news item	news_admin	sk	Pridať položku Aktualít
 all news	news_admin	sk	Všetky aktuality
+all users	news_admin	sk	Všetci používatelia
 always	news_admin	sk	Vždy
+as	news_admin	sk	ako
+as imported	news_admin	sk	Ako naimportované
 by date	news_admin	sk	Podľa dátumu
 categories to displayed on main page?	news_admin	sk	Kategórie, ktoré sa majú zobrazovať na hlavnej stránke?
 category deleted.	news_admin	sk	Kategóriia bola odstránená.
 category saved.	news_admin	sk	Kategória bola uložená.
 choose a category	news_admin	sk	Vyberte kategóriu
+comma separated item ids which shall be shown (empty = all)	news_admin	sk	Čiarkou oddelené ID položiek ktoré sa majú zobraziť. Prázdne = všetky
 configuration	news_admin	sk	Konfigurácia
 configure access permissions	common	sk	Nastaviť prístupové práva
 configure rss exports	common	sk	Nastaviť RSS exporty
@@ -20,7 +27,11 @@ contains html	news_admin	sk	Obsahuje HTML
 content	news_admin	sk	Obsah
 count	news_admin	sk	Počet
 date and time	news_admin	sk	Dátum a čas
+default languages	news_admin	sk	Predvolené jazyky
+delete these categories, and all news in them	news_admin	sk	Odstrániť tieto kategórie, a všetky aktuality ktoré obsahujú
+delete this category, and all news in it	news_admin	sk	Odstrániť túto kategóriu, a všetky aktuality ktoré obsahuje
 delete this news	news_admin	sk	Odstrániť túto správu
+deleted	news_admin	sk	Odstránené
 do you want to publish a rss feed for this news category	news_admin	sk	Želáte si publikovať RSS kanál pre túto kategóriu aktualít
 edit news item	news_admin	sk	Upraviť položku Aktualít
 end	news_admin	sk	Koniec
@@ -38,6 +49,8 @@ global news	news_admin	sk	Globálne aktuality
 global_news	news_admin	sk	Globálne_aktuality
 headline	news_admin	sk	Titulok
 headline with link	news_admin	sk	Titulok s odkazom
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	sk	Koľko riadkov opisu má byť priamo viditeľných. Ďalšie riadky sú dostupné cez posuvník.
+if you specify an export definition, it will be used when you export	news_admin	sk	Ak zadáte exportnú definíciu, bude sa používať pri exportoch.
 image link	news_admin	sk	Odkaz na obrázok
 image title	news_admin	sk	Titulok obrázka
 image url	news_admin	sk	URL obrázka
@@ -46,9 +59,15 @@ import every	news_admin	sk	Importovať všetkých
 import now	news_admin	sk	Importovať teraz
 import url	news_admin	sk	Importovať URL
 imported feeds can not be writable!	news_admin	sk	Importované kanály sa NEDAJÚ upravovať!
+imported news items	news_admin	sk	importovaných položiek aktualít
 item has been deleted	news_admin	sk	Položka bola odstránená
 item not found	news_admin	sk	Položka sa nenašla
+keep	news_admin	sk	Ponechať
+keep all	news_admin	sk	Ponechať všetky
+kept %1 because of write permissions.  remove them first.	news_admin	sk	Ponechaných %1 kvôli oprávneniam k zápisu. Najprv ich odstráňte.
+last imported	news_admin	sk	Naposledy importovaných
 last updated	news_admin	sk	Naposledy aktualizované
+limit number of description lines (default 5, 0 for no limit)	news_admin	sk	Obmedziť počet riadkov opisu (0= bez obmedzení, predvolené = 5)
 link	news_admin	sk	Odkaz
 main	news_admin	sk	Hlavné
 maintain	news_admin	sk	Udržiavať
@@ -74,7 +93,9 @@ now	news_admin	sk	Teraz
 number of articles to display on the main screen	news_admin	sk	Počet článkov zobrazených na hlavnej stránke
 number of news items to be displayed on page	news_admin	sk	Počet aktualít zobrazovaných na stránke
 old	news_admin	sk	Staré
+old fixed definition	news_admin	sk	Stará pevná definícia
 on	news_admin	sk	na
+owner / read permissions	news_admin	sk	Oprávnenia vlastníka / čítanie
 page-name the item should be displayed (empty = current page)	news_admin	sk	Názov stránky, pod ktorým sa má táto položka zobrazovať (prázdne = súčasná stránka)
 parent	news_admin	sk	Rodič
 picture upload (leave the upload directory empty to disable the upload)	admin	sk	Nahrať obrázok (ak chcete vypnúť nahrávanie, ponechajte adresár prázdny)
@@ -101,6 +122,8 @@ the subject is missing	news_admin	sk	Chýba predmet
 there no such translation.	news_admin	sk	Taký preklad neexistuje.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sk	Tento modul publikuje na Vašej webstránke aktuality z aplikácie Správca Aktualít (news_admin). Dajte si pozor na ACL obmedzenia aplikácie Správca Aktualít (news_admin).
 until	news_admin	sk	až do
+update rss feed	news_admin	sk	Aktualizovať RSS kanál
+updated	news_admin	sk	Aktualizované
 url of the rss or atom feed, empty for own news feed	news_admin	sk	URL pre RSS alebo Atom kanál, prázdne znamená vlastný kanál aktualít
 view this category	news_admin	sk	Zobraziť túto kategóriu
 visible	news_admin	sk	Viditeľné
@@ -109,3 +132,4 @@ which information do you want to show (css class)	news_admin	sk	Ktoré informác
 which news categories should be displayed on the main screen.	news_admin	sk	Ktoré kategórie aktualít sa majú zobrazovať na hlavnej stránke.
 write	news_admin	sk	Zápis
 write permissions	news_admin	sk	Oprávnenia k zápisu
+you need to select some entries first	news_admin	sk	Najprv musíte vybrať nejakú položku.
