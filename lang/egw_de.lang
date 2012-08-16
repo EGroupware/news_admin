@@ -1,13 +1,18 @@
+%1 entries %2	news_admin	de	%1 Datensatz %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	de	%1 Datensatz %2, %3 ist fehlgeschlagen, wegen zu fehlenden Zugriffsrechten!!!
 %1 module	news_admin	de	%1 Module
 %1 news imported (%2 new, %3 deleted).	news_admin	de	%1 Nachrichten importiert (%2 neue, %3 gelöscht).
 %s hours	news_admin	de	%s Stunden
+%s imported news items	news_admin	de	%s Nachrichten wurden importiert
 actions	news_admin	de	Befehle
 active	news_admin	de	Aktiv
 add new article	news_admin	de	Neue Nachricht hinzufügen
 add new news	news_admin	de	Neue Nachricht hinzufügen
 add news item	news_admin	de	Eine neue Nachricht hinzufügen
 all news	news_admin	de	Alle Nachrichten
+all users	news_admin	de	Alle Benutzer
 always	news_admin	de	Immer
+as	news_admin	de	als
 as imported	news_admin	de	wie importiert
 by date	news_admin	de	Nach Datum
 categories to displayed on main page?	news_admin	de	Kategorien zum Anzeigen auf der Startseite?
@@ -22,7 +27,11 @@ contains html	news_admin	de	Beinhaltet HTML
 content	news_admin	de	Inhalt
 count	news_admin	de	Anzahl
 date and time	news_admin	de	Datum und Uhrzeit
+default languages	news_admin	de	Standard Sprache
+delete these categories, and all news in them	news_admin	de	Löst alle diese Kategorien und alle Nachrichten diesen Kategorien.
+delete this category, and all news in it	news_admin	de	Löst alle diese Kategorie und alle Nachrichten dieser Kategorie
 delete this news	news_admin	de	Diese Nachricht löschen
+deleted	news_admin	de	Gelöscht.
 do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS link für diese Kategorie anzeigen
 edit news item	news_admin	de	Nachricht bearbeiten
 end	news_admin	de	Ende
@@ -40,6 +49,7 @@ global news	news_admin	de	Globale Nachrichten
 global_news	news_admin	de	Globale Nachrichten
 headline	news_admin	de	Schlagzeile
 headline with link	news_admin	de	Schlagzeile mit Link
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	de	Wie viele Beschreibungszeilen sollen direkt angezeigt werden. Weitere Inhalten können Sie durch Scrollen mit dem Nachrichtenfeld sehen.
 if you specify an export definition, it will be used when you export	news_admin	de	Wählen Sie eine Export Definition für den Export
 image link	news_admin	de	Link des Bildes
 image title	news_admin	de	Titel des Bildes
@@ -49,10 +59,15 @@ import every	news_admin	de	Importieren alle
 import now	news_admin	de	Jetzt Importieren
 import url	news_admin	de	Import URL
 imported feeds can not be writable!	news_admin	de	Importierte Feeds können NICHT beschreibbar sein!
+imported news items	news_admin	de	Importierte Nachrichten
 item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
+keep	news_admin	de	bebehalten
 keep all	news_admin	de	Alle Einträge behalten
+kept %1 because of write permissions.  remove them first.	news_admin	de	%1 bebehalten wegen Schreibrechten. Löschen Sie diese Nachrichten zuerst.
+last imported	news_admin	de	Zuletzt importiert
 last updated	news_admin	de	Zuletzt aktualisiert
+limit number of description lines (default 5, 0 for no limit)	news_admin	de	Anzahl der Beschreibungszeilen (Standardwert beträgt 5, 0 für keine  Begrenzeung).
 link	news_admin	de	Link
 main	news_admin	de	Hauptmenü
 maintain	news_admin	de	Pflegen
@@ -79,8 +94,9 @@ number of articles to display on the main screen	news_admin	de	Anzahl der Nachri
 number of news items to be displayed on page	news_admin	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 old	news_admin	de	Alte
 on	news_admin	de	An
+owner / read permissions	news_admin	de	Benitzer-/Leseberechtigung
 page-name the item should be displayed (empty = current page)	news_admin	de	Seitenname auf der die Einträge angezeigt werden sollen (leer = aktuelle Seite)
-parent	news_admin	de	Eltern
+parent	news_admin	de	Elternelement
 picture upload (leave the upload directory empty to disable the upload)	admin	de	Hochladen von Dateien (Lassen sie die Felder frei um das Hochladen abzuschalten)
 please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
 publish date	news_admin	de	Veröffentlichungsdatum
@@ -105,6 +121,8 @@ the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 there no such translation.	news_admin	de	Für diese Nachricht gibt es keine Übersetzung
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website and. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
 until	news_admin	de	bis
+update rss feed	news_admin	de	RSS  Nachrichtenfeed aktualisieren
+updated	news_admin	de	Aktualisiert
 url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten Feed
 view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
@@ -113,3 +131,4 @@ which information do you want to show (css class)	news_admin	de	Welche Informati
 which news categories should be displayed on the main screen.	news_admin	de	Welche Nachrichten Kategorien sollen auf der Startseite angezeigt werden.
 write	news_admin	de	Schreiben
 write permissions	news_admin	de	Schreibrechte
+you need to select some entries first	news_admin	de	Sie müssen zuerst Einträge auswählen

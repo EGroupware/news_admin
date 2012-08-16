@@ -1,3 +1,5 @@
+%1 entries %2	news_admin	en	%1 entries %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	en	%1 entries %2, %3 failed because of insufficent rights !!!
 %1 module	news_admin	en	%1 module
 %1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported. %2 new, %3 deleted.
 %s hours	news_admin	en	%s hours
@@ -29,6 +31,7 @@ default languages	news_admin	en	Default languages
 delete these categories, and all news in them	news_admin	en	Delete these categories, and all news in them
 delete this category, and all news in it	news_admin	en	Delete this category, and all news in it
 delete this news	news_admin	en	Delete this news
+deleted	news_admin	en	deleted
 do you want to publish a rss feed for this news category	news_admin	en	Publish a RSS feed for this news category.
 edit news item	news_admin	en	Edit news
 end	news_admin	en	End
@@ -46,6 +49,7 @@ global news	news_admin	en	Global news
 global_news	news_admin	en	Global_News
 headline	news_admin	en	Head line
 headline with link	news_admin	en	Head line with link
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	en	How many describtion lines should be directly visible. Further lines are available via a scrollbar.
 if you specify an export definition, it will be used when you export	news_admin	en	If you specify an export definition, it will be used when you export.
 image link	news_admin	en	Image link
 image title	news_admin	en	Image title
@@ -60,8 +64,10 @@ item has been deleted	news_admin	en	Entry has been deleted.
 item not found	news_admin	en	Entry not found.
 keep	news_admin	en	Keep
 keep all	news_admin	en	Keep all
+kept %1 because of write permissions.  remove them first.	news_admin	en	Kept %1 because of write permissions.  Remove them first.
 last imported	news_admin	en	Last imported
 last updated	news_admin	en	Last updated
+limit number of description lines (default 5, 0 for no limit)	news_admin	en	Limit number of description lines (default 5, 0 for no limit)
 link	news_admin	en	Link
 main	news_admin	en	Main
 maintain	news_admin	en	Maintain
@@ -116,6 +122,7 @@ there no such translation.	news_admin	en	There no translation.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 until	news_admin	en	Until
 update rss feed	news_admin	en	Update RSS feed
+updated	news_admin	en	updated
 url of the rss or atom feed, empty for own news feed	news_admin	en	URL of the RSS or Atom feed, empty for own news feed
 view this category	news_admin	en	View this category
 visible	news_admin	en	Visible
@@ -124,3 +131,4 @@ which information do you want to show (css class)	news_admin	en	Which informatio
 which news categories should be displayed on the main screen.	news_admin	en	Which news categories should be displayed on the Home page
 write	news_admin	en	Write
 write permissions	news_admin	en	Write permissions
+you need to select some entries first	news_admin	en	You need to select some entries first
