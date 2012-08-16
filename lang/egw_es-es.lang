@@ -1,18 +1,23 @@
 %1 module	news_admin	es-es	Módulo %1
-%1 news imported (%2 new).	news_admin	es-es	Se han importado %1 noticias (%2 nuevas)
+%1 news imported (%2 new, %3 deleted).	news_admin	es-es	Se han importado %1 noticias. %2 nuevas y se han borrado %3.
 %s hours	news_admin	es-es	%s horas
+%s imported news items	news_admin	es-es	Se han importado %s elementos
 actions	news_admin	es-es	Acciones
 active	news_admin	es-es	Activo
 add new article	news_admin	es-es	Añadir artículo nuevo
 add new news	news_admin	es-es	Añadir noticias nuevas
 add news item	news_admin	es-es	Añadir elemento de noticias
 all news	news_admin	es-es	Todas las noticias
+all users	news_admin	es-es	Todos los usuarios
 always	news_admin	es-es	Siempre
+as	news_admin	es-es	como
+as imported	news_admin	es-es	como se importaron
 by date	news_admin	es-es	Por fecha
 categories to displayed on main page?	news_admin	es-es	¿Mostrar categorías en la página principal?
 category deleted.	news_admin	es-es	Se ha borrado la categoría.
 category saved.	news_admin	es-es	Se ha guardado la categoría.
 choose a category	news_admin	es-es	Elija una categoría
+comma separated item ids which shall be shown (empty = all)	news_admin	es-es	IDs de elementos separados por comas que se mostrarán. Vacío = todos
 configuration	news_admin	es-es	Configuración
 configure access permissions	common	es-es	Configurar permisos de acceso
 configure rss exports	common	es-es	Configurar exportación RSS
@@ -20,6 +25,9 @@ contains html	news_admin	es-es	Contiene HTML
 content	news_admin	es-es	Contenido
 count	news_admin	es-es	Contar
 date and time	news_admin	es-es	Fecha y hora
+default languages	news_admin	es-es	Idiomas predeterminados
+delete these categories, and all news in them	news_admin	es-es	Borrar estas categorías y todas las noticias que contengan
+delete this category, and all news in it	news_admin	es-es	Borrar esta categoría y todas las noticias que contenga
 delete this news	news_admin	es-es	Borrar esta noticia
 do you want to publish a rss feed for this news category	news_admin	es-es	¿Desea publicar un canal RSS para esta categoría de noticias?
 edit news item	news_admin	es-es	Editar elemento de noticias
@@ -38,6 +46,7 @@ global news	news_admin	es-es	Noticias globales
 global_news	news_admin	es-es	Noticias globales
 headline	news_admin	es-es	Titular
 headline with link	news_admin	es-es	Titular con enlace
+if you specify an export definition, it will be used when you export	news_admin	es-es	Si especifica una definición de exportar, se usará al exportar.
 image link	news_admin	es-es	Enlace a la imagen
 image title	news_admin	es-es	Título de la imagen
 image url	news_admin	es-es	URL de la imagen
@@ -46,8 +55,12 @@ import every	news_admin	es-es	Importar cada
 import now	news_admin	es-es	Importar ahora
 import url	news_admin	es-es	URL de importación
 imported feeds can not be writable!	news_admin	es-es	¡Las noticias importadas NO se pueden escribir!
+imported news items	news_admin	es-es	elmentos de noticias importados
 item has been deleted	news_admin	es-es	El elemento ha sido borrado
 item not found	news_admin	es-es	No se encontró el elemento
+keep	news_admin	es-es	Mantener
+keep all	news_admin	es-es	Mantener todos
+last imported	news_admin	es-es	Última importación
 last updated	news_admin	es-es	Ultima actualización
 link	news_admin	es-es	Enlace
 main	news_admin	es-es	Principal
@@ -75,6 +88,7 @@ number of articles to display on the main screen	news_admin	es-es	Número de art
 number of news items to be displayed on page	news_admin	es-es	Número de elementos de noticias a mostrar en la página
 old	news_admin	es-es	Antigua
 on	news_admin	es-es	en
+owner / read permissions	news_admin	es-es	Propietario / permisos de lectura
 page-name the item should be displayed (empty = current page)	news_admin	es-es	Página-indique el elemento a mostrar (vacío=página actual)
 parent	news_admin	es-es	Nivel superior
 picture upload (leave the upload directory empty to disable the upload)	admin	es-es	Subir imagen (dejar el directorio en blanco para desactivar subir imágenes)
@@ -101,6 +115,7 @@ the subject is missing	news_admin	es-es	Falta el asunto
 there no such translation.	news_admin	es-es	No hay tal traducción.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	es-es	Este módulo publica noticias desde la aplicación Administrador de noticias en su sitio web. Tenga en cuenta las restricciones de ACL de la aplicación.
 until	news_admin	es-es	hasta
+update rss feed	news_admin	es-es	Actualizar hilo RSS
 url of the rss or atom feed, empty for own news feed	news_admin	es-es	URL del hilo Atom. En blanco para hilo propio.
 view this category	news_admin	es-es	Ver esta categoría
 visible	news_admin	es-es	Visible
