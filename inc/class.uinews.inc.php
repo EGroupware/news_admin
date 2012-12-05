@@ -6,7 +6,7 @@
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$ 
+ * @version $Id$
  */
 
 require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
@@ -207,10 +207,6 @@ class uinews extends bonews
 		$preserve['old_lang'] = $this->data['news_lang'];	// remember old lang
 		if ($referer) $content['referer'] = $preserve['referer'] = $referer;
 		$content['msg'] = $msg;
-		if (!($content['rtfEditorFeatures'] = $GLOBALS['egw_info']['user']['preferences']['news_admin']['rtfEditorFeatures']))
-		{
-			$content['rtfEditorFeatures'] = 'extended';	// better default than simple for news_admin
-		}
 		$content['upload_dir'] = $GLOBALS['egw_info']['user']['preferences']['news_admin']['upload_dir'];
 		$sel_options = array(
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
