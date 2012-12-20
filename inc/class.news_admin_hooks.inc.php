@@ -72,20 +72,6 @@ class news_admin_hooks
 				'admin'  => False,
 				'default'=> 5,
 			),
-			'rtfEditorFeatures' => array(
-				'type'   => 'select',
-				'label'  => 'Features of the editor?',
-				'name'   => 'rtfEditorFeatures',
-				'values' => array(
-					'simple'   => lang('Simple'),
-					'extended' => lang('Regular'),
-					'advanced' => lang('Everything'),
-				),
-				'help'   => 'You can customize how many icons and toolbars the editor shows.',
-				'xmlrpc' => True,
-				'admin'  => False,
-				'default'=> 'extended',
-			),
 		);
 		if ($GLOBALS['egw_info']['user']['apps']['filemanager'])
 		{
