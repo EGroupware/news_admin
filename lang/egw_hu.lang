@@ -1,5 +1,4 @@
 %1 module	news_admin	hu	%1 modul
-%1 news imported (%2 new).	news_admin	hu	%1 hír importálva (%2 hír)
 %s hours	news_admin	hu	%s óra
 actions	news_admin	hu	Műveletek
 active	news_admin	hu	Aktív
@@ -7,7 +6,9 @@ add new article	news_admin	hu	Új hír hozzáadása
 add new news	news_admin	hu	Új hír hozzáadása
 add news item	news_admin	hu	Hír hozzáadása
 all news	news_admin	hu	Összes hír
+all users	news_admin	hu	Összes felhasználó
 always	news_admin	hu	Állandóan
+as	news_admin	hu	mint
 by date	news_admin	hu	Dátum alapján
 categories to displayed on main page?	news_admin	hu	Kategóriák megjelenjenek a főképernyőn?
 category deleted.	news_admin	hu	Kategória törölve.
@@ -21,6 +22,7 @@ content	news_admin	hu	Tartalom
 count	news_admin	hu	szám
 date and time	news_admin	hu	Dátum és időpont
 delete this news	news_admin	hu	Hír törlése
+deleted	news_admin	hu	törölve
 do you want to publish a rss feed for this news category	news_admin	hu	Kívánja RSS hírszolgáltatásként publikálni ezt a hír kategóriát?
 edit news item	news_admin	hu	Hír szerkesztése
 end	news_admin	hu	Befejezés
@@ -38,6 +40,7 @@ global news	news_admin	hu	Globális hírek
 global_news	news_admin	hu	Globális hírek
 headline	news_admin	hu	Főcím
 headline with link	news_admin	hu	Főcím hivatkozással
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	hu	Mennyi leírás sor legyen látható? További sorokat a csúszka használatával lehet megtekinteni.
 image link	news_admin	hu	Kép hivatkozás
 image title	news_admin	hu	Kép címe
 image url	news_admin	hu	Kép URL
@@ -49,6 +52,7 @@ imported feeds can not be writable!	news_admin	hu	Importált mezők nem módosí
 item has been deleted	news_admin	hu	Bejegyzés törölve
 item not found	news_admin	hu	Bejegyzés nem található
 last updated	news_admin	hu	Utolsó frissítés
+limit number of description lines (default 5, 0 for no limit)	news_admin	hu	A leírás sorainak felső határa (5 alapértelmezésben, 0 korlátlan számú sorhoz)
 link	news_admin	hu	Hivatkozás
 main	news_admin	hu	Fő
 maintain	news_admin	hu	Karbantartás
@@ -101,6 +105,7 @@ the subject is missing	news_admin	hu	Tárgy hiányzik
 there no such translation.	news_admin	hu	Nincs ilyen forítás.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	hu	Ez a modul híreket jelenít meg a Hírszerkesztőből a webhelyen. Legyen körültekintő az ACL beállításokkal!
 until	news_admin	hu	meddig
+updated	news_admin	hu	frissítve
 url of the rss or atom feed, empty for own news feed	news_admin	hu	RSS vagy Atom hírforrás URL-je, üres saját források esetén
 view this category	news_admin	hu	Kategória mutatása
 visible	news_admin	hu	Látható

@@ -1,0 +1,17 @@
+actions	news_admin	eu	Ekintzak
+all users	news_admin	eu	Erabiltzaile guztiak
+always	news_admin	eu	beti
+configuration	news_admin	eu	Konfigurazioa
+configure access permissions	common	eu	Sarrera Baimenak Kudeatu
+deleted	news_admin	eu	ezabatua
+end	news_admin	eu	Bukaera
+from	news_admin	eu	Norena
+global categories	news_admin	eu	Kategoria orokorrak
+implies read permission	news_admin	eu	irakurtze baimena dakar
+link	news_admin	eu	Lotura
+read permissions	news_admin	eu	Irakurri baimenak
+reload	news_admin	eu	Birkargatu
+small view	news_admin	eu	ikuspegi txikia
+start	news_admin	eu	Hasiera
+updated	news_admin	eu	Gaurkoatua
+write permissions	news_admin	eu	Idazteko baimenak

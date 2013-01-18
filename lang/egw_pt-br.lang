@@ -1,5 +1,4 @@
 %1 module	news_admin	pt-br	módulo %1
-%1 news imported (%2 new).	news_admin	pt-br	%1 notícia(s) importada(s) (%2 nova(s))
 %s hours	news_admin	pt-br	%s horas
 actions	news_admin	pt-br	Ações
 active	news_admin	pt-br	Ativo
@@ -7,7 +6,9 @@ add new article	news_admin	pt-br	Adicionar Artigo
 add new news	news_admin	pt-br	Adicionar Notícia
 add news item	news_admin	pt-br	Adicionar novo item
 all news	news_admin	pt-br	Todas as Notícias
+all users	news_admin	pt-br	Todos usuários
 always	news_admin	pt-br	Disponíveis
+as	news_admin	pt-br	como
 by date	news_admin	pt-br	Por data
 categories to displayed on main page?	news_admin	pt-br	Categorias a serem exibidas na página principal
 category deleted.	news_admin	pt-br	Categoria removida.
@@ -21,6 +22,7 @@ content	news_admin	pt-br	Conteúdo
 count	news_admin	pt-br	Quantidade
 date and time	news_admin	pt-br	Data e horário
 delete this news	news_admin	pt-br	Remover esta notícia
+deleted	news_admin	pt-br	removido
 do you want to publish a rss feed for this news category	news_admin	pt-br	Deseja publicar um RSS para esta categoria de notícias
 edit news item	news_admin	pt-br	Editar item
 end	news_admin	pt-br	Fim
@@ -65,6 +67,7 @@ news item has been added	news_admin	pt-br	Item adicionado
 news item has been updated	news_admin	pt-br	Item atualizado
 news saved.	news_admin	pt-br	Notícia salva
 news_admin	common	pt-br	Boletins Internos
+no anonymous user accounts installed.  notify the administrator.	news_admin	pt-br	NÃO EXISTE UMA CONTA DE ACESSO ANÔNIMO INSTALADA. NOTIFIQUE O ADMINISTRADOR.
 no entries found	news_admin	pt-br	nenhuma entrada encontrada
 no matching news item	news_admin	pt-br	Nenhuma notícia encontrada
 no news	news_admin	pt-br	Não existe boletins disponíveis para esta categoria
@@ -100,6 +103,7 @@ the subject is missing	news_admin	pt-br	O assunto está faltando
 there no such translation.	news_admin	pt-br	Esta tradução não existe
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pt-br	Este módulo publica notícias do aplicativo de notícias do seu site. Atente-se às ACL's.
 until	news_admin	pt-br	até
+updated	news_admin	pt-br	Atualizado
 url of the rss or atom feed, empty for own news feed	news_admin	pt-br	URL do feed RSS ou Atom, vazio para feed próprio.
 view this category	news_admin	pt-br	Exibir esta categoria
 visible	news_admin	pt-br	Visível

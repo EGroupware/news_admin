@@ -113,8 +113,8 @@ start	news_admin	de	Anfang
 submitted by	common	de	Eingetragen von
 submitted by %1 on %2	news_admin	de	Eingetragen von %1 am %2
 submitted by and date	news_admin	de	Eingetragen von und mit Datum
-teaser	news_admin	de	Anreiser
-teaser with read more link	news_admin	de	Anreise mit weiter lesen Link
+teaser	news_admin	de	Anreißer
+teaser with read more link	news_admin	de	Anreißer mit weiter lesen Link
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
 the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel

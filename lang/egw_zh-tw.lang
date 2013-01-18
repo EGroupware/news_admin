@@ -5,7 +5,9 @@ add new article	news_admin	zh-tw	新增文章
 add new news	news_admin	zh-tw	新增新聞
 add news item	news_admin	zh-tw	新增新聞項目
 all news	news_admin	zh-tw	所有新聞
+all users	news_admin	zh-tw	所有使用者
 always	news_admin	zh-tw	預設
+as	news_admin	zh-tw	當
 by date	news_admin	zh-tw	按日期
 choose a category	news_admin	zh-tw	選擇一個類別
 configuration	news_admin	zh-tw	設定
@@ -15,6 +17,7 @@ contains html	news_admin	zh-tw	包含HTML
 content	news_admin	zh-tw	內容
 date and time	news_admin	zh-tw	日期與時間
 delete this news	news_admin	zh-tw	刪除這則新聞
+deleted	news_admin	zh-tw	刪除了
 do you want to publish a rss feed for this news category	news_admin	zh-tw	是否要透過 RSS 發佈這個新聞類別的文章？
 edit news item	news_admin	zh-tw	編輯新聞項目
 end	news_admin	zh-tw	結束
@@ -52,6 +55,7 @@ news item has been added	news_admin	zh-tw	新增新聞項目完成
 news item has been updated	news_admin	zh-tw	更新新聞項目完成
 news saved.	news_admin	zh-tw	新聞儲存了
 news_admin	common	zh-tw	新聞管理
+no anonymous user accounts installed.  notify the administrator.	news_admin	zh-tw	還沒設定訪客帳號，請提醒管理員
 no entries found	news_admin	zh-tw	找不到任何資料
 no matching news item	news_admin	zh-tw	沒有符合的新聞
 no news	news_admin	zh-tw	這個類別目前沒有任何新聞
@@ -61,12 +65,14 @@ number of articles to display on the main screen	news_admin	zh-tw	在主要畫�
 number of news items to be displayed on page	news_admin	zh-tw	頁面要顯示的新聞數量
 old	news_admin	zh-tw	舊的
 on	news_admin	zh-tw	在
+parent	news_admin	zh-tw	上一層
 picture upload (leave the upload directory empty to disable the upload)	admin	zh-tw	上傳圖片（如果不使用請保留空白）
 please select a category	news_admin	zh-tw	請選擇一個類別
 publish date	news_admin	zh-tw	發布日期
 read more	news_admin	zh-tw	閱讀全文
 read news	news_admin	zh-tw	讀取新聞
 read permissions	news_admin	zh-tw	讀取權限
+reload	news_admin	zh-tw	重新讀取
 send mail to others	news_admin	zh-tw	發送郵件給其他人
 should news_admin display the latest article headlines on the main screen.	news_admin	zh-tw	是否要在主畫面顯示最新文章？
 show latest news articles?	news_admin	zh-tw	顯示最新文章？
@@ -82,6 +88,7 @@ the number of articles to display on the main screen.	news_admin	zh-tw	在主要
 the subject is missing	news_admin	zh-tw	您沒有輸入主題
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	zh-tw	這個模組會從 news_admin 模組發佈新聞到網站，記得檢查 news_admin 的權限設定。
 until	news_admin	zh-tw	直到
+updated	news_admin	zh-tw	更新日期
 view this category	news_admin	zh-tw	瀏覽這個類別
 visible	news_admin	zh-tw	啟用
 webpage news admin	news_admin	zh-tw	網頁新聞管理

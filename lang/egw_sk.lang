@@ -93,7 +93,6 @@ now	news_admin	sk	Teraz
 number of articles to display on the main screen	news_admin	sk	Počet článkov zobrazených na hlavnej stránke
 number of news items to be displayed on page	news_admin	sk	Počet aktualít zobrazovaných na stránke
 old	news_admin	sk	Staré
-old fixed definition	news_admin	sk	Stará pevná definícia
 on	news_admin	sk	na
 owner / read permissions	news_admin	sk	Oprávnenia vlastníka / čítanie
 page-name the item should be displayed (empty = current page)	news_admin	sk	Názov stránky, pod ktorým sa má táto položka zobrazovať (prázdne = súčasná stránka)

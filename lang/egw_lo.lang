@@ -1,0 +1,13 @@
+all users	news_admin	lo	ຜູ້ໃຊ້ທັງໝົດ
+category deleted.	news_admin	lo	ໝວດໝູ່ຖືກລຶບແລ້ວ
+category saved.	news_admin	lo	ໝວດໝູ່ໄດ້ຖືກບັນທຶກແລ້ວ
+configure access permissions	common	lo	ກຳໜົດສິດໃນການເຂົ້າໃຊ້
+end	news_admin	lo	ສິ້ນສຸດ
+global categories	news_admin	lo	ໝວດທົ່ວໄປ
+implies read permission	news_admin	lo	ສະແດງເຖິງສິດໃນການອ່ານ
+link	news_admin	lo	ເຊື່ອມຕໍ່ໄປທີ່ເຫດການ
+read permissions	news_admin	lo	ສິດການອ່ານ
+reload	news_admin	lo	ໂຫຼດໃໝ່
+start	news_admin	lo	ເລີ່ມ
+updated	news_admin	lo	ປັບປຸງແລ້ວ
+write permissions	news_admin	lo	ສິດການຂຽນ

@@ -1,3 +1,5 @@
+%1 entries %2	news_admin	fi	%1 merkintää %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	fi	%1 merkintää %2 epäonnistui riittämättömien oikeuksien takia!
 %1 module	news_admin	fi	%1 moduli
 %1 news imported (%2 new, %3 deleted).	news_admin	fi	%1 uutista tuotu. %2 uutta, %3 poistettu
 %s hours	news_admin	fi	%s tuntia
@@ -7,7 +9,9 @@ add new article	news_admin	fi	Lisää uusi artikkeli
 add new news	news_admin	fi	Lisää uusi uutinen
 add news item	news_admin	fi	Lisää uutinen
 all news	news_admin	fi	Kaikki uutiset
+all users	news_admin	fi	Kaikki käyttäjät
 always	news_admin	fi	Aina
+as	news_admin	fi	niinkuin
 by date	news_admin	fi	Päivämäärän mukaan
 categories to displayed on main page?	news_admin	fi	Mitkä kategoriat näytetään etusivulla?
 category deleted.	news_admin	fi	Kategoria poistettu.
@@ -21,6 +25,7 @@ content	news_admin	fi	Sisältö
 count	news_admin	fi	Lukema
 date and time	news_admin	fi	Päivä ja aika
 delete this news	news_admin	fi	Poista tämä uutinen
+deleted	news_admin	fi	Poistettu
 do you want to publish a rss feed for this news category	news_admin	fi	Haluatko julkaista RSS syötteen tästä uutis-kategoriasta
 edit news item	news_admin	fi	Muokkaa uutista
 end	news_admin	fi	Loppu
@@ -38,6 +43,7 @@ global news	news_admin	fi	Yleiset uutiset
 global_news	news_admin	fi	Yleiset_uutiset
 headline	news_admin	fi	Otsikko
 headline with link	news_admin	fi	Otsikko linkillä
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	fi	Kuinka monta riviä kuvauskenttää on suoraan näkyvillä? Loput rivit scrollbarilla.
 if you specify an export definition, it will be used when you export	news_admin	fi	Valitse viennin oletusasetus
 image link	news_admin	fi	Kuva linkki
 image title	news_admin	fi	Kuvan otsikko
@@ -51,6 +57,7 @@ item has been deleted	news_admin	fi	Kohde poistettu
 item not found	news_admin	fi	Kohdetta ei löydetty
 keep all	news_admin	fi	Pidä kaikki
 last updated	news_admin	fi	Viimeksi päivitetty
+limit number of description lines (default 5, 0 for no limit)	news_admin	fi	Rajoita kuvauskentän rivien määrää (Oletus on 5, merkitse 0, jos et halua rajoitusta).
 link	news_admin	fi	Linkki
 main	news_admin	fi	Pääosa
 maintain	news_admin	fi	Ylläpito
@@ -102,6 +109,7 @@ the subject is missing	news_admin	fi	Uutisen otsikko puuttuu
 there no such translation.	news_admin	fi	Käännöstä ei löydy.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	fi	Tämä moduuli julkaisee uutisia news_admin sovelluksesta nettisivullasi. Tarkista news_admin ACL -oikeudet
 until	news_admin	fi	kunnes
+updated	news_admin	fi	Päivitetty
 url of the rss or atom feed, empty for own news feed	news_admin	fi	RSS tai Atom Feedin URL, Jätä tyhjäksi omille Feedeille
 view this category	news_admin	fi	Näytä kategoria
 visible	news_admin	fi	Näkyvä
@@ -110,3 +118,4 @@ which information do you want to show (css class)	news_admin	fi	Minkä tiedon ha
 which news categories should be displayed on the main screen.	news_admin	fi	Mitkä uutiskategoriat näytetään etusivulla?
 write	news_admin	fi	Kirjoita
 write permissions	news_admin	fi	Kirjoitusoikeudet
+you need to select some entries first	news_admin	fi	Valitse merkintä

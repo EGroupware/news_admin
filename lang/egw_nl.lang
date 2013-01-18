@@ -1,5 +1,4 @@
 %1 module	news_admin	nl	%1 module
-%1 news imported (%2 new).	news_admin	nl	%1 nieuws geimporteerd (%2 nieuw).
 %s hours	news_admin	nl	%s uren
 actions	news_admin	nl	Acties
 active	news_admin	nl	Actief
@@ -7,7 +6,9 @@ add new article	news_admin	nl	Nieuw artikel toevoegen
 add new news	news_admin	nl	Nieuw nieuws toevoegen
 add news item	news_admin	nl	Nieuwsitem toevoen
 all news	news_admin	nl	Alle nieuwsitems
+all users	news_admin	nl	Alle gebruikers
 always	news_admin	nl	Altijd
+as	news_admin	nl	als
 by date	news_admin	nl	Op datum
 categories to displayed on main page?	news_admin	nl	Categorieën die weergegeven moeten worden op de voorpagina?
 category deleted.	news_admin	nl	Categorie verwijderd.
@@ -21,6 +22,7 @@ content	news_admin	nl	Inhoud
 count	news_admin	nl	Tel
 date and time	news_admin	nl	Datum en tijd
 delete this news	news_admin	nl	Verwijderd dit nieuws
+deleted	news_admin	nl	verwijderd
 do you want to publish a rss feed for this news category	news_admin	nl	Wilt u een RSS feed publiceren voor deze nieuwscategorie
 edit news item	news_admin	nl	Nieuwsitem bewerken
 end	news_admin	nl	Eind
@@ -101,6 +103,7 @@ the subject is missing	news_admin	nl	Het onderwerp ontbreekt
 there no such translation.	news_admin	nl	Zo'n vertaling is er niet.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	nl	Deze module publiceert nieuws van de nieuwsbeheerder toepassing op uw website. Houd rekening met nieuwsbeheerder's ACL beperkingen.
 until	news_admin	nl	tot
+updated	news_admin	nl	Bijgewerkt
 url of the rss or atom feed, empty for own news feed	news_admin	nl	URL van de RSS of Atom feed, leeg voor de eigen nieuws feed
 view this category	news_admin	nl	Deze caterogie weergeven
 visible	news_admin	nl	Zichtbaar

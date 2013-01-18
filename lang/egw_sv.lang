@@ -5,6 +5,7 @@ add new article	news_admin	sv	Skriv artikel
 add new news	news_admin	sv	Skriv artikel
 add news item	news_admin	sv	Skriv artikel
 all news	news_admin	sv	Alla artiklar
+all users	news_admin	sv	Alla användare
 always	news_admin	sv	Alltid
 by date	news_admin	sv	Enligt datum
 choose a category	news_admin	sv	Välj kategori
@@ -15,6 +16,7 @@ contains html	news_admin	sv	Innehåller HTML
 content	news_admin	sv	Innehåll
 date and time	news_admin	sv	Datum och tid
 delete this news	news_admin	sv	Radera nyheten
+deleted	news_admin	sv	Raderad
 do you want to publish a rss feed for this news category	news_admin	sv	Vill du publicera RSS för denna nyhetskategori
 edit news item	news_admin	sv	Redigera artiklar
 end	news_admin	sv	Till och med
@@ -67,6 +69,7 @@ publish date	news_admin	sv	Publiseringsdatum
 read more	news_admin	sv	Läs mer
 read news	news_admin	sv	Läs artikel
 read permissions	news_admin	sv	Läsrättighet
+reload	news_admin	sv	Ladda om
 send mail to others	news_admin	sv	Skicka e-post till andra
 should news_admin display the latest article headlines on the main screen.	news_admin	sv	Visa senaste artikelrubriker på Startsidan
 show latest news articles?	news_admin	sv	Visa senaste artiklar
@@ -82,6 +85,7 @@ the number of articles to display on the main screen.	news_admin	sv	Antal artikl
 the subject is missing	news_admin	sv	Rubrik saknas
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sv	Modulen publicerar artiklar från artikelhanterings applikationen till din webbsida. Kontrollera artikelhanteringens ACL restriktioner.
 until	news_admin	sv	Tills
+updated	news_admin	sv	Uppdaterad
 view this category	news_admin	sv	Visa kategori
 visible	news_admin	sv	Synlig
 webpage news admin	news_admin	sv	Webbartikelhantering

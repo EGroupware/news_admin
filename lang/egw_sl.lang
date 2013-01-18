@@ -1,5 +1,4 @@
 %1 module	news_admin	sl	Modul %1
-%1 news imported (%2 new).	news_admin	sl	%1 novic uvoženih (%2 novih).
 %s hours	news_admin	sl	%s ur
 actions	news_admin	sl	Dejanja
 active	news_admin	sl	Aktiven
@@ -7,7 +6,9 @@ add new article	news_admin	sl	Dodaj nov članek
 add new news	news_admin	sl	Dodaj novico
 add news item	news_admin	sl	Dodaj nov zapis
 all news	news_admin	sl	Vse novice
+all users	news_admin	sl	Vsi uporabniki
 always	news_admin	sl	Vedno
+as	news_admin	sl	kot
 by date	news_admin	sl	Po datumu
 categories to displayed on main page?	news_admin	sl	Kategorije za prikaz na prvi strani?
 category deleted.	news_admin	sl	Kategorije izbrisana
@@ -21,6 +22,7 @@ content	news_admin	sl	Vsebina
 count	news_admin	sl	Števec
 date and time	news_admin	sl	Datum in čas
 delete this news	news_admin	sl	Izbriši to novico
+deleted	news_admin	sl	Zbrisano
 do you want to publish a rss feed for this news category	news_admin	sl	Ali želite objaviti RSS za to kategorijo novic
 edit news item	news_admin	sl	Uredi novico
 end	news_admin	sl	Konec
@@ -99,6 +101,7 @@ the subject is missing	news_admin	sl	Manjka zadeva
 there no such translation.	news_admin	sl	Ni takega prevoda
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sl	Ta modul objavi novico iz aplikacije news_admin na vaši spletni strani. Pazite na omejitve ACL news_admin.
 until	news_admin	sl	Dokler
+updated	news_admin	sl	Podosodobljeno
 url of the rss or atom feed, empty for own news feed	news_admin	sl	URL vira RSS ali Atom-a, prazno za lastne news feeds.
 view this category	news_admin	sl	Preglej kategorijo
 visible	news_admin	sl	Vidno

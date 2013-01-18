@@ -1,5 +1,4 @@
 %1 module	news_admin	cs	modul %1
-%1 news imported (%2 new).	news_admin	cs	%1 novinek bylo naimportováno (nové %2).
 %s hours	news_admin	cs	%s hodin(y)
 actions	news_admin	cs	Akce
 active	news_admin	cs	Aktivní
@@ -7,7 +6,9 @@ add new article	news_admin	cs	Přidat nový článek
 add new news	news_admin	cs	Přidat novou novinku
 add news item	news_admin	cs	Přdat položku novinek
 all news	news_admin	cs	Všechny novinky
+all users	news_admin	cs	Všichni uživatelé
 always	news_admin	cs	Vždy
+as	news_admin	cs	jako
 by date	news_admin	cs	Podle data
 categories to displayed on main page?	news_admin	cs	Které kategorie by se měly zobrazit na hlavní straně?
 category deleted.	news_admin	cs	Kategorie byla smazána.
@@ -21,6 +22,7 @@ content	news_admin	cs	Obsah
 count	news_admin	cs	Počet
 date and time	news_admin	cs	Datum a čas
 delete this news	news_admin	cs	Smazat tuto novinku
+deleted	news_admin	cs	smazáno
 do you want to publish a rss feed for this news category	news_admin	cs	Chcete publikovat RSS feed pro tuto kategorii novinek
 edit news item	news_admin	cs	Editovat položku novinek
 end	news_admin	cs	Konec
@@ -38,6 +40,7 @@ global news	news_admin	cs	Globální novinky
 global_news	news_admin	cs	Globální novinky
 headline	news_admin	cs	Nadpis
 headline with link	news_admin	cs	Nadpis s odkazem
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	cs	Kolik řádek popisu má být vidět přímo. Ostatní řádky budou dostupné přes posouvací lištu.
 image link	news_admin	cs	Odkaz na obrázek
 image title	news_admin	cs	Titulek obrázku
 image url	news_admin	cs	URL obrázku
@@ -49,6 +52,7 @@ imported feeds can not be writable!	news_admin	cs	Naimportované feedy nemou bý
 item has been deleted	news_admin	cs	Položka byla smazána
 item not found	news_admin	cs	Položka nebyla nalezena
 last updated	news_admin	cs	Poslední aktualizace
+limit number of description lines (default 5, 0 for no limit)	news_admin	cs	Omezit počet řádek popisu (výchozí 5, pro zrušení limitu 0)
 link	news_admin	cs	Odkaz
 main	news_admin	cs	Hlavní
 maintain	news_admin	cs	Spravovat
@@ -101,6 +105,7 @@ the subject is missing	news_admin	cs	Chybí předmět
 there no such translation.	news_admin	cs	Takový překlad neexistuje.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	cs	Tento modul publikuje novinky z aplikace Správce novinek na Vašem webu. Mějte na paměti omezení daná přístupovými právy (ACL) nastavenými ve Správci novinek.
 until	news_admin	cs	do
+updated	news_admin	cs	Aktualizováno
 url of the rss or atom feed, empty for own news feed	news_admin	cs	URL RSS nebo Atom kanálu, ponechte prázdné pro vlastní kanál
 view this category	news_admin	cs	Zobrazit tuto kategorii
 visible	news_admin	cs	Viditelné
