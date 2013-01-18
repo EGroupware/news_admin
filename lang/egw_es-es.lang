@@ -1,3 +1,5 @@
+%1 entries %2	news_admin	es-es	%1 entradas %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	es-es	%1 entradas %2, %3 fallaron por permisos insuficientes
 %1 module	news_admin	es-es	Módulo %1
 %1 news imported (%2 new, %3 deleted).	news_admin	es-es	Se han importado %1 noticias. %2 nuevas y se han borrado %3.
 %s hours	news_admin	es-es	%s horas
@@ -29,6 +31,7 @@ default languages	news_admin	es-es	Idiomas predeterminados
 delete these categories, and all news in them	news_admin	es-es	Borrar estas categorías y todas las noticias que contengan
 delete this category, and all news in it	news_admin	es-es	Borrar esta categoría y todas las noticias que contenga
 delete this news	news_admin	es-es	Borrar esta noticia
+deleted	news_admin	es-es	borrado
 do you want to publish a rss feed for this news category	news_admin	es-es	¿Desea publicar un canal RSS para esta categoría de noticias?
 edit news item	news_admin	es-es	Editar elemento de noticias
 end	news_admin	es-es	Fin
@@ -46,6 +49,7 @@ global news	news_admin	es-es	Noticias globales
 global_news	news_admin	es-es	Noticias globales
 headline	news_admin	es-es	Titular
 headline with link	news_admin	es-es	Titular con enlace
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	es-es	Cuántas líneas de descripción deben verse directamente. Las líneas posteriores están disponibles mediante una barra de desplazamiento.
 if you specify an export definition, it will be used when you export	news_admin	es-es	Si especifica una definición de exportar, se usará al exportar.
 image link	news_admin	es-es	Enlace a la imagen
 image title	news_admin	es-es	Título de la imagen
@@ -62,6 +66,7 @@ keep	news_admin	es-es	Mantener
 keep all	news_admin	es-es	Mantener todos
 last imported	news_admin	es-es	Última importación
 last updated	news_admin	es-es	Ultima actualización
+limit number of description lines (default 5, 0 for no limit)	news_admin	es-es	Limitar el número de líneas de la descripción (predeterminado: 5, 0 para ilimitadas)
 link	news_admin	es-es	Enlace
 main	news_admin	es-es	Principal
 maintain	news_admin	es-es	Mantener
@@ -116,6 +121,7 @@ there no such translation.	news_admin	es-es	No hay tal traducción.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	es-es	Este módulo publica noticias desde la aplicación Administrador de noticias en su sitio web. Tenga en cuenta las restricciones de ACL de la aplicación.
 until	news_admin	es-es	hasta
 update rss feed	news_admin	es-es	Actualizar hilo RSS
+updated	news_admin	es-es	Actualizado
 url of the rss or atom feed, empty for own news feed	news_admin	es-es	URL del hilo Atom. En blanco para hilo propio.
 view this category	news_admin	es-es	Ver esta categoría
 visible	news_admin	es-es	Visible
@@ -124,3 +130,4 @@ which information do you want to show (css class)	news_admin	es-es	Qué informac
 which news categories should be displayed on the main screen.	news_admin	es-es	Qué categorías de noticias deben mostrarse en la pantalla principal.
 write	news_admin	es-es	Escribir
 write permissions	news_admin	es-es	Permiso de escritura
+you need to select some entries first	news_admin	es-es	Necesita seleccionar antes algunas entradas

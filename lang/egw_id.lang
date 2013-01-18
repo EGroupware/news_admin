@@ -1,5 +1,4 @@
 %1 module	news_admin	id	modul %1
-%1 news imported (%2 new).	news_admin	id	%1 berita diimpor (%2 baru).
 %s hours	news_admin	id	%s jam
 actions	news_admin	id	Tindakan
 active	news_admin	id	Aktif
@@ -7,7 +6,9 @@ add new article	news_admin	id	Tambah Artikel baru
 add new news	news_admin	id	Tambah Kabar baru
 add news item	news_admin	id	Tambah item kabar
 all news	news_admin	id	Semua kabar
+all users	news_admin	id	Semua pengguna
 always	news_admin	id	Selalu
+as	news_admin	id	as
 by date	news_admin	id	menurut tanggal
 categories to displayed on main page?	news_admin	id	Kategori untuk ditampilkan pada halaman utama?
 category deleted.	news_admin	id	Kategori dihapus.
@@ -21,6 +22,7 @@ content	news_admin	id	Isi
 count	news_admin	id	Cacah
 date and time	news_admin	id	Tanggal dan waktu
 delete this news	news_admin	id	Hapus kabar ini
+deleted	news_admin	id	terhapus
 edit news item	news_admin	id	Edit item kabar
 end	news_admin	id	Akhir
 from	news_admin	id	Dari
@@ -79,6 +81,7 @@ teaser with read more link	news_admin	id	Icip-icip dengan tautan
 the news content is missing	news_admin	id	Isi berita kosong
 the subject is missing	news_admin	id	Subyeknya belum diisi
 until	news_admin	id	hingga
+updated	news_admin	id	Dikinikan
 view this category	news_admin	id	Lihat kategori ini
 visible	news_admin	id	Tampak
 write	news_admin	id	Tulis

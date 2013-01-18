@@ -5,6 +5,7 @@ add new article	news_admin	el	Προσθήκη νέου άρθρου
 add new news	news_admin	el	Πρόσθηκη νέων ειδήσεων
 add news item	news_admin	el	Προσθήκη νέου αντικειμένου
 all news	news_admin	el	Όλα τα νέα
+all users	news_admin	el	Ολοι οι χρήστες
 always	news_admin	el	Πάντα
 by date	news_admin	el	Βάσει ημερομηνίας
 choose a category	news_admin	el	Επιλέξτε μία κατηγορία
@@ -15,6 +16,7 @@ contains html	news_admin	el	Περιέχει HTML
 content	news_admin	el	Περεχόμενο
 date and time	news_admin	el	Ημερομηνία και ώρα
 delete this news	news_admin	el	Διαγραφή αυτών των νέων
+deleted	news_admin	el	διεγράφη
 do you want to publish a rss feed for this news category	news_admin	el	Θέλετε να δημοσιεύσετε μία RSS τροφοδοσία για αυτήν την κατηγορία ειδήσεων;
 edit news item	news_admin	el	Επεξεργασία αντικειμένου νέων
 end	news_admin	el	Τέλος
@@ -59,12 +61,14 @@ number of articles to display on the main screen	news_admin	el	Αριθμός ά
 number of news items to be displayed on page	news_admin	el	Αριθμός αντικειμένων νέων προς προβολή στη σελίδα
 old	news_admin	el	Παλιό
 on	news_admin	el	πάνω
+parent	news_admin	el	Μητρική
 picture upload (leave the upload directory empty to disable the upload)	admin	el	Φόρτωση εικόνας (αφήστε τον κατάλογο φόρτωσης κενό για να απενεργοποιήσετε τη φόρτωση)
 please select a category	news_admin	el	Παρακαλώ επιλέξτε μία κατηγορία
 publish date	news_admin	el	Δημοσίευση Ημερομηνίας
 read more	news_admin	el	περισσότερη ανάγνωση
 read news	news_admin	el	Ανάγνωση νέων
 read permissions	news_admin	el	Ανάγνωση αδειών
+reload	news_admin	el	επαναφόρτωση
 send mail to others	news_admin	el	Αποστολή μηνύματος σε άλλους
 should news_admin display the latest article headlines on the main screen.	news_admin	el	Θα έπρεπε ο Διαχειρ νέων να προβάλει τον τίτλο του τελευταίου άρθρου στην κύρια οθόνη.
 show latest news articles?	news_admin	el	Προβολή των τελευταίων άρθρων νέων;
@@ -80,6 +84,7 @@ the number of articles to display on the main screen.	news_admin	el	Ο αριθ�
 the subject is missing	news_admin	el	Λείπει το θέμα
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	el	Αυτή η ενότητα δημοσιεύει νέα από την εφαρμογή διαχειρ_νέων στην ιστοσελίδα σας. Προσοχή για τυχόν περιορισμούς.
 until	news_admin	el	μέχρι
+updated	news_admin	el	Ενημερώθηκε
 view this category	news_admin	el	Προβολή αυτής της κατηγορίας
 visible	news_admin	el	Ορατό
 webpage news admin	news_admin	el	Ιστοσελίδα νέων διαχειρ

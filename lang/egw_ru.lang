@@ -1,5 +1,4 @@
 %1 module	news_admin	ru	%1 модуль
-%1 news imported (%2 new).	news_admin	ru	%1 новостей импортировано (%2 новых)
 %s hours	news_admin	ru	%s часов
 actions	news_admin	ru	Действия
 active	news_admin	ru	Активно
@@ -7,7 +6,9 @@ add new article	news_admin	ru	Добавить Новую Статью
 add new news	news_admin	ru	Добавить новую новость
 add news item	news_admin	ru	Добавить новый элемент
 all news	news_admin	ru	Все новости
+all users	news_admin	ru	Все пользователи
 always	news_admin	ru	Всегда
+as	news_admin	ru	как
 by date	news_admin	ru	По дате
 categories to displayed on main page?	news_admin	ru	Категории для отображения на главной странице?
 category deleted.	news_admin	ru	Категория удалена.
@@ -21,6 +22,7 @@ content	news_admin	ru	Содержание
 count	news_admin	ru	Кол-во
 date and time	news_admin	ru	Дата и время
 delete this news	news_admin	ru	Удалить эту новость
+deleted	news_admin	ru	удалено
 do you want to publish a rss feed for this news category	news_admin	ru	Хотите ли вы публиковать ленту RSS для этой категории новостей
 edit news item	news_admin	ru	Редактировать новости
 end	news_admin	ru	Конец
@@ -65,6 +67,7 @@ news item has been added	news_admin	ru	Элемент Новостей доба�
 news item has been updated	news_admin	ru	Элемент Новостей обновлен
 news saved.	news_admin	ru	Новост записана.
 news_admin	common	ru	Администрирование Новостей
+no anonymous user accounts installed.  notify the administrator.	news_admin	ru	НЕ ОПРЕДЕЛЕН АНОНИМНЫЙ ПОЛЬЗОВАТЕЛЬ. СООБЩИТЕ АДМИНИСТРАТОРУ.
 no entries found	news_admin	ru	записи не найдены
 no matching news item	news_admin	ru	Нет соответствующей новости.
 no news	news_admin	ru	В этой категории в данный момент нет новостей
@@ -100,6 +103,7 @@ the subject is missing	news_admin	ru	Отсутствует тема
 there no such translation.	news_admin	ru	Нет такого перевода
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	ru	Этот модуль публикует новости из приложения Администратор новостей на вашем сайте. Будьте внимательны с установкой прав (ACL) в Администраторе навостей
 until	news_admin	ru	до
+updated	news_admin	ru	Обновлено
 url of the rss or atom feed, empty for own news feed	news_admin	ru	Ссылка(URL) на RSS или Atom ленту, пусто если собственная новостная лента
 view this category	news_admin	ru	Показать эту категорию
 visible	news_admin	ru	Видимый
