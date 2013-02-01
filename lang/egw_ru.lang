@@ -1,8 +1,9 @@
 %1 module	news_admin	ru	%1 модуль
+%1 news imported (%2 new).	news_admin	ru	%1 новостей импортировано (%2 новых)
 %s hours	news_admin	ru	%s часов
 actions	news_admin	ru	Действия
 active	news_admin	ru	Активно
-add new article	news_admin	ru	Добавить Новую Статью
+add new article	news_admin	ru	Добавить новую нтатью
 add new news	news_admin	ru	Добавить новую новость
 add news item	news_admin	ru	Добавить новый элемент
 all news	news_admin	ru	Все новости
@@ -11,8 +12,8 @@ always	news_admin	ru	Всегда
 as	news_admin	ru	как
 by date	news_admin	ru	По дате
 categories to displayed on main page?	news_admin	ru	Категории для отображения на главной странице?
-category deleted.	news_admin	ru	Категория удалена.
-category saved.	news_admin	ru	Категория сохранена.
+category deleted.	news_admin	ru	Категория удалена
+category saved.	news_admin	ru	Категория сохранена
 choose a category	news_admin	ru	Выберите категорию
 configuration	news_admin	ru	Конфигурация
 configure access permissions	common	ru	Настроить разрешения доступа
@@ -60,13 +61,13 @@ more news	news_admin	ru	Еще новости
 more news link	news_admin	ru	Другие линки новостей
 new item has been added	news_admin	ru	Новый элемент добавлен
 news	news_admin	ru	Новости
-news admin	news_admin	ru	Администратор Новостей
-news administration	news_admin	ru	Администрирвание Новостей
-news deleted.	news_admin	ru	Новость удалена.
+news admin	news_admin	ru	Администратор новостей
+news administration	news_admin	ru	Новости - администрирование
+news deleted.	news_admin	ru	Новость удалена
 news item has been added	news_admin	ru	Элемент Новостей добавлен
 news item has been updated	news_admin	ru	Элемент Новостей обновлен
-news saved.	news_admin	ru	Новост записана.
-news_admin	common	ru	Администрирование Новостей
+news saved.	news_admin	ru	Новость записана
+news_admin	common	ru	Новости
 no anonymous user accounts installed.  notify the administrator.	news_admin	ru	НЕ ОПРЕДЕЛЕН АНОНИМНЫЙ ПОЛЬЗОВАТЕЛЬ. СООБЩИТЕ АДМИНИСТРАТОРУ.
 no entries found	news_admin	ru	записи не найдены
 no matching news item	news_admin	ru	Нет соответствующей новости.
