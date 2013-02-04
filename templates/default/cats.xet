@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!-- $Id$ -->
+<overlay>
+	<template id="news_admin.cats.rows" template="" lang="" group="0" version="1.9.001">
+		<grid width="100%">
+			<columns>
+				<column/>
+				<column/>
+				<column/>
+				<column/>
+				<column/>
+				<column width="1%"/>
+				<column/>
+				<column width="1%"/>
+			</columns>
+			<rows>
+				<row class="th">
+					<nextmatch-sortheader label="Name" id="name"/>
+					<nextmatch-sortheader label="Description" id="description"/>
+					<nextmatch-sortheader label="Read permissions" id="owner"/>
+					<nextmatch-header label="Write permissions" id="writable"/>
+					<vbox>
+						<vbox>
+							<nextmatch-sortheader label="Last updated" id="news_date"/>
+							<nextmatch-header label="Last imported" id="import_timestamp"/>
+						</vbox>
+					</vbox>
+					<nextmatch-sortheader label="Count" id="num_news"/>
+					<nextmatch-header label="Import URL" id="import_url"/>
+					<nextmatch-header label="Actions" id="legacy_actions"/>
+				</row>
+				<row class="row $row_cont[class]">
+					<description id="${row}[name]" href="news_admin.uinews.index&amp;cat_id=$row_cont[id]"/>
+					<description id="${row}[description]"/>
+					<menulist>
+						<menupopup type="select-account" id="${row}[owner]" readonly="true" options="All users"/>
+					</menulist>
+					<menulist>
+						<menupopup type="select-account" id="${row}[cat_writable]" readonly="true"/>
+					</menulist>
+					<vbox>
+						<date-time id="${row}[news_date]" readonly="true"/>
+						<date-time id="${row}[import_timestamp]" readonly="true"/>
+					</vbox>
+					<description align="center" id="${row}[num_news]"/>
+					<description id="${row}[import_host]" no_lang="1" href="$row_cont[import_url]" extra_link_target="_blank" extra_link_title="$row_cont[import_url]"/>
+					<hbox>
+						<button label="Edit" id="edit[$row_cont[id]]" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;cat_id=$row_cont[id]'),'_blank','dependent=yes,width=600,height=400,scrollbars=yes,status=yes'); return false;" image="edit"/>
+						<button label="Delete" id="delete[$row_cont[id]]" onclick="return confirm('Delete this category incl. all it's content');" image="delete"/>
+						<button label="Update" id="update[$row_cont[id]]" image="down2"/>
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+	</template>
+	<template id="news_admin.cats" template="" lang="" group="0" version="1.9.001">
+		<grid width="100%">
+			<columns>
+				<column/>
+			</columns>
+			<rows>
+				<row disabled="!@msg">
+					<description align="center" id="msg" class="redItalic"/>
+				</row>
+				<row>
+					<nextmatch id="nm" options="news_admin.cats.rows"/>
+				</row>
+				<row>
+					<button label="Add" id="edit[0]" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat'),'_blank','dependent=yes,width=600,height=400,scrollbars=yes,status=yes'); return false;"/>
+				</row>
+			</rows>
+		</grid>
+		<box class="action_popup prompt" id="reader_popup">
+			<vbox>
+				<description value="Read permissions" class="promptheader"/>
+				<listbox type="select-account" id="reader" no_lang="1" rows="4" options="both" class="action_popup-content"/>
+				<hbox>
+					<button label="Add" id="reader_action[add]" onclick="nm_submit_popup(this); return false;"/>
+					<button label="Delete" id="reader_action[delete]" onclick="nm_submit_popup(this); return false;"/>
+					<buttononly label="Cancel" onclick="nm_hide_popup(this,'reader_popup');"/>
+				</hbox>
+			</vbox>
+		</box>
+		<box class="action_popup prompt" id="writer_popup">
+			<vbox>
+				<description value="Write permissions" class="promptheader"/>
+				<listbox type="select-account" id="writer" no_lang="1" rows="4" options="both" class="action_popup-content"/>
+				<hbox>
+					<button label="Add" id="writer_action[add]" onclick="nm_submit_popup(this); return false;"/>
+					<button label="Delete" id="writer_action[delete]" onclick="nm_submit_popup(this); return false;"/>
+					<buttononly label="Cancel" onclick="nm_hide_popup(this,'writer_popup');"/>
+				</hbox>
+			</vbox>
+		</box>
+		<styles>
+			
+.action_popup {
+	position: fixed;
+	top: 200px;
+	left: 450px;
+	width: 76ex;
+	z-index: 20000;
+	display: none;
+	border-collapse:collapse;
+	border-spacing:0px
+}
+.action_popup-content {
+	display:block;
+	padding:2ex;
+	color:#666666;
+	margin: -2px -1px 0px -2px;
+}
+.action_popup &gt; table {
+	width: 100%
+}
+.action_popup .promptheader {
+	padding: 1ex;
+	width: 100%
+}
+
+.action_select {
+	width: 100%
+}
+		</styles>
+	</template>
+</overlay>
