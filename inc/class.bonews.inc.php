@@ -5,7 +5,7 @@
  * @link http://www.egroupware.org
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2006-12 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2006-13 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$
  */
@@ -436,7 +436,7 @@ class bonews extends so_sql
 			if ($this->acl->is_permitted($cat['id'],$rights))
 			{
 				$cats[$cat['id']] = str_repeat('&nbsp;',$cat['level']).stripslashes($cat['name']).
-					(categories::is_global($cat) ? ' &#9830;' : '');
+					(categories::is_global($cat) ? categories::$global_marker : '');
 			}
 		}
 		return $cats;
