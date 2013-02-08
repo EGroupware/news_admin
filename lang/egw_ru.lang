@@ -1,5 +1,4 @@
 %1 module	news_admin	ru	%1 модуль
-%1 news imported (%2 new).	news_admin	ru	%1 новостей импортировано (%2 новых)
 %s hours	news_admin	ru	%s часов
 actions	news_admin	ru	Действия
 active	news_admin	ru	Активно
@@ -41,6 +40,8 @@ global news	news_admin	ru	Общие Новости
 global_news	news_admin	ru	Общие Новости
 headline	news_admin	ru	Заголовок
 headline with link	news_admin	ru	Заголовок с линком
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	ru	Сколько строк будет видно сразу. Следующие строки видны через полосу прокрутки
+if you specify an export definition, it will be used when you export	news_admin	ru	если вы укажете оперделения для экспорта, оно будет использоваться при экспорте
 image link	news_admin	ru	Ссылка на изображение
 image title	news_admin	ru	Заголовок изображения
 image url	news_admin	ru	URL изображения
