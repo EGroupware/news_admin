@@ -21,12 +21,12 @@ content	news_admin	de	Inhalt
 count	news_admin	de	Anzahl
 date and time	news_admin	de	Datum und Uhrzeit
 delete this news	news_admin	de	Diese Nachricht löschen
-do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS link für diese Kategorie anzeigen
+do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS-Feed mit Link für diese Kategorie anzeigen
 edit news item	news_admin	de	Nachricht bearbeiten
 end	news_admin	de	Ende
-error importing the feed!	news_admin	de	Fehler beim Importieren des Feeds!
+error importing the feed!	news_admin	de	Fehler beim Importieren des News-Feeds!
 error saving the category!	news_admin	de	Fehler beim Speichern der Kategorie!
-error saving the news!	news_admin	de	Fehler beim Spechern der Nachricht!
+error saving the news!	news_admin	de	Fehler beim Speichern der Nachricht!
 failed to add message	news_admin	de	Hinzufügen einer neuen Nachricht fehlgeschlagen
 format for links to items	news_admin	de	Format für Verweise auf Einträge
 format of export	news_admin	de	Exportformat
@@ -45,7 +45,7 @@ implies read permission	news_admin	de	beinhaltet Leserechte
 import every	news_admin	de	Importieren alle
 import now	news_admin	de	Jetzt Importieren
 import url	news_admin	de	Import URL
-imported feeds can not be writable!	news_admin	de	Importierte Feeds können NICHT beschreibbar sein!
+imported feeds can not be writable!	news_admin	de	Importierte Nachrichten-Feeds können NICHT beschreibbar sein!
 item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
 last updated	news_admin	de	Zuletzt aktualisiert
@@ -69,9 +69,9 @@ no anonymous user accounts installed.  notify the administrator.	news_admin	de	E
 no entries found	news_admin	de	Keine Einträge gefunden
 no matching news item	news_admin	de	Keine zutreffenden Nachrichten
 no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
-no rss export	news_admin	de	Kein RSS export
+no rss export	news_admin	de	Kein RSS Export
 now	news_admin	de	Jetzt
-number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten welche auf der Startseite angezeit werden.
+number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten einstellen, die auf der Startseite angezeigt werden.
 number of news items to be displayed on page	news_admin	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 old	news_admin	de	Alte
 on	news_admin	de	An
@@ -99,9 +99,9 @@ the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorha
 the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 there no such translation.	news_admin	de	Für diese Nachricht gibt es keine Übersetzung
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website and. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website an. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
 until	news_admin	de	bis
-url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten Feed
+url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten-Feed
 view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
 webpage news admin	news_admin	de	Webseite Nachrichten
