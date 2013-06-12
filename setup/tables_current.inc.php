@@ -1,6 +1,6 @@
 <?php
 /**
- * eGroupWare - News admin
+ * EGroupware - News admin
  *
  * @link http://www.egroupware.org
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
@@ -13,13 +13,13 @@ $phpgw_baseline = array(
 	'egw_news' => array(
 		'fd' => array(
 			'news_id' => array('type' => 'auto','nullable' => False),
-			'news_date' => array('type' => 'int','precision' => '8'),
+			'news_date' => array('type' => 'int','meta' => 'timestamp','precision' => '8'),
 			'news_headline' => array('type' => 'varchar','precision' => '128'),
-			'news_submittedby' => array('type' => 'int','precision' => '4'),
+			'news_submittedby' => array('type' => 'int','meta' => 'user','precision' => '4'),
 			'news_content' => array('type' => 'text'),
-			'news_begin' => array('type' => 'int','precision' => '8','nullable' => False,'default' => '0'),
-			'news_end' => array('type' => 'int','precision' => '8'),
-			'cat_id' => array('type' => 'int','precision' => '4'),
+			'news_begin' => array('type' => 'int','meta' => 'timestamp','precision' => '8','nullable' => False,'default' => '0'),
+			'news_end' => array('type' => 'int','meta' => 'timestamp','precision' => '8'),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4'),
 			'news_teaser' => array('type' => 'text'),
 			'news_is_html' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1'),
 			'news_source_id' => array('type' => 'int','precision' => '4'),
