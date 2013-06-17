@@ -1,6 +1,6 @@
 %1 module	news_admin	ru	%1 модуль
 %1 news imported (%2 new).	news_admin	ru	%1 новостей импортировано (%2 новых)
-%s hours	news_admin	ru	%s часов
+%s hours	news_admin	ru	% часов
 actions	news_admin	ru	Действия
 active	news_admin	ru	Активно
 add new article	news_admin	ru	Добавить новую нтатью
@@ -65,7 +65,7 @@ news item has been added	news_admin	ru	Элемент Новостей доба�
 news item has been updated	news_admin	ru	Элемент Новостей обновлен
 news saved.	news_admin	ru	Новость записана
 news_admin	common	ru	Новости
-no anonymous user accounts installed.  notify the administrator.	news_admin	ru	НЕ ОПРЕДЕЛЕН АНОНИМНЫЙ ПОЛЬЗОВАТЕЛЬ. СООБЩИТЕ АДМИНИСТРАТОРУ.
+no anonymous user accounts installed.  notify the administrator.	news_admin	ru	Ни одной учетной записи анонимного пользователя не создано. Уведомите администратора.
 no entries found	news_admin	ru	записи не найдены
 no matching news item	news_admin	ru	Нет соответствующей новости.
 no news	news_admin	ru	В этой категории в данный момент нет новостей
