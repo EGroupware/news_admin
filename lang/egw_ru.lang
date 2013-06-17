@@ -1,5 +1,9 @@
+%1 entries %2	news_admin	ru	%1 записей %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	ru	%1 записей %2, %3 завершены неудачно в связи с недостаточностью прав!!!
 %1 module	news_admin	ru	%1 модуль
-%s hours	news_admin	ru	%s часов
+%1 news imported (%2 new, %3 deleted).	news_admin	ru	%1 новостей импортировано. %2 новых, %3 удалено.
+%s hours	news_admin	ru	% часов
+%s imported news items	news_admin	ru	%1 записей новостей импортировано
 actions	news_admin	ru	Действия
 active	news_admin	ru	Активно
 add new article	news_admin	ru	Добавить новую нтатью
@@ -9,11 +13,13 @@ all news	news_admin	ru	Все новости
 all users	news_admin	ru	Все пользователи
 always	news_admin	ru	Всегда
 as	news_admin	ru	как
+as imported	news_admin	ru	Как импортировано
 by date	news_admin	ru	По дате
 categories to displayed on main page?	news_admin	ru	Категории для отображения на главной странице?
 category deleted.	news_admin	ru	Категория удалена
 category saved.	news_admin	ru	Категория сохранена
 choose a category	news_admin	ru	Выберите категорию
+comma separated item ids which shall be shown (empty = all)	news_admin	ru	Разделенные запятыми записи, которые будут показаны. Пусто = все
 configuration	news_admin	ru	Конфигурация
 configure access permissions	common	ru	Настроить разрешения доступа
 configure rss exports	common	ru	Настроить экспорт RSS
@@ -21,6 +27,9 @@ contains html	news_admin	ru	Содержит HTML
 content	news_admin	ru	Содержание
 count	news_admin	ru	Кол-во
 date and time	news_admin	ru	Дата и время
+default languages	news_admin	ru	Языки по умолчанию
+delete these categories, and all news in them	news_admin	ru	Удалить эти категории и все новости в них
+delete this category, and all news in it	news_admin	ru	Удалить эту категорию и все новости в ней
 delete this news	news_admin	ru	Удалить эту новость
 deleted	news_admin	ru	удалено
 do you want to publish a rss feed for this news category	news_admin	ru	Хотите ли вы публиковать ленту RSS для этой категории новостей
@@ -40,8 +49,8 @@ global news	news_admin	ru	Общие Новости
 global_news	news_admin	ru	Общие Новости
 headline	news_admin	ru	Заголовок
 headline with link	news_admin	ru	Заголовок с линком
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	ru	Сколько строк будет видно сразу. Следующие строки видны через полосу прокрутки
-if you specify an export definition, it will be used when you export	news_admin	ru	если вы укажете оперделения для экспорта, оно будет использоваться при экспорте
+how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	ru	Сколько строк описания будет видно одновременно. Остальные доступны через меню прокрутки.
+if you specify an export definition, it will be used when you export	news_admin	ru	Если указано определение для экспорта, оно будет использовано следующий раз
 image link	news_admin	ru	Ссылка на изображение
 image title	news_admin	ru	Заголовок изображения
 image url	news_admin	ru	URL изображения
@@ -50,9 +59,15 @@ import every	news_admin	ru	Импортировать каждый
 import now	news_admin	ru	Импортировать сейчас
 import url	news_admin	ru	Импортировать ссылку (URL)
 imported feeds can not be writable!	news_admin	ru	Импортированные данные(feeds) НЕ могут быть перезаписаны!
+imported news items	news_admin	ru	импортировано записей новостей
 item has been deleted	news_admin	ru	Элемент удален
 item not found	news_admin	ru	Элемент не найден
+keep	news_admin	ru	Сохранить
+keep all	news_admin	ru	Сохранить все
+kept %1 because of write permissions.  remove them first.	news_admin	ru	Сохранено %1 в связи с ограничениями записи. Сначала удалите их.
+last imported	news_admin	ru	Импортировано последний раз
 last updated	news_admin	ru	Последняя модификация
+limit number of description lines (default 5, 0 for no limit)	news_admin	ru	Ограничение строк описания (по умолчанию 5, 0 - без ограничений)
 link	news_admin	ru	Ссылка
 main	news_admin	ru	Главная
 maintain	news_admin	ru	Обслуживание
@@ -69,7 +84,7 @@ news item has been added	news_admin	ru	Элемент Новостей доба�
 news item has been updated	news_admin	ru	Элемент Новостей обновлен
 news saved.	news_admin	ru	Новость записана
 news_admin	common	ru	Новости
-no anonymous user accounts installed.  notify the administrator.	news_admin	ru	НЕ ОПРЕДЕЛЕН АНОНИМНЫЙ ПОЛЬЗОВАТЕЛЬ. СООБЩИТЕ АДМИНИСТРАТОРУ.
+no anonymous user accounts installed.  notify the administrator.	news_admin	ru	Ни одной учетной записи анонимного пользователя не создано. Уведомите администратора.
 no entries found	news_admin	ru	записи не найдены
 no matching news item	news_admin	ru	Нет соответствующей новости.
 no news	news_admin	ru	В этой категории в данный момент нет новостей
@@ -79,6 +94,7 @@ number of articles to display on the main screen	news_admin	ru	Количест�
 number of news items to be displayed on page	news_admin	ru	Количество новостей, показываемых на одной странице
 old	news_admin	ru	Старые
 on	news_admin	ru	на
+owner / read permissions	news_admin	ru	Владелец / Чтение разрешения
 page-name the item should be displayed (empty = current page)	news_admin	ru	Название страницы должно быть показано (пусто = текущая страница)
 parent	news_admin	ru	Родитель
 picture upload (leave the upload directory empty to disable the upload)	admin	ru	Публикация изображения (оставить папку публикации пустым для запрета публикации)
@@ -105,7 +121,8 @@ the subject is missing	news_admin	ru	Отсутствует тема
 there no such translation.	news_admin	ru	Нет такого перевода
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	ru	Этот модуль публикует новости из приложения Администратор новостей на вашем сайте. Будьте внимательны с установкой прав (ACL) в Администраторе навостей
 until	news_admin	ru	до
-updated	news_admin	ru	Обновлено
+update rss feed	news_admin	ru	Обновите RSS рассылки
+updated	news_admin	ru	обновлено
 url of the rss or atom feed, empty for own news feed	news_admin	ru	Ссылка(URL) на RSS или Atom ленту, пусто если собственная новостная лента
 view this category	news_admin	ru	Показать эту категорию
 visible	news_admin	ru	Видимый
@@ -114,3 +131,4 @@ which information do you want to show (css class)	news_admin	ru	Какую ин�
 which news categories should be displayed on the main screen.	news_admin	ru	Какие категории новостей должны отображаться на основном экране.
 write	news_admin	ru	Записать
 write permissions	news_admin	ru	Разрешения на запись
+you need to select some entries first	news_admin	ru	Сначала нужно выбрать записи
