@@ -160,7 +160,7 @@ class news_admin_hooks
 		{
 			$title = lang('Preferences');
 			$file = array();
-			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname);
+			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname,'preferences');
 			$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
 
 			if ($location == 'sidebox_menu')
