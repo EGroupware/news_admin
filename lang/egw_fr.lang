@@ -4,7 +4,7 @@
 actions	news_admin	fr	Actions
 active	news_admin	fr	Actif
 add new article	news_admin	fr	Ajouter un nouvel article
-add new news	news_admin	fr	Ajouter des communiqués récents
+add new news	news_admin	fr	Ajouter de nouveaux communiqués
 add news item	news_admin	fr	Ajouter un communiqué
 all news	news_admin	fr	Tous les communiqués
 always	news_admin	fr	Toujours
@@ -21,23 +21,23 @@ content	news_admin	fr	Contenu
 count	news_admin	fr	Décompte
 date and time	news_admin	fr	Date et heure
 delete this news	news_admin	fr	Supprimer ce communiqué
-do you want to publish a rss feed for this news category	news_admin	fr	Voulez-vous publier un flux RSS pour cette catégorie de communiqués?
+do you want to publish a rss feed for this news category	news_admin	fr	Voulez-vous publier un flux RSS pour cette catégorie de communiqués ?
 edit news item	news_admin	fr	Modifier un communiqué
 end	news_admin	fr	Fin
 error importing the feed!	news_admin	fr	Erreur lors de l'importation du flux !
-error saving the category!	news_admin	fr	Erreur lors de la sauvegarde de la catégorie !
-error saving the news!	news_admin	fr	Erreur lors de l'enregistrement de l'élément!
+error saving the category!	news_admin	fr	Erreur lors de l'enregistrement de la catégorie !
+error saving the news!	news_admin	fr	Erreur lors de l'enregistrement du communiqué !
 failed to add message	news_admin	fr	Echec lors de l'ajout du message
-format for links to items	news_admin	fr	Format pour les liens vers les objets
-format of export	news_admin	fr	Format d'exportation
+format for links to items	news_admin	fr	Format pour les liens vers les éléments
+format of export	news_admin	fr	Format d'export
 from	news_admin	fr	Depuis
 from all	news_admin	fr	Depuis tous
 future	news_admin	fr	Futur
 global categories	news_admin	fr	catégories globales
 global news	news_admin	fr	Communiqués Globaux
 global_news	news_admin	fr	Communiqués_Globaux
-headline	news_admin	fr	En-tête
-headline with link	news_admin	fr	En-tête avec lien
+headline	news_admin	fr	Entête
+headline with link	news_admin	fr	Entête avec lien
 image link	news_admin	fr	Lien Image
 image title	news_admin	fr	Titre Image
 image url	news_admin	fr	URL Image
@@ -46,8 +46,8 @@ import every	news_admin	fr	Importer tous les
 import now	news_admin	fr	Importer maintenant
 import url	news_admin	fr	Importer l'URL
 imported feeds can not be writable!	news_admin	fr	L'import des flux N'EST PAS accessible en écriture !
-item has been deleted	news_admin	fr	L'objet a été effacé
-item not found	news_admin	fr	Objet non trouvé
+item has been deleted	news_admin	fr	L'entrée a été effacée
+item not found	news_admin	fr	Entrée non trouvée
 last updated	news_admin	fr	Dernière mise à jour
 link	news_admin	fr	Lien
 main	news_admin	fr	Principal
@@ -106,6 +106,6 @@ view this category	news_admin	fr	Voir cette catégorie
 visible	news_admin	fr	Visible
 webpage news admin	news_admin	fr	Page Web d'aministration des communiqués
 which information do you want to show (css class)	news_admin	fr	Quelle information voulez-vous afficher (classe CSS)
-which news categories should be displayed on the main screen.	news_admin	fr	Quelles sont les catégories de communiqués qui devraient être affiché sur l'écran principal ?
+which news categories should be displayed on the main screen.	news_admin	fr	Quelles sont les catégories de communiqués qui devraient être affichées sur l'écran principal ?
 write	news_admin	fr	Ecrire
 write permissions	news_admin	fr	Permissions d'écriture
