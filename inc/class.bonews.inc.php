@@ -81,8 +81,8 @@ class bonews extends so_sql
 		$this->tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 		$this->now = time() + $this->tz_offset_s;	// time() is server-time and we need a user-time
 
-		$this->user =& $GLOBALS['egw_info']['user']['account_id'];
-		$this->lang =& $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
+		$this->user = $GLOBALS['egw_info']['user']['account_id'];
+		$this->lang = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 
 		$this->cats = new categories('','news_admin');
 	}
