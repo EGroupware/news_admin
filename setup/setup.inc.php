@@ -29,7 +29,7 @@ $setup_info['news_admin']['tables']    = array('egw_news','egw_news_export');
 $setup_info['news_admin']['hooks']['admin'] = 'news_admin.news_admin_hooks.all_hooks';
 $setup_info['news_admin']['hooks']['sidebox_menu'] = 'news_admin.news_admin_hooks.all_hooks';
 $setup_info['news_admin']['hooks']['settings'] = 'news_admin.news_admin_hooks.settings';
-$setup_info['news_admin']['hooks']['preferences'] = 'news_admin.news_admin_hooks.all_hooks';
+$setup_info['news_admin']['hooks']['categories'] = 'news_admin.news_admin_hooks.categories';
 $setup_info['news_admin']['hooks']['search_link'] = 'news_admin.news_admin_hooks.links';
 $setup_info['news_admin']['hooks'][] = 'home';
 

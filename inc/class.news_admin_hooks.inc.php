@@ -156,23 +156,8 @@ class news_admin_hooks
 
 			display_sidebox($appname,$menu_title,$file);
 		}
-		if ($location != 'admin' && $GLOBALS['egw_info']['user']['apps']['preferences'])
-		{
-			$title = lang('Preferences');
-			$file = array();
-			$file['Preferences'] = egw::link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname,'preferences');
-			$file['Categories'] = egw::link('/index.php','menuaction=news_admin.news_admin_ui.cats');
 
-			if ($location == 'sidebox_menu')
-			{
-				display_sidebox($appname,$title,$file);
-			}
-			else
-			{
-				display_section($appname,$title,$file);
-			}
-		}
-		if($location != 'preferences' && $GLOBALS['egw_info']['user']['apps']['admin'])
+		if ($GLOBALS['egw_info']['user']['apps']['admin'])
 		{
 			$title = lang('Administration');
 			$file = Array(
@@ -191,39 +176,23 @@ class news_admin_hooks
 		}
 	}
 
+
 	/**
-	 * Hook for admin menu
+	 * Hook to tell framework we use standard categories method
 	 *
-	 * @deprecated use all_hooks
-	 * @param array|string $hook_data
+	 * @param string|array $data hook-data or location
+	 * @return boolean|array
 	 */
-	public static function admin($hook_data)
+	public static function categories($data)
 	{
-		return self::all_hooks($hook_data);
+		return array('menuaction' => 'news_admin.news_admin_ui.cats');
 	}
 
 	/**
-	 * Hook for preferences menu
+	 * Return link registration
 	 *
-	 * @deprecated use all_hooks
-	 * @param array|string $hook_data
+	 * @return array
 	 */
-	public static function preferences($hook_data)
-	{
-		return self::all_hooks($hook_data);
-	}
-
-	/**
-	 * Hook for sidebox menu
-	 *
-	 * @deprecated use all_hooks
-	 * @param array|string $hook_data
-	 */
-	public static function sidebox_menu($hook_data)
-	{
-		return self::all_hooks($hook_data);
-	}
-
 	public static function links() {
 		return array(
 			'query' => 'news_admin.bonews.link_query',
