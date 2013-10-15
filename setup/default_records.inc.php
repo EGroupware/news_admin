@@ -20,7 +20,7 @@ $GLOBALS['egw_setup']->add_acl('news_admin','run',$defaultgroup);
 
 // Create anonymous user and NoGroup group for news_admin
 $GLOBALS['egw_setup']->add_account('NoGroup','No','Rights',False,False);
-$anonymous = $GLOBALS['egw_setup']->add_account($anonuser='anonymous','SiteMgr','User',$anonpasswd='anonymous','NoGroup');
+$anonymous = $GLOBALS['egw_setup']->add_account($anonuser='anonymous','SiteMgr','User','anonymous','NoGroup',$changepw=False,$email='',$anonpasswd);
 $GLOBALS['egw_setup']->add_acl('news_admin','run',$anonymous);
 $GLOBALS['egw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
 
