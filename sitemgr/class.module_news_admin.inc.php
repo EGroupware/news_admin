@@ -68,6 +68,15 @@ class module_news_admin extends Module
 				'label' => lang('Comma separated item IDs which shall be shown (empty = all)'),
 				'params' => array('size' => 50)
 			),
+			'sort' => array(
+				'type' => 'select',
+				'label' => lang('How shall the articles be sorted?'),
+				'options' => array(
+					'entry_date_desc' => lang('Date of entry, newest first'),
+					'start_date_desc' => lang('Start Date (if selected), last started first, then unterminated'),
+					'end_date_asc' => lang('End Date (if selected), first ending first, then unterminated'),
+				),
+			),
 		);
 		$this->get = array('item','start');
 		$this->session = array('item','start');
@@ -138,7 +147,7 @@ class module_news_admin extends Module
 		}
 		else
 		{
-			if ($listview) $html = '<ul class="latestnews">'."\n";
+			$html = '<ul class="latestnews">'."\n";
 		}
 
 
@@ -205,7 +214,50 @@ class module_news_admin extends Module
 			}
 			else
 			{
-				$result = $this->bonews->search('',false,'news_date DESC','','',false,'AND',array((int)$arguments['start'],$limit),$filter);
+				// Default ordering: Blog / Newest posts on top
+				$ordering = 'news_date DESC';
+
+				if (isset($arguments['sort']))
+				{
+					switch ($arguments['sort'])
+					{
+						case 'start_date_desc':
+							// Latest start first
+							$ordering = 'news_begin DESC, news_date DESC';
+							break;
+						case 'end_date_asc':
+							// Earliest ending dates first
+							$ordering = 'news_end ASC, news_date DESC';
+							break;
+						case 'entry_date_desc':
+							// fallthrough
+						default:
+							// Keep default ordering
+							break;
+					}
+				}
+
+				$result = $this->bonews->search('',false,$ordering,'','',false,'AND',array((int)$arguments['start'],$limit),$filter);
+				if ((is_array($result)) &&
+						(isset($arguments['sort'])) &&
+						($arguments['sort'] == 'end_date_asc'))
+				{
+					// Sort unterminated entries to the back of the list.
+					$by_date = array();
+					$unterminated = array();
+					foreach($result as $news)
+					{
+						if ($news['visible'] == 'date')
+						{
+							$by_date[] = $news;
+						}
+						else
+						{
+							$unterminated[] = $news;
+						}
+					}
+					$result = array_merge($by_date, $unterminated);
+				}
 			}
 
 			// Catch the error case of the last search (not an array).
