@@ -27,6 +27,7 @@ contains html	news_admin	en	Contains HTML
 content	news_admin	en	Content
 count	news_admin	en	Count
 date and time	news_admin	en	Date and time
+date of entry, newest first	news_admin	en	Date of entry, newest first
 default languages	news_admin	en	Default languages
 delete these categories, and all news in them	news_admin	en	Delete these categories, and all news in them
 delete this category, and all news in it	news_admin	en	Delete this category, and all news in it
@@ -35,6 +36,7 @@ deleted	news_admin	en	deleted
 do you want to publish a rss feed for this news category	news_admin	en	Publish a RSS feed for this news category.
 edit news item	news_admin	en	Edit news
 end	news_admin	en	End
+end date (if selected), first ending first, then unterminated	news_admin	en	End Date (if selected), first ending first, then unterminated
 error importing the feed!	news_admin	en	Error importing the feed!
 error saving the category!	news_admin	en	Error saving the category!
 error saving the news!	news_admin	en	Error saving the news!
@@ -50,6 +52,7 @@ global_news	news_admin	en	Global_News
 headline	news_admin	en	Head line
 headline with link	news_admin	en	Head line with link
 how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	en	How many describtion lines should be directly visible. Further lines are available via a scrollbar.
+how shall the articles be sorted?	news_admin	en	How shall the articles be sorted?
 if you specify an export definition, it will be used when you export	news_admin	en	If you specify an export definition, it will be used when you export.
 image link	news_admin	en	Image link
 image title	news_admin	en	Image title
@@ -110,6 +113,7 @@ show latest news articles?	news_admin	en	Show latest news articles
 show news articles on main page?	news_admin	en	Show news articles on Home page
 small view	news_admin	en	Small view
 start	news_admin	en	Start
+start date (if selected), last started first, then unterminated	news_admin	en	Start Date (if selected), last started first, then unterminated
 submitted by	common	en	Submitted by
 submitted by %1 on %2	news_admin	en	Submitted by %1 on %2
 submitted by and date	news_admin	en	Submitted by and date
