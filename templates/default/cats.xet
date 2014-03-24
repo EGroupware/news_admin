@@ -21,7 +21,7 @@
 					<nextmatch-header label="Write permissions" id="writable"/>
 					<vbox>
 						<vbox>
-							<nextmatch-sortheader label="Last updated" id="news_date"/>
+							<nextmatch-sortheader label="Last updated" id="news_date" sortmode="DESC"/>
 							<nextmatch-header label="Last imported" id="import_timestamp"/>
 						</vbox>
 					</vbox>

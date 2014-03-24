@@ -18,7 +18,7 @@
 					<description value="News"/>
 					<vbox options="0,0">
 						<nextmatch-accountfilter id="news_submittedby" options="From all"/>
-						<nextmatch-sortheader label="Date" id="news_date"/>
+						<nextmatch-sortheader label="Date" id="news_date" sortmode="DESC"/>
 					</vbox>
 					<nextmatch-filterheader label="Visible" id="visible"/>
 					<nextmatch-customfilter id="news_lang" options="select-lang,Default language"/>
