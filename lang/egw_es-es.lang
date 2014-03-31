@@ -27,6 +27,7 @@ contains html	news_admin	es-es	Contiene HTML
 content	news_admin	es-es	Contenido
 count	news_admin	es-es	Contar
 date and time	news_admin	es-es	Fecha y hora
+date of entry, newest first	news_admin	es-es	Fecha de la entrada, las más recientes primero
 default languages	news_admin	es-es	Idiomas predeterminados
 delete these categories, and all news in them	news_admin	es-es	Borrar estas categorías y todas las noticias que contengan
 delete this category, and all news in it	news_admin	es-es	Borrar esta categoría y todas las noticias que contenga
@@ -35,6 +36,7 @@ deleted	news_admin	es-es	borrado
 do you want to publish a rss feed for this news category	news_admin	es-es	¿Desea publicar un canal RSS para esta categoría de noticias?
 edit news item	news_admin	es-es	Editar elemento de noticias
 end	news_admin	es-es	Fin
+end date (if selected), first ending first, then unterminated	news_admin	es-es	Fecha de fin (si se selecciona), primero las que acaben antes, luego las no finalizadas
 error importing the feed!	news_admin	es-es	¡Error al importar el hilo de noticias!
 error saving the category!	news_admin	es-es	¡Error al guardar la categoría!
 error saving the news!	news_admin	es-es	¡Error al guardar la noticia!
@@ -50,6 +52,7 @@ global_news	news_admin	es-es	Noticias globales
 headline	news_admin	es-es	Titular
 headline with link	news_admin	es-es	Titular con enlace
 how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	es-es	Cuántas líneas de descripción deben verse directamente. Las líneas posteriores están disponibles mediante una barra de desplazamiento.
+how shall the articles be sorted?	news_admin	es-es	¿Cómo se ordenan los artículos?
 if you specify an export definition, it will be used when you export	news_admin	es-es	Si especifica una definición de exportar, se usará al exportar.
 image link	news_admin	es-es	Enlace a la imagen
 image title	news_admin	es-es	Título de la imagen
@@ -64,6 +67,7 @@ item has been deleted	news_admin	es-es	El elemento ha sido borrado
 item not found	news_admin	es-es	No se encontró el elemento
 keep	news_admin	es-es	Mantener
 keep all	news_admin	es-es	Mantener todos
+kept %1 because of write permissions.  remove them first.	news_admin	es-es	Se ha mantenido %1 por permisos de escritura. Elimínelos antes.
 last imported	news_admin	es-es	Última importación
 last updated	news_admin	es-es	Ultima actualización
 limit number of description lines (default 5, 0 for no limit)	news_admin	es-es	Limitar el número de líneas de la descripción (predeterminado: 5, 0 para ilimitadas)
@@ -109,6 +113,7 @@ show latest news articles?	news_admin	es-es	¿Mostrar los últimos artículos de
 show news articles on main page?	news_admin	es-es	¿Mostrar artículos de noticias en la página principal?
 small view	news_admin	es-es	Vista reducida
 start	news_admin	es-es	Inicio
+start date (if selected), last started first, then unterminated	news_admin	es-es	Fecha de inicio (si se selecciona), primero las últimas iniciadas, luego las que están sin finalizar
 submitted by	common	es-es	Enviado por
 submitted by %1 on %2	news_admin	es-es	Enviado por %1 el %2
 submitted by and date	news_admin	es-es	Enviado por y fecha
