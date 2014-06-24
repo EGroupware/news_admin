@@ -280,3 +280,8 @@ function news_admin_upgrade1_8_001()
 	return $GLOBALS['setup_info']['news_admin']['currentver'] = '1.9.001';
 }
 
+
+function news_admin_upgrade1_9_001()
+{
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '14.1';
+}
