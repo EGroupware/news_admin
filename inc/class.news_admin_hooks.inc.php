@@ -32,6 +32,7 @@ class news_admin_hooks
 		);
 
 		$prefs = array(
+			/* disabled until we have a home app again
 			'homeShowLatest' => array(
 				'type'   => 'select',
 				'label'  => 'Show news articles on main page?',
@@ -61,7 +62,7 @@ class news_admin_hooks
 				'help'   => 'Which news categories should be displayed on the main screen.',
 				'xmlrpc' => True,
 				'admin'  => False,
-			),
+			),*/
 			'limit_des_lines' => array(
 				'type'   => 'input',
 				'size'   => 5,
