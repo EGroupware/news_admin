@@ -45,7 +45,7 @@ class news_admin_import
 	 * Read the feed of the given URL
 	 *
 	 * @param string $url
-	 * @param array $context=null
+	 * @param array $context =null
 	 * @return XML_Feed_Parser|boolean false on error
 	 */
 	function read($url, array $context=null)
@@ -199,7 +199,7 @@ class news_admin_import
 		{
 			if ($cat['import_url'] && $cat['import_frequency'] && !((int)date('H') % $cat['import_frequency']))
 			{
-				$this->import($cat['cat_id']);
+				$this->import($cat['id']);
 			}
 		}
 	}
