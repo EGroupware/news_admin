@@ -174,7 +174,7 @@ class news_admin_import
 			//var_dump($err); print "<li><a href=\"$entry->link\" target=\"_blank\">$entry->title</a></li>\n"; //_debug_array($this->bonews->data);
 		}
 
-		$deleted = $news_delete ? $this->bonews->delete(array_keys($news_delete)) : 0;
+		$deleted = $news_delete ? $this->bonews->delete(array($this->bonews->autoinc_id => array_keys($news_delete))) : 0;
 
 		/* Update the category timestamp on successful import */
 		$cat['import_timestamp'] = $this->bonews->now;
