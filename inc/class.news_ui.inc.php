@@ -280,9 +280,9 @@ class news_ui extends news_bo
 					'news_lang' => $this->lang,
 				),
 				'row_id'	=> 'news_id',
-				'actions'	=> $this->get_actions(),
 			);
 		}
+		$content['nm']['actions'] = $this->get_actions();
 		if (is_numeric($_GET['cat_id'])) $content['nm']['filter'] = (int) $_GET['cat_id'];
 
 		 // add scrollbar to long description, if user choose so in his prefs
@@ -362,7 +362,7 @@ class news_ui extends news_bo
 	 * Nextmatch actions
 	 * see nextmatch_widget::get_actions()
 	 */
-	protected function get_actions()
+	public function get_actions()
 	{
 		$actions = array(
 			'open' => array(
