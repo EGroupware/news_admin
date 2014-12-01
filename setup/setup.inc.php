@@ -12,10 +12,10 @@
 /* Basic information about this app */
 $setup_info['news_admin']['name']      = 'news_admin';
 $setup_info['news_admin']['title']     = 'News Admin';
-$setup_info['news_admin']['version']   = '14.1';
+$setup_info['news_admin']['version']   = '14.1.001';
 $setup_info['news_admin']['app_order'] = 16;
 $setup_info['news_admin']['enable']    = 1;
-$setup_info['news_admin']['index']     = 'news_admin.uinews.index';
+$setup_info['news_admin']['index']     = 'news_admin.news_ui.index&ajax=true';
 
 $setup_info['news_admin']['license']   = 'GPL';
 $setup_info['news_admin']['author']    =

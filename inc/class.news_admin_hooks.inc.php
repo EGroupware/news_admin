@@ -32,37 +32,6 @@ class news_admin_hooks
 		);
 
 		$prefs = array(
-			/* disabled until we have a home app again
-			'homeShowLatest' => array(
-				'type'   => 'select',
-				'label'  => 'Show news articles on main page?',
-				'name'   => 'homeShowLatest',
-				'values' => $show_entries,
-				'help'   => 'Should News_Admin display the latest article headlines on the main screen.',
-				'xmlrpc' => True,
-				'admin'  => False,
-				'default'=> '2',
-			),
-			'homeShowLatestCount' => array(
-				'type'    => 'input',
-				'label'   => 'Number of articles to display on the main screen',
-				'name'    => 'homeShowLatestCount',
-				'size'    => 3,
-				'maxsize' => 10,
-				'help'    => 'Number of articles to display on the main screen',
-				'xmlrpc'  => True,
-				'admin'   => False,
-				'default' => 5,
-			),
-			'homeShowCats' => array(
-				'type'   => 'multiselect',
-				'label'  => 'Categories to displayed on main page?',
-				'name'   => 'homeShowCats',
-				'values' => ExecMethod('news_admin.bonews.rights2cats',EGW_ACL_READ),
-				'help'   => 'Which news categories should be displayed on the main screen.',
-				'xmlrpc' => True,
-				'admin'  => False,
-			),*/
 			'limit_des_lines' => array(
 				'type'   => 'input',
 				'size'   => 5,
@@ -134,6 +103,9 @@ class news_admin_hooks
 
 		if ($location == 'sidebox_menu')
 		{
+			// Magic etemplate2 favorites menu (from nextmatch widget)
+			display_sidebox($appname, lang('Favorites'), egw_framework::favorite_list($appname));
+
 			$categories = new categories('',$appname);
 			$enableadd = false;
 			foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
@@ -150,10 +122,10 @@ class news_admin_hooks
 			{
 				list($w,$h) = explode('x',egw_link::get_registry('news_admin', 'edit_popup'));
 				$file['Add'] = "javascript:egw_openWindowCentered2('".egw::link('/index.php',array(
-						'menuaction' => 'news_admin.uinews.edit',
+						'menuaction' => 'news_admin.news_ui.edit',
 					),false)."','_blank',".$w.",".$h.",'yes');";
 			}
-			$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.uinews.index'));
+			$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.news_ui.index'));
 
 			display_sidebox($appname,$menu_title,$file);
 		}
@@ -196,19 +168,23 @@ class news_admin_hooks
 	 */
 	public static function links() {
 		return array(
-			'query' => 'news_admin.bonews.link_query',
-			'title' => 'news_admin.bonews.link_title',
+			'query' => 'news_admin.news_bo.link_query',
+			'title' => 'news_admin.news_bo.link_title',
 			'view' => array(
-				'menuaction' => 'news_admin.uinews.view'
+				'menuaction' => 'news_admin.news_ui.view'
 			),
 			'view_id' => 'news_id',
 			'view_popup'  => '700x390',
-			'view_list'	=>	'news_admin.uinews.index',
+			'view_list'	=>	'news_admin.news_ui.index',
 			'edit' => array(
-				'menuaction' => 'news_admin.uinews.edit'
+				'menuaction' => 'news_admin.news_ui.edit'
 			),
 			'edit_id' => 'news_id',
 			'edit_popup'  => '700x750',
+			'add' => array(
+				'menuaction' => 'news_admin.news_ui.edit'
+			),
+			'add_popup'  => '700x750',
 		);
 	}
 }

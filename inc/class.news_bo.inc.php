@@ -13,7 +13,7 @@
 /**
  * Business object of the news_admin
  */
-class bonews extends so_sql
+class news_bo extends so_sql
 {
 	/**
 	 * Instance of the news_admin acl class
@@ -85,16 +85,6 @@ class bonews extends so_sql
 		$this->lang = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 
 		$this->cats = new categories('','news_admin');
-	}
-
-	/**
-	 * PHP4 constructor
-	 *
-	 * @deprecated use __construct()
-	 */
-	function bonews()
-	{
-		$this->__construct();
 	}
 
 	/**

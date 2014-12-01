@@ -9,12 +9,12 @@
  * @version $Id$
  */
 
-require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
+require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
 
 /**
  * User interface of the news_admin
  */
-class uinews extends bonews
+class news_ui extends news_bo
 {
 	/**
 	 * Methods callable via menuaction
@@ -29,20 +29,19 @@ class uinews extends bonews
 	/**
 	 * Instance of the etemplate object
 	 *
-	 * @var etemplate
+	 * @var etemplate_new
 	 */
 	var $tpl;
 
 	/**
 	 * Constructor
 	 *
-	 * @return uinews
 	 */
-	function uinews()
+	function __construct()
 	{
-		$this->bonews();
+		parent::__construct();
 
-		$this->tpl =& CreateObject('etemplate.etemplate');
+		$this->tpl = new etemplate_new();
 	}
 
 	/**
@@ -57,19 +56,12 @@ class uinews extends bonews
 		}
 
 		$content = array_merge($this->data, $content);
-		if($content['edit'])
-		{
-			echo "<html><body><script>
-			window.opener.egw_open($news_id,'news_admin','edit');
-			window.close();
-			</script></body></html>\n";
-		}
-		elseif ($content['delete'] && $this->check_acl(EGW_ACL_DELETE))
+		if ($content['delete'] && $this->check_acl(EGW_ACL_DELETE))
 		{
 			$this->delete(array('news_id' => $this->data['news_id']));
-			$msg = lang('News deleted.');
-			echo "<html><body><script>var referer = '".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."'; window.close();</script></body></html>\n";
-			$GLOBALS['egw']->common->egw_exit();
+			egw_framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
+			egw_framework::window_close();
+			return;
 		}
 		$sel_options = array(
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
@@ -82,7 +74,7 @@ class uinews extends bonews
 		$preserve['news_id'] = $news_id;
 		egw_framework::set_onload('$j(document).ready(popup_resize);');
 		$this->tpl->read('news_admin.view');
-		return $this->tpl->exec('news_admin.uinews.view',$content,$sel_options,$readonlys,$preserve,2);
+		return $this->tpl->exec('news_admin.news_ui.view',$content,$sel_options,$readonlys,$preserve,2);
 	}
 
 	/**
@@ -116,9 +108,8 @@ class uinews extends bonews
 					if ($this->check_acl(EGW_ACL_DELETE))
 					{
 						$this->delete(array('news_id' => $this->data['news_id']));
-						$msg = lang('News deleted.');
-						echo "<html><body><script>var referer = '".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."'; window.close();</script></body></html>\n";
-						$GLOBALS['egw']->common->egw_exit();
+						egw_framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
+						return;
 					}
 					break;
 
@@ -157,9 +148,9 @@ class uinews extends bonews
 						{
 							// make sure $content gets all the data of the new/updated entry
 							$content = $this->data;
-							$msg = lang('News saved.');
-							$js = "opener.location.href='".($link=$GLOBALS['egw']->link($referer,array('msg' => $msg)))."';";
 
+							egw_framework::refresh_opener(lang('News saved.'), 'news_admin', $this->data['news_id'], 'update');
+							
 							if ($content['set_new_default'])	// created a new default lang for an existing entry
 							{
 								$this->set_default($content['set_old_news_id']);	// set the new default in all existing translations
@@ -168,19 +159,14 @@ class uinews extends bonews
 						}
 						else
 						{
-							$msg = lang('Error saving the news!');
+							egw_framework::message(lang('Error saving the news!'),'error');
 							$button = '';
 						}
 					}
 					if ($button == 'save')
 					{
-						$js .= 'window.close();';
-						echo "<html>\n<body>\n<script>\n$js\n</script>\n</body>\n</html>\n";
+						egw_framework::window_close();
 						$GLOBALS['egw']->common->egw_exit();
-					}
-					elseif ($js)
-					{
-						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
 					//break; // fall through, as the user did hit apply. So we want to redisplay our new or modified article
 				case 'reload':
@@ -232,7 +218,7 @@ class uinews extends bonews
 			}
 		}
 		$this->tpl->read('news_admin.edit');
-		return $this->tpl->exec('news_admin.uinews.edit',$content,$sel_options,$readonlys,$preserve,2);
+		return $this->tpl->exec('news_admin.news_ui.edit',$content,$sel_options,$readonlys,$preserve,2);
 	}
 
 	/**
@@ -242,26 +228,21 @@ class uinews extends bonews
 	 * @param string $msg=''
 	 * @return string
 	 */
-	function index($content=null,$msg='')
+	public function index($content=null,$msg='')
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
 
-		if ($content['nm']['rows']['delete'])
-		{
-			list($id) = each($content['nm']['rows']['delete']);
-			if ($this->delete(array('news_id' => $id)))
-			{
-				$msg = lang('News deleted.');
-			}
-		}
-		elseif ($content['nm']['action'] == 'delete')
+		if ($content['nm']['action'] == 'delete')
 		{
 			$success = 0;
 			foreach($content['nm']['selected'] as $id)
 			{
 				if ($this->delete(array('news_id' => $id))) $success++;
 			}
-			if($success) $msg = $success . ' ' . lang('News deleted.');
+			if($success)
+			{
+				egw_framework::refresh_opener($success . ' ' . lang('News deleted.'),'news_admin');
+			}
 		}
 		$content = array(
 			'msg' => $msg,
@@ -274,7 +255,7 @@ class uinews extends bonews
 		if (!is_array($content['nm']))
 		{
 			$content['nm'] = array(
-				'get_rows'       =>	'news_admin.uinews.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
+				'get_rows'       =>	'news_admin.news_ui.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
 				'header_right'   => 'news_admin.index.right',
 				'bottom_too'     => false,		// I  show the nextmatch-line (arrows, filters, search, ...) again after the rows
 				'start'          =>	0,			// IO position in list
@@ -288,6 +269,7 @@ class uinews extends bonews
 				'filter_no_lang' => True,		// I  set no_lang for filter (=dont translate the options)
 				'filter2_label'  => 'Show',		// I  label for filter2
 				'filter2'        =>	'content',	// IO filter2, if not 'no_filter2' => True
+				'favorites'	=> true,           // Enable favorites
 				'options-filter2' => array(
 					'content'  => 'Content',
 					'teaser'   => 'Teaser',
@@ -297,7 +279,6 @@ class uinews extends bonews
 					'visible' => 'now',
 					'news_lang' => $this->lang,
 				),
-				'default_columns' => '!legacy_actions',
 				'row_id'	=> 'news_id',
 				'actions'	=> $this->get_actions(),
 			);
@@ -306,16 +287,16 @@ class uinews extends bonews
 
 		 // add scrollbar to long description, if user choose so in his prefs
 		$prefs = $GLOBALS['egw_info']['user']['preferences']['news_admin'];
-                if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '')
-                {
-                        $content['css'] .= '<style type="text/css">@media screen { .news_content {  '.
-                                ' max-height: '.
-                                (($prefs['limit_des_lines'] ? $prefs['limit_des_lines'] : 5) * 1.35).       // dono why em is not real lines
-                                'em; overflow: auto; }}</style>';
-                }
+		if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '')
+		{
+			$content['css'] .= '<style type="text/css">@media screen { .news_content {  '.
+					' max-height: '.
+					(($prefs['limit_des_lines'] ? $prefs['limit_des_lines'] : 5) * 1.35).       // dono why em is not real lines
+					'em; overflow: auto; }}</style>';
+		}
 
 		$this->tpl->read('news_admin.index');
-		return $this->tpl->exec('news_admin.uinews.index',$content,
+		return $this->tpl->exec('news_admin.news_ui.index',$content,
 			array(
 			'filter' => array('' => lang('All news'))+$this->rights2cats(EGW_ACL_READ),
 			'visible' => array('now' => 'Current','future' => 'Future','old' => 'Old')+$this->visiblity,
@@ -334,7 +315,7 @@ class uinews extends bonews
 	 */
 	function get_rows(&$query_in,&$rows,&$readonlys,$id_only=false)
 	{
-		$GLOBALS['egw']->session->appsession('index','news_admin',$query=$query_in);
+		$GLOBALS['egw']->session->appsession($query_in['session_for'] ? $query_in['session_for'] : 'index','news_admin',$query=$query_in);
 
 		if ((int)$query['filter'])
 		{
@@ -357,12 +338,10 @@ class uinews extends bonews
 		{
 			if(!$this->check_acl(EGW_ACL_EDIT,$row))
 			{
-				$readonlys['edit['.$row['news_id'].']']   = true;
 				$rows[$k]['class'] .= 'rowNoEdit ';
 			}
 			if(!$this->check_acl(EGW_ACL_DELETE,$row))
 			{
-				$readonlys['delete['.$row['news_id'].']']   = true;
 				$rows[$k]['class'] .= 'rowNoDelete ';
 			}
 
@@ -390,14 +369,21 @@ class uinews extends bonews
 				'caption' => 'Open',
 				'default' => true,
 				'allowOnMultiple' => false,
-				'url' => 'menuaction=news_admin.uinews.edit&news_id=$id',
+				'url' => 'menuaction=news_admin.news_ui.edit&news_id=$id',
 				'popup' => egw_link::get_registry('news_admin', 'edit_popup'),
 				'group' => $group=1,
+			),
+			'add' => array(
+				'caption' => 'Add',
+				'url' => 'menuaction=news_admin.news_ui.edit',
+				'popup' => egw_link::get_registry('news_admin', 'add_popup'),
+				'group' => $group,
+				'disabled' => !$this->rights2cats(EGW_ACL_ADD),
 			),
 			'view' => array(
 				'caption' => 'View',
 				'allowOnMultiple' => false,
-				'url' => 'menuaction=news_admin.uinews.view&news_id=$id',
+				'url' => 'menuaction=news_admin.news_ui.view&news_id=$id',
 				'popup' => egw_link::get_registry('news_admin', 'view_popup'),
 				'group' => $group,
 			),

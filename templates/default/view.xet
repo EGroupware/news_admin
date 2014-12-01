@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- $Id$ -->
+<overlay>
+	<template id="news_admin.view" template="" lang="" group="0" version="1.9.002">
+		<grid width="100%">
+			<columns>
+				<column/>
+			</columns>
+			<rows>
+				<row>
+					<description id="news_headline" class="news_headline"/>
+				</row>
+				<row>
+					<hbox align="right" readonly="true" class="news_submitted">
+						<menulist>
+							<menupopup type="select-account" label="Created by" id="news_submittedby" readonly="true"/>
+						</menulist>
+						<date-time id="news_date" readonly="true"/>
+					</hbox>
+				</row>
+				<row>
+					<html id="news_teaser" class="news_teaser"/>
+				</row>
+				<row valign="top">
+					<box needed="1" class="news_content">
+						<html id="news_content"/>
+					</box>
+				</row>
+				<row>
+					<hbox>
+						<button label="Edit" id="edit" onclick="window.location.href=egw::link('/index.php','menuaction=news_admin.news_ui.edit&amp;news_id=$row_cont[news_id]');"/>
+						<button label="Cancel" id="cancel" onclick="window.close();"/>
+						<button align="right" label="Delete" id="delete"/>
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+		<styles>
+			.news_content
+{
+  border-top: 1px solid #D0D0D0;
+  margin-top: 0.5em;
+  padding-top: 2em;
+}
+		</styles>
+	</template>
+</overlay>

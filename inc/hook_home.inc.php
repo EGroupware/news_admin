@@ -37,7 +37,7 @@
 		));
 
 		$latestcount = (int)$GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowLatestCount'];
-		if($latestcount<=0) 
+		if($latestcount<=0)
 		{
 			$latestcount = 10;
 		}
@@ -45,8 +45,8 @@
 		$app_id = $GLOBALS['egw']->applications->name2id('news_admin');
 		$GLOBALS['portal_order'][] = $app_id;
 
-		require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
-		$news = new bonews();
+		require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
+		$news = new news_bo();
 		$criteria = array();
 		if ($GLOBALS['egw_info']['user']['preferences']['news_admin']['homeShowCats'])
 		{
@@ -69,7 +69,7 @@
 				{
 					list($width, $height) = explode('x',egw_link::get_registry('news_admin', 'view_popup'));
 					$text .= '<a href="'.$GLOBALS['egw']->link('/index.php',array(
-						'menuaction' => 'news_admin.uinews.view',
+						'menuaction' => 'news_admin.news_ui.view',
 						'news_id' => $newsitem['news_id'],
 					)).'" onclick="window.open(this.href,\'_blank\',\'dependent=yes,width='.$width.',height='.$height.',scrollbars=yes,status=yes\'); return false;">';
 				}

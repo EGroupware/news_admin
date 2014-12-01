@@ -1,17 +1,21 @@
 <?xml version="1.0"?>
 <!-- $Id$ -->
 <overlay>
+	<template id="news_admin.cats.right" template="" lang="" group="0" version="1.9.001">
+		<hbox>
+			<buttononly align="right" label="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;"/>
+		</hbox>
+	</template>
 	<template id="news_admin.cats.rows" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
-				<column/>
-				<column/>
-				<column/>
-				<column/>
-				<column/>
-				<column width="1%"/>
-				<column/>
-				<column width="1%"/>
+				<column width="25%"/>
+				<column width="52%"/>
+				<column width="60"/>
+				<column width="80"/>
+				<column width="120"/>
+				<column width="80"/>
+				<column width="20%"/>
 			</columns>
 			<rows>
 				<row class="th">
@@ -27,16 +31,15 @@
 					</vbox>
 					<nextmatch-sortheader label="Count" id="num_news"/>
 					<nextmatch-header label="Import URL" id="import_url"/>
-					<nextmatch-header label="Actions" id="legacy_actions"/>
 				</row>
 				<row class="row $row_cont[class]">
-					<description id="${row}[name]" href="news_admin.uinews.index&amp;cat_id=$row_cont[id]"/>
+					<description id="${row}[name]" href="news_admin.news_ui.index&amp;cat_id=$row_cont[id]"/>
 					<description id="${row}[description]"/>
 					<menulist>
-						<menupopup type="select-account" id="${row}[owner]" readonly="true" options="All users"/>
+						<menupopup type="select-account" id="${row}[owner]" readonly="true" empty_label="All users"/>
 					</menulist>
 					<menulist>
-						<menupopup type="select-account" id="${row}[cat_writable]" readonly="true"/>
+						<menupopup type="select-account" id="${row}[cat_writable]" readonly="true" empty_label="All users"/>
 					</menulist>
 					<vbox>
 						<date-time id="${row}[news_date]" readonly="true"/>
@@ -44,11 +47,6 @@
 					</vbox>
 					<description align="center" id="${row}[num_news]"/>
 					<description id="${row}[import_host]" no_lang="1" href="$row_cont[import_url]" extra_link_target="_blank" extra_link_title="$row_cont[import_url]"/>
-					<hbox>
-						<button label="Edit" id="edit[$row_cont[id]]" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;cat_id=$row_cont[id]'),'_blank','dependent=yes,width=600,height=400,scrollbars=yes,status=yes'); return false;" image="edit"/>
-						<button label="Delete" id="delete[$row_cont[id]]" onclick="return confirm('Delete this category incl. all it's content');" image="delete"/>
-						<button label="Update" id="update[$row_cont[id]]" image="down2"/>
-					</hbox>
 				</row>
 			</rows>
 		</grid>
@@ -63,10 +61,7 @@
 					<description align="center" id="msg" class="redItalic"/>
 				</row>
 				<row>
-					<nextmatch id="nm" options="news_admin.cats.rows"/>
-				</row>
-				<row>
-					<button label="Add" id="edit[0]" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat'),'_blank','dependent=yes,width=600,height=400,scrollbars=yes,status=yes'); return false;"/>
+					<nextmatch id="nm" options="news_admin.cats.rows" header_right="news_admin.cats.right"/>
 				</row>
 			</rows>
 		</grid>

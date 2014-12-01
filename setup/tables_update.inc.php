@@ -285,3 +285,8 @@ function news_admin_upgrade1_9_001()
 {
 	return $GLOBALS['setup_info']['news_admin']['currentver'] = '14.1';
 }
+function news_admin_upgrade14_1()
+{
+	$GLOBALS['egw_setup']->oProc->query("update {$GLOBALS['egw_setup']->applications_table} set app_index='news_admin.news_ui.index&ajax=true' where app_name='news_admin'",__LINE__,__FILE__);
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '14.1.001';
+}

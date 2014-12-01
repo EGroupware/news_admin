@@ -10,12 +10,12 @@
  * @version $Id$
  */
 
-require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
+require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
 
 /**
  * Admin user interface of the news_admin
  */
-class news_admin_ui extends bonews
+class news_admin_ui extends news_bo
 {
 	/**
 	 * Methods callable via menuaction
@@ -36,22 +36,21 @@ class news_admin_ui extends bonews
 	/**
 	 * Constructor
 	 *
-	 * @return uinews
 	 */
-	function news_admin_ui()
+	public function __construct()
 	{
-		$this->bonews();
+		parent::__construct();
 
-		$this->tpl =& CreateObject('etemplate.etemplate');
+		$this->tpl = new etemplate_new();
 	}
 
 	/**
-	 * Handle a news category
+	 * Edit a news category
 	 *
 	 * @param array $content=null submitted etemplate content
 	 * @param string $msg=''
 	 */
-	function cat($content=null,$msg='')
+	public function cat($content=null,$msg='')
 	{
 		if (!is_array($content))
 		{
@@ -84,8 +83,7 @@ class news_admin_ui extends bonews
 					if ($this->delete_cat($content))
 					{
 						$msg = lang('Category deleted.');
-						echo "<html><body><script>var referer = opener.location;opener.location.href = referer+(referer.search?'&':'?')+'msg=".
-							addslashes(urlencode($msg))."'; window.close();</script></body></html>\n";
+						egw_framework::refresh_opener($msg,'news_admin',$content['cat_id']);
 						$GLOBALS['egw']->common->egw_exit();
 					}
 					break;
@@ -96,29 +94,25 @@ class news_admin_ui extends bonews
 					{
 						$msg = lang('Imported feeds can NOT be writable!').' ';
 					}
-					if($content['read_all_users'])
+					if(in_array(categories::GLOBAL_ACCOUNT,$content['cat_readable']))
 					{
 						$content['cat_readable'] = array(categories::GLOBAL_ACCOUNT);
 					}
 					if (($content['cat_id'] = $this->save_cat($content)))
 					{
 						$msg .= lang('Category saved.');
-						$js = "opener.location.href=opener.location.href+'&msg=".addslashes(urlencode($msg))."';";
+						egw_framework::refresh_opener($msg,'news_admin',$content['cat_id']);
 					}
 					else
 					{
 						$msg .= lang('Error saving the category!');
+						egw_framework::refresh_opener($msg,'news_admin',$content['cat_id'],'edit',null,null,null,'error');
 						$button = '';
 					}
 					if ($button == 'save')
 					{
-						$js .= 'window.close();';
-						echo "<html>\n<body>\n<script>\n$js\n</script>\n</body>\n</html>\n";
+						egw_framework::window_close();
 						$GLOBALS['egw']->common->egw_exit();
-					}
-					elseif ($js)
-					{
-						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
 					}
 					break;
 
@@ -132,8 +126,7 @@ class news_admin_ui extends bonews
 					else
 					{
 						$msg = lang('%1 news imported (%2 new, %3 deleted).',$imported,$newly,$deleted);
-						$js = "opener.location.href=opener.location.href+'&msg=".addslashes(urlencode($msg))."';";
-						$GLOBALS['egw_info']['flags']['java_script'] .= "<script>\n$js\n</script>\n";
+						egw_framework::refresh_opener($msg,'news_admin');
 					}
 					break;
 
@@ -162,11 +155,8 @@ class news_admin_ui extends bonews
 		$readonlys = array();
 		if ($content['cat_id'] && !$this->admin_cat($content))
 		{
-			foreach($content as $name => $value)
-			{
-				$readonlys[$name] = true;
-			}
-			$readonlys['button[import]'] = $readonlys['button[delete]'] = $readonlys['button[save]'] = $readonlys['button[apply]'] = true;
+			$readonlys['__ALL__'] = true;
+			$readonlys['button[cancel]'] = false;
 		}
 		if(!$GLOBALS['egw_info']['user']['apps']['admin'])
 		{
@@ -179,11 +169,6 @@ class news_admin_ui extends bonews
 		{
 			$content['read_accounts'] = 'both';
 		}
-		if($content['cat_owner'] == categories::GLOBAL_ACCOUNT)
-		{
-			$content['read_all_users'] = true;
-			egw_framework::set_onload('var read = document.getElementById("eT_accountsel_exec_cat_readable_"); if(read) {$j(read).val(""); $j(read).next().hide(); read.disabled = true;}');
-		}
 
 		if (!$content['cat_id']) $readonlys['button[delete]'] = true;
 		if (!$content['import_url'] || !$content['cat_id']) $readonlys['button[import]'] = true;
@@ -192,6 +177,8 @@ class news_admin_ui extends bonews
 		return $this->tpl->exec('news_admin.news_admin_ui.cat',$content,
 			array(
 				'cat_parent' => $this->rights2cats(EGW_ACL_READ, $content['cat_id']),
+				// Include global account option to prevent errors looking account 0
+				'cat_readable' => array(categories::GLOBAL_ACCOUNT=>lang('all users'))
 			),
 			$readonlys,$preserve,2);
 	}
@@ -207,16 +194,6 @@ class news_admin_ui extends bonews
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
 
-		if ($content['nm']['rows']['delete'])
-		{
-			list($id) = each($content['nm']['rows']['delete']);
-			$content['nm']['action'] = 'delete';
-			$content['nm']['selected'] = array($id);
-		} else if ($content['nm']['rows']['update']) {
-			list($id) = each($content['nm']['rows']['update']);
-			$content['nm']['action'] = 'update';
-			$content['nm']['selected'] = array($id);
-		}
 		if ($content['admin'] && $content['nm']['action'] == 'admin')
 		{
 			$content['nm']['action'] = $content['admin'];
@@ -234,13 +211,14 @@ class news_admin_ui extends bonews
 				// Action has an additional action - add / delete, etc.  Buttons named <multi-action>_action[action_name]
 				if(in_array($multi_action, array('reader','writer')))
 				{
-					$content['nm']['action'] .= '_' . key($content[$multi_action . '_action']);
+					$content['nm']['action'] .= '_' . key($content[$multi_action.'_popup'][$multi_action . '_action']);
 
-					if(is_array($content[$multi_action]))
+					if(is_array($content[$multi_action.'_popup'][$multi_action]))
 					{
-						$content[$multi_action] = implode(',',$content[$multi_action]);
+						$content[$multi_action] = implode(',',$content[$multi_action.'_popup'][$multi_action]);
 					}
 					$content['nm']['action'] .= '_' . $content[$multi_action];
+					unset($content['nm'][$multi_action]);
 				}
 				if ($this->action($content['nm']['action'],$content['nm']['selected'],$content['nm']['select_all'],
 					$success,$failed,$action_msg,'cats',$msg,$content['nm']['checkboxes']['no_notifications']))
@@ -278,6 +256,7 @@ class news_admin_ui extends bonews
 		}
 		$this->tpl->read('news_admin.cats');
 		return $this->tpl->exec('news_admin.news_admin_ui.cats',$content,array(
+			'owner' => array(categories::GLOBAL_ACCOUNT => lang('All users'))
 		),$readonlys);
 	}
 
@@ -301,7 +280,7 @@ class news_admin_ui extends bonews
 		{
 			$readonlys['edit['.$row['id'].']'] = $readonlys['delete['.$row['id'].']'] = !$this->admin_cat($row);
 			if(!$this->admin_cat($row)) $rows[$k]['class'] .= ' rowNoEdit rowNoDelete';
-			if($row['import_url']) 
+			if($row['import_url'])
 			{
 				$rows[$k]['class'] .= ' rowNoWriters'; // Imported news can't be edited
 			}
@@ -314,7 +293,7 @@ class news_admin_ui extends bonews
 		return $total;
 	}
 
-	public function get_actions() 
+	public function get_actions()
 	{
 		$actions = array(
 			'open' => array(        // does edit if allowed, otherwise view
@@ -371,7 +350,7 @@ class news_admin_ui extends bonews
 			'delete' => array(
 				'caption' => 'Delete',
 				'confirm' => 'Delete this category, and all news in it',
-                                'confirm_multiple' => 'Delete these categories, and all news in them',
+					'confirm_multiple' => 'Delete these categories, and all news in them',
 				'allowOnMultiple' => true,
 				'group' => ++$group,
 				'disableClass' => 'rowNoDelete',
@@ -402,7 +381,7 @@ class news_admin_ui extends bonews
 	 */
 	function action($action,$checked,$use_all,&$success,&$failed,&$action_msg,$session_name,&$msg,$no_notification)
 	{
-		//echo '<p>'.__METHOD__."('$action',".array2string($checked).','.(int)$use_all.",...)</p>\n";
+		//error_log(__METHOD__ . "($action, " . array2string($checked) . ",$use_all)");
 		$success = $failed = 0;
 		if ($use_all)
 		{

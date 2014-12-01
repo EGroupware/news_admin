@@ -16,13 +16,13 @@ class module_news_admin extends Module
 	/**
 	 * Instance of the business object of news_admin
 	 *
-	 * @var bonews
+	 * @var news_bo
 	 */
 	var $bonews;
 
 	function module_news_admin()
 	{
-		$this->bonews =& CreateObject('news_admin.bonews');
+		$this->bonews =& CreateObject('news_admin.news_bo');
 		$GLOBALS['egw']->translation->add_app('news_admin');
 
 		$this->arguments = array(

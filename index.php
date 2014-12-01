@@ -9,5 +9,5 @@
  * @version $Id$
  */
 
-header('Location: ../index.php?menuaction=news_admin.uinews.index'.
+header('Location: ../index.php?menuaction=news_admin.news_ui.index&ajax=true'.
 	(isset($_GET['sessionid']) ? '&sessionid='.$_GET['sessionid'].'&kp3='.$_GET['kp3'] : ''));

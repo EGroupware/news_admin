@@ -10,7 +10,7 @@
  * @version $Id$
  */
 
-require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.bonews.inc.php');
+require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
 
 /**
  * Import RSS and Atom feeds via PEAR's XML_Feed_Parser class
@@ -20,7 +20,7 @@ class news_admin_import
 	/**
 	 * Reference to the news_admins's bo
 	 *
-	 * @var bonews
+	 * @var news_bo
 	 */
 	var $bonews;
 
@@ -33,7 +33,7 @@ class news_admin_import
 	{
 		if (is_null($bonews))
 		{
-			$this->bonews = new bonews();
+			$this->bonews = new news_bo();
 		}
 		else
 		{

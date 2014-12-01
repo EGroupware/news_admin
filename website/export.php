@@ -38,7 +38,7 @@
 		include('../../header.inc.php');
 	}
 
-	$news_obj =& CreateObject('news_admin.bonews');
+	$news_obj =& CreateObject('news_admin.news_bo');
 	$export_obj =& CreateObject('news_admin.soexport');
 	$cats_obj =& CreateObject('phpgwapi.categories');
 	$tpl =& CreateObject('phpgwapi.Template');

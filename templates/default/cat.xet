@@ -10,12 +10,6 @@
 				<column/>
 			</columns>
 			<rows>
-				<row disabled="!@msg">
-					<description align="center" id="msg" no_lang="1" span="all" class="redItalic"/>
-					<description/>
-					<description/>
-					<description/>
-				</row>
 				<row class="th" height="28">
 					<description value="Name" for="cat_name"/>
 					<textbox id="cat_name" needed="1" no_lang="1" size="80" maxlength="150" span="all"/>
@@ -32,10 +26,7 @@
 				</row>
 				<row class="row" valign="top">
 					<description value="Owner / Read permissions" for="cat_readable"/>
-					<vbox>
-						<checkbox label="All users" id="read_all_users" onchange="var read = document.getElementById('eT_accountsel_exec_cat_readable_'); if(read) {$j(read).val(''); if(this.checked) {$j(read).next().hide();} else{$j(read).next().show();} read.disabled = this.checked;}"/>
-						<listbox type="select-account" id="cat_readable" needed="1" rows="6" options="$cont[read_accounts]"/>
-					</vbox>
+					<listbox type="select-account" id="cat_readable" rows="6" account_type="$cont[read_accounts]"/>
 					<description value="Write permissions"/>
 					<listbox type="select-account" id="cat_writable" rows="6" options="both"/>
 				</row>
