@@ -2,65 +2,61 @@
 <!-- $Id$ -->
 <overlay>
 	<template id="news_admin.edit" template="" lang="" group="0" version="1.9.003">
-		<grid>
+		<grid width="100%">
 			<columns>
-				<column/>
-				<column/>
-				<column/>
-				<column/>
-				<column/>
-				<column/>
+				<column width="88"/>
+				<column width="140"/>
+				<column width="30"/>
+				<column width="88"/>
+				<column width="132"/>
 			</columns>
 			<rows>
 				<row disabled="!@msg">
 					<description align="center" id="msg" no_lang="1" span="all" class="redItalic"/>
 					<description/>
-					<description/>
-					<description/>
-					<description/>
-					<description/>
 				</row>
-				<row class="th" height="28">
-					<description value="Category" for="cat_id"/>
-					<menulist span="all">
-						<menupopup id="cat_id" needed="1" no_lang="1" options="Select one"/>
-					</menulist>
-				</row>
-				<row class="row">
+				<row class="dialogHeader">
 					<description value="Headline" for="news_headline"/>
-					<textbox id="news_headline" needed="1" size="70" maxlength="128" span="all" class="news_headline"/>
-					<description/>
-					<description/>
-					<description/>
-					<description/>
+					<textbox id="news_headline" class="et2_fullWidth" needed="1" maxlength="128" span="3"/>
+                    <appicon src="news_admin" for="cat_id" align="right"/>
 				</row>
 				<row class="row" valign="top">
 					<description value="Teaser" for="news_teaser"/>
-					<htmlarea id="news_teaser" height="220px" width="100%" base_href="$cont[upload_dir]" span="all"/>
+					<htmlarea id="news_teaser" height="220px" width="99%" base_href="$cont[upload_dir]" span="all"/>
 				</row>
 				<row class="row" valign="top">
 					<description value="Content" for="news_content"/>
-					<htmlarea id="news_content" needed="1" height="320px" width="100%" toolbar="true" base_href="$cont[upload_dir]" span="all"/>
+					<htmlarea id="news_content" needed="1" height="320px" width="99%" toolbar="true" base_href="$cont[upload_dir]" span="all"/>
 				</row>
-				<row class="row">
+				<row class="dialogOperators" height="28">
+					<description value="Category" for="cat_id"/>
+					<menulist class="et2_fullWidth">
+						<menupopup id="cat_id" needed="1" no_lang="1" options="Select one"/>
+					</menulist>
+					<description/>
+					<description value="Created by"/>
+					<hbox width="100%">
+						<menulist>
+							<menupopup type="select-account" id="news_submittedby" readonly="true"/>
+						</menulist>
+						<date-time align="right" id="news_date" readonly="true"/>
+					</hbox>
+				</row>
+				<row class="dialogOperators">
 					<description value="Visible"/>
-					<menulist>
+					<menulist class="et2_fullWidth">
 						<menupopup id="visible"/>
 					</menulist>
-					<description align="right" value="Start" for="news_begin"/>
-					<date id="news_begin"/>
-					<description align="right" value="End" for="news_end"/>
-					<date id="news_end"/>
+					<description/>
+					<hbox width="100%">
+						<description value="Start" for="news_begin"/>
+						<date id="news_begin"/>
+						<description value="End" for="news_end" align="right"/>
+						<date id="news_end" align="right"/>
+					</hbox>
 				</row>
-				<row class="row" disabled="!@news_submittedby">
-					<description value="Created by"/>
-					<menulist span="4">
-						<menupopup type="select-account" id="news_submittedby" readonly="true"/>
-					</menulist>
-					<date-time align="right" id="news_date" readonly="true"/>
-				</row>
-				<row>
-					<hbox span="5">
+				<row class="dialogFooterToolbar">
+					<hbox span="4">
 						<button label="Save" id="button[save]"/>
 						<description value="as"/>
 						<menulist>

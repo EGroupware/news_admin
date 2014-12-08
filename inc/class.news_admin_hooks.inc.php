@@ -174,17 +174,17 @@ class news_admin_hooks
 				'menuaction' => 'news_admin.news_ui.view'
 			),
 			'view_id' => 'news_id',
-			'view_popup'  => '700x390',
+			'view_popup'  => '845x390',
 			'view_list'	=>	'news_admin.news_ui.index',
 			'edit' => array(
 				'menuaction' => 'news_admin.news_ui.edit'
 			),
 			'edit_id' => 'news_id',
-			'edit_popup'  => '700x750',
+			'edit_popup'  => '845x750',
 			'add' => array(
 				'menuaction' => 'news_admin.news_ui.edit'
 			),
-			'add_popup'  => '700x750',
+			'add_popup'  => '845x750',
 		);
 	}
 }
