@@ -4,7 +4,7 @@
 	<template id="news_admin.edit" template="" lang="" group="0" version="1.9.003">
 		<grid width="100%">
 			<columns>
-				<column width="88"/>
+				<column width="60"/>
 				<column width="140"/>
 				<column width="30"/>
 				<column width="88"/>
