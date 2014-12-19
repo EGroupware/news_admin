@@ -150,7 +150,7 @@ class news_ui extends news_bo
 							$content = $this->data;
 
 							egw_framework::refresh_opener(lang('News saved.'), 'news_admin', $this->data['news_id'], 'update');
-							
+
 							if ($content['set_new_default'])	// created a new default lang for an existing entry
 							{
 								$this->set_default($content['set_old_news_id']);	// set the new default in all existing translations
@@ -256,7 +256,6 @@ class news_ui extends news_bo
 		{
 			$content['nm'] = array(
 				'get_rows'       =>	'news_admin.news_ui.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
-				'header_right'   => 'news_admin.index.right',
 				'bottom_too'     => false,		// I  show the nextmatch-line (arrows, filters, search, ...) again after the rows
 				'start'          =>	0,			// IO position in list
 				'no_cat'         =>	true,		// IO category, if not 'no_cat' => True
