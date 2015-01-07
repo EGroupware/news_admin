@@ -174,8 +174,13 @@ class news_admin_import
 			//var_dump($err); print "<li><a href=\"$entry->link\" target=\"_blank\">$entry->title</a></li>\n"; //_debug_array($this->bonews->data);
 		}
 
-		$deleted = $news_delete ? $this->bonews->delete(array($this->bonews->autoinc_id => array_keys($news_delete))) : 0;
-
+		$deleted = 0;
+		// kope with huge number of news rows to delete triggering SQL error:
+		// "Got a packet bigger than 'max_allowed_packet' bytes" (of default 1MB) by deleting chunks of 1000 rows
+		for($n = 0; ($ids = array_slice(array_keys($news_delete), 1000*$n, 1000)); ++$n)
+		{
+			$news_delete += $this->bonews->delete(array($this->bonews->autoinc_id => $ids));
+		}
 		/* Update the category timestamp on successful import */
 		$cat['import_timestamp'] = $this->bonews->now;
 		$this->bonews->save_cat($cat);
