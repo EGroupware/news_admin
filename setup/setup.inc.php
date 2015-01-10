@@ -31,7 +31,6 @@ $setup_info['news_admin']['hooks']['sidebox_menu'] = 'news_admin.news_admin_hook
 $setup_info['news_admin']['hooks']['settings'] = 'news_admin.news_admin_hooks.settings';
 $setup_info['news_admin']['hooks']['categories'] = 'news_admin.news_admin_hooks.categories';
 $setup_info['news_admin']['hooks']['search_link'] = 'news_admin.news_admin_hooks.links';
-$setup_info['news_admin']['hooks'][] = 'home';
 
 /* Dependencies for this app to work */
 $setup_info['news_admin']['depends'][] = array(
