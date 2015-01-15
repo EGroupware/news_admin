@@ -1,3 +1,5 @@
+%1 entries %2	news_admin	it	%1 voci %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	it	%1 voci %2, %3 fallite a causa di permessi insufficienti!
 %1 module	news_admin	it	modulo %1
 actions	news_admin	it	Azioni
 active	news_admin	it	Attivo
@@ -43,6 +45,7 @@ image url	news_admin	it	Url Immagine
 implies read permission	news_admin	it	implica i permessi di lettura
 item has been deleted	news_admin	it	L'oggetto è stato cancellato
 item not found	news_admin	it	Oggetto non trovato
+limit number of description lines (default 5, 0 for no limit)	news_admin	it	Limita il numero di righe di descrizione. Predefinito = 5, 0 = nessun limite
 link	news_admin	it	Link
 main	news_admin	it	Principale
 maintain	news_admin	it	Manutenzione
@@ -94,3 +97,4 @@ visible	news_admin	it	Visibile
 webpage news admin	news_admin	it	Pagina web News Admin
 write	news_admin	it	Scrivi
 write permissions	news_admin	it	Permessi di scrittura
+you need to select some entries first	news_admin	it	Devi prima selezionare alcune voci.
