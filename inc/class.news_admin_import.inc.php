@@ -179,7 +179,7 @@ class news_admin_import
 		// "Got a packet bigger than 'max_allowed_packet' bytes" (of default 1MB) by deleting chunks of 1000 rows
 		for($n = 0; ($ids = array_slice(array_keys($news_delete), 1000*$n, 1000)); ++$n)
 		{
-			$news_delete += $this->bonews->delete(array($this->bonews->autoinc_id => $ids));
+			$deleted += $this->bonews->delete(array($this->bonews->autoinc_id => $ids));
 		}
 		/* Update the category timestamp on successful import */
 		$cat['import_timestamp'] = $this->bonews->now;
