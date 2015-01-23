@@ -1,30 +1,44 @@
 %1 entries %2	news_admin	it	%1 voci %2
 %1 entries %2, %3 failed because of insufficent rights !!!	news_admin	it	%1 voci %2, %3 fallite a causa di permessi insufficienti!
 %1 module	news_admin	it	modulo %1
+%1 news imported (%2 new, %3 deleted).	news_admin	it	% notizie importate. %2 nuove, %3 eliminate
+%s hours	news_admin	it	%s ore
+%s imported news items	news_admin	it	Importati %s elementi di notizie
 actions	news_admin	it	Azioni
 active	news_admin	it	Attivo
-add new article	news_admin	it	Aggiungi Nuovo Articolo
-add new news	news_admin	it	Aggiungi Nuova Notizia
+add new article	news_admin	it	Aggiungi nuovo articolo
+add new news	news_admin	it	Aggiungi nuova notizia
 add news item	news_admin	it	Aggiungi oggetto notizia
-all news	news_admin	it	Tutte le Notizie
+all news	news_admin	it	Tutte le notizie
 all users	news_admin	it	Tutti gli utenti
 always	news_admin	it	Sempre
 as	news_admin	it	come
+as imported	news_admin	it	Come da importazione
 by date	news_admin	it	Per data
+categories to displayed on main page?	news_admin	it	Categorie in home
 category deleted.	news_admin	it	Categoria eliminata
 category saved.	news_admin	it	Categoria salvata
 choose a category	news_admin	it	Scegli una categoria
+comma separated item ids which shall be shown (empty = all)	news_admin	it	I valori ID separati da virgola saranno mostrati. Vuoto = tutti
 configuration	news_admin	it	Configurazione
 configure access permissions	common	it	Configura i permessi di accesso
 configure rss exports	common	it	Configura l'esportazione RSS
 contains html	news_admin	it	Contiene HTML
 content	news_admin	it	Contenuto
+count	news_admin	it	Conta
 date and time	news_admin	it	Data e ora
-delete this news	news_admin	it	Cancella questa notizia
-deleted	news_admin	it	cancellato
+date of entry, newest first	news_admin	it	Data di inserimento, prima le recenti
+default languages	news_admin	it	Lingue predefinite
+delete these categories, and all news in them	news_admin	it	Elimina queste categorie e tutte le notizie contenute
+delete this category, and all news in it	news_admin	it	Elimina la categoria e tutte le notizie contenute
+delete this news	news_admin	it	Elimina questa notizia
+deleted	news_admin	it	Eliminato
 do you want to publish a rss feed for this news category	news_admin	it	Vuoi pubblicare un feed RSS per questa categoria di notizie?
 edit news item	news_admin	it	Modifica oggetto notizia
 end	news_admin	it	Fine
+end date (if selected), first ending first, then unterminated	news_admin	it	La data fine (se selezionata), la prima finisce prima, poi non terminata
+error importing the feed!	news_admin	it	Errore di importazione del feed!
+error saving the category!	news_admin	it	Errore di salvataggio della categoria!
 error saving the news!	news_admin	it	Errore durante il salvataggio delle notizie!
 failed to add message	news_admin	it	Aggiunta nuovo messaggio fallita
 format for links to items	news_admin	it	Formato per i collegamenti agli oggetti
@@ -38,13 +52,24 @@ global_news	news_admin	it	Notizie_Generali
 headline	news_admin	it	Titolo
 headline with link	news_admin	it	Titolo con link
 how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	it	Quante righe di descrizione dovranno essere visibili direttamente. Righe ulteriori sono disponibili tramite una barra di scorrimento.
+how shall the articles be sorted?	news_admin	it	Come ordinare gli articoli?
 if you specify an export definition, it will be used when you export	news_admin	it	Se specifichi una definizione di esportazione, allora verrà usata durante la relativa operazione
 image link	news_admin	it	Link Immagine
 image title	news_admin	it	Titolo Immagine
 image url	news_admin	it	Url Immagine
 implies read permission	news_admin	it	implica i permessi di lettura
+import every	news_admin	it	Importa ogni
+import now	news_admin	it	Importa adesso
+import url	news_admin	it	Importa URL
+imported feeds can not be writable!	news_admin	it	I feed non importati NON sono scrivibili
+imported news items	news_admin	it	notizie importate
 item has been deleted	news_admin	it	L'oggetto è stato cancellato
 item not found	news_admin	it	Oggetto non trovato
+keep	news_admin	it	Mantieni
+keep all	news_admin	it	Mantieni tutto
+kept %1 because of write permissions.  remove them first.	news_admin	it	Mantenuto %1 causa permessi scrittura. Eliminarli prima.
+last imported	news_admin	it	Ultima importazione
+last updated	news_admin	it	Ultimo aggiornamento
 limit number of description lines (default 5, 0 for no limit)	news_admin	it	Limita il numero di righe di descrizione. Predefinito = 5, 0 = nessun limite
 link	news_admin	it	Link
 main	news_admin	it	Principale
@@ -69,9 +94,13 @@ no news	news_admin	it	Nessuna Notizia è attualmente disponibile nella Categoria
 no rss export	news_admin	it	Nessuna esportazione RSS
 now	news_admin	it	Adesso
 number of articles to display on the main screen	news_admin	it	Numero di articoli da visualizzare sulla schermata principale
+number of news items to be displayed on page	news_admin	it	Numero di notizie da mostrare in home
 old	news_admin	it	Vecchie
 on	news_admin	it	il
+owner / read permissions	news_admin	it	Permessi proprietario/lettura
+page-name the item should be displayed (empty = current page)	news_admin	it	Nome pagina in cui l'elemento deve essere visibile. Vuoto = pagina corrente
 parent	news_admin	it	Superiore
+picture upload (leave the upload directory empty to disable the upload)	admin	it	Caricamento immagine. Lasciare vuota la directory di caricamento per disabilitare l'upload
 please select a category	news_admin	it	Prego seleziona una categoria
 publish date	news_admin	it	Data pubblicazione
 read more	news_admin	it	leggi di più
@@ -84,17 +113,26 @@ show latest news articles?	news_admin	it	Mostra gli articoli delle notizie più 
 show news articles on main page?	news_admin	it	Mostra gli articoli delle notizie sulla schermata principale?
 small view	news_admin	it	Visualizzazione ridotta
 start	news_admin	it	Inizio
+start date (if selected), last started first, then unterminated	news_admin	it	La data fine (se selezionata), la prima finisce prima, poi non terminata
 submitted by	common	it	Aggiunto da
 submitted by %1 on %2	news_admin	it	Aggiunto da %1 il %2
+submitted by and date	news_admin	it	Inviato da e data
 teaser	news_admin	it	Didascalia
+teaser with read more link	news_admin	it	Didascalia con link "leggi tutto" (more)
 the news content is missing	news_admin	it	Il contenuto della notizia è mancante
 the number of articles to display on the main screen.	news_admin	it	Il numero di articoli da mostrare sulla schermata principale.
 the subject is missing	news_admin	it	L'oggetto è mancante
+there no such translation.	news_admin	it	Nessuna traduzione
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	it	Questo modulo pubblica news dalla applicazione news_admin sul tuo sito. Attenzione alle restrizioni ACL in news_admin
 until	news_admin	it	fino al
+update rss feed	news_admin	it	Aggiorna RSS
 updated	news_admin	it	Aggiornato
+url of the rss or atom feed, empty for own news feed	news_admin	it	URL RSS o atom, vuoto per proprio feed
 view this category	news_admin	it	Visualizza questa categoria
 visible	news_admin	it	Visibile
 webpage news admin	news_admin	it	Pagina web News Admin
+which information do you want to show (css class)	news_admin	it	Quali informazioni vuoi mostrare (classe CSS)
+which news categories should be displayed on the main screen.	news_admin	it	Quali categorie di notizie mostrare in home?
 write	news_admin	it	Scrivi
 write permissions	news_admin	it	Permessi di scrittura
 you need to select some entries first	news_admin	it	Devi prima selezionare alcune voci.
