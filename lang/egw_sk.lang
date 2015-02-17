@@ -27,6 +27,7 @@ contains html	news_admin	sk	Obsahuje HTML
 content	news_admin	sk	Obsah
 count	news_admin	sk	Počet
 date and time	news_admin	sk	Dátum a čas
+date of entry, newest first	news_admin	sk	Dátum položky, od novších
 default languages	news_admin	sk	Predvolené jazyky
 delete these categories, and all news in them	news_admin	sk	Odstrániť tieto kategórie, a všetky aktuality ktoré obsahujú
 delete this category, and all news in it	news_admin	sk	Odstrániť túto kategóriu, a všetky aktuality ktoré obsahuje
@@ -35,6 +36,7 @@ deleted	news_admin	sk	Odstránené
 do you want to publish a rss feed for this news category	news_admin	sk	Želáte si publikovať RSS kanál pre túto kategóriu aktualít
 edit news item	news_admin	sk	Upraviť položku Aktualít
 end	news_admin	sk	Koniec
+end date (if selected), first ending first, then unterminated	news_admin	sk	Dátum konca (ak vybraný), od najskôr končiacich, potom neprerušené
 error importing the feed!	news_admin	sk	Chyba pri importovaní kanála!
 error saving the category!	news_admin	sk	Chyba pri ukladaní kategórie!
 error saving the news!	news_admin	sk	Chyba počas ukladania správ!
@@ -50,6 +52,7 @@ global_news	news_admin	sk	Globálne_aktuality
 headline	news_admin	sk	Titulok
 headline with link	news_admin	sk	Titulok s odkazom
 how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	sk	Koľko riadkov opisu má byť priamo viditeľných. Ďalšie riadky sú dostupné cez posuvník.
+how shall the articles be sorted?	news_admin	sk	Ako sa majú články usporiadať?
 if you specify an export definition, it will be used when you export	news_admin	sk	Ak zadáte exportnú definíciu, bude sa používať pri exportoch.
 image link	news_admin	sk	Odkaz na obrázok
 image title	news_admin	sk	Titulok obrázka
@@ -110,6 +113,7 @@ show latest news articles?	news_admin	sk	Zobraziť najnovší článok z Aktual�
 show news articles on main page?	news_admin	sk	Zobraziť články Aktualít na hlavnej stránke?
 small view	news_admin	sk	Zmenšený pohľad
 start	news_admin	sk	Začiatok
+start date (if selected), last started first, then unterminated	news_admin	sk	Dátum začiatku (ak vybraný), najprv najneskôr začaté, potom neprerušené
 submitted by	common	sk	Pridal
 submitted by %1 on %2	news_admin	sk	Odoslal %1 k %2
 submitted by and date	news_admin	sk	Odoslané kým a dátum
