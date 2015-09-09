@@ -120,12 +120,13 @@ class news_admin_hooks
 			$file = array();
 			if ($enableadd)
 			{
-				list($w,$h) = explode('x',egw_link::get_registry('news_admin', 'edit_popup'));
-				$file['Add'] = "javascript:egw_openWindowCentered2('".egw::link('/index.php',array(
-						'menuaction' => 'news_admin.news_ui.edit',
-					),false)."','_blank',".$w.",".$h.",'yes');";
+				$file[] = array(
+					'text' => lang('Add %1',lang(egw_link::get_registry($appname, 'entry'))),
+					'no_lang' => true,
+					'link' => "javascript:egw.open('','$appname','add')"
+				);
 			}
-			$file['Read news'] = egw::link('/index.php',array('menuaction' => 'news_admin.news_ui.index'));
+			$file['News list'] = egw::link('/index.php',array('menuaction' => 'news_admin.news_ui.index'));
 
 			display_sidebox($appname,$menu_title,$file);
 		}
