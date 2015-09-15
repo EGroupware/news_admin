@@ -248,9 +248,9 @@ class news_ui extends news_bo
 			'msg' => $msg,
 			'nm'  => $GLOBALS['egw']->session->appsession('index','news_admin'),
 		);
-		if (!$this->rights2cats(EGW_ACL_ADD))
+		if (count($this->rights2cats(EGW_ACL_ADD)) == 0)
 		{
-			$readonlys['add'] = $readonlys['nm']['add'] = true;
+			$readonlys['add'] = true;
 		}
 		if (!is_array($content['nm']))
 		{
@@ -332,7 +332,6 @@ class news_ui extends news_bo
 
 		$total = parent::get_rows($query,$rows,$readonlys);
 
-		$readonlys = array();
 		foreach($rows as $k => $row)
 		{
 			if(!$this->check_acl(EGW_ACL_EDIT,$row))

@@ -107,7 +107,8 @@ class news_admin_hooks
 			display_sidebox($appname, lang('Favorites'), egw_framework::favorite_list($appname));
 
 			$categories = new categories('',$appname);
-			$enableadd = false;
+			$bo = new news_bo();
+			$enableadd = count($bo->rights2cats(EGW_ACL_ADD)) > 0;
 			foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
 			{
 				if ($categories->check_perms(EGW_ACL_EDIT,$cat))
@@ -186,6 +187,7 @@ class news_admin_hooks
 				'menuaction' => 'news_admin.news_ui.edit'
 			),
 			'add_popup'  => '845x750',
+			'entry' => 'News'
 		);
 	}
 }
