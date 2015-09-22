@@ -118,6 +118,7 @@ class news_admin_hooks
 			}
 			$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
 			$file = array();
+			$file['News list'] = egw::link('/index.php',array('menuaction' => 'news_admin.news_ui.index'));
 			if ($enableadd)
 			{
 				$file[] = array(
@@ -126,7 +127,6 @@ class news_admin_hooks
 					'link' => "javascript:egw.open('','$appname','add')"
 				);
 			}
-			$file['News list'] = egw::link('/index.php',array('menuaction' => 'news_admin.news_ui.index'));
 
 			display_sidebox($appname,$menu_title,$file);
 		}
