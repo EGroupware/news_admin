@@ -2,11 +2,6 @@
 <!DOCTYPE overlay PUBLIC "-//Stylite AG//eTemplate 2//EN" "http://www.egroupware.org/etemplate2.dtd">
 <!-- $Id$ -->
 <overlay>
-	<template id="news_admin.cats.right" template="" lang="" group="0" version="1.9.001">
-		<hbox>
-			<buttononly align="right" label="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;"/>
-		</hbox>
-	</template>
 	<template id="news_admin.cats.rows" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
@@ -52,20 +47,11 @@
 			</rows>
 		</grid>
 	</template>
+	<template id="news_admin.cats.add" template="" lang="" group="0" version="1.9.001">
+		<buttononly statustext="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;"/>
+	</template>
 	<template id="news_admin.cats" template="" lang="" group="0" version="1.9.001">
-		<grid width="100%">
-			<columns>
-				<column/>
-			</columns>
-			<rows>
-				<row disabled="!@msg">
-					<description align="center" id="msg" class="redItalic"/>
-				</row>
-				<row>
-					<nextmatch id="nm" options="news_admin.cats.rows" header_right="news_admin.cats.right"/>
-				</row>
-			</rows>
-		</grid>
+		<nextmatch id="nm" options="news_admin.cats.rows" header_left="news_admin.cats.add"/>
 		<box class="action_popup prompt" id="reader_popup">
 			<vbox>
 				<description value="Read permissions" class="promptheader"/>
@@ -89,7 +75,7 @@
 			</vbox>
 		</box>
 		<styles>
-			
+
 .action_popup {
 	position: fixed;
 	top: 200px;

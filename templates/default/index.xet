@@ -2,9 +2,6 @@
 <!DOCTYPE overlay PUBLIC "-//Stylite AG//eTemplate 2//EN" "http://www.egroupware.org/etemplate2.dtd">
 <!-- $Id$ -->
 <overlay>
-	<template id="news_admin.index.right" template="" lang="" group="0" version="1.9.001">
-		<buttononly cols="1" label="Add" id="add" onclick="egw.open('','news_admin','add'); return false;" rows="1"/>
-	</template>
 	<template id="news_admin.index.rows" template="" lang="" group="0" version="1.9.003">
 		<grid width="100%">
 			<columns>
@@ -16,7 +13,7 @@
 			<rows>
 				<row class="th">
 					<description value="News"/>
-					<vbox options="0,0">
+					<vbox>
 						<nextmatch-accountfilter id="news_submittedby" options="From all"/>
 						<nextmatch-sortheader label="Date" id="news_date" sortmode="DESC"/>
 					</vbox>
@@ -37,7 +34,7 @@
 						</menulist>
 						<date-time id="${row}[news_date]" readonly="true"/>
 					</vbox>
-					<vbox options="0,0">
+					<vbox>
 						<menulist>
 							<menupopup id="${row}[visible]" readonly="true"/>
 						</menulist>
@@ -51,8 +48,11 @@
 			</rows>
 		</grid>
 	</template>
+	<template id="news_admin.index.add" template="" lang="" group="0" version="1.9.001">
+		<buttononly statustext="Add" id="add" onclick="egw.open('','news_admin','add'); return false;"/>
+	</template>
 	<template id="news_admin.index" template="" lang="" group="0" version="1.9.001">
 		<html id="css" span="all"/>
-		<nextmatch id="nm" template="news_admin.index.rows" header_row="news_admin.index.right"/>
+		<nextmatch id="nm" template="news_admin.index.rows" header_left="news_admin.index.add"/>
 	</template>
 </overlay>

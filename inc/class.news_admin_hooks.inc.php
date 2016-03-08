@@ -160,7 +160,10 @@ class news_admin_hooks
 	 */
 	public static function categories($data)
 	{
-		return array('menuaction' => 'news_admin.news_admin_ui.cats');
+		return array(
+			'menuaction' => 'news_admin.news_admin_ui.cats',
+			'ajax' => 'true',
+		);
 	}
 
 	/**

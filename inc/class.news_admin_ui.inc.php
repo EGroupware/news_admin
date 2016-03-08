@@ -239,8 +239,6 @@ class news_admin_ui extends news_bo
 		{
 			$content['nm'] = array(
 				'get_rows'       =>	'news_admin.news_admin_ui.get_cats',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
-//				'header_right'   => 'news_admin.index.right',
-				'bottom_too'     => false,		// I  show the nextmatch-line (arrows, filters, search, ...) again after the rows
 				'start'          =>	0,			// IO position in list
 				'no_cat'         =>	true,		// IO category, if not 'no_cat' => True
 				'search'         =>	'',			// IO search pattern
@@ -249,7 +247,6 @@ class news_admin_ui extends news_bo
 				'col_filter'     =>	array(),	// IO array of column-name value pairs (optional for the filterheaders)
 				'no_filter'      => true,
 				'no_filter2'     => true,
-				'default_cols'   => '!legacy_actions',
 				'row_id'         => 'id',
 				'actions'        => $this->get_actions()
 			);
