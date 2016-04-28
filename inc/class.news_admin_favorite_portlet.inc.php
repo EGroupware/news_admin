@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Egroupware - News Admin - A portlet for displaying a list of entries
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @package news_admin
@@ -10,6 +9,10 @@
  * @version $Id$
  */
 
+use EGroupware\Api\Framework;
+use EGroupware\Api\Acl;
+use EGroupware\Api\Etemplate;
+
 require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_ui.inc.php');
 /**
  * The news_admin_list_portlet uses a nextmatch / favorite
@@ -17,7 +20,6 @@ require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_ui.inc.php');
  */
 class news_admin_favorite_portlet extends home_favorite_portlet
 {
-
 	/**
 	 * Construct the portlet
 	 *
@@ -25,11 +27,9 @@ class news_admin_favorite_portlet extends home_favorite_portlet
 	public function __construct(Array &$context = array(), &$need_reload = false)
 	{
 		$context['appname'] = 'news_admin';
-		
+
 		// Let parent handle the basic stuff
 		parent::__construct($context,$need_reload);
-
-		$ui = new news_admin_ui();
 
 		$this->context['template'] = 'news_admin.index.rows';
 		$this->nm_settings += array(
@@ -43,11 +43,11 @@ class news_admin_favorite_portlet extends home_favorite_portlet
 		);
 	}
 
-	public function exec($id = null, etemplate_new &$etemplate = null)
+	public function exec($id = null, Etemplate &$etemplate = null)
 	{
 		$ui = new news_ui();
 
-		$this->context['sel_options']['filter'] = array('' => lang('All news'))+$ui->rights2cats(EGW_ACL_READ);
+		$this->context['sel_options']['filter'] = array('' => lang('All news'))+$ui->rights2cats(Acl::READ);
 		$this->context['sel_options']['filter2'] = array(
 			'content'  => 'Content',
 			'teaser'   => 'Teaser',
@@ -65,13 +65,11 @@ class news_admin_favorite_portlet extends home_favorite_portlet
 	 * Here we need to handle any incoming data.  Setup is done in the constructor,
 	 * output is handled by parent.
 	 *
-	 * @param type $id
-	 * @param etemplate_new $etemplate
+	 * @param $content =array()
 	 */
 	public static function process($content = array())
 	{
 		parent::process($content);
-		$ui = new news_ui();
 
 		// This is just copy+pasted from news_ui line 235, but we don't want
 		// the etemplate exec to fire again.
@@ -84,7 +82,7 @@ class news_admin_favorite_portlet extends home_favorite_portlet
 			}
 			if($success)
 			{
-				egw_framework::refresh_opener($success . ' ' . lang('News deleted.'),'news_admin');
+				Framework::refresh_opener($success . ' ' . lang('News deleted.'),'news_admin');
 			}
 		}
 	}
