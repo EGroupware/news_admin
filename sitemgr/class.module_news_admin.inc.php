@@ -1,6 +1,6 @@
 <?php
 /**
- * news_admin - business object
+ * news_admin - sitemgr module
  *
  * @link http://www.egroupware.org
  * @author Cornelius Weiss <egw@von-und-zu-weiss.de>
@@ -11,19 +11,22 @@
  * @version $Id$
  */
 
+use EGroupware\Api;
+use EGroupware\Api\Acl;
+
 class module_news_admin extends Module
 {
 	/**
 	 * Instance of the business object of news_admin
 	 *
-	 * @var news_bo
+	 * @var news_admin_bo
 	 */
 	var $bonews;
 
 	function module_news_admin()
 	{
-		$this->bonews =& CreateObject('news_admin.news_bo');
-		$GLOBALS['egw']->translation->add_app('news_admin');
+		$this->bonews = new news_admin_bo();
+		Api\Translation::add_app('news_admin');
 
 		$this->arguments = array(
 			'category' => array(
@@ -89,7 +92,7 @@ class module_news_admin extends Module
 	{
 		//we could put this into the module's constructor, but by putting it here, we make it execute only when the block is edited,
 		//and not when it is generated for the web site, thus speeding the latter up slightly
-		$this->arguments['category']['options'] = $this->bonews->rights2cats(EGW_ACL_READ);
+		$this->arguments['category']['options'] = $this->bonews->rights2cats(Acl::READ);
 
 		if (isset($this->block->arguments['layout']) && !isset($this->block->arguments['show']))
 		{
@@ -157,7 +160,7 @@ class module_news_admin extends Module
 			ob_end_clean();		// for mos templates, stop the output buffering
 			include(EGW_SERVER_ROOT.'/news_admin/website/export.php');
 			// No more stuff in the generated xml
-			$GLOBALS['egw']->common->egw_exit();
+			exit();
 		}
 		elseif ((int)$item)
 		{
@@ -359,8 +362,8 @@ class module_news_admin extends Module
 					break;
 
 				case 'submitted':
-					$value = lang('Submitted by %1 on %2',$GLOBALS['egw']->common->grab_owner_name($news['news_submittedby']),
-						egw_time::to($news['news_date']));
+					$value = lang('Submitted by %1 on %2',Api\Accounts::username($news['news_submittedby']),
+						Api\DateTime::to($news['news_date']));
 					break;
 
 				case 'date':
@@ -370,7 +373,7 @@ class module_news_admin extends Module
 					{
 						$format .= ' '.($GLOBALS['egw_info']['user']['preferences']['common']['timeformat'] == 12 ? 'h:i a' : 'H:i');
 					}
-					$value = egw_time::to($news['news_date'], $name == 'date' ? true : '');
+					$value = Api\DateTime::to($news['news_date'], $name == 'date' ? true : '');
 					break;
 
 				case 'more':

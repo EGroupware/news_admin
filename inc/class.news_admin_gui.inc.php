@@ -9,12 +9,16 @@
  * @version $Id$
  */
 
-require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
+use EGroupware\Api;
+use EGroupware\Api\Link;
+use EGroupware\Api\Framework;
+use EGroupware\Api\Acl;
+use EGroupware\Api\Etemplate;
 
 /**
  * User interface of the news_admin
  */
-class news_ui extends news_bo
+class news_admin_gui extends news_admin_bo
 {
 	/**
 	 * Methods callable via menuaction
@@ -29,7 +33,7 @@ class news_ui extends news_bo
 	/**
 	 * Instance of the etemplate object
 	 *
-	 * @var etemplate_new
+	 * @var Etemplate
 	 */
 	var $tpl;
 
@@ -41,52 +45,51 @@ class news_ui extends news_bo
 	{
 		parent::__construct();
 
-		$this->tpl = new etemplate_new();
+		$this->tpl = new Etemplate();
 	}
 
 	/**
 	 * View a news item
 	 *
 	 */
-	public function view($content = array())
+	public function view($_content = array())
 	{
-		$news_id = $content['news_id'] ? $content['news_id'] : $_GET['news_id'];
+		$news_id = $_content['news_id'] ? $_content['news_id'] : $_GET['news_id'];
 		if(!$this->read($news_id))
 		{
 		}
 
-		$content = array_merge($this->data, $content);
-		if ($content['delete'] && $this->check_acl(EGW_ACL_DELETE))
+		$content = array_merge($this->data, $_content);
+		if ($content['delete'] && $this->check_acl(Acl::DELETE))
 		{
 			$this->delete(array('news_id' => $this->data['news_id']));
-			egw_framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
-			egw_framework::window_close();
+			Framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
+			Framework::window_close();
 			return;
 		}
 		$sel_options = array(
-			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
+			'cat_id' => $this->rights2cats($this->data['news_id'] ? Acl::EDIT : Acl::ADD),
 			'visible' => $this->visiblity,
 		);
 		if (!$content['cat_id']) list($content['cat_id']) = @each($sel_options['cat_id']);
-		$readonlys['edit'] = !$this->check_acl(EGW_ACL_EDIT);
-		$readonlys['delete'] = !$this->check_acl(EGW_ACL_DELETE);
+		$readonlys['edit'] = !$this->check_acl(Acl::EDIT);
+		$readonlys['delete'] = !$this->check_acl(Acl::DELETE);
 
 		$preserve['news_id'] = $news_id;
-		egw_framework::set_onload('$j(document).ready(popup_resize);');
 		$this->tpl->read('news_admin.view');
-		return $this->tpl->exec('news_admin.news_ui.view',$content,$sel_options,$readonlys,$preserve,2);
+		return $this->tpl->exec('news_admin.news_admin_gui.view',$content,$sel_options,$readonlys,$preserve,2);
 	}
 
 	/**
 	 * Edit a news
 	 *
-	 * @param array $content=null submitted etemplate content
-	 * @param string $msg=''
+	 * @param array $_content =null submitted etemplate content
+	 * @param string $msg =''
 	 */
-	function edit($content=null,$msg='')
+	function edit($_content=null,$msg='')
 	{
-		$referer = $GLOBALS['egw']->common->get_referer();
-		if (!is_array($content))
+		$referer = Api\Header\Referer::get();
+		if (!is_array($_content))
 		{
 			if (!(int) $_GET['news_id'] || !$this->read($_GET['news_id']))
 			{
@@ -96,92 +99,90 @@ class news_ui extends news_bo
 		}
 		else
 		{
-			$referer = $content['referer'];
-			#echo "$referer<br>";
-			list($button) = each($content['button']);
-			unset($content['button']);
-			$this->data = $content;
+			list($button) = each($_content['button']);
+			unset($_content['button']);
+			$this->data = $_content;
 
 			switch($button)
 			{
 				case 'delete':
-					if ($this->check_acl(EGW_ACL_DELETE))
+					if ($this->check_acl(Acl::DELETE))
 					{
 						$this->delete(array('news_id' => $this->data['news_id']));
-						egw_framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
+						Framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
 						return;
 					}
 					break;
 
 				case 'apply':
 				case 'save':
-					if ($this->check_acl($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD))
+					if ($this->check_acl($this->data['news_id'] ? Acl::EDIT : Acl::ADD))
 					{
 						if (!isset($this->data['news_is_html']))
 						{
-							$this->data['news_is_html'] = html::htmlarea_availible();
+							$this->data['news_is_html'] = Api\Html::htmlarea_availible();
 						}
-						if ($content['news_id'] && ($content['old_lang'] != $content['news_lang']))	// lang changed --> save as new
+						if ($_content['news_id'] && ($_content['old_lang'] != $_content['news_lang']))	// lang changed --> save as new
 						{
 							//first save from Default Language
-							if ($content['old_lang'] == null && $content['news_source_id'] == null)
+							if ($_content['old_lang'] == null && $_content['news_source_id'] == null)
 							{
-								$this->data['news_source_id'] = $content['news_id'];
-								$content['news_source_id'] = $content['news_id'];
+								$this->data['news_source_id'] = $_content['news_id'];
+								$_content['news_source_id'] = $_content['news_id'];
 							}
 							//set old Language new Default Language
-							if  ($content['old_lang'] != null && $content['news_source_id'] == null && $content['news_lang'] == null)
+							if  ($_content['old_lang'] != null && $_content['news_source_id'] == null && $_content['news_lang'] == null)
 							{
-								$content['set_new_default'] = true;
-								$content['set_old_news_id'] = $content['news_id'];
+								$_content['set_new_default'] = true;
+								$_content['set_old_news_id'] = $_content['news_id'];
 							}
 
 							unset($this->data['news_id']);
 							// check if we already have an entry for the new lang
-							if ($content['news_source_id'] && ($lang_entry = $this->search(array(),true,'','','',false,'AND',false,array(
-									'news_lang' => $content['news_lang'],'news_source_id' => $content['news_source_id']))))
+							if ($_content['news_source_id'] && ($lang_entry = $this->search(array(),true,'','','',false,'AND',false,array(
+									'news_lang' => $_content['news_lang'],'news_source_id' => $_content['news_source_id']))))
 							{
 								$this->data['news_id'] =$lang_entry[0]['news_id'];
 							}
 						}
 						if (($err = $this->save()) == 0)
 						{
-							// make sure $content gets all the data of the new/updated entry
-							$content = $this->data;
+							// make sure $_content gets all the data of the new/updated entry
+							$_content = $this->data;
 
-							egw_framework::refresh_opener(lang('News saved.'), 'news_admin', $this->data['news_id'], 'update');
+							Framework::refresh_opener(lang('News saved.'), 'news_admin', $this->data['news_id'], 'update');
 
-							if ($content['set_new_default'])	// created a new default lang for an existing entry
+							if ($_content['set_new_default'])	// created a new default lang for an existing entry
 							{
-								$this->set_default($content['set_old_news_id']);	// set the new default in all existing translations
-								unset($content['set_old_news_id']);
+								$this->set_default($_content['set_old_news_id']);	// set the new default in all existing translations
+								unset($_content['set_old_news_id']);
 							}
 						}
 						else
 						{
-							egw_framework::message(lang('Error saving the news!'),'error');
+							Framework::message(lang('Error saving the news!'),'error');
 							$button = '';
 						}
 					}
 					if ($button == 'save')
 					{
-						egw_framework::window_close();
-						$GLOBALS['egw']->common->egw_exit();
+						Framework::window_close();
+						exit();
 					}
 					//break; // fall through, as the user did hit apply. So we want to redisplay our new or modified article
 				case 'reload':
-					$source_id = $content['news_source_id'] ? $content['news_source_id'] : $content['news_id'];
-					if (!$this->read(array('news_id'=>$source_id,'news_lang'=>$content['news_lang'])))
+					$source_id = $_content['news_source_id'] ? $_content['news_source_id'] : $_content['news_id'];
+					if (!$this->read(array('news_id'=>$source_id,'news_lang'=>$_content['news_lang'])))
 					{
 						$this->data['news_source_id'] = $source_id;
-						$this->data['news_lang'] = $content['news_lang'];
-						if (!$content['news_source_id'] && $content['old_lang'])
+						$this->data['news_lang'] = $_content['news_lang'];
+						if (!$_content['news_source_id'] && $_content['old_lang'])
 						{
 							$this->data['set_new_default'] = true;	// remember to set a this entry as new default when saving
 						}
 						$msg = lang('There no such translation.');
 					}
-					$this->data['referer'] = $content['referer'];
+					$this->data['referer'] = $_content['referer'];
 					break;
 				case 'cancel':	// should never happen
 					break;
@@ -195,20 +196,20 @@ class news_ui extends news_bo
 		$content['msg'] = $msg;
 		$content['upload_dir'] = $GLOBALS['egw_info']['user']['preferences']['news_admin']['upload_dir'];
 		$sel_options = array(
-			'cat_id' => $this->rights2cats($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD),
+			'cat_id' => $this->rights2cats($this->data['news_id'] ? Acl::EDIT : Acl::ADD),
 			'visible' => $this->visiblity,
 		);
 		if (!$content['cat_id']) list($content['cat_id']) = @each($sel_options['cat_id']);
 
-		$readonly = $this->data['news_id'] ? !$this->check_acl(EGW_ACL_EDIT) : !$sel_options['cat_id'];
+		$readonly = $this->data['news_id'] ? !$this->check_acl(Acl::EDIT) : !$sel_options['cat_id'];
 		$readonlys = array(
-			'button[delete]' => !$this->data['news_id'] || !$this->check_acl(EGW_ACL_DELETE),
+			'button[delete]' => !$this->data['news_id'] || !$this->check_acl(Acl::DELETE),
 			'button[save]'   => $readonly,
 			'button[apply]'  => $readonly,
 		);
 		if ($readonly)
 		{
-			foreach($this->data as $name => $value)
+			foreach(array_keys($this->data) as $name)
 			{
 				$readonlys[$name] = true;
 			}
@@ -218,44 +219,44 @@ class news_ui extends news_bo
 			}
 		}
 		$this->tpl->read('news_admin.edit');
-		return $this->tpl->exec('news_admin.news_ui.edit',$content,$sel_options,$readonlys,$preserve,2);
+		return $this->tpl->exec('news_admin.news_admin_gui.edit',$content,$sel_options,$readonlys,$preserve,2);
 	}
 
 	/**
 	 * List the news
 	 *
-	 * @param array $content=null submitted etemplate content
-	 * @param string $msg=''
+	 * @param array $_content =null submitted etemplate content
+	 * @param string $msg =''
 	 * @return string
 	 */
-	public function index($content=null,$msg='')
+	public function index($_content=null,$msg='')
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
 
-		if ($content['nm']['action'] == 'delete')
+		if ($_content['nm']['action'] == 'delete')
 		{
 			$success = 0;
-			foreach($content['nm']['selected'] as $id)
+			foreach($_content['nm']['selected'] as $id)
 			{
 				if ($this->delete(array('news_id' => $id))) $success++;
 			}
 			if($success)
 			{
-				egw_framework::refresh_opener($success . ' ' . lang('News deleted.'),'news_admin');
+				Framework::refresh_opener($success . ' ' . lang('News deleted.'),'news_admin');
 			}
 		}
 		$content = array(
 			'msg' => $msg,
-			'nm'  => $GLOBALS['egw']->session->appsession('index','news_admin'),
+			'nm'  => Api\Cache::getSession('news_admin', 'index'),
 		);
-		if (count($this->rights2cats(EGW_ACL_ADD)) == 0)
+		if (count($this->rights2cats(Acl::ADD)) == 0)
 		{
 			$readonlys['add'] = true;
 		}
 		if (!is_array($content['nm']))
 		{
 			$content['nm'] = array(
-				'get_rows'       =>	'news_admin.news_ui.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
+				'get_rows'       =>	'news_admin.news_admin_gui.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
 				'bottom_too'     => false,		// I  show the nextmatch-line (arrows, filters, search, ...) again after the rows
 				'start'          =>	0,			// IO position in list
 				'no_cat'         =>	true,		// IO category, if not 'no_cat' => True
@@ -293,9 +294,9 @@ class news_ui extends news_bo
 		}
 
 		$this->tpl->read('news_admin.index');
-		return $this->tpl->exec('news_admin.news_ui.index',$content,
+		return $this->tpl->exec('news_admin.news_admin_gui.index',$content,
 			array(
-			'filter' => array('' => lang('All news'))+$this->rights2cats(EGW_ACL_READ),
+			'filter' => array('' => lang('All news'))+$this->rights2cats(Acl::READ),
 			'visible' => array('now' => 'Current','future' => 'Future','old' => 'Old')+$this->visiblity,
 			),
 			$readonlys);
@@ -310,9 +311,9 @@ class news_ui extends news_bo
 	 * @param array &$readonlys eg. to disable buttons based on acl
 	 * @return int total number of news matching the selection
 	 */
-	function get_rows(&$query_in,&$rows,&$readonlys,$id_only=false)
+	function get_rows(&$query_in,&$rows,&$readonlys)
 	{
-		$GLOBALS['egw']->session->appsession($query_in['session_for'] ? $query_in['session_for'] : 'index','news_admin',$query=$query_in);
+		Api\Cache::setSession('news_admin', $query_in['session_for'] ? $query_in['session_for'] : 'index', $query=$query_in);
 
 		if ((int)$query['filter'])
 		{
@@ -332,11 +333,11 @@ class news_ui extends news_bo
 
 		foreach($rows as $k => $row)
 		{
-			if(!$this->check_acl(EGW_ACL_EDIT,$row))
+			if(!$this->check_acl(Acl::EDIT,$row))
 			{
 				$rows[$k]['class'] .= 'rowNoEdit ';
 			}
-			if(!$this->check_acl(EGW_ACL_DELETE,$row))
+			if(!$this->check_acl(Acl::DELETE,$row))
 			{
 				$rows[$k]['class'] .= 'rowNoDelete ';
 			}
@@ -365,22 +366,22 @@ class news_ui extends news_bo
 				'caption' => 'Open',
 				'default' => true,
 				'allowOnMultiple' => false,
-				'url' => 'menuaction=news_admin.news_ui.edit&news_id=$id',
-				'popup' => egw_link::get_registry('news_admin', 'edit_popup'),
+				'url' => 'menuaction=news_admin.news_admin_gui.edit&news_id=$id',
+				'popup' => Link::get_registry('news_admin', 'edit_popup'),
 				'group' => $group=1,
 			),
 			'add' => array(
 				'caption' => 'Add',
-				'url' => 'menuaction=news_admin.news_ui.edit',
-				'popup' => egw_link::get_registry('news_admin', 'add_popup'),
+				'url' => 'menuaction=news_admin.news_admin_gui.edit',
+				'popup' => Link::get_registry('news_admin', 'add_popup'),
 				'group' => $group,
-				'disabled' => !$this->rights2cats(EGW_ACL_ADD),
+				'disabled' => !$this->rights2cats(Acl::ADD),
 			),
 			'view' => array(
 				'caption' => 'View',
 				'allowOnMultiple' => false,
-				'url' => 'menuaction=news_admin.news_ui.view&news_id=$id',
-				'popup' => egw_link::get_registry('news_admin', 'view_popup'),
+				'url' => 'menuaction=news_admin.news_admin_gui.view&news_id=$id',
+				'popup' => Link::get_registry('news_admin', 'view_popup'),
 				'group' => $group,
 			),
 			'delete' => array(

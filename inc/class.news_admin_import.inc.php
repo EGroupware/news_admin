@@ -5,12 +5,12 @@
  * @link http://www.egroupware.org
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2007-14 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2007-16 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$
  */
 
-require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
+use EGroupware\Api;
 
 /**
  * Import RSS and Atom feeds via PEAR's XML_Feed_Parser class
@@ -20,7 +20,7 @@ class news_admin_import
 	/**
 	 * Reference to the news_admins's bo
 	 *
-	 * @var news_bo
+	 * @var news_admin_bo
 	 */
 	var $bonews;
 
@@ -33,7 +33,7 @@ class news_admin_import
 	{
 		if (is_null($bonews))
 		{
-			$this->bonews = new news_bo();
+			$this->bonews = new news_admin_bo();
 		}
 		else
 		{
@@ -68,8 +68,8 @@ class news_admin_import
 		// if the xml-file specifes an encoding, convert it to our own encoding
 		if (preg_match('/\<\?xml.*encoding="([^"]+)"/i',$feed_xml,$matches) && $matches[1])
 		{
-			$feed_xml = preg_replace('/(\<\?xml.*encoding=")([^"]+)"/i','$1'.translation::charset().'"',
-				translation::convert($feed_xml, $matches[1]));
+			$feed_xml = preg_replace('/(\<\?xml.*encoding=")([^"]+)"/i','$1'.Api\Translation::charset().'"',
+				Api\Translation::convert($feed_xml, $matches[1]));
 		}
 		// stop "unsupported encoding" warnings
 		error_reporting(($level = error_reporting()) & !E_WARNING);
@@ -189,7 +189,7 @@ class news_admin_import
 	}
 
 	/**
-	 * Import all categories, called via the async timed service
+	 * Import all Api\Categories, called via the async timed service
 	 *
 	 */
 	function async_import()

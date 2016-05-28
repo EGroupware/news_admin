@@ -10,6 +10,8 @@
 	* --------------------------------------------                             *
 	\**************************************************************************/
 
+use EGroupware\Api;
+
 	/* $Id$ */
 
 	class boexport
@@ -52,7 +54,7 @@
 
 		function save_sessiondata()
 		{
-				
+
 			$data = array(
 				'start' => $this->start,
 				'query' => $this->query,
@@ -60,12 +62,12 @@
 				'order' => $this->order,
 			);
 			if($this->debug) { echo '<br>Save:'; _debug_array($data); }
-			$GLOBALS['egw']->session->appsession('session_data','news_admin_export',$data);
+			Api\Cache::setSession('news_admin_export', 'session_data', $data);
 		}
 
 		function read_sessiondata()
 		{
-			$data = $GLOBALS['egw']->session->appsession('session_data','news_admin_export');
+			$data = Api\Cache::getSession('news_admin_export', 'session_data');
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];

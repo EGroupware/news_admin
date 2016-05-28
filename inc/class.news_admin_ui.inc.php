@@ -5,17 +5,20 @@
  * @link http://www.egroupware.org
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2007 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2007-16 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$
  */
 
-require_once(EGW_INCLUDE_ROOT.'/news_admin/inc/class.news_bo.inc.php');
+use EGroupware\Api;
+use EGroupware\Api\Framework;
+use EGroupware\Api\Acl;
+use EGroupware\Api\Etemplate;
 
 /**
  * Admin user interface of the news_admin
  */
-class news_admin_ui extends news_bo
+class news_admin_ui extends news_admin_bo
 {
 	/**
 	 * Methods callable via menuaction
@@ -41,14 +44,14 @@ class news_admin_ui extends news_bo
 	{
 		parent::__construct();
 
-		$this->tpl = new etemplate_new();
+		$this->tpl = new Etemplate();
 	}
 
 	/**
 	 * Edit a news category
 	 *
-	 * @param array $content=null submitted etemplate content
-	 * @param string $msg=''
+	 * @param array $content =null submitted etemplate content
+	 * @param string $msg =''
 	 */
 	public function cat($content=null,$msg='')
 	{
@@ -70,12 +73,6 @@ class news_admin_ui extends news_bo
 				list($button) = each($content['button']);
 				unset($content['button']);
 			}
-			elseif($content['delete'])
-			{
-				list($id) = each($content['button']);
-				unset($content['delete']);
-				$button = 'delete';
-			}
 
 			switch($button)
 			{
@@ -83,8 +80,8 @@ class news_admin_ui extends news_bo
 					if ($this->delete_cat($content))
 					{
 						$msg = lang('Category deleted.');
-						egw_framework::refresh_opener($msg,'news_admin',$content['cat_id']);
-						$GLOBALS['egw']->common->egw_exit();
+						Framework::refresh_opener($msg,'news_admin',$content['cat_id']);
+						exit();
 					}
 					break;
 
@@ -94,25 +91,25 @@ class news_admin_ui extends news_bo
 					{
 						$msg = lang('Imported feeds can NOT be writable!').' ';
 					}
-					if(in_array(categories::GLOBAL_ACCOUNT,$content['cat_readable']))
+					if(in_array(Api\Categories::GLOBAL_ACCOUNT,$content['cat_readable']))
 					{
-						$content['cat_readable'] = array(categories::GLOBAL_ACCOUNT);
+						$content['cat_readable'] = array(Api\Categories::GLOBAL_ACCOUNT);
 					}
 					if (($content['cat_id'] = $this->save_cat($content)))
 					{
 						$msg .= lang('Category saved.');
-						egw_framework::refresh_opener($msg,'news_admin',$content['cat_id']);
+						Framework::refresh_opener($msg,'news_admin',$content['cat_id']);
 					}
 					else
 					{
 						$msg .= lang('Error saving the category!');
-						egw_framework::refresh_opener($msg,'news_admin',$content['cat_id'],'edit',null,null,null,'error');
+						Framework::refresh_opener($msg,'news_admin',$content['cat_id'],'edit',null,null,null,'error');
 						$button = '';
 					}
 					if ($button == 'save')
 					{
-						egw_framework::window_close();
-						$GLOBALS['egw']->common->egw_exit();
+						Framework::window_close();
+						exit();
 					}
 					break;
 
@@ -126,7 +123,7 @@ class news_admin_ui extends news_bo
 					else
 					{
 						$msg = lang('%1 news imported (%2 new, %3 deleted).',$imported,$newly,$deleted);
-						egw_framework::refresh_opener($msg,'news_admin');
+						Framework::refresh_opener($msg,'news_admin');
 					}
 					break;
 
@@ -176,9 +173,9 @@ class news_admin_ui extends news_bo
 		$this->tpl->read('news_admin.cat');
 		return $this->tpl->exec('news_admin.news_admin_ui.cat',$content,
 			array(
-				'cat_parent' => $this->rights2cats(EGW_ACL_READ, $content['cat_id']),
+				'cat_parent' => $this->rights2cats(Acl::READ, $content['cat_id']),
 				// Include global account option to prevent errors looking account 0
-				'cat_readable' => array(categories::GLOBAL_ACCOUNT=>lang('all users'))
+				'cat_readable' => array(Api\Categories::GLOBAL_ACCOUNT=>lang('all users'))
 			),
 			$readonlys,$preserve,2);
 	}
@@ -186,42 +183,43 @@ class news_admin_ui extends news_bo
 	/**
 	 * List the categories to administrate them
 	 *
-	 * @param array $content=null submitted etemplate content
-	 * @param string $msg=''
+	 * @param array $_content =null submitted etemplate content
+	 * @param string $msg =''
 	 * @return string
 	 */
-	function cats($content=null,$msg='')
+	function cats($_content=null,$msg='')
 	{
 		if ($_GET['msg']) $msg = $_GET['msg'];
 
-		if ($content['admin'] && $content['nm']['action'] == 'admin')
+		if ($_content['admin'] && $_content['nm']['action'] == 'admin')
 		{
-			$content['nm']['action'] = $content['admin'];
+			$_content['nm']['action'] = $_content['admin'];
 		}
-		if($content['nm']['action'])
+		if($_content['nm']['action'])
 		{
-			if (!count($content['nm']['selected']) && !$content['nm']['select_all'])
+			if (!count($_content['nm']['selected']) && !$_content['nm']['select_all'])
 			{
 				$msg = lang('You need to select some entries first');
 			}
 			else
 			{
 				// Some processing to add values in for links and cats
-				$multi_action = $content['nm']['action'];
+				$multi_action = $_content['nm']['action'];
 				// Action has an additional action - add / delete, etc.  Buttons named <multi-action>_action[action_name]
 				if(in_array($multi_action, array('reader','writer')))
 				{
-					$content['nm']['action'] .= '_' . key($content[$multi_action.'_popup'][$multi_action . '_action']);
+					$_content['nm']['action'] .= '_' . key($_content[$multi_action.'_popup'][$multi_action . '_action']);
 
-					if(is_array($content[$multi_action.'_popup'][$multi_action]))
+					if(is_array($_content[$multi_action.'_popup'][$multi_action]))
 					{
-						$content[$multi_action] = implode(',',$content[$multi_action.'_popup'][$multi_action]);
+						$_content[$multi_action] = implode(',',$_content[$multi_action.'_popup'][$multi_action]);
 					}
-					$content['nm']['action'] .= '_' . $content[$multi_action];
-					unset($content['nm'][$multi_action]);
+					$_content['nm']['action'] .= '_' . $_content[$multi_action];
+					unset($_content['nm'][$multi_action]);
 				}
-				if ($this->action($content['nm']['action'],$content['nm']['selected'],$content['nm']['select_all'],
-					$success,$failed,$action_msg,'cats',$msg,$content['nm']['checkboxes']['no_notifications']))
+				$success = $failed = $action_msg = null;
+				if ($this->action($_content['nm']['action'],$_content['nm']['selected'],$_content['nm']['select_all'],
+					$success,$failed,$action_msg,'cats',$msg,$_content['nm']['checkboxes']['no_notifications']))
 				{
 					$msg .= lang('%1 entries %2',$success,$action_msg);
 				}
@@ -233,7 +231,7 @@ class news_admin_ui extends news_bo
 		}
 		$content = array(
 			'msg' => $msg,
-			'nm'  => $GLOBALS['egw']->session->appsession('cats','news_admin'),
+			'nm'  => Api\Cache::getSession('news_admin', 'cats'),
 		);
 		if (!is_array($content['nm']))
 		{
@@ -253,8 +251,8 @@ class news_admin_ui extends news_bo
 		}
 		$this->tpl->read('news_admin.cats');
 		return $this->tpl->exec('news_admin.news_admin_ui.cats',$content,array(
-			'owner' => array(categories::GLOBAL_ACCOUNT => lang('All users'))
-		),$readonlys);
+			'owner' => array(Api\Categories::GLOBAL_ACCOUNT => lang('All users'))
+		));
 	}
 
 	/**
@@ -266,9 +264,9 @@ class news_admin_ui extends news_bo
 	 * @param array &$readonlys eg. to disable buttons based on acl
 	 * @return int total number of contacts matching the selection
 	 */
-	function get_cats(&$query_in,&$rows,&$readonlys,$id_only=false)
+	function get_cats(&$query_in,&$rows,&$readonlys)
 	{
-		$GLOBALS['egw']->session->appsession('cats','news_admin',$query=$query_in);
+		Api\Cache::setSession('news_admin', 'cats', $query=$query_in);
 
 		$total = parent::get_cats($query,$rows);
 
@@ -365,7 +363,7 @@ class news_admin_ui extends news_bo
 	/**
 	 * apply an action to multiple entries
 	 *
-	 * @param string|int $action 'status_to',set status of entries
+	 * @param string|int $_action 'status_to',set status of entries
 	 * @param array $checked tracker id's to use if !$use_all
 	 * @param boolean $use_all if true use all entries of the current selection (in the session)
 	 * @param int &$success number of succeded actions
@@ -373,12 +371,11 @@ class news_admin_ui extends news_bo
 	 * @param string &$action_msg translated verb for the actions, to be used in a message like %1 entries 'deleted'
 	 * @param string|array $session_name 'index' or 'email', or array with session-data depending if we are in the main list or the popup
 	 * @param string &$msg
-	 * @param boolean $no_notification
 	 * @return boolean true if all actions succeded, false otherwise
 	 */
-	function action($action,$checked,$use_all,&$success,&$failed,&$action_msg,$session_name,&$msg,$no_notification)
+	function action($_action,$checked,$use_all,&$success,&$failed,&$action_msg,$session_name,&$msg)
 	{
-		//error_log(__METHOD__ . "($action, " . array2string($checked) . ",$use_all)");
+		//error_log(__METHOD__ . "($_action, " . array2string($checked) . ",$use_all)");
 		$success = $failed = 0;
 		if ($use_all)
 		{
@@ -386,13 +383,14 @@ class news_admin_ui extends news_bo
 			@set_time_limit(0);                     // switch off the execution time limit, as it's for big selections to small
 			if(!is_array($session_name))
 			{
-				$old_query = $query = $GLOBALS['egw']->session->appsession($session_name,'news_admin');
+				$old_query = $query = Api\Cache::getSession('news_admin', $session_name);
 			}
 			else
 			{
 				$query = $session_name;
 			}
 			$query['num_rows'] = -1;        // all
+			$result = $readonlys = null;
 			$this->get_rows($query,$result,$readonlys);
 			$checked = array();
 			foreach($result as $key => $info)
@@ -403,10 +401,10 @@ class news_admin_ui extends news_bo
 				}
 			}
 			// Reset query
-			if($old_query) $GLOBALS['egw']->session->appsession($session_name,'news_admin',$old_query);
+			if($old_query) Api\Cache::setSession('news_admin', $session_name, $old_query);
 		}
 
-		list($action, $settings) = explode('_', $action, 2);
+		list($action, $settings) = explode('_', $_action, 2);
 
 		switch($action)
 		{
@@ -447,15 +445,15 @@ class news_admin_ui extends news_bo
 			case 'reader':
 			case 'writer':
 				$action_msg = lang('updated');
-				list($add_remove, $ids) = explode('_', $settings, 2);
-				$ids = explode(',',$ids);
+				list($add_remove, $ids_str) = explode('_', $settings, 2);
+				$ids = explode(',',$ids_str);
 				$field = 'cat_'. ($action == 'reader' ? 'readable' : 'writable');
 
 				foreach($checked as $id)
 				{
 					if (!$data = $this->read_cat($id)) continue;
 					$data[$field] = $add_remove == 'add' ?
-						$ids == array(categories::GLOBAL_ACCOUNT) ? $ids : array_merge($data[$field],$ids) :
+						$ids == array(Api\Categories::GLOBAL_ACCOUNT) ? $ids : array_merge($data[$field],$ids) :
 						array_diff($data[$field],$ids);
 					$data[$field] = array_unique($data[$field]);
 					if ($this->save_cat($data))

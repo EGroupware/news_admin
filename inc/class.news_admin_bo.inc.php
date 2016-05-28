@@ -5,26 +5,29 @@
  * @link http://www.egroupware.org
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @package news_admin
- * @copyright (c) 2006-13 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @copyright (c) 2006-16 by Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$
  */
 
+use EGroupware\Api;
+use EGroupware\Api\Acl;
+
 /**
  * Business object of the news_admin
  */
-class news_bo extends so_sql
+class news_admin_bo extends Api\Storage\Base
 {
 	/**
 	 * Instance of the news_admin acl class
 	 *
-	 * @var boacl
+	 * @var news_admin_acl
 	 */
 	var $acl;
 	/**
 	 * Reference to the categories class
 	 *
-	 * @var categories
+	 * @var Api\Categories
 	 */
 	var $cats;
 	/**
@@ -76,7 +79,7 @@ class news_bo extends so_sql
 	{
 		parent::__construct('news_admin','egw_news');
 
-		$this->acl =& CreateObject('news_admin.boacl');
+		$this->acl = new news_admin_acl();
 
 		$this->tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 		$this->now = time() + $this->tz_offset_s;	// time() is server-time and we need a user-time
@@ -84,14 +87,14 @@ class news_bo extends so_sql
 		$this->user = $GLOBALS['egw_info']['user']['account_id'];
 		$this->lang = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 
-		$this->cats = new categories('','news_admin');
+		$this->cats = new Api\Categories('','news_admin');
 	}
 
 	/**
 	 * changes the data from the db-format to your work-format
 	 *
 	 * reimplemented to adjust the timezone of the timestamps (adding $this->tz_offset_s to get user-time)
-	 * Please note, we do NOT call the method of the parent so_sql !!!
+	 * Please note, we do NOT call the method of the parent Api\Storage\Base !!!
 	 *
 	 * @param array $data if given works on that array and returns result, else works on internal data-array
 	 * @return array with changed data
@@ -133,14 +136,14 @@ class news_bo extends so_sql
 	 * changes the data from your work-format to the db-format
 	 *
 	 * reimplemented to adjust the timezone of the timestamps (subtraction $this->tz_offset_s to get server-time)
-	 * Please note, we do NOT call the method of the parent so_sql !!!
+	 * Please note, we do NOT call the method of the parent Api\Storage\Base !!!
 	 *
 	 * @param array $data if given works on that array and returns result, else works on internal data-array
 	 * @return array with changed data
 	 */
 	function data2db($data=null)
 	{
-		if ($intern = !is_array($data))
+		if (($intern = !is_array($data)))
 		{
 			$data = &$this->data;
 		}
@@ -172,14 +175,14 @@ class news_bo extends so_sql
 	 * saves the content of data to the db
 	 *
 	 * @param array $keys if given $keys are copied to data before saveing => allows a save as
-	 * @param boolean $ignore_acl=false
+	 * @param boolean $ignore_acl =false
 	 * @return int/boolean 0 on success, true on ACL error and errno != 0 else
 	 */
 	function save($keys=null,$ignore_acl=false)
 	{
 		if ($keys) $this->data_merge($keys);
 
-		if (!$this->data['cat_id'] || !$ignore_acl && !$this->check_acl($this->data['news_id'] ? EGW_ACL_EDIT : EGW_ACL_ADD))
+		if (!$this->data['cat_id'] || !$ignore_acl && !$this->check_acl($this->data['news_id'] ? Acl::EDIT : Acl::ADD))
 		{
 			return true;
 		}
@@ -325,7 +328,7 @@ class news_bo extends so_sql
 				return false;
 			}
 		}
-		elseif (!parent::read($keys) || !$this->check_acl(EGW_ACL_READ))
+		elseif (!parent::read($keys) || !$this->check_acl(Acl::READ))
 		{
 			return false;
 		}
@@ -335,8 +338,8 @@ class news_bo extends so_sql
 	/**
 	 * Set new default entry for all existing translations
 	 *
-	 * @param int $old_id=null old news_source_id, default content of $this->data['news_source_id']
-	 * @param int $new_id=null new news_source_id, default content of $this->data['news_id']
+	 * @param int $old_id =null old news_source_id, default content of $this->data['news_source_id']
+	 * @param int $new_id =null new news_source_id, default content of $this->data['news_id']
 	 */
 	function set_default($old_id=null,$new_id=null)
 	{
@@ -360,19 +363,19 @@ class news_bo extends so_sql
 	/**
 	 * Check if user has the necessary rights for a given operation
 	 *
-	 * @param int $rights=EGW_ACL_READ
-	 * @param array $data=null array with news or null to use $this->data
+	 * @param int $rights =Acl::READ
+	 * @param array $data =null array with news or null to use $this->data
 	 * @return boolean true if use has the necessary rights, false otherwise
 	 */
-	function check_acl($rights=EGW_ACL_READ,$data=null)
+	function check_acl($rights=Acl::READ,$data=null)
 	{
-		if ($rights == EGW_ACL_EDIT || $rights == EGW_ACL_DELETE) $rights = EGW_ACL_ADD;	// no edit or delete rights at the moment
+		if ($rights == Acl::EDIT || $rights == Acl::DELETE) $rights = Acl::ADD;	// no edit or delete rights at the moment
 
 		if (is_null($data)) $data =& $this->data;
 
 		if (is_array($data))
 		{
-			if (!$data['news_id'] && $rights != EGW_ACL_ADD)	// new items can only be added
+			if (!$data['news_id'] && $rights != Acl::ADD)	// new items can only be added
 			{
 				return false;
 			}
@@ -391,9 +394,9 @@ class news_bo extends so_sql
 	 * @param int $rights
 	 * @return array with cat_id => name pairs
 	 */
-	function rights2cats($rights=EGW_ACL_READ)
+	function rights2cats($rights=Acl::READ)
 	{
-		static $all_cats;
+		static $all_cats=null;
 		if (!is_array($all_cats))
 		{
 			if (!($all_cats = $this->cats->return_array('all',0,False,'','','',false))) $all_cats = array();
@@ -401,32 +404,32 @@ class news_bo extends so_sql
 			// Check for read permissions stored in ACL, move to owner
 			foreach($all_cats as &$cat)
 			{
-				if ($readers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'],EGW_ACL_READ, 'news_admin'))
+				if (($readers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'], Acl::READ, 'news_admin')))
 				{
 					$cat['owner'] = implode(',',$readers);
 					$this->cats->edit($cat);
-					$writers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'],EGW_ACL_ADD, 'news_admin');
+					$writers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'], Acl::ADD, 'news_admin');
 					foreach($readers as $account_id)
 					{
 						$GLOBALS['egw']->acl->delete_repository('news_admin', 'L'.$cat['id'], $account_id);
 					}
 					foreach($writers as $account_id)
 					{
-						$GLOBALS['egw']->acl->add_repository('news_admin', 'L'.$cat['id'], $account_id, EGW_ACL_ADD);
+						$GLOBALS['egw']->acl->add_repository('news_admin', 'L'.$cat['id'], $account_id, Acl::ADD);
 					}
 				}
 
 			}
 		}
 		unset($cat);
-		if ($rights == EGW_ACL_EDIT) $rights = EGW_ACL_ADD;	// no edit rights at the moment
+		if ($rights == Acl::EDIT) $rights = Acl::ADD;	// no edit rights at the moment
 		$cats = array();
 		foreach($all_cats as $cat)
 		{
 			if ($this->acl->is_permitted($cat['id'],$rights))
 			{
 				$cats[$cat['id']] = str_repeat('&nbsp;',$cat['level']).stripslashes($cat['name']).
-					(categories::is_global($cat) ? categories::$global_marker : '');
+					(Api\Categories::is_global($cat) ? Api\Categories::$global_marker : '');
 			}
 		}
 		return $cats;
@@ -441,6 +444,8 @@ class news_bo extends so_sql
 	 */
 	function get_cats($query,&$cats,&$readonlys=null,$ignore_acl=false)
 	{
+		unset($readonlys, $ignore_acl);	// not used, but required by function signature
+
 		$filter = array('appname' => 'news_admin');
 		if (is_array($query['col_filter'])) $filter += $query['col_filter'];
 
@@ -480,7 +485,7 @@ class news_bo extends so_sql
 	 */
 	function read_cat($cat_id)
 	{
-		if (!($cat = categories::read($cat_id)))
+		if (!($cat = Api\Categories::read($cat_id)))
 		{
 			return false;
 		}
@@ -543,7 +548,7 @@ class news_bo extends so_sql
 
 		// Write permission implies read permission
 		if(!is_array($cat['cat_writable'])) $cat['cat_writable'] = $cat['cat_writable'] ? explode(',',$cat['cat_writable']) : array();
-		if($cat['owner'] !== categories::GLOBAL_ACCOUNT)
+		if($cat['owner'] !== Api\Categories::GLOBAL_ACCOUNT)
 		{
 			$cat['owner'] = implode(',',array_unique(array_merge($cat['cat_readable'], $cat['cat_writable'])));
 		}
@@ -558,9 +563,9 @@ class news_bo extends so_sql
 		else
 		{
 			// cat owner can only be set for new cats!
-			if ($cat['cat_owner'] == categories::GLOBAL_ACCOUNT)
+			if ($cat['cat_owner'] == Api\Categories::GLOBAL_ACCOUNT)
 			{
-				$this->cats->account_id = categories::GLOBAL_ACCOUNT;	// otherwise the current use get set
+				$this->cats->account_id = Api\Categories::GLOBAL_ACCOUNT;	// otherwise the current use get set
 			}
 			$cat['cat_id'] = $this->cats->add($cat);
 		}
@@ -579,9 +584,7 @@ class news_bo extends so_sql
 	 */
 	function _setup_async_job()
 	{
-		require_once(EGW_API_INC.'/class.asyncservice.inc.php');
-
-		$async = new asyncservice();
+		$async = new Api\Asyncservice();
 		//$async->cancel_timer('news_admin-import');
 
 		if (!$async->read('news_admin-import'))
@@ -622,10 +625,10 @@ class news_bo extends so_sql
 		{
 			foreach($rights as $user => $right)
 			{
-				if ($right & EGW_ACL_ADD)  $cat['cat_writable'][] = $user;
+				if ($right & Acl::ADD)  $cat['cat_writable'][] = $user;
 			}
 		}
-		$category = categories::read($cat_id);
+		$category = Api\Categories::read($cat_id);
 		$cat['cat_readable'] = explode(',',$category['owner']);
 		return $cat;
 	}
@@ -651,7 +654,7 @@ class news_bo extends so_sql
 	 */
 	function link_query($pattern, Array &$options = array())
 	{
-		$filter = $result = $criteria = array();
+		$result = $criteria = array();
 		$limit = false;
 		if ($pattern)
 		{
@@ -688,6 +691,6 @@ class news_bo extends so_sql
 			$article = $this->read($article);
 		}
 		if(!$article) return false;
-		return $article['news_headline'] . ' ('.egw_time::to($article['news_date'],true) . ')';
+		return $article['news_headline'] . ' ('.Api\DateTime::to($article['news_date'],true) . ')';
 	}
 }

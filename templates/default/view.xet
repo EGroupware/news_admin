@@ -29,7 +29,7 @@
 				</row>
 				<row>
 					<hbox>
-						<button label="Edit" id="edit" onclick="window.location.href=egw::link('/index.php','menuaction=news_admin.news_ui.edit&amp;news_id=$row_cont[news_id]');"/>
+						<button label="Edit" id="edit" onclick="window.location.href=egw::link('/index.php','menuaction=news_admin.news_admin_gui.edit&amp;news_id=$row_cont[news_id]');"/>
 						<button label="Cancel" id="cancel" onclick="window.close();"/>
 						<button align="right" label="Delete" id="delete"/>
 					</hbox>

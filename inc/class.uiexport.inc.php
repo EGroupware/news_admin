@@ -46,7 +46,7 @@
 				3 => '&news%5Bitem%5D=n'
 			);
 		}
-		
+
 		function exportlist()
 		{
 			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
@@ -59,7 +59,7 @@
 				$GLOBALS['egw']->redirect_link('/admin/index.php');
 			}
 
-			$GLOBALS['egw']->common->egw_header();
+			echo $GLOBALS['egw']->framework->header();
 			echo parse_navbar();
 
 			if ($_POST['btnSave'])
@@ -85,7 +85,7 @@
 			$left  = $this->nextmatchs->left('/index.php',$this->start,$this->bo->catbo->total_records,'menuaction=news_admin.uiexport.exportlist');
 			$right = $this->nextmatchs->right('/index.php',$this->start,$this->bo->catbo->total_records,'menuaction=news_admin.uiexport.exportlist');
 
-			
+
 			$GLOBALS['egw']->template->set_var(array(
 				'left' => $left,
 				'right' => $right,
@@ -122,7 +122,7 @@
 				{
 					$GLOBALS['egw']->template->set_var(array(
 						'setting' => $label,
-						'value' => ('<input size="80" type="text" name="inputconfig[' . $cat['id'] . '][' . $setting . ']" value="' . 
+						'value' => ('<input size="80" type="text" name="inputconfig[' . $cat['id'] . '][' . $setting . ']" value="' .
 							$config[$setting] . '" />'
 						)
 					));
@@ -150,7 +150,6 @@
 		function deny()
 		{
 			echo '<p><center><b>'.lang('Access not permitted').'</b></center>';
-			$GLOBALS['egw']->common->egw_exit(True);
+			exit;
 		}
 	}
-?>

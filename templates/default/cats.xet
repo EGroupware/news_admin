@@ -29,7 +29,7 @@
 					<nextmatch-header label="Import URL" id="import_url"/>
 				</row>
 				<row class="row $row_cont[class]">
-					<description id="${row}[name]" href="news_admin.news_ui.index&amp;cat_id=$row_cont[id]"/>
+					<description id="${row}[name]" href="news_admin.news_admin_gui.index&amp;cat_id=$row_cont[id]" target="news_admin"/>
 					<description id="${row}[description]"/>
 					<menulist>
 						<menupopup type="select-account" id="${row}[owner]" readonly="true" empty_label="All users"/>

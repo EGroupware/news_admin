@@ -9,6 +9,12 @@
  * @version $Id$
  */
 
+use EGroupware\Api;
+use EGroupware\Api\Link;
+use EGroupware\Api\Framework;
+use EGroupware\Api\Egw;
+use EGroupware\Api\Acl;
+
 /**
  * Static hooks for news admin
  */
@@ -21,15 +27,7 @@ class news_admin_hooks
 	 */
 	static public function settings($hook_data)
 	{
-		$show_entries = array(
-			0 => lang('No'),
-			1 => lang('Yes'),
-			2 => lang('Yes').' - '.lang('small view'),
-		);
-		$_show_entries = array(
-			0 => lang('No'),
-			1 => lang('Yes'),
-		);
+		unset($hook_data);	// not used
 
 		$prefs = array(
 			'limit_des_lines' => array(
@@ -69,15 +67,16 @@ class news_admin_hooks
 				try {
 					$definition = new importexport_definition($identifier);
 				} catch (Exception $e) {
+					unset($e);
 					// permission error
 					continue;
 				}
-				if ($title = $definition->get_title()) {
+				if (($title = $definition->get_title())) {
 					$options[$title] = $title;
 				}
 				unset($definition);
 			}
-			$settings['nextmatch-export-definition'] = array(
+			$prefs['nextmatch-export-definition'] = array(
 				'type'   => 'select',
 				'values' => $options,
 				'label'  => 'Export definitition to use for nextmatch export',
@@ -92,7 +91,7 @@ class news_admin_hooks
 	}
 
 	/**
-	 * Hook for sidebox, admin or preferences menu
+	 * Hook for sidebox, admin or Api\Preferences menu
 	 *
 	 * @param array|string $hook_data
 	 */
@@ -104,14 +103,14 @@ class news_admin_hooks
 		if ($location == 'sidebox_menu')
 		{
 			// Magic etemplate2 favorites menu (from nextmatch widget)
-			display_sidebox($appname, lang('Favorites'), egw_framework::favorite_list($appname));
+			display_sidebox($appname, lang('Favorites'), Framework\Favorites::list_favorites($appname));
 
-			$categories = new categories('',$appname);
-			$bo = new news_bo();
-			$enableadd = count($bo->rights2cats(EGW_ACL_ADD)) > 0;
+			$categories = new Api\Categories('',$appname);
+			$bo = new news_admin_bo();
+			$enableadd = count($bo->rights2cats(Acl::ADD)) > 0;
 			foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
 			{
-				if ($categories->check_perms(EGW_ACL_EDIT,$cat))
+				if ($categories->check_perms(Acl::EDIT,$cat))
 				{
 					$enableadd = true;
 					break;
@@ -119,11 +118,11 @@ class news_admin_hooks
 			}
 			$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
 			$file = array();
-			$file['News list'] = egw::link('/index.php',array('menuaction' => 'news_admin.news_ui.index'));
+			$file['News list'] = Egw::link('/index.php',array('menuaction' => 'news_admin.news_admin_gui.index'));
 			if ($enableadd)
 			{
 				$file[] = array(
-					'text' => lang('Add %1',lang(egw_link::get_registry($appname, 'entry'))),
+					'text' => lang('Add %1',lang(Link::get_registry($appname, 'entry'))),
 					'no_lang' => true,
 					'link' => "javascript:egw.open('','$appname','add')"
 				);
@@ -132,12 +131,13 @@ class news_admin_hooks
 			display_sidebox($appname,$menu_title,$file);
 		}
 
-		if ($GLOBALS['egw_info']['user']['apps']['admin'])
+		// do NOT show export link, if phpgwapi is not installed, as uiexport uses ancient nextmatch from phpgwapi
+		if ($GLOBALS['egw_info']['user']['apps']['admin'] && file_exists(EGW_SERVER_ROOT.'/phpgwapi'))
 		{
 			$title = lang('Administration');
 			$file = Array(
-				//'Site Configuration' => egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-				'Configure RSS exports' => egw::link('/index.php','menuaction=news_admin.uiexport.exportlist')
+				//'Site Configuration' => Egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+				'Configure RSS exports' => Egw::link('/index.php','menuaction=news_admin.uiexport.exportlist')
 			);
 
 			if ($location == 'sidebox_menu')
@@ -160,6 +160,8 @@ class news_admin_hooks
 	 */
 	public static function categories($data)
 	{
+		unset($data);	// not used
+
 		return array(
 			'menuaction' => 'news_admin.news_admin_ui.cats',
 			'ajax' => 'true',
@@ -173,21 +175,21 @@ class news_admin_hooks
 	 */
 	public static function links() {
 		return array(
-			'query' => 'news_admin.news_bo.link_query',
-			'title' => 'news_admin.news_bo.link_title',
+			'query' => 'news_admin.news_admin_bo.link_query',
+			'title' => 'news_admin.news_admin_bo.link_title',
 			'view' => array(
-				'menuaction' => 'news_admin.news_ui.view'
+				'menuaction' => 'news_admin.news_admin_gui.view'
 			),
 			'view_id' => 'news_id',
 			'view_popup'  => '845x390',
-			'view_list'	=>	'news_admin.news_ui.index',
+			'view_list'	=>	'news_admin.news_admin_gui.index',
 			'edit' => array(
-				'menuaction' => 'news_admin.news_ui.edit'
+				'menuaction' => 'news_admin.news_admin_gui.edit'
 			),
 			'edit_id' => 'news_id',
 			'edit_popup'  => '845x750',
 			'add' => array(
-				'menuaction' => 'news_admin.news_ui.edit'
+				'menuaction' => 'news_admin.news_admin_gui.edit'
 			),
 			'add_popup'  => '845x750',
 			'entry' => 'News'

@@ -12,10 +12,10 @@
 /* Basic information about this app */
 $setup_info['news_admin']['name']      = 'news_admin';
 $setup_info['news_admin']['title']     = 'News Admin';
-$setup_info['news_admin']['version']   = '14.1.001';
+$setup_info['news_admin']['version']   = '16.1';
 $setup_info['news_admin']['app_order'] = 16;
 $setup_info['news_admin']['enable']    = 1;
-$setup_info['news_admin']['index']     = 'news_admin.news_ui.index&ajax=true';
+$setup_info['news_admin']['index']     = 'news_admin.news_admin_gui.index&ajax=true';
 
 $setup_info['news_admin']['license']   = 'GPL';
 $setup_info['news_admin']['author']    =
@@ -34,12 +34,8 @@ $setup_info['news_admin']['hooks']['search_link'] = 'news_admin.news_admin_hooks
 
 /* Dependencies for this app to work */
 $setup_info['news_admin']['depends'][] = array(
-	 'appname' => 'phpgwapi',
-	 'versions' => Array('1.9','14.1')
-);
-$setup_info['news_admin']['depends'][] = array(
-	 'appname' => 'phpgwapi',
-	 'versions' => Array('1.9','14.1')
+	 'appname' => 'api',
+	 'versions' => Array('16.1')
 );
 
 // installation checks for news_admin (PEAR)
@@ -52,4 +48,3 @@ $setup_info['news_admin']['check_install'] = array(
 		'from' => 'NewsAdmin',
 	),
 );
-
