@@ -23,7 +23,7 @@ class module_news_admin extends Module
 	 */
 	var $bonews;
 
-	function module_news_admin()
+	function __construct()
 	{
 		$this->bonews = new news_admin_bo();
 		Api\Translation::add_app('news_admin');
