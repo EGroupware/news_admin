@@ -253,7 +253,7 @@ app.classes.news_admin = AppJS.extend(
 		{
 			for(var i = 0; i < _senders.length; i++)
 			{
-				if ($j(_senders[i].iface.node).hasClass('news_admin_rowHasSubs'))
+				if (jQuery(_senders[i].iface.node).hasClass('news_admin_rowHasSubs'))
 				{
 					children = true;
 					break;
@@ -286,7 +286,7 @@ app.classes.news_admin = AppJS.extend(
 		{
 			for(var i = 0; i < _senders.length; i++)
 			{
-				if ($j(_senders[i].iface.getDOMNode()).hasClass('news_admin_rowHasSubs'))
+				if (jQuery(_senders[i].iface.getDOMNode()).hasClass('news_admin_rowHasSubs'))
 				{
 					children = true;
 					break;
