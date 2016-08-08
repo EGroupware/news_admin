@@ -41,7 +41,6 @@ if (!(isset($GLOBALS['egw_info']) && isset($GLOBALS['egw_info']['flags']) && iss
 
 $news_obj = new news_admin_bo();
 $export_obj = CreateObject('news_admin.soexport');
-$cats_obj = new Api\Categories();
 $tpl = new Api\Framework\Template();
 
 $cat_id = (int)$_GET['cat_id'];
@@ -91,8 +90,8 @@ $feedConf['link'] = $feedConf['link'] ? $feedConf['link'] :
 
 if ( !$feedConf['description'] ) {
 	if ( $cat_id > 0 ) {
-		$cat = $cats_obj->return_single($cat_id);
-		$feedConf['description'] = $cat[0]['description'];
+		$cat = Api\Categories::read($cat_id);
+		$feedConf['description'] = $cat['description'];
 	} else {
 		$feedConf['description'] = $feedConf['title'];
 	}
