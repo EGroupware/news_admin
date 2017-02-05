@@ -17,7 +17,7 @@
 		var $db;
 		var $table = 'egw_news_export';
 
-		function soexport()
+		function __construct()
 		{
 			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('news_admin');
@@ -26,7 +26,7 @@
 		function readconfig($cat_id)
 		{
 			$this->db->select($this->table,'*',array('cat_id' => $cat_id),__LINE__,__FILE__);
-			
+
 			return $this->db->row(true,'export_');
 		}
 

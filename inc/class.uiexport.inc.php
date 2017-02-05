@@ -25,10 +25,10 @@
 			);
 		var $exporttypes;
 
-		function uiexport()
+		function __construct()
 		{
-			$this->bo =& CreateObject('news_admin.boexport',True);
-			$this->nextmatchs =& CreateObject('phpgwapi.nextmatchs');
+			$this->bo = CreateObject('news_admin.boexport',True);
+			$this->nextmatchs = CreateObject('phpgwapi.nextmatchs');
 			$this->start = $this->bo->start;
 			$this->query = $this->bo->query;
 			$this->order = $this->bo->order;
