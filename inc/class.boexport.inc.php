@@ -27,9 +27,9 @@ use EGroupware\Api;
 		var $debug;
 		var $use_session = False;
 
-		function boexport($session=False)
+		function __construct($session=False)
 		{
-			$this->so =& CreateObject('news_admin.soexport');
+			$this->so = CreateObject('news_admin.soexport');
 			$this->debug = False;
 			if($session)
 			{
@@ -47,7 +47,7 @@ use EGroupware\Api;
 					}
 				}
 				$this->save_sessiondata();
-				$this->catbo =& CreateObject('phpgwapi.categories');
+				$this->catbo = new Api\Categories();
 				$this->cats = $this->catbo->return_array('all',$this->start,True,$this->query,$this->sort,'cat_name',True);
 			}
 		}
