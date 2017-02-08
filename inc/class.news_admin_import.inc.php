@@ -29,7 +29,7 @@ class news_admin_import
 	 *
 	 * @return news_admin_import
 	 */
-	function news_admin_import($bonews=null)
+	function __construct($bonews=null)
 	{
 		if (is_null($bonews))
 		{
@@ -37,7 +37,7 @@ class news_admin_import
 		}
 		else
 		{
-			$this->bonews =& $bonews;
+			$this->bonews = $bonews;
 		}
 	}
 
