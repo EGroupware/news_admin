@@ -8,7 +8,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @package news_admin
  * @subpackage setup
- * @version $Id$
  */
 
 function news_admin_upgrade0_0_1()
@@ -297,4 +296,9 @@ function news_admin_upgrade14_1()
 function news_admin_upgrade14_1_001()
 {
 	return $GLOBALS['setup_info']['news_admin']['currentver'] = '16.1';
+}
+
+function news_admin_upgrade16_1()
+{
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '17.1';
 }

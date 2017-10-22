@@ -6,13 +6,12 @@
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @package news_admin
  * @subpackage setup
- * @version $Id$
  */
 
 /* Basic information about this app */
 $setup_info['news_admin']['name']      = 'news_admin';
 $setup_info['news_admin']['title']     = 'News Admin';
-$setup_info['news_admin']['version']   = '16.1';
+$setup_info['news_admin']['version']   = '17.1';
 $setup_info['news_admin']['app_order'] = 16;
 $setup_info['news_admin']['enable']    = 1;
 $setup_info['news_admin']['index']     = 'news_admin.news_admin_gui.index&ajax=true';
@@ -35,7 +34,7 @@ $setup_info['news_admin']['hooks']['search_link'] = 'news_admin.news_admin_hooks
 /* Dependencies for this app to work */
 $setup_info['news_admin']['depends'][] = array(
 	 'appname' => 'api',
-	 'versions' => Array('16.1')
+	 'versions' => Array('17.1')
 );
 
 // installation checks for news_admin (PEAR)
