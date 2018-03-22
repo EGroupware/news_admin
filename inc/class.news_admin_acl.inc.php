@@ -5,7 +5,6 @@
  * @link http://www.egroupware.org
  * @package news_admin
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$
  */
 
 use EGroupware\Api;
@@ -13,8 +12,6 @@ use EGroupware\Api\Acl;
 
 class news_admin_acl
 {
-	var $accounts;
-
 	/**
 	 * Constructor
 	 */
@@ -60,21 +57,11 @@ class news_admin_acl
 	{
 		unset($read);	// not used
 
-		// fetch it if not existing
-		if (!is_array($this->accounts) || !isset($this->accounts)) $this->accounts = $GLOBALS['egw']->accounts->search();
-		$writecat = $write ? $write : array();
+		$GLOBALS['egw']->acl->delete_repository('news_admin', 'L'.$cat_id, false);
 
-		$GLOBALS['egw']->acl->delete_repository('news_admin','L' . $cat_id,false);
-
-		foreach($this->accounts as $account)
+		foreach($write ? $write : array() as $account_id)
 		{
-			$account_id = $account['account_id'];
-			$rights = in_array($account_id,$writecat) ? Acl::ADD : False;
-
-			if ($rights)
-			{
-				$GLOBALS['egw']->acl->add_repository('news_admin','L'.$cat_id,$account_id,$rights);
-			}
+			$GLOBALS['egw']->acl->add_repository('news_admin', 'L'.$cat_id, $account_id, Acl::ADD);
 		}
 	}
 
