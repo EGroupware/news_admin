@@ -41,7 +41,7 @@ foreach(array(
 
 // Create egroupware.org news category importing news from egroupware.org readable by everyone
 $data = serialize(array(
-	'import_url' => 'http://www.egroupware.org/start/rss.xml',
+	'import_url' => 'https://www.egroupware.org/start/rss.xml',
 	'import_frequency' => 4,
 	'keep_imported' => 0,
 ));
@@ -58,4 +58,4 @@ foreach(array(
 }
 // add import job
 $async = new Api\Asyncservice();
-$async->set_timer(array('hour' => '*'),'news_admin-import','news_admin.news_admin_import.async_import',null);
+$async->set_timer(array('hour' => '*', 'min' => rand(0,59)),'news_admin-import','news_admin.news_admin_import.async_import',null);
