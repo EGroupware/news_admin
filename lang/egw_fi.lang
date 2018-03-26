@@ -43,7 +43,7 @@ global news	news_admin	fi	Yleiset uutiset
 global_news	news_admin	fi	Yleiset_uutiset
 headline	news_admin	fi	Otsikko
 headline with link	news_admin	fi	Otsikko linkillä
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	fi	Kuinka monta riviä kuvauskenttää on suoraan näkyvillä? Loput rivit scrollbarilla.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	fi	Kuinka monta riviä kuvauskenttää on suoraan näkyvillä? Loput rivit scrollbarilla.
 if you specify an export definition, it will be used when you export	news_admin	fi	Valitse viennin oletusasetus
 image link	news_admin	fi	Kuva linkki
 image title	news_admin	fi	Kuvan otsikko

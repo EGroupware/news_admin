@@ -51,7 +51,7 @@ global news	news_admin	en	Global news
 global_news	news_admin	en	Global_News
 headline	news_admin	en	Head line
 headline with link	news_admin	en	Head line with link
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	en	How many describtion lines should be directly visible. Further lines are available via a scrollbar.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	en	how many description lines should be directly visible. Further lines are available via a scrollbar.
 how shall the articles be sorted?	news_admin	en	How shall the articles be sorted?
 if you specify an export definition, it will be used when you export	news_admin	en	If you specify an export definition, it will be used when you export.
 image link	news_admin	en	Image link

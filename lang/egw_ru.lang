@@ -49,7 +49,7 @@ global news	news_admin	ru	Общие Новости
 global_news	news_admin	ru	Общие Новости
 headline	news_admin	ru	Заголовок
 headline with link	news_admin	ru	Заголовок с линком
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	ru	Сколько строк описания будет видно одновременно. Остальные доступны через меню прокрутки.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	ru	Сколько строк описания будет видно одновременно. Остальные доступны через меню прокрутки.
 if you specify an export definition, it will be used when you export	news_admin	ru	Если указано определение для экспорта, оно будет использовано следующий раз
 image link	news_admin	ru	Ссылка на изображение
 image title	news_admin	ru	Заголовок изображения

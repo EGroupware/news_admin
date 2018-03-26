@@ -51,7 +51,7 @@ global news	news_admin	sk	Globálne aktuality
 global_news	news_admin	sk	Globálne_aktuality
 headline	news_admin	sk	Titulok
 headline with link	news_admin	sk	Titulok s odkazom
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	sk	Koľko riadkov opisu má byť priamo viditeľných. Ďalšie riadky sú dostupné cez posuvník.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	sk	Koľko riadkov opisu má byť priamo viditeľných. Ďalšie riadky sú dostupné cez posuvník.
 how shall the articles be sorted?	news_admin	sk	Ako sa majú články usporiadať?
 if you specify an export definition, it will be used when you export	news_admin	sk	Ak zadáte exportnú definíciu, bude sa používať pri exportoch.
 image link	news_admin	sk	Odkaz na obrázok

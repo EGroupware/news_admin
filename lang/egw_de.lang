@@ -51,7 +51,7 @@ global news	news_admin	de	Globale Nachrichten
 global_news	news_admin	de	Globale Nachrichten
 headline	news_admin	de	Schlagzeile
 headline with link	news_admin	de	Schlagzeile mit Link
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	de	Wie viele Beschreibungszeilen sollen direkt angezeigt werden. Weitere Inhalten können Sie durch Scrollen mit dem Nachrichtenfeld sehen.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	de	Wie viele Beschreibungszeilen sollen direkt angezeigt werden. Weitere Inhalten können Sie durch Scrollen mit dem Nachrichtenfeld sehen.
 how shall the articles be sorted?	news_admin	de	Wie sollen die Artikel sortiert sein?
 if you specify an export definition, it will be used when you export	news_admin	de	Wählen Sie eine Export Definition für den Export
 image link	news_admin	de	Link des Bildes

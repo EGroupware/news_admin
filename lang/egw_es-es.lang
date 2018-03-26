@@ -51,7 +51,7 @@ global news	news_admin	es-es	Noticias globales
 global_news	news_admin	es-es	Noticias globales
 headline	news_admin	es-es	Titular
 headline with link	news_admin	es-es	Titular con enlace
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	es-es	Cuántas líneas de descripción deben verse directamente. Las líneas posteriores están disponibles mediante una barra de desplazamiento.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	es-es	Cuántas líneas de descripción deben verse directamente. Las líneas posteriores están disponibles mediante una barra de desplazamiento.
 how shall the articles be sorted?	news_admin	es-es	¿Cómo se ordenan los artículos?
 if you specify an export definition, it will be used when you export	news_admin	es-es	Si especifica una definición de exportar, se usará al exportar.
 image link	news_admin	es-es	Enlace a la imagen

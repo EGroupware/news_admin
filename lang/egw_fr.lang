@@ -49,7 +49,7 @@ global news	news_admin	fr	Communiqués Globaux
 global_news	news_admin	fr	Communiqués_Globaux
 headline	news_admin	fr	Entête
 headline with link	news_admin	fr	Entête avec lien
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	fr	Combien de lignes de descriptions devraient être directement visibles. Les lignes supplémentaires sont disponibles via une barre de défilement.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	fr	Combien de lignes de descriptions devraient être directement visibles. Les lignes supplémentaires sont disponibles via une barre de défilement.
 if you specify an export definition, it will be used when you export	news_admin	fr	Si vous spécifier un format d'export, il sera utilisé à l'export.
 image link	news_admin	fr	Lien Image
 image title	news_admin	fr	Titre Image

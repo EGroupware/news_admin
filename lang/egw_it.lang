@@ -51,7 +51,7 @@ global news	news_admin	it	Notizie Generali
 global_news	news_admin	it	Notizie_Generali
 headline	news_admin	it	Titolo
 headline with link	news_admin	it	Titolo con link
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	it	Quante righe di descrizione dovranno essere visibili direttamente. Righe ulteriori sono disponibili tramite una barra di scorrimento.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	it	Quante righe di descrizione dovranno essere visibili direttamente. Righe ulteriori sono disponibili tramite una barra di scorrimento.
 how shall the articles be sorted?	news_admin	it	Come ordinare gli articoli?
 if you specify an export definition, it will be used when you export	news_admin	it	Se specifichi una definizione di esportazione, allora verrà usata durante la relativa operazione
 image link	news_admin	it	Link Immagine

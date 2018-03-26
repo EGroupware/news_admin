@@ -40,7 +40,7 @@ global news	news_admin	hu	Globális hírek
 global_news	news_admin	hu	Globális hírek
 headline	news_admin	hu	Főcím
 headline with link	news_admin	hu	Főcím hivatkozással
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	hu	Mennyi leírás sor legyen látható? További sorokat a csúszka használatával lehet megtekinteni.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	hu	Mennyi leírás sor legyen látható? További sorokat a csúszka használatával lehet megtekinteni.
 image link	news_admin	hu	Kép hivatkozás
 image title	news_admin	hu	Kép címe
 image url	news_admin	hu	Kép URL

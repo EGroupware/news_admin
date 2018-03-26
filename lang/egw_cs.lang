@@ -40,7 +40,7 @@ global news	news_admin	cs	Globální novinky
 global_news	news_admin	cs	Globální novinky
 headline	news_admin	cs	Nadpis
 headline with link	news_admin	cs	Nadpis s odkazem
-how many describtion lines should be directly visible. further lines are available via a scrollbar.	news_admin	cs	Kolik řádek popisu má být vidět přímo. Ostatní řádky budou dostupné přes posouvací lištu.
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	cs	Kolik řádek popisu má být vidět přímo. Ostatní řádky budou dostupné přes posouvací lištu.
 image link	news_admin	cs	Odkaz na obrázek
 image title	news_admin	cs	Titulek obrázku
 image url	news_admin	cs	URL obrázku
