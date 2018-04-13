@@ -59,7 +59,7 @@ class news_admin_import
 		if (!in_array($parts['scheme'],array('http','https','ftp'))) return false;	// security!
 
 		if (!($feed_xml = file_get_contents($url, false,
-			stream_context_create(array('http' => $context ? $context : $default_context)))) ||
+			Api\Framework::proxy_context(null, null, $context ? $context : $default_context))) ||
 			!@include_once('XML/Feed/Parser.php'))
 		{
 			return false;
