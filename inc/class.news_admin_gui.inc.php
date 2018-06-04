@@ -352,7 +352,7 @@ class news_admin_gui extends news_admin_bo
 			}
 		}
 		//_debug_array($rows);
-		return $total;
+		return (int)$total;
 	}
 
 	/**
