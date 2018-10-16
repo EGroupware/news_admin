@@ -408,7 +408,7 @@ class news_admin_bo extends Api\Storage\Base
 				{
 					$cat['owner'] = implode(',',$readers);
 					$this->cats->edit($cat);
-					$writers = $GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'], Acl::ADD, 'news_admin');
+					$writers = (array)$GLOBALS['egw']->acl->get_ids_for_location('L'.$cat['id'], Acl::ADD, 'news_admin');
 					foreach($readers as $account_id)
 					{
 						$GLOBALS['egw']->acl->delete_repository('news_admin', 'L'.$cat['id'], $account_id);

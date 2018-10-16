@@ -118,7 +118,7 @@ class news_admin_import
 		{
 			$check = array('cat_id' => $cat_id);
 			$count = 0;
-			foreach($this->bonews->search($check,array('news_id'),'news_date DESC') as $news)
+			foreach((array)$this->bonews->search($check,array('news_id'),'news_date DESC') as $news)
 			{
 				if (++$count > $cat['keep_imported']) {
 					$news_delete[$news['news_id']] = true;
