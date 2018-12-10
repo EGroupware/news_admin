@@ -1,10 +1,10 @@
 actions	news_admin	tr	Eylemler
-all users	news_admin	tr	Tüm Kullanýcýlar
+all users	news_admin	tr	TÃ¼m KullanÄ±cÄ±lar
 always	news_admin	tr	her zaman
 configuration	news_admin	tr	Ayarlar
 deleted	news_admin	tr	Silindi
 from	news_admin	tr	Nereden
 global categories	news_admin	tr	Genel kategoriler
 link	news_admin	tr	Link
-updated	news_admin	tr	Güncelle
+updated	news_admin	tr	GÃ¼ncelle
 write	news_admin	tr	Yaz
