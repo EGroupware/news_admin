@@ -90,7 +90,6 @@ no matching news item	news_admin	ru	Нет соответствующей нов
 no news	news_admin	ru	В этой категории в данный момент нет новостей
 no rss export	news_admin	ru	Экспорта RSS нет
 now	news_admin	ru	Сегодня
-number of articles to display on the main screen	news_admin	ru	Количество новостей, показываемых на главной странице
 number of news items to be displayed on page	news_admin	ru	Количество новостей, показываемых на одной странице
 old	news_admin	ru	Старые
 on	news_admin	ru	на
@@ -105,7 +104,6 @@ read news	news_admin	ru	Читать новости
 read permissions	news_admin	ru	Разрешения на чтение
 reload	news_admin	ru	Перезагрузка
 send mail to others	news_admin	ru	Отправить Письмо Остальным
-should news_admin display the latest article headlines on the main screen.	news_admin	ru	Должен ли Администратор Новостей показывать заголовки последних статей на главной странице.
 show latest news articles?	news_admin	ru	Показывать последние новости?
 show news articles on main page?	news_admin	ru	Показывать новости на главной странице?
 small view	news_admin	ru	мелкий вид
@@ -116,7 +114,6 @@ submitted by and date	news_admin	ru	Кем предоставлено и дат�
 teaser	news_admin	ru	Завлекалка
 teaser with read more link	news_admin	ru	Завлекалка с линком "читать далее"
 the news content is missing	news_admin	ru	Отсутствует содержание новостей
-the number of articles to display on the main screen.	news_admin	ru	Количество статей, показываемых на главной странице
 the subject is missing	news_admin	ru	Отсутствует тема
 there no such translation.	news_admin	ru	Нет такого перевода
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	ru	Этот модуль публикует новости из приложения Администратор новостей на вашем сайте. Будьте внимательны с установкой прав (ACL) в Администраторе навостей
@@ -128,7 +125,6 @@ view this category	news_admin	ru	Показать эту категорию
 visible	news_admin	ru	Видимый
 webpage news admin	news_admin	ru	Веб-страница администратора новостей
 which information do you want to show (css class)	news_admin	ru	Какую информацию вы хотите показать (класс CSS)
-which news categories should be displayed on the main screen.	news_admin	ru	Какие категории новостей должны отображаться на основном экране.
 write	news_admin	ru	Записать
 write permissions	news_admin	ru	Разрешения на запись
 you need to select some entries first	news_admin	ru	Сначала нужно выбрать записи

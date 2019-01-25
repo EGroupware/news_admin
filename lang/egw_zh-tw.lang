@@ -61,7 +61,6 @@ no matching news item	news_admin	zh-tw	沒有符合的新聞
 no news	news_admin	zh-tw	這個類別目前沒有任何新聞
 no rss export	news_admin	zh-tw	沒有RSS匯出
 now	news_admin	zh-tw	現在
-number of articles to display on the main screen	news_admin	zh-tw	在主要畫面顯數新聞數量
 number of news items to be displayed on page	news_admin	zh-tw	頁面要顯示的新聞數量
 old	news_admin	zh-tw	舊的
 on	news_admin	zh-tw	在
@@ -74,7 +73,6 @@ read news	news_admin	zh-tw	讀取新聞
 read permissions	news_admin	zh-tw	讀取權限
 reload	news_admin	zh-tw	重新讀取
 send mail to others	news_admin	zh-tw	發送郵件給其他人
-should news_admin display the latest article headlines on the main screen.	news_admin	zh-tw	是否要在主畫面顯示最新文章？
 show latest news articles?	news_admin	zh-tw	顯示最新文章？
 show news articles on main page?	news_admin	zh-tw	在主頁面顯示新聞？
 small view	news_admin	zh-tw	縮小
@@ -84,7 +82,6 @@ submitted by %1 on %2	news_admin	zh-tw	提供者 %1 / %2
 teaser	news_admin	zh-tw	維護者
 teaser with read more link	news_admin	zh-tw	維護者與閱讀全文連結
 the news content is missing	news_admin	zh-tw	新聞內容遺失
-the number of articles to display on the main screen.	news_admin	zh-tw	在主要畫面顯示的新聞文章數量。
 the subject is missing	news_admin	zh-tw	您沒有輸入主題
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	zh-tw	這個模組會從 news_admin 模組發佈新聞到網站，記得檢查 news_admin 的權限設定。
 until	news_admin	zh-tw	直到

@@ -93,7 +93,6 @@ no matching news item	news_admin	es-es	No coincide ninguna noticia
 no news	news_admin	es-es	Sin noticias está actualmente en la categoría
 no rss export	news_admin	es-es	No hay exportación RSS
 now	news_admin	es-es	Ahora
-number of articles to display on the main screen	news_admin	es-es	Número de artículos a mostrar en la pantalla principal
 number of news items to be displayed on page	news_admin	es-es	Número de elementos de noticias a mostrar en la página
 old	news_admin	es-es	Antigua
 on	news_admin	es-es	en
@@ -108,7 +107,6 @@ read news	news_admin	es-es	Leer noticias
 read permissions	news_admin	es-es	Permiso de lectura
 reload	news_admin	es-es	Recargar
 send mail to others	news_admin	es-es	Enviar correo a otros
-should news_admin display the latest article headlines on the main screen.	news_admin	es-es	Mostrar el titular del último artículo en la pantalla principal
 show latest news articles?	news_admin	es-es	¿Mostrar los últimos artículos de noticias?
 show news articles on main page?	news_admin	es-es	¿Mostrar artículos de noticias en la página principal?
 small view	news_admin	es-es	Vista reducida
@@ -120,7 +118,6 @@ submitted by and date	news_admin	es-es	Enviado por y fecha
 teaser	news_admin	es-es	Introducción
 teaser with read more link	news_admin	es-es	Introducción con enlace de leer más
 the news content is missing	news_admin	es-es	Falta el contenido de las noticias
-the number of articles to display on the main screen.	news_admin	es-es	El número de artículos a mostrar en la pantalla principal.
 the subject is missing	news_admin	es-es	Falta el asunto
 there no such translation.	news_admin	es-es	No hay tal traducción.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	es-es	Este módulo publica noticias desde la aplicación Administrador de noticias en su sitio web. Tenga en cuenta las restricciones de ACL de la aplicación.
@@ -132,7 +129,6 @@ view this category	news_admin	es-es	Ver esta categoría
 visible	news_admin	es-es	Visible
 webpage news admin	news_admin	es-es	Administrador de noticias de la página web
 which information do you want to show (css class)	news_admin	es-es	Qué información desea mostrar (clase CSS)
-which news categories should be displayed on the main screen.	news_admin	es-es	Qué categorías de noticias deben mostrarse en la pantalla principal.
 write	news_admin	es-es	Escribir
 write permissions	news_admin	es-es	Permiso de escritura
 you need to select some entries first	news_admin	es-es	Necesita seleccionar antes algunas entradas

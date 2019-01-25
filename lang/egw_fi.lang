@@ -80,7 +80,6 @@ no matching news item	news_admin	fi	Ei vastaavia uutisia
 no news	news_admin	fi	Tässä kategoriassa ei ole tällä hetkellä uutisia
 no rss export	news_admin	fi	Ei RSS -vientiä
 now	news_admin	fi	Nyt
-number of articles to display on the main screen	news_admin	fi	Montako uutista näytetään pääsivulla
 number of news items to be displayed on page	news_admin	fi	Montako uutista näytetään sivulla
 old	news_admin	fi	Vanhat
 page-name the item should be displayed (empty = current page)	news_admin	fi	Sivun nimi, jolla merkintä tulisi näyttää (tyhjä=nykyinen sivu).
@@ -93,7 +92,6 @@ read news	news_admin	fi	Lue uutinen
 read permissions	news_admin	fi	Lukuoikeudet
 reload	news_admin	fi	Päivitä
 send mail to others	news_admin	fi	Lähetä sähköpostina muille
-should news_admin display the latest article headlines on the main screen.	news_admin	fi	Näyttääkö uutistenhallinta viimeisimpien artikkeleiden otsikot etusivulla.
 show latest news articles?	news_admin	fi	Näytetäänkö viimeisimmät uutisartikkelit?
 show news articles on main page?	news_admin	fi	Näytetäänkö uutisartikkelit etusivulla?
 small view	news_admin	fi	Pieni näkymä
@@ -104,7 +102,6 @@ submitted by and date	news_admin	fi	Lähettäjä ja lähetysaika
 teaser	news_admin	fi	Lyhyt uutinen
 teaser with read more link	news_admin	fi	Lyhyt uutinen ja Lue lisää -linkki
 the news content is missing	news_admin	fi	Uutisen sisältö puuttuu
-the number of articles to display on the main screen.	news_admin	fi	Etusivulla näytettävien artikkeleiden määrä
 the subject is missing	news_admin	fi	Uutisen otsikko puuttuu
 there no such translation.	news_admin	fi	Käännöstä ei löydy.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	fi	Tämä moduuli julkaisee uutisia news_admin sovelluksesta nettisivullasi. Tarkista news_admin ACL -oikeudet
@@ -115,7 +112,6 @@ view this category	news_admin	fi	Näytä kategoria
 visible	news_admin	fi	Näkyvä
 webpage news admin	news_admin	fi	Web-uutisten ylläpito
 which information do you want to show (css class)	news_admin	fi	Minkä tiedon haluat näkyvän (CSS luokka)
-which news categories should be displayed on the main screen.	news_admin	fi	Mitkä uutiskategoriat näytetään etusivulla?
 write	news_admin	fi	Kirjoita
 write permissions	news_admin	fi	Kirjoitusoikeudet
 you need to select some entries first	news_admin	fi	Valitse merkintä

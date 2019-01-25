@@ -90,7 +90,6 @@ no matching news item	news_admin	fr	Aucun communiqué correspondant
 no news	news_admin	fr	Aucune communiqué n'est actuellement disponible dans la catégorie
 no rss export	news_admin	fr	Pas d'exportation RSS
 now	news_admin	fr	Maintenant
-number of articles to display on the main screen	news_admin	fr	Nombre d'articles à afficher dans l'écran principal
 number of news items to be displayed on page	news_admin	fr	Nombre d'articles à afficher dans la page
 old	news_admin	fr	Ancien
 on	news_admin	fr	le
@@ -105,7 +104,6 @@ read news	news_admin	fr	Lire les communiqués
 read permissions	news_admin	fr	Permissions de lecture
 reload	news_admin	fr	Recharger
 send mail to others	news_admin	fr	Envoyer un email aux autres
-should news_admin display the latest article headlines on the main screen.	news_admin	fr	Est-ce que l'Administration des communiqués doit afficher les derniers entêtes d'articles sur l'écran principal.
 show latest news articles?	news_admin	fr	Montrer les derniers articles des communiqués?
 show news articles on main page?	news_admin	fr	Montrer les communiqués sur la page principale?
 small view	news_admin	fr	vue réduite
@@ -116,7 +114,6 @@ submitted by and date	news_admin	fr	Soumis par date et par
 teaser	news_admin	fr	Accroche
 teaser with read more link	news_admin	fr	Accroche avec un lien pour lire plus
 the news content is missing	news_admin	fr	Le contenu du communiqué manque
-the number of articles to display on the main screen.	news_admin	fr	Le nombre d'articles à afficher sur l'écran principal.
 the subject is missing	news_admin	fr	Le sujet manque
 there no such translation.	news_admin	fr	Il n'existe pas de traduction.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	fr	Ce module publie les communiqués à partir de l'application news_admin sur votre site web. Attention aux restrictions ACL de news_admin.
@@ -128,7 +125,6 @@ view this category	news_admin	fr	Voir cette catégorie
 visible	news_admin	fr	Visible
 webpage news admin	news_admin	fr	Page Web d'aministration des communiqués
 which information do you want to show (css class)	news_admin	fr	Quelle information voulez-vous afficher (classe CSS)
-which news categories should be displayed on the main screen.	news_admin	fr	Quelles sont les catégories de communiqués qui devraient être affichées sur l'écran principal ?
 write	news_admin	fr	Ecrire
 write permissions	news_admin	fr	Permissions d'écriture
 you need to select some entries first	news_admin	fr	Vous devez d'abord sélectionner des entrées...

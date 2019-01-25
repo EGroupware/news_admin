@@ -71,7 +71,6 @@ no matching news item	news_admin	sl	Ni ustreznih novic
 no news	news_admin	sl	V tej kategoriji trenutno ni razpoložljivih novic.
 no rss export	news_admin	sl	Ni RSS izvoza.
 now	news_admin	sl	Zdaj
-number of articles to display on the main screen	news_admin	sl	Število prispevkov, ki se prikažejo na začetnem zaslonu.
 number of news items to be displayed on page	news_admin	sl	Število novih elementov, ki naj se prikažejo na strani
 old	news_admin	sl	Staro
 on	news_admin	sl	Vključeno
@@ -85,7 +84,6 @@ read news	news_admin	sl	Beri novice
 read permissions	news_admin	sl	Beri dovoljenja
 reload	news_admin	sl	Obnovi
 send mail to others	news_admin	sl	Pošlji e-pošto ostalim
-should news_admin display the latest article headlines on the main screen.	news_admin	sl	Ali naj Upravljalec novic prikaže zadnji prispevek na začetnem zaslonu?
 show latest news articles?	news_admin	sl	Pokažem zadnje članke?
 show news articles on main page?	news_admin	sl	Pokažem zadnje članke na začetni strani?
 small view	news_admin	sl	Skrčen pogled
@@ -96,7 +94,6 @@ submitted by and date	news_admin	sl	Posredovano od in datum
 teaser	news_admin	sl	Uvodnik
 teaser with read more link	news_admin	sl	Uvodnik s povezavo "preberi več"
 the news content is missing	news_admin	sl	Manjka vsebina novice.
-the number of articles to display on the main screen.	news_admin	sl	Število prispevkov na začetnem zaslonu.
 the subject is missing	news_admin	sl	Manjka zadeva
 there no such translation.	news_admin	sl	Ni takega prevoda
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sl	Ta modul objavi novico iz aplikacije news_admin na vaši spletni strani. Pazite na omejitve ACL news_admin.
@@ -107,6 +104,5 @@ view this category	news_admin	sl	Preglej kategorijo
 visible	news_admin	sl	Vidno
 webpage news admin	news_admin	sl	Upravljanje novic na spletni strani
 which information do you want to show (css class)	news_admin	sl	Katere informacije bi radi prikazali (razred CSS)
-which news categories should be displayed on the main screen.	news_admin	sl	Katera kategorija novic naj bo prikazana na prvi strani.
 write	news_admin	sl	Zapiši
 write permissions	news_admin	sl	Pravice pisanja

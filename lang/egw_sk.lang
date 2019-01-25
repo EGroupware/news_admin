@@ -93,7 +93,6 @@ no matching news item	news_admin	sk	Nenašli sa žiadne zodpovedajúce položky 
 no news	news_admin	sk	V kategórii nie sú v súčasnosti žiadne dostupné aktuality
 no rss export	news_admin	sk	Žiadny RSS export
 now	news_admin	sk	Teraz
-number of articles to display on the main screen	news_admin	sk	Počet článkov zobrazených na hlavnej stránke
 number of news items to be displayed on page	news_admin	sk	Počet aktualít zobrazovaných na stránke
 old	news_admin	sk	Staré
 on	news_admin	sk	na
@@ -108,7 +107,6 @@ read news	news_admin	sk	Čítať aktuality
 read permissions	news_admin	sk	Oprávnenia k čítaniu
 reload	news_admin	sk	Znovunačítať
 send mail to others	news_admin	sk	Poslať ostatným mail
-should news_admin display the latest article headlines on the main screen.	news_admin	sk	Chcete, aby Správca Aktualít zobrazoval titulok najnovšieho článku na hlavnej stránke?
 show latest news articles?	news_admin	sk	Zobraziť najnovší článok z Aktualít?
 show news articles on main page?	news_admin	sk	Zobraziť články Aktualít na hlavnej stránke?
 small view	news_admin	sk	Zmenšený pohľad
@@ -120,7 +118,6 @@ submitted by and date	news_admin	sk	Odoslané kým a dátum
 teaser	news_admin	sk	Spojovač
 teaser with read more link	news_admin	sk	Spojovač s odkazom na 'zobraziť celé'
 the news content is missing	news_admin	sk	Obsah aktuality chýba
-the number of articles to display on the main screen.	news_admin	sk	Počet článkov zobrazovaných na hlavnej stránke
 the subject is missing	news_admin	sk	Chýba predmet
 there no such translation.	news_admin	sk	Taký preklad neexistuje.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sk	Tento modul publikuje na Vašej webstránke aktuality z aplikácie Správca Aktualít (news_admin). Dajte si pozor na ACL obmedzenia aplikácie Správca Aktualít (news_admin).
@@ -132,7 +129,6 @@ view this category	news_admin	sk	Zobraziť túto kategóriu
 visible	news_admin	sk	Viditeľné
 webpage news admin	news_admin	sk	Správca aktualít webstránky
 which information do you want to show (css class)	news_admin	sk	Ktoré informácie chcete zobraziť (CSS trieda)
-which news categories should be displayed on the main screen.	news_admin	sk	Ktoré kategórie aktualít sa majú zobrazovať na hlavnej stránke.
 write	news_admin	sk	Zápis
 write permissions	news_admin	sk	Oprávnenia k zápisu
 you need to select some entries first	news_admin	sk	Najprv musíte vybrať nejakú položku.

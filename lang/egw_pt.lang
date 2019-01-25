@@ -51,7 +51,6 @@ no matching news item	news_admin	pt	Nenhum ítem de notícias correspondente.
 no news	news_admin	pt	Não existe nenhuma notícia disponível actualmente na categoria
 no rss export	news_admin	pt	Não exportar RSS
 now	news_admin	pt	Agora
-number of articles to display on the main screen	news_admin	pt	Número de artigos a apresentar no ecrã principal
 number of news items to be displayed on page	news_admin	pt	Número de itens de notícias a ser apresentados na página
 on	news_admin	pt	em
 parent	news_admin	pt	Principal
@@ -62,7 +61,6 @@ read news	news_admin	pt	Ler notícias
 read permissions	news_admin	pt	Permissões de leitura
 reload	news_admin	pt	Recarregar
 send mail to others	news_admin	pt	Enviar mensagem para outros
-should news_admin display the latest article headlines on the main screen.	news_admin	pt	O gestor de notícias deve apresentar o cabeçalho do último artigo no ecrã principal?
 show latest news articles?	news_admin	pt	Exibir os últimos artigos?
 show news articles on main page?	news_admin	pt	Exibir artigos na primeira página?
 small view	news_admin	pt	Sumário
@@ -70,7 +68,6 @@ start	news_admin	pt	Início
 submitted by	common	pt	Submetido por
 teaser	news_admin	pt	Chamada
 the news content is missing	news_admin	pt	Conteúdo da notícia em falta
-the number of articles to display on the main screen.	news_admin	pt	O número de artigos a apresentar no ecrã principal
 the subject is missing	news_admin	pt	Assunto em falta
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pt	Este módulo publica notícias da aplicação Gestor de notícias do seu sítio Web. Tenha em conta as restrições das ACL do Gestor de notícias.
 until	news_admin	pt	até

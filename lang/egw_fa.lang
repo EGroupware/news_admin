@@ -48,7 +48,6 @@ no entries found	news_admin	fa	هیچ ورودی پیدا نشد
 no matching news item	news_admin	fa	موردی که با اخبار جور شود نیست
 no news	news_admin	fa	هیج اخباری فعلاً در دسته فراهم نیست
 no rss export	news_admin	fa	RSS هیچ خروجی
-number of articles to display on the main screen	news_admin	fa	تعداد خبرها برای نمایش در صفحه اصلی
 number of news items to be displayed on page	news_admin	fa	تعداد موارد اخبار برای نمایش در صفحه
 on	news_admin	fa	در
 parent	news_admin	fa	والد
@@ -59,7 +58,6 @@ read news	news_admin	fa	خواندن اخبار
 read permissions	news_admin	fa	مجوز خواندن
 reload	news_admin	fa	باز خوانی
 send mail to others	news_admin	fa	ارسال نامه به دیگران
-should news_admin display the latest article headlines on the main screen.	news_admin	fa	مدیر اخبار باید تیتر اصلی آخرین خبر را در صفحه اصلی نمایش دهد
 show latest news articles?	news_admin	fa	نمایش آخرین جدیدترین اخبار؟
 show news articles on main page?	news_admin	fa	نمایش اخبار در صفحه اصلی
 small view	news_admin	fa	دید کوچک
@@ -67,7 +65,6 @@ start	news_admin	fa	شروع
 submitted by	common	fa	ثبت شده بوسیله
 teaser	news_admin	fa	تیزر
 the news content is missing	news_admin	fa	محتوای اخبار مفقود شده است
-the number of articles to display on the main screen.	news_admin	fa	تعداد اخبار برای نمایش درصفحه اصلی
 the subject is missing	news_admin	fa	موضوع مفقود شده است
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	fa	این پیمانه اخبار را از طریق کاربرد «اخبار» به وب سایت شما منتشر میکند. به محدودیتهای دسترسی به اخبار در کاربرد «اخبار» توجه داشته باشید
 until	news_admin	fa	تا

@@ -39,17 +39,14 @@ news_admin	common	uk	Новини
 no entries found	news_admin	uk	записів не знайдено
 no news	news_admin	uk	В категорії зараз немає новин
 no rss export	news_admin	uk	Немає RSS експорту
-number of articles to display on the main screen	news_admin	uk	Кількість статей для показу на основному екрані
 publish date	news_admin	uk	Дата публікації
 read permissions	news_admin	uk	Дозвіл на читання
-should news_admin display the latest article headlines on the main screen.	news_admin	uk	Чи повинні Новини показувати заголовки останніх новин на основному екрані
 show latest news articles?	news_admin	uk	Показувати останні новини?
 show news articles on main page?	news_admin	uk	Показувати останні новини на основній сторінці?
 small view	news_admin	uk	Зменшений вигляд
 submitted by	common	uk	Надіслано
 teaser	news_admin	uk	Анотація
 the news content is missing	news_admin	uk	Відсутній зміст новини
-the number of articles to display on the main screen.	news_admin	uk	Кількість статей для показу на основному екрані.
 the subject is missing	news_admin	uk	Відсутня тема
 until	news_admin	uk	до
 updated	news_admin	uk	Змінено

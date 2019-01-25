@@ -75,7 +75,6 @@ no matching news item	news_admin	cs	Žádné odpovídající položky novinek ne
 no news	news_admin	cs	V kategorii nejsou momentálně dostupné žádné novinky
 no rss export	news_admin	cs	Bez RSS exportu
 now	news_admin	cs	Nyní
-number of articles to display on the main screen	news_admin	cs	Počet článků, které se mají zobrazovat na hlavní obrazovce
 number of news items to be displayed on page	news_admin	cs	Počet položek novinek, které se mají zobrazovat na stránce
 old	news_admin	cs	Staré
 on	news_admin	cs	na
@@ -89,7 +88,6 @@ read news	news_admin	cs	Číst novinky
 read permissions	news_admin	cs	Práva ke čtění
 reload	news_admin	cs	Načíst znovu
 send mail to others	news_admin	cs	Odeslat mail ostatním
-should news_admin display the latest article headlines on the main screen.	news_admin	cs	Má Správce novinek zobrazovat nadpisy posledních článků na hlavní obrazovce.
 show latest news articles?	news_admin	cs	Zobrazit články posledních novinek?
 show news articles on main page?	news_admin	cs	Zobrazovat články novinek na hlavní obrazovce?
 small view	news_admin	cs	zmenšený pohled
@@ -100,7 +98,6 @@ submitted by and date	news_admin	cs	Odesláno kdykoli
 teaser	news_admin	cs	Úvodník
 teaser with read more link	news_admin	cs	Úvodník s odkazem na čtení dalších
 the news content is missing	news_admin	cs	Obsah novinek chybí
-the number of articles to display on the main screen.	news_admin	cs	Počet článků, které se mají zobrazit na hlavní obrazovce
 the subject is missing	news_admin	cs	Chybí předmět
 there no such translation.	news_admin	cs	Takový překlad neexistuje.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	cs	Tento modul publikuje novinky z aplikace Správce novinek na Vašem webu. Mějte na paměti omezení daná přístupovými právy (ACL) nastavenými ve Správci novinek.
@@ -111,6 +108,5 @@ view this category	news_admin	cs	Zobrazit tuto kategorii
 visible	news_admin	cs	Viditelné
 webpage news admin	news_admin	cs	Správce novinek na webové stránce
 which information do you want to show (css class)	news_admin	cs	Které informace chcete zobrazit (CSS třída)
-which news categories should be displayed on the main screen.	news_admin	cs	Které kategorie novinek by měly být zobrazeny na hlavní obrazovce.
 write	news_admin	cs	Uložit
 write permissions	news_admin	cs	Práva k zápisu

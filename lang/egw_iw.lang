@@ -46,7 +46,6 @@ no entries found	news_admin	iw	לא נמצאו רשומות
 no matching news item	news_admin	iw	אין פריט חדשות תואם
 no news	news_admin	iw	אין כרגע חדשות בקטגוריה זו
 no rss export	news_admin	iw	RSS אין יצוא
-number of articles to display on the main screen	news_admin	iw	כמות המאמרים להציג במסך הראשי
 number of news items to be displayed on page	news_admin	iw	כמות פרטי חדשות להציג בעמוד
 on	news_admin	iw	-ב
 parent	news_admin	iw	הורה
@@ -54,14 +53,12 @@ publish date	news_admin	iw	תאריך הוצאה לאור
 read news	news_admin	iw	קרא חדשות
 read permissions	news_admin	iw	הרשאות קריאה
 reload	news_admin	iw	טען מחדש
-should news_admin display the latest article headlines on the main screen.	news_admin	iw	האם על מנהל החדשות להציג את בותרות המאמרים האחרונים במסך הראשי
 show latest news articles?	news_admin	iw	?הצג מאמרי חדשות האחרונים
 show news articles on main page?	news_admin	iw	?הצג מאמרי חדשות בעמוד הראשי
 small view	news_admin	iw	תצוגה קטנה
 submitted by	common	iw	הוגש על ידי
 teaser	news_admin	iw	טיזר
 the news content is missing	news_admin	iw	תוכן החדשות חסר
-the number of articles to display on the main screen.	news_admin	iw	כמות המאמרים להציג במסך הראשי
 the subject is missing	news_admin	iw	הנושא חבר
 until	news_admin	iw	עד
 updated	news_admin	iw	מעודכן

@@ -93,7 +93,6 @@ no matching news item	news_admin	de	Keine zutreffenden Nachrichten
 no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
 no rss export	news_admin	de	Kein RSS Export
 now	news_admin	de	Jetzt
-number of articles to display on the main screen	news_admin	de	Anzahl der Nachrichten einstellen, die auf der Startseite angezeigt werden.
 number of news items to be displayed on page	news_admin	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 old	news_admin	de	Alte
 on	news_admin	de	An
@@ -108,7 +107,6 @@ read news	news_admin	de	Nachrichten lesen
 read permissions	news_admin	de	Leserechte
 reload	news_admin	de	Nachladen
 send mail to others	news_admin	de	Mail an andere senden
-should news_admin display the latest article headlines on the main screen.	news_admin	de	Sollen die neuesten Nachrichten auf der Startseite angezeigt werden.
 show latest news articles?	news_admin	de	Neuest Nachrichten anzeigen?
 show news articles on main page?	news_admin	de	Neue Nachrichten auf der Startseite anzeigen
 small view	news_admin	de	schmale Anzeige
@@ -120,7 +118,6 @@ submitted by and date	news_admin	de	Eingetragen von und mit Datum
 teaser	news_admin	de	Anreißer
 teaser with read more link	news_admin	de	Anreißer mit weiter lesen Link
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
-the number of articles to display on the main screen.	news_admin	de	Anzahl der Nachrichten welche auf der Übersichtsseite angezeigt werden sollen
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 there no such translation.	news_admin	de	Für diese Nachricht gibt es keine Übersetzung
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website an. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
@@ -132,7 +129,6 @@ view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
 webpage news admin	news_admin	de	Webseite Nachrichten
 which information do you want to show (css class)	news_admin	de	Welche Informationen sollen angezeigt werden (CSS Klasse)
-which news categories should be displayed on the main screen.	news_admin	de	Welche Nachrichten Kategorien sollen auf der Startseite angezeigt werden.
 write	news_admin	de	Schreiben
 write permissions	news_admin	de	Schreibrechte
 you need to select some entries first	news_admin	de	Sie müssen zuerst Einträge auswählen

@@ -57,7 +57,6 @@ no matching news item	news_admin	el	Κανένα ταιριαστό αντικε
 no news	news_admin	el	Κανένα νέο δεν είναι διαθέσιμο στην κατηγορία
 no rss export	news_admin	el	Καμία RSS εξαγωγή
 now	news_admin	el	Τώρα
-number of articles to display on the main screen	news_admin	el	Αριθμός άρθρων προς προβολή στην κλυρια σελίδα
 number of news items to be displayed on page	news_admin	el	Αριθμός αντικειμένων νέων προς προβολή στη σελίδα
 old	news_admin	el	Παλιό
 on	news_admin	el	πάνω
@@ -70,7 +69,6 @@ read news	news_admin	el	Ανάγνωση νέων
 read permissions	news_admin	el	Ανάγνωση αδειών
 reload	news_admin	el	επαναφόρτωση
 send mail to others	news_admin	el	Αποστολή μηνύματος σε άλλους
-should news_admin display the latest article headlines on the main screen.	news_admin	el	Θα έπρεπε ο Διαχειρ νέων να προβάλει τον τίτλο του τελευταίου άρθρου στην κύρια οθόνη.
 show latest news articles?	news_admin	el	Προβολή των τελευταίων άρθρων νέων;
 show news articles on main page?	news_admin	el	Προβολή άρθρων νέων στην κύρια σελίδα;
 small view	news_admin	el	μικρή προβολή
@@ -80,7 +78,6 @@ submitted by %1 on %2	news_admin	el	Υπεβλήθη από %1 στις %2
 teaser	news_admin	el	Προδιαφήμιση
 teaser with read more link	news_admin	el	Προδιαφήμιση με περισσότερη ανάγνωση συνδέσμου
 the news content is missing	news_admin	el	Λείπει το περιεχόμενο των νέων
-the number of articles to display on the main screen.	news_admin	el	Ο αριθμός των άρθρων προς προβολή στην κύρια οθόνη.
 the subject is missing	news_admin	el	Λείπει το θέμα
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	el	Αυτή η ενότητα δημοσιεύει νέα από την εφαρμογή διαχειρ_νέων στην ιστοσελίδα σας. Προσοχή για τυχόν περιορισμούς.
 until	news_admin	el	μέχρι

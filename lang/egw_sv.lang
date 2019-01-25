@@ -59,7 +59,6 @@ no matching news item	news_admin	sv	Hittade inga artiklar
 no news	news_admin	sv	Inga artiklar i kategorin
 no rss export	news_admin	sv	Ingen RSS export
 now	news_admin	sv	Nu
-number of articles to display on the main screen	news_admin	sv	Antal ariklar att visa på Startsidan
 number of news items to be displayed on page	news_admin	sv	Antal artiklar som visas på Startsidan
 old	news_admin	sv	Äldre
 on	news_admin	sv	På
@@ -71,7 +70,6 @@ read news	news_admin	sv	Läs artikel
 read permissions	news_admin	sv	Läsrättighet
 reload	news_admin	sv	Ladda om
 send mail to others	news_admin	sv	Skicka e-post till andra
-should news_admin display the latest article headlines on the main screen.	news_admin	sv	Visa senaste artikelrubriker på Startsidan
 show latest news articles?	news_admin	sv	Visa senaste artiklar
 show news articles on main page?	news_admin	sv	Visa artiklar på Startsidan
 small view	news_admin	sv	Liten vy
@@ -81,7 +79,6 @@ submitted by %1 on %2	news_admin	sv	Publicerad av %1 den %2
 teaser	news_admin	sv	Brödtext
 teaser with read more link	news_admin	sv	Brödtext med läs mer länk
 the news content is missing	news_admin	sv	Nyhetsinnehåll saknas
-the number of articles to display on the main screen.	news_admin	sv	Antal artiklar att visa på Startsidan?
 the subject is missing	news_admin	sv	Rubrik saknas
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	sv	Modulen publicerar artiklar från artikelhanterings applikationen till din webbsida. Kontrollera artikelhanteringens ACL restriktioner.
 until	news_admin	sv	Tills

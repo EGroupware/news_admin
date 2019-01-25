@@ -46,7 +46,6 @@ no entries found	news_admin	lv	nav atrasti ieraksti
 no matching news item	news_admin	lv	Nav atbilstošas ziņas
 no news	news_admin	lv	Šajā kategorijā pašlaik nav pieejamu ziņu
 no rss export	news_admin	lv	Nav RSS eksporta
-number of articles to display on the main screen	news_admin	lv	Galvenajā logā rādāmo rakstu skaits
 number of news items to be displayed on page	news_admin	lv	Lapā rādāmo ziņu vienību skaits
 on	news_admin	lv	ieslēgts
 parent	news_admin	lv	Vecāki
@@ -54,14 +53,12 @@ publish date	news_admin	lv	Publicēšanas datums
 read news	news_admin	lv	Lasīt ziņas
 read permissions	news_admin	lv	Lasīšanas atļaujas
 reload	news_admin	lv	pārlādēt
-should news_admin display the latest article headlines on the main screen.	news_admin	lv	Vai ziņu adminstratoram vajadzētu parādīt pēdējo ziņu virsrakstus
 show latest news articles?	news_admin	lv	Rādīt pēdējo ziņu rakstus?
 show news articles on main page?	news_admin	lv	Rādīt ziņu rakstus galvenajā lapā?
 small view	news_admin	lv	mazs skatījums
 submitted by	common	lv	Iesniedza
 teaser	news_admin	lv	Reklāma
 the news content is missing	news_admin	lv	Rūkst ziņu satura
-the number of articles to display on the main screen.	news_admin	lv	Galvenajā logā rādāmo rakstu skaits
 the subject is missing	news_admin	lv	Trūkst tēmas
 until	news_admin	lv	līdz
 updated	news_admin	lv	Atjaunināts

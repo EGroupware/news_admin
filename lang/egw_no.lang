@@ -48,7 +48,6 @@ no entries found	news_admin	no	Ingen forekomster funnet
 no matching news item	news_admin	no	Ingen passende nyhetsenheter
 no news	news_admin	no	Det er ingen nyheter tilgjengelig i denne kategorien.
 no rss export	news_admin	no	Ingen RSS eksport
-number of articles to display on the main screen	news_admin	no	Antall artikler for visning på skrivebord
 number of news items to be displayed on page	news_admin	no	Antall nyheter som skal vises på siden
 on	news_admin	no	på
 parent	news_admin	no	Overordnet
@@ -58,7 +57,6 @@ read news	news_admin	no	Les nyheter
 read permissions	news_admin	no	Lesetillatelser
 reload	news_admin	no	Last på nytt
 send mail to others	news_admin	no	Sende mail til andre
-should news_admin display the latest article headlines on the main screen.	news_admin	no	Skal nyhetsadm. vise de siste artikkeloverskriftene på skrivebordet.
 show latest news articles?	news_admin	no	Vise siste nyhetsartikler
 show news articles on main page?	news_admin	no	Vise nyhetsartikler på hovedsiden
 small view	news_admin	no	Liten visning
@@ -66,7 +64,6 @@ start	news_admin	no	Start
 submitted by	common	no	Innsendt av
 teaser	news_admin	no	Teaser
 the news content is missing	news_admin	no	Nyhetens innhold mangler
-the number of articles to display on the main screen.	news_admin	no	Antall artikler som skal vises på skrivebordet.
 the subject is missing	news_admin	no	Overskriften mangler
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	no	Denne modulen publisere nyheter fra news_admin programmet. Vær obs. på news_admin's ACL restriksjoner.
 until	news_admin	no	til

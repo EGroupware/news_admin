@@ -74,7 +74,6 @@ no matching news item	news_admin	pl	Brak pasujących wiadomości
 no news	news_admin	pl	Brak aktualnie dostępnych wiadomości w tej kategorii
 no rss export	news_admin	pl	Brak eksportu do RSS
 now	news_admin	pl	Obecne
-number of articles to display on the main screen	news_admin	pl	Liczba wiadomości do wyświetlania na stronie głównej
 number of news items to be displayed on page	news_admin	pl	Liczba wiadomości do wyświetlania na każdej stronie
 old	news_admin	pl	Stare
 on	news_admin	pl	na
@@ -88,7 +87,6 @@ read news	news_admin	pl	Czytaj wiadomości
 read permissions	news_admin	pl	Prawa odczytu
 reload	news_admin	pl	odśwież
 send mail to others	news_admin	pl	Wyślij wiadomość do innych
-should news_admin display the latest article headlines on the main screen.	news_admin	pl	Czy pokazywać nagłówki najnowszych wiadomości na stronie głównej?
 show latest news articles?	news_admin	pl	Czy pokazywać najnowsze wiadomości?
 show news articles on main page?	news_admin	pl	Czy pokazywać wiadomości na stronie głównej?
 small view	news_admin	pl	widok uproszczony
@@ -99,7 +97,6 @@ submitted by and date	news_admin	pl	Przesłane przez i data
 teaser	news_admin	pl	Reklamówka
 teaser with read more link	news_admin	pl	Reklamówka z odnośnikiem do czytania całości
 the news content is missing	news_admin	pl	Brakuje treści wiadomości
-the number of articles to display on the main screen.	news_admin	pl	Liczba wiadomości do wyświetlania na stronie głównej.
 the subject is missing	news_admin	pl	Brakuje tematu wiadomości
 there no such translation.	news_admin	pl	Nie ma takiego tłumaczenia.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pl	Moduł publikuje wiadomości z aplikacji Wiadomości na stronie internetowej. Zwróć uwagę na prawa dostępu do tej aplikacji.
@@ -110,6 +107,5 @@ view this category	news_admin	pl	Pokaż tę kategorię
 visible	news_admin	pl	Widoczny
 webpage news admin	news_admin	pl	Strona internetowa administrowania wiadomościami
 which information do you want to show (css class)	news_admin	pl	Jakie informacje chcesz pokazywać (klasa CSS)
-which news categories should be displayed on the main screen.	news_admin	pl	Które kategorie wiadomości powinny być wyświetlane na głównym ekranie.
 write	news_admin	pl	Zapisz
 write permissions	news_admin	pl	Uprawnienia do zapisu

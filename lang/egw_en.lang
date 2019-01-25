@@ -93,7 +93,6 @@ no matching news item	news_admin	en	No matching news item.
 no news	news_admin	en	No news available in the category.
 no rss export	news_admin	en	No RSS export
 now	news_admin	en	Now
-number of articles to display on the main screen	news_admin	en	Number of articles to display on the Home page
 number of news items to be displayed on page	news_admin	en	Number of news to display on page
 old	news_admin	en	Old
 on	news_admin	en	On
@@ -108,7 +107,6 @@ read news	news_admin	en	Read news
 read permissions	news_admin	en	Read permissions
 reload	news_admin	en	Reload
 send mail to others	news_admin	en	Send mail
-should news_admin display the latest article headlines on the main screen.	news_admin	en	Should News display the latest article headlines on the main screen.
 show latest news articles?	news_admin	en	Show latest news articles
 show news articles on main page?	news_admin	en	Show news articles on Home page
 small view	news_admin	en	Small view
@@ -120,7 +118,6 @@ submitted by and date	news_admin	en	Submitted by and date
 teaser	news_admin	en	Teaser
 teaser with read more link	news_admin	en	Teaser with read more link
 the news content is missing	news_admin	en	There is no news content
-the number of articles to display on the main screen.	news_admin	en	The number of articles to display on the main screen.
 the subject is missing	news_admin	en	There is no subject.
 there no such translation.	news_admin	en	There no translation.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
@@ -132,7 +129,6 @@ view this category	news_admin	en	View this category
 visible	news_admin	en	Visible
 webpage news admin	news_admin	en	Web page news admin
 which information do you want to show (css class)	news_admin	en	Which information do you want to show (CSS class)
-which news categories should be displayed on the main screen.	news_admin	en	Which news categories should be displayed on the Home page
 write	news_admin	en	Write
 write permissions	news_admin	en	Write permissions
 you need to select some entries first	news_admin	en	You need to select some entries first

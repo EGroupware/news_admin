@@ -73,7 +73,6 @@ no matching news item	news_admin	pt-br	Nenhuma notícia encontrada
 no news	news_admin	pt-br	Não existe boletins disponíveis para esta categoria
 no rss export	news_admin	pt-br	Não existe conteúdo RSS para exportar
 now	news_admin	pt-br	Agora
-number of articles to display on the main screen	news_admin	pt-br	Número de artigos a serem apresentados simultaneamente
 number of news items to be displayed on page	news_admin	pt-br	Número de novos itens a serem exibidos na página
 old	news_admin	pt-br	Velho
 on	news_admin	pt-br	em
@@ -87,7 +86,6 @@ read news	news_admin	pt-br	Ler notícias
 read permissions	news_admin	pt-br	Permissões de leitura
 reload	news_admin	pt-br	Recarregar
 send mail to others	news_admin	pt-br	Enviar e-mail para Outros
-should news_admin display the latest article headlines on the main screen.	news_admin	pt-br	Boletim Internos mostra as manchetes dos últimos boletins na Tela Principal.
 show latest news articles?	news_admin	pt-br	Exibir últimos artigos?
 show news articles on main page?	news_admin	pt-br	Exibir novos artigos na página inicial?
 small view	news_admin	pt-br	Visão Condensada
@@ -98,7 +96,6 @@ submitted by and date	news_admin	pt-br	Enviado por e data
 teaser	news_admin	pt-br	Resumo
 teaser with read more link	news_admin	pt-br	Chamada com link "ler mais"
 the news content is missing	news_admin	pt-br	O conteúdo do boletim está faltando
-the number of articles to display on the main screen.	news_admin	pt-br	Número de artigos a serem apresentados na tela principal.
 the subject is missing	news_admin	pt-br	O assunto está faltando
 there no such translation.	news_admin	pt-br	Esta tradução não existe
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	pt-br	Este módulo publica notícias do aplicativo de notícias do seu site. Atente-se às ACL's.
@@ -109,6 +106,5 @@ view this category	news_admin	pt-br	Exibir esta categoria
 visible	news_admin	pt-br	Visível
 webpage news admin	news_admin	pt-br	Página para administração de Boletins
 which information do you want to show (css class)	news_admin	pt-br	Que informação você deseja exibir (classe CSS)
-which news categories should be displayed on the main screen.	news_admin	pt-br	Quais categorias de notícias deverão ser exibidas na página principal.
 write	news_admin	pt-br	Escrever
 write permissions	news_admin	pt-br	Permissões para escrita

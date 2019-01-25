@@ -46,7 +46,6 @@ no anonymous user accounts installed.  notify the administrator.	news_admin	da	I
 no entries found	news_admin	da	Ikke fundet
 no news	news_admin	da	Ingen nyheder i denne kategori
 no rss export	news_admin	da	Ingen RSS export
-number of articles to display on the main screen	news_admin	da	Antal artikler til visning på forside
 number of news items to be displayed on page	news_admin	da	Antal nyheder der skal vises på siden
 parent	news_admin	da	Overstående
 picture upload (leave the upload directory empty to disable the upload)	admin	da	Billede Upload (tomt bibliotek for at forhindre upload)
@@ -56,7 +55,6 @@ read news	news_admin	da	Læs nyheder
 read permissions	news_admin	da	Læserettigheder
 reload	news_admin	da	opdater
 send mail to others	news_admin	da	Send mail til andre
-should news_admin display the latest article headlines on the main screen.	news_admin	da	Skal Nyheds admin vise de sidste artikler overskrifter på hoved forside
 show latest news articles?	news_admin	da	Vis seneste nyhedsartikler
 show news articles on main page?	news_admin	da	Vis nyhedsartikler på forside
 small view	news_admin	da	Lille 'view'
@@ -64,7 +62,6 @@ start	news_admin	da	Start
 submitted by	common	da	Sendt fra
 teaser	news_admin	da	Teaser
 the news content is missing	news_admin	da	Nyheds indhold mangler
-the number of articles to display on the main screen.	news_admin	da	Antal af artikler til at vise på forside
 the subject is missing	news_admin	da	Emne mangler
 until	news_admin	da	indtil
 updated	news_admin	da	Opdateret

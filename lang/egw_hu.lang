@@ -75,7 +75,6 @@ no matching news item	news_admin	hu	Nem találhatók hírek
 no news	news_admin	hu	A kategóriában jelenleg nem található hír
 no rss export	news_admin	hu	RSS export tiltva
 now	news_admin	hu	Most
-number of articles to display on the main screen	news_admin	hu	Kezdőlapon megjelenő hírek száma
 number of news items to be displayed on page	news_admin	hu	Az oldalon megjelenő hírbejegyzések száma
 old	news_admin	hu	Régi
 on	news_admin	hu	on
@@ -89,7 +88,6 @@ read news	news_admin	hu	Hír olvasása
 read permissions	news_admin	hu	Olvasási jogosultságok
 reload	news_admin	hu	Újratöltés
 send mail to others	news_admin	hu	Mail küldése másoknak
-should news_admin display the latest article headlines on the main screen.	news_admin	hu	Megjelenjenek-e a Kezdőlapon a legfrissebb hírek fejlécei?
 show latest news articles?	news_admin	hu	Legfrissebb hírek megjelenítése?
 show news articles on main page?	news_admin	hu	Legfrissebb hírek megjelenítése a Kezdőlapon?
 small view	news_admin	hu	Tömör nézet
@@ -100,7 +98,6 @@ submitted by and date	news_admin	hu	Beküldő és beküldés dátuma
 teaser	news_admin	hu	Előzetes
 teaser with read more link	news_admin	hu	Előzetes hivatkozással a többi hírre
 the news content is missing	news_admin	hu	A hír tartalma hiányzik
-the number of articles to display on the main screen.	news_admin	hu	Kezdőlapon megjelenő hírek száma
 the subject is missing	news_admin	hu	Tárgy hiányzik
 there no such translation.	news_admin	hu	Nincs ilyen forítás.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	hu	Ez a modul híreket jelenít meg a Hírszerkesztőből a webhelyen. Legyen körültekintő az ACL beállításokkal!
@@ -111,6 +108,5 @@ view this category	news_admin	hu	Kategória mutatása
 visible	news_admin	hu	Látható
 webpage news admin	news_admin	hu	Weboldal Hírszerkesztő
 which information do you want to show (css class)	news_admin	hu	Mely információka jelenítsük meg (CSS osztály)
-which news categories should be displayed on the main screen.	news_admin	hu	Mely új kategóriák jelenjenek meg a főképernyőn.
 write	news_admin	hu	Írás
 write permissions	news_admin	hu	Írási jogosultságok

@@ -93,7 +93,6 @@ no matching news item	news_admin	it	Nessuna notizia corrispondente.
 no news	news_admin	it	Nessuna Notizia è attualmente disponibile nella Categoria
 no rss export	news_admin	it	Nessuna esportazione RSS
 now	news_admin	it	Adesso
-number of articles to display on the main screen	news_admin	it	Numero di articoli da visualizzare sulla schermata principale
 number of news items to be displayed on page	news_admin	it	Numero di notizie da mostrare in home
 old	news_admin	it	Vecchie
 on	news_admin	it	il
@@ -108,7 +107,6 @@ read news	news_admin	it	Leggi Notizie
 read permissions	news_admin	it	Permessi di lettura
 reload	news_admin	it	Ricarica
 send mail to others	news_admin	it	Invia Mail a Altri
-should news_admin display the latest article headlines on the main screen.	news_admin	it	Gestione Notizie deve mostrare i titoli degli articoli più recenti sulla schermata principale?
 show latest news articles?	news_admin	it	Mostra gli articoli delle notizie più recenti?
 show news articles on main page?	news_admin	it	Mostra gli articoli delle notizie sulla schermata principale?
 small view	news_admin	it	Visualizzazione ridotta
@@ -120,7 +118,6 @@ submitted by and date	news_admin	it	Inviato da e data
 teaser	news_admin	it	Didascalia
 teaser with read more link	news_admin	it	Didascalia con link "leggi tutto" (more)
 the news content is missing	news_admin	it	Il contenuto della notizia è mancante
-the number of articles to display on the main screen.	news_admin	it	Il numero di articoli da mostrare sulla schermata principale.
 the subject is missing	news_admin	it	L'oggetto è mancante
 there no such translation.	news_admin	it	Nessuna traduzione
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	it	Questo modulo pubblica news dalla applicazione news_admin sul tuo sito. Attenzione alle restrizioni ACL in news_admin
@@ -132,7 +129,6 @@ view this category	news_admin	it	Visualizza questa categoria
 visible	news_admin	it	Visibile
 webpage news admin	news_admin	it	Pagina web News Admin
 which information do you want to show (css class)	news_admin	it	Quali informazioni vuoi mostrare (classe CSS)
-which news categories should be displayed on the main screen.	news_admin	it	Quali categorie di notizie mostrare in home?
 write	news_admin	it	Scrivi
 write permissions	news_admin	it	Permessi di scrittura
 you need to select some entries first	news_admin	it	Devi prima selezionare alcune voci.

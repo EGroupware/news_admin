@@ -48,7 +48,6 @@ read more	news_admin	et	loe rohkem
 read news	news_admin	et	Loe uudiseid
 read permissions	news_admin	et	Lugemise õigused
 send mail to others	news_admin	et	Sada Teistele Mail
-should news_admin display the latest article headlines on the main screen.	news_admin	et	Peaks Uudiste Admin näitama viimaseid pealkirju pealehel.
 show latest news articles?	news_admin	et	Näita viimaseid uudiste artikkleid?
 show news articles on main page?	news_admin	et	Näita uudiste artikkleid pealehel?
 small view	news_admin	et	väike vaade
@@ -57,7 +56,6 @@ submitted by	common	et	Lisatud
 teaser	news_admin	et	Alampealkiri
 teaser with read more link	news_admin	et	Alampealkiri koos lugeda rohkem linkke
 the news content is missing	news_admin	et	Uudise sisu puudub
-the number of articles to display on the main screen.	news_admin	et	Artikklite arv mida kuvatakse pealehel.
 until	news_admin	et	kuni
 updated	news_admin	et	uuendatud
 view this category	news_admin	et	Vaata seda kategooriat
