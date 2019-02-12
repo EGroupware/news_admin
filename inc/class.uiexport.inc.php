@@ -97,8 +97,7 @@
 				'query' => $this->query,
 			));
 
-			@reset($this->bo->cats);
-			while (list(,$cat) = @each($this->bo->cats))
+			foreach($this->bo->cats as $cat)
 			{
 				$config = $this->bo->readconfig($cat['id']);
 				$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
@@ -135,7 +134,7 @@
 
 		function selectlist($values,$default)
 		{
-			while (list($value,$type) = each($values))
+			foreach($values as $value => $type)
 			{
 				$selectlist .= '<option value="' . $value . '"';
 				if ($value == $default)

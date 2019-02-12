@@ -71,7 +71,7 @@ class news_admin_gui extends news_admin_bo
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? Acl::EDIT : Acl::ADD),
 			'visible' => $this->visiblity,
 		);
-		if (!$content['cat_id']) list($content['cat_id']) = @each($sel_options['cat_id']);
+		if (!$content['cat_id']) $content['cat_id'] = @key($sel_options['cat_id']);
 		$readonlys['edit'] = !$this->check_acl(Acl::EDIT);
 		$readonlys['delete'] = !$this->check_acl(Acl::DELETE);
 
@@ -99,7 +99,7 @@ class news_admin_gui extends news_admin_bo
 		}
 		else
 		{
-			list($button) = each($_content['button']);
+			$button = key($_content['button']);
 			unset($_content['button']);
 			$this->data = $_content;
 
@@ -199,7 +199,10 @@ class news_admin_gui extends news_admin_bo
 			'cat_id' => $this->rights2cats($this->data['news_id'] ? Acl::EDIT : Acl::ADD),
 			'visible' => $this->visiblity,
 		);
-		if (!$content['cat_id']) list($content['cat_id']) = @each($sel_options['cat_id']);
+		if (!$content['cat_id'])
+		{
+			$content['cat_id'] = @key($sel_options['cat_id']);
+		}
 
 		$readonly = $this->data['news_id'] ? !$this->check_acl(Acl::EDIT) : !$sel_options['cat_id'];
 		$readonlys = array(

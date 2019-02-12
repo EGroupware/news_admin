@@ -70,7 +70,7 @@ class news_admin_ui extends news_admin_bo
 		{
 			if ($content['button'])
 			{
-				list($button) = each($content['button']);
+				$button = key($content['button']);
 				unset($content['button']);
 			}
 

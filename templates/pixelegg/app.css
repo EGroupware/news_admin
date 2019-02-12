@@ -12,10 +12,6 @@
  * @version $Id$
  */
 /* $Id$ */
-.redItalic {
-  color: red;
-  font-style: italic;
-}
 .news_headline {
   font-weight: bold;
   font-size: 120%;
@@ -29,6 +25,9 @@
 }
 .news_content {
   overflow: auto;
+  width: 100%;
+}
+.news_container {
   width: 100%;
 }
 table.egwGridView_grid div.news_content img {
