@@ -28,6 +28,7 @@ content	news_admin	en	Content
 count	news_admin	en	Count
 date and time	news_admin	en	Date and time
 date of entry, newest first	news_admin	en	Date of entry, newest first
+default language	news_admin	en	Default language
 default languages	news_admin	en	Default languages
 delete these categories, and all news in them	news_admin	en	Delete these categories, and all news in them
 delete this category, and all news in it	news_admin	en	Delete this category, and all news in it

@@ -28,6 +28,7 @@ content	news_admin	de	Inhalt
 count	news_admin	de	Anzahl
 date and time	news_admin	de	Datum und Uhrzeit
 date of entry, newest first	news_admin	de	Datum des Eintrags, neueste zuerst
+default language	news_admin	de	Standard Sprache
 default languages	news_admin	de	Standard Sprache
 delete these categories, and all news in them	news_admin	de	Löst alle diese Kategorien und alle Nachrichten diesen Kategorien.
 delete this category, and all news in it	news_admin	de	Löst alle diese Kategorie und alle Nachrichten dieser Kategorie
