@@ -86,6 +86,7 @@ news administration	news_admin	de	Nachrichten Administration
 news deleted.	news_admin	de	Nachricht gelöscht.
 news item has been added	news_admin	de	Nachrichten wurde hinzugefügt
 news item has been updated	news_admin	de	Nachrichten wurde upgedatet
+news list	news_admin	de	Nachrichten Liste
 news saved.	news_admin	de	Nachricht gespeichert.
 news_admin	common	de	Nachrichten
 no anonymous user accounts installed.  notify the administrator.	news_admin	de	ES ist keine Anonymer Benutzeraccount installiert. Benachrichtigen Sie den Administrator.

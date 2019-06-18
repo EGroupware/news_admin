@@ -86,6 +86,7 @@ news administration	news_admin	en	News administration
 news deleted.	news_admin	en	News deleted.
 news item has been added	news_admin	en	News entry has been added.
 news item has been updated	news_admin	en	News entry has been updated.
+news list	news_admin	en	News list
 news saved.	news_admin	en	News saved.
 news_admin	common	en	News
 no anonymous user accounts installed.  notify the administrator.	news_admin	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
