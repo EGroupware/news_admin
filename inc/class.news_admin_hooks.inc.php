@@ -53,40 +53,6 @@ class news_admin_hooks
 				'admin'  => False,
 			);
 		}
-		// Import / Export for nextmatch
-		if ($GLOBALS['egw_info']['user']['apps']['importexport'])
-		{
-			$definitions = new importexport_definitions_bo(array(
-				'type' => 'export',
-				'application' => 'news_admin'
-			));
-			$options = array(
-				'~nextmatch~'	=>	lang('Old fixed definition')
-			);
-			foreach ((array)$definitions->get_definitions() as $identifier) {
-				try {
-					$definition = new importexport_definition($identifier);
-				} catch (Exception $e) {
-					unset($e);
-					// permission error
-					continue;
-				}
-				if (($title = $definition->get_title())) {
-					$options[$title] = $title;
-				}
-				unset($definition);
-			}
-			$prefs['nextmatch-export-definition'] = array(
-				'type'   => 'select',
-				'values' => $options,
-				'label'  => 'Export definitition to use for nextmatch export',
-				'name'   => 'nextmatch-export-definition',
-				'help'   => lang('If you specify an export definition, it will be used when you export'),
-				'run_lang' => false,
-				'xmlrpc' => True,
-				'admin'  => False,
-			);
-		}
 		return $prefs;
 	}
 
