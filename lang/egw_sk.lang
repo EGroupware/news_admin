@@ -28,6 +28,7 @@ content	news_admin	sk	Obsah
 count	news_admin	sk	Počet
 date and time	news_admin	sk	Dátum a čas
 date of entry, newest first	news_admin	sk	Dátum položky, od novších
+default language	news_admin	sk	Predvolený jazyk
 default languages	news_admin	sk	Predvolené jazyky
 delete these categories, and all news in them	news_admin	sk	Odstrániť tieto kategórie, a všetky aktuality ktoré obsahujú
 delete this category, and all news in it	news_admin	sk	Odstrániť túto kategóriu, a všetky aktuality ktoré obsahuje
@@ -85,6 +86,7 @@ news administration	news_admin	sk	Správa Aktualít
 news deleted.	news_admin	sk	Aktuality boli odstránené.
 news item has been added	news_admin	sk	Položka Aktualít bola pridaná
 news item has been updated	news_admin	sk	Položka Aktualít bola upravená
+news list	news_admin	sk	Zoznam aktualít
 news saved.	news_admin	sk	Aktuality uložené.
 news_admin	common	sk	Správca Aktualít
 no anonymous user accounts installed.  notify the administrator.	news_admin	sk	NEBOL NAINŠTALOVANÝ ŽIADNY ANONYMNÝ POUŽÍVATEĽSKÝ ÚČET. POZORNITE SPRÁVCU.
