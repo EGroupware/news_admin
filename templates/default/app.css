@@ -1,7 +1,7 @@
 /* $Id$ */
 .news_headline
 {
-  font-weight: bold; 
+  font-weight: bold;
   font-size: 120%;
 }
 .news_submitted
@@ -10,7 +10,7 @@
 }
 .news_teaser,.news_teaser /*textarea*/
 {
-  font-weight: bold; 
+  font-weight: bold;
 }
 .news_content
 {
@@ -18,6 +18,9 @@
   width: 100%;
 }
 
+div.et2_vbox.news_container  a {
+	display: inline !important;
+}
 .news_container {
   width: 100%;
 }
