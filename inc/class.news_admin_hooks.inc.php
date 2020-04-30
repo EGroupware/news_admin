@@ -128,17 +128,32 @@ class news_admin_hooks
 				);
 			}
 
+			// add categories, if use has rights to use them, as they are important for news_admin
+			$memberships = $GLOBALS['egw']->accounts->memberships($GLOBALS['egw_info']['user']['account_id'], true);
+			if (!(!$GLOBALS['egw_info']['user']['apps']['preferences'] || $GLOBALS['egw_info']['server']['deny_cats'] &&
+				array_intersect($memberships, (array)$GLOBALS['egw_info']['server']['deny_cats']) &&
+				!$GLOBALS['egw_info']['user']['apps']['admin']))
+			{
+				$file['Categories'] = Egw::link('/index.php', self::categories('categories'));
+			}
+
 			display_sidebox($appname,$menu_title,$file);
 		}
 
 		// do NOT show export link, if phpgwapi is not installed, as uiexport uses ancient nextmatch from phpgwapi
-		if ($GLOBALS['egw_info']['user']['apps']['admin'] && file_exists(EGW_SERVER_ROOT.'/phpgwapi'))
+		if ($GLOBALS['egw_info']['user']['apps']['admin'])
 		{
 			$title = lang('Administration');
 			$file = Array(
 				//'Site Configuration' => Egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-				'Configure RSS exports' => Egw::link('/index.php','menuaction=news_admin.uiexport.exportlist')
+				'Categories' => Egw::link('/index.php', self::categories('categories')),
 			);
+
+			// do NOT show export link, if phpgwapi is not installed, as uiexport uses ancient nextmatch from phpgwapi
+			if (file_exists(EGW_SERVER_ROOT.'/phpgwapi'))
+			{
+				$file['Configure RSS exports'] = Egw::link('/index.php', 'menuaction=news_admin.uiexport.exportlist');
+			}
 
 			if ($location == 'sidebox_menu')
 			{
