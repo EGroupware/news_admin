@@ -312,3 +312,13 @@ function news_admin_upgrade17_1()
 {
 	return $GLOBALS['setup_info']['news_admin']['currentver'] = '19.1';
 }
+
+/**
+ * Bump version to 20.1
+ *
+ * @return string
+ */
+function news_admin_upgrade19_1()
+{
+	return $GLOBALS['setup_info']['news_admin']['currentver'] = '20.1';
+}
