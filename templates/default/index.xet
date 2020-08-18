@@ -18,7 +18,7 @@
 						<nextmatch-sortheader label="Date" id="news_date" sortmode="DESC"/>
 					</vbox>
 					<nextmatch-filterheader label="Visible" id="visible"/>
-					<nextmatch-customfilter id="news_lang" options="select-lang,Default language"/>
+					<nextmatch-customfilter id="news_lang" type="select-lang" empty_label="Default language"/>
 				</row>
 				<row class="row $row_cont[class]" valign="top">
 					<vbox class="news_container">
