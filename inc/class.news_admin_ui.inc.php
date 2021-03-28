@@ -259,14 +259,14 @@ class news_admin_ui extends news_admin_bo
 	 * rows callback for index nextmatch
 	 *
 	 * @internal
-	 * @param array &$query
+	 * @param array $query
 	 * @param array &$rows returned rows/cups
 	 * @param array &$readonlys eg. to disable buttons based on acl
 	 * @return int total number of contacts matching the selection
 	 */
-	function get_cats(&$query_in,&$rows,&$readonlys)
+	function get_cats($query,&$rows,&$readonlys=null,$ignore_acl=false)
 	{
-		Api\Cache::setSession('news_admin', 'cats', $query=$query_in);
+		Api\Cache::setSession('news_admin', 'cats', $query);
 
 		$total = parent::get_cats($query,$rows);
 

@@ -219,7 +219,7 @@ class news_admin_bo extends Api\Storage\Base
 	 * @param array $filter=null if set (!=null) col-data pairs, to be and-ed (!) into the query without wildcards
 	 * @return boolean/array of matching rows (the row is an array of the cols) or False
 	 */
-	function &search($criteria,$only_keys=false,$order_by='news_date DESC',$extra_cols='',$wildcard='',$empty=False,$op='AND',$start=false,$filter=null,$join=null)
+	function &search($criteria,$only_keys=false,$order_by='news_date DESC',$extra_cols='',$wildcard='',$empty=False,$op='AND',$start=false,$filter=null,$join=null,$need_full_no_count=false)
 	{
 		//error_log(__METHOD__."(".print_r($criteria,true).",$only_keys,$order_by,".print_r($extra_cols,true).",$wildcard,$empty,$op,".print_r($start,true).",".print_r($filter,true).",$join)");
 		if (!$join)
@@ -310,10 +310,12 @@ class news_admin_bo extends Api\Storage\Base
 	 *
 	 * reimplemented to check ACL
 	 *
-	 * @param array/int $keys array with keys or integer news_id
-	 * @return array/boolean the news or false on error or not found
+	 * @param array|int $keys array with keys or integer news_id
+	 * @param string|array $extra_cols ='' string or array of strings to be added to the SELECT, eg. "count(*) as num"
+	 * @param string $join ='' sql to do a join, added as is after the table-name, eg. ", table2 WHERE x=y" or
+	 * @return array|boolean data if row could be retrived else False
 	 */
-	function read($keys)
+	function read($keys,$extra_cols='',$join='')
 	{
 		if (!is_array($keys) && (int)$keys) $keys = array('news_id' => (int)$keys);
 
@@ -328,7 +330,7 @@ class news_admin_bo extends Api\Storage\Base
 				return false;
 			}
 		}
-		elseif (!parent::read($keys) || !$this->check_acl(Acl::READ))
+		elseif (!parent::read($keys, $extra_cols, $join) || !$this->check_acl(Acl::READ))
 		{
 			return false;
 		}
@@ -512,7 +514,7 @@ class news_admin_bo extends Api\Storage\Base
 
 		if (!is_array($cat)) $cat = $this->read_cat($cat);
 
-		return $cat && (@in_array($this->user, $cat['cat_writable']) || isset($GLOBALS['egw_info']['user']['apps']['admin']));
+		return $cat && (in_array($this->user, (array)$cat['cat_writable']) || isset($GLOBALS['egw_info']['user']['apps']['admin']));
 	}
 
 	/**

@@ -259,7 +259,7 @@ class news_admin_gui extends news_admin_bo
 		if (!is_array($content['nm']))
 		{
 			$content['nm'] = array(
-				'get_rows'       =>	'news_admin.news_admin_gui.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
+				'get_rows'       =>	'news_admin.news_admin_gui.get_rrows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
 				'bottom_too'     => false,		// I  show the nextmatch-line (arrows, filters, search, ...) again after the rows
 				'start'          =>	0,			// IO position in list
 				'no_cat'         =>	true,		// IO category, if not 'no_cat' => True
@@ -314,7 +314,7 @@ class news_admin_gui extends news_admin_bo
 	 * @param array &$readonlys eg. to disable buttons based on acl
 	 * @return int total number of news matching the selection
 	 */
-	function get_rows(&$query_in,&$rows,&$readonlys)
+	function get_rrows(&$query_in,&$rows,&$readonlys)
 	{
 		Api\Cache::setSession('news_admin', $query_in['session_for'] ? $query_in['session_for'] : 'index', $query=$query_in);
 
