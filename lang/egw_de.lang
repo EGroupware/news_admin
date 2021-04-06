@@ -71,7 +71,7 @@ keep all	news_admin	de	Alle Einträge behalten
 kept %1 because of write permissions.  remove them first.	news_admin	de	%1 beibehalten wegen Schreibrechten. Löschen Sie diese Nachrichten zuerst.
 last imported	news_admin	de	Zuletzt importiert
 last updated	news_admin	de	Zuletzt aktualisiert
-limit number of description lines (default 5, 0 for no limit)	news_admin	de	Anzahl der Beschreibungszeilen (Standardwert beträgt 5, 0 für keine  Begrenzung).
+limit number of description lines (default 5, 0 for no limit)	news_admin	de	Anzahl der Beschreibungszeilen (Standardwert beträgt 5, 0 für keine Begrenzung).
 link	news_admin	de	Link
 main	news_admin	de	Hauptmenü
 maintain	news_admin	de	Pflegen
