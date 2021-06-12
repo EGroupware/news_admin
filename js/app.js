@@ -1,13 +1,16 @@
 /**
  * EGroupware - News - Javascript UI
  *
- * @link http://www.egroupware.org
+ * @link https://www.egroupware.org
  * @package news_admin
  * @author Nathan Gray
- * @copyright (c) 2014 Nathan Gray
+ * @copyright (c) 2014-21 Nathan Gray
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$
  */
+
+import 'AppJS'
+import {AppJS} from "../../api/js/jsapi/app_base.js";
+import {et2_dialog} from "../../api/js/etemplate/et2_widget_dialog";
 
 /**
  * UI for News
@@ -419,7 +422,7 @@ app.classes.news_admin = AppJS.extend(
 					{
 						template.submit();
 					}
-					egw_open(id,'news_admin','edit',{print:1});
+					egw.open(id,'news_admin','edit',{print:1});
 					break;
 				default:
 					template.submit();
@@ -436,7 +439,7 @@ app.classes.news_admin = AppJS.extend(
 	news_admin_menu_print: function(_action, _selected)
 	{
 		var id = _selected[0].id.replace(/^news_admin::/g,'');
-		egw_open(id,'news_admin','edit',{print:1});
+		egw.open(id,'news_admin','edit',{print:1});
 	},
 
 	/**
