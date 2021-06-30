@@ -8,37 +8,26 @@
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  */
 
-import {AppJS} from "../../api/js/jsapi/app_base.js";
+import {EgwApp} from '../../api/js/jsapi/egw_app';
 import {et2_dialog} from "../../api/js/etemplate/et2_widget_dialog";
+import {nm_open_popup} from "../../api/js/etemplate/et2_extension_nextmatch_actions";
 
 /**
  * UI for News
  *
  * @augments AppJS
  */
-app.classes.news_admin = AppJS.extend(
+class NewsAdminApp extends EgwApp
 {
-	appname: 'news_admin',
-
 	/**
 	 * Constructor
 	 *
-	 * @memberOf app.news_admin
 	 */
-	init: function()
+	constructor()
 	{
 		// call parent
-		this._super.apply(this, arguments);
-	},
-
-	/**
-	 * Destructor
-	 */
-	destroy: function()
-	{
-		// call parent
-		this._super.apply(this, arguments);
-	},
+		super('news_admin');
+	}
 
 	/**
 	 * This function is called when the etemplate2 object is loaded
@@ -48,10 +37,10 @@ app.classes.news_admin = AppJS.extend(
 	 * @param {etemplate2} _et2 newly ready object
 	 * @param {string} _name template name
 	 */
-	et2_ready: function(_et2, _name)
+	et2_ready(_et2, _name)
 	{
 		// call parent
-		this._super.apply(this, arguments);
+		super.et2_ready(_et2,_name);
 
 		switch(_name)
 		{
@@ -67,7 +56,7 @@ app.classes.news_admin = AppJS.extend(
 					}
 				}
 		}
-	},
+	}
 
 	/**
 	 * Observer method receives update notifications from all applications
@@ -88,7 +77,7 @@ app.classes.news_admin = AppJS.extend(
 	 * @param {object|null} _links app => array of ids of linked entries
 	 * or null, if not triggered on server-side, which adds that info
 	 */
-	observer: function(_msg, _app, _id, _type, _msg_type, _links)
+	observer(_msg, _app, _id, _type, _msg_type, _links)
 	{
 		if (typeof _links != 'undefined')
 		{
@@ -119,7 +108,7 @@ app.classes.news_admin = AppJS.extend(
 				}
 			}
 		}
-	},
+	}
 
 	/**
 	 * Retrieve the current state of the application for future restoration
@@ -129,17 +118,17 @@ app.classes.news_admin = AppJS.extend(
 	 *
 	 * @return {object} Application specific map representing the current state
 	 */
-	getState: function()
+	getState()
 	{
 		// call parent
-		var state = this._super.apply(this, arguments);
+		var state = super.getState();
 
 		var nm = this.et2 ? this.et2.getArrayMgr('content').data.nm : {};
 		state.action = nm.action || null;
 		state.action_id = nm.action_id || null;
 
 		return state;
-	},
+	}
 
 	/**
 	 * Set the application's state to the given state.
@@ -151,7 +140,7 @@ app.classes.news_admin = AppJS.extend(
 	 *
 	 * @return {boolean} false - Returns false to stop event propagation
 	 */
-	setState: function(state)
+	setState(state)
 	{
 		// as we have to set state.state.action, we have to set all other
 		// for "No filter" favorite to work as expected
@@ -164,8 +153,8 @@ app.classes.news_admin = AppJS.extend(
 		{
 			if (typeof state.state[name] == 'undefined') state.state[name] = to_set[name];
 		}
-		return this._super.apply(this, arguments);
-	},
+		return super.setState(state);
+	}
 
 	/**
 	 * Enable or disable the date filter
@@ -173,7 +162,7 @@ app.classes.news_admin = AppJS.extend(
 	 * If the filter is set to something that needs dates, we enable the
 	 * header_left template.  Otherwise, it is disabled.
 	 */
-	filter_change: function()
+	filter_change()
 	{
 		var filter = this.et2.getWidgetById('filter');
 		var nm = this.et2.getWidgetById('nm');
@@ -198,7 +187,7 @@ app.classes.news_admin = AppJS.extend(
 					break;
 			}
 		}
-	},
+	}
 
 	/**
 	 * show or hide the details of rows by selecting the filter2 option
@@ -207,7 +196,7 @@ app.classes.news_admin = AppJS.extend(
 	 * @param {Event} event Change event
 	 * @param {et2_nextmatch} nm The nextmatch widget that owns the filter
 	 */
-	filter2_change: function(event, nm)
+	filter2_change(event, nm)
 	{
 		var filter2 = nm.getWidgetById('filter2');
 
@@ -237,7 +226,7 @@ app.classes.news_admin = AppJS.extend(
 			// Update page
 			nm.dataview.updateColumns();
 		}
-	},
+	}
 
 	/**
 	 * Show or hide details by changing the CSS class
@@ -245,13 +234,13 @@ app.classes.news_admin = AppJS.extend(
 	 * @param {boolean} show
 	 * @param {DOMNode} dom_node
 	 */
-	show_details: function(show, dom_node)
+	show_details(show, dom_node)
 	{
 		// Show / hide descriptions
         egw.css((dom_node && dom_node.id ? "#"+dom_node.id+' ' : '') + ".et2_box.infoDes","display:" + (show ? "block;" : "none;"));
-	},
+	}
 
-	confirm_delete_2: function (_action, _senders)
+	confirm_delete_2(_action, _senders)
 	{
 		var children = false;
 		var child_button = jQuery('#delete_sub').get(0) || jQuery('[id*="delete_sub"]').get(0);
@@ -274,8 +263,8 @@ app.classes.news_admin = AppJS.extend(
 
 			}
 		};
-		var confirmDeleteDialog = et2_dialog.show_dialog(callbackDeleteDialog, this.egw.lang("Do you really want to DELETE this Rule"),this.egw.lang("Delete"), {},et2_dialog.BUTTONS_YES_NO_CANCEL, et2_dialog.WARNING_MESSAGE);
-	},
+		et2_dialog.show_dialog(callbackDeleteDialog, this.egw.lang("Do you really want to DELETE this Rule"),this.egw.lang("Delete"), {},et2_dialog.BUTTONS_YES_NO_CANCEL, et2_dialog.WARNING_MESSAGE);
+	}
 
 	/**
 	 * Confirm delete
@@ -284,7 +273,7 @@ app.classes.news_admin = AppJS.extend(
 	 *@param _action
 	 *@param _senders
 	 */
-	confirm_delete: function(_action, _senders)
+	confirm_delete(_action, _senders)
 	{
 		var children = false;
 		var child_button = jQuery('#delete_sub').get(0) || jQuery('[id*="delete_sub"]').get(0);
@@ -301,7 +290,7 @@ app.classes.news_admin = AppJS.extend(
 			child_button.style.display = children ? 'block' : 'none';
 		}
 		nm_open_popup(_action, _senders);
-	},
+	}
 
 	/**
 	 * Add email from addressbook
@@ -309,7 +298,7 @@ app.classes.news_admin = AppJS.extend(
 	 * @param ab_id
 	 * @param info_cc
 	 */
-	add_email_from_ab: function(ab_id,info_cc)
+	add_email_from_ab(ab_id,info_cc)
 	{
 		var ab = document.getElementById(ab_id);
 
@@ -332,79 +321,14 @@ app.classes.news_admin = AppJS.extend(
 			}
 		}
 		return false;
-	},
-
-	/**
-	* If one of info_status, info_percent or info_datecompleted changed --> set others to reasonable values
-	*
-	* @param {string} changed_id id of changed element
-	* @param {string} status_id
-	* @param {string} percent_id
-	* @param {string} datecompleted_id
-	*/
-	status_changed: function(changed_id, status_id, percent_id, datecompleted_id)
-	{
-		// Make sure this doesn't get executed while template is loading
-		if(this.et2 == null || this.et2.getInstanceManager() == null) return;
-
-		var status = document.getElementById(status_id);
-		var percent = document.getElementById(percent_id);
-		var datecompleted = document.getElementById(datecompleted_id+'[str]');
-		if(!datecompleted)
-		{
-			datecompleted = jQuery('#'+datecompleted_id +' input').get(0);
-		}
-		var completed;
-
-		switch(changed_id)
-		{
-			case status_id:
-				completed = status.value == 'done' || status.value == 'billed';
-				if (completed || status.value == 'not-started' ||
-					(status.value == 'ongoing') != (percent.value > 0 && percent.value < 100))
-				{
-					percent.value = completed ? 100 : (status.value == 'not-started' ? 0 : 10);
-				}
-				break;
-
-			case percent_id:
-				completed = percent.value == 100;
-				if (completed != (status.value == 'done' || status.value == 'billed') ||
-					(status.value == 'not-started') != (percent.value == 0))
-				{
-					status.value = percent.value == 0 ? 'not-started' : (percent.value == 100 ? 'done' : 'ongoing');
-				}
-				break;
-
-			case datecompleted_id+'[str]':
-			case datecompleted_id:
-				completed = datecompleted.value != '';
-				if (completed != (status.value == 'done' || status.value == 'billed'))
-				{
-					status.value = completed ? 'done' : 'not-started';
-				}
-				if (completed != (percent.value == 100))
-				{
-					percent.value = completed ? 100 : 0;
-				}
-				break;
-		}
-		if (!completed && datecompleted && datecompleted.value != '')
-		{
-			datecompleted.value = '';
-		}
-		else if (completed && datecompleted && datecompleted.value == '')
-		{
-			// todo: set current date in correct format
-		}
-	},
+	}
 
 	/**
 	 * handle "print" action from "Actions" selectbox in edit news_admin window.
 	 * check if the template is dirty then submit the template otherwise just open new window as print.
 	 *
 	 */
-	edit_actions: function()
+	edit_actions()
 	{
 		var widget = this.et2.getWidgetById('action');
 		var template = this.et2._inst;
@@ -427,7 +351,7 @@ app.classes.news_admin = AppJS.extend(
 					template.submit();
 			}
 		}
-	},
+	}
 
 	/**
 	 * Open news_admin entry for printing
@@ -435,16 +359,16 @@ app.classes.news_admin = AppJS.extend(
 	 * @param {aciton object} _action
 	 * @param {object} _selected
 	 */
-	news_admin_menu_print: function(_action, _selected)
+	news_admin_menu_print(_action, _selected)
 	{
 		var id = _selected[0].id.replace(/^news_admin::/g,'');
 		egw.open(id,'news_admin','edit',{print:1});
-	},
+	}
 
 	/**
 	 * Trigger print() onload window
 	 */
-	news_admin_print_preview_onload: function ()
+	news_admin_print_preview_onload()
 	{
 		var that = this;
 		jQuery('#news_admin-edit-print').bind('load',function(){
@@ -464,24 +388,24 @@ app.classes.news_admin = AppJS.extend(
 				}
 			}, 100);
 		});
-	},
+	}
 
 	/**
 	 * Trigger print() function to print the current window
 	 */
-	news_admin_print_preview: function()
+	news_admin_print_preview()
 	{
 		this.egw.message('Printing...');
 		this.egw.window.print();
-	},
+	}
 
 	/**
 	 *
 	 */
-	add_link_sidemenu: function()
+	add_link_sidemenu()
 	{
 		egw.open('','news_admin','add');
-	},
+	}
 
 	/**
 	 * Opens a new edit dialog with some extra url parameters pulled from
@@ -493,7 +417,7 @@ app.classes.news_admin = AppJS.extend(
 	 * @param _action string Special action for new news_admin entry
 	 * @param _action_id string ID for special action
 	 */
-	add_with_extras: function(widget,_type, _action, _action_id)
+	add_with_extras(widget,_type, _action, _action_id)
 	{
 		// We use widget.getRoot() instead of this.et2 for the case when the
 		// addressbook tab is viewing a contact + news_admin list, there's 2 news_admin
@@ -511,4 +435,5 @@ app.classes.news_admin = AppJS.extend(
 		};
 		egw.open('','news_admin','add',extras);
 	}
-});
+}
+app.classes.news_admin = NewsAdminApp;
