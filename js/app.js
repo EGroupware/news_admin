@@ -8,7 +8,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  */
 
-import 'AppJS'
 import {AppJS} from "../../api/js/jsapi/app_base.js";
 import {et2_dialog} from "../../api/js/etemplate/et2_widget_dialog";
 
