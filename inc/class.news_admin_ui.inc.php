@@ -57,22 +57,19 @@ class news_admin_ui extends news_admin_bo
 	{
 		if (!is_array($content))
 		{
-			if (!(int) $_GET['cat_id'] || !($content = $this->read_cat($_GET['cat_id'])))
+			if (empty($_GET['cat_id']) || !($content = $this->read_cat($_GET['cat_id'])))
 			{
 				$content = array(
 					'cat_writable' => $this->user,
 					'cat_owner' => isset($GLOBALS['egw_info']['user']['apps']['admin']) ? 0 : $this->user,
 				);
 			}
-			if($_GET['parent']) $content['cat_parent'] = (int)$_GET['parent'];
+			if (!empty($_GET['parent'])) $content['cat_parent'] = (int)$_GET['parent'];
 		}
-		else
+		elseif (!empty($content['button']))
 		{
-			if ($content['button'])
-			{
-				$button = key($content['button']);
-				unset($content['button']);
-			}
+			$button = key($content['button']);
+			unset($content['button']);
 
 			switch($button)
 			{
@@ -208,7 +205,7 @@ class news_admin_ui extends news_admin_bo
 				// Action has an additional action - add / delete, etc.  Buttons named <multi-action>_action[action_name]
 				if(in_array($multi_action, array('reader','writer')))
 				{
-					$_content['nm']['action'] .= '_' . key($_content[$multi_action.'_popup'][$multi_action . '_action']);
+					$_content['nm']['action'] .= '_' . key($_content[$multi_action.'_popup'][$multi_action . '_action'] ?? []);
 
 					if(is_array($_content[$multi_action.'_popup'][$multi_action]))
 					{

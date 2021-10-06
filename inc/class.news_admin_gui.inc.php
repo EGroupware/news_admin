@@ -97,7 +97,7 @@ class news_admin_gui extends news_admin_bo
 				$this->data['visible'] = 'always';
 			}
 		}
-		else
+		elseif (!empty($content['button']))
 		{
 			$button = key($_content['button']);
 			unset($_content['button']);
