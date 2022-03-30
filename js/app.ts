@@ -9,8 +9,8 @@
  */
 
 import {EgwApp} from '../../api/js/jsapi/egw_app';
-import {et2_dialog} from "../../api/js/etemplate/et2_widget_dialog";
 import {nm_open_popup} from "../../api/js/etemplate/et2_extension_nextmatch_actions";
+import {Et2Dialog} from "../../api/js/etemplate/Et2Dialog/Et2Dialog";
 
 /**
  * UI for News
@@ -258,12 +258,12 @@ class NewsAdminApp extends EgwApp
 		}
 		var callbackDeleteDialog = function (button_id)
 		{
-			if (button_id == et2_dialog.YES_BUTTON )
+			if(button_id == Et2Dialog.YES_BUTTON)
 			{
 
 			}
 		};
-		et2_dialog.show_dialog(callbackDeleteDialog, this.egw.lang("Do you really want to DELETE this Rule"),this.egw.lang("Delete"), {},et2_dialog.BUTTONS_YES_NO_CANCEL, et2_dialog.WARNING_MESSAGE);
+		Et2Dialog.show_dialog(callbackDeleteDialog, this.egw.lang("Do you really want to DELETE this Rule"), this.egw.lang("Delete"), {}, Et2Dialog.BUTTONS_YES_NO_CANCEL, Et2Dialog.WARNING_MESSAGE);
 	}
 
 	/**
