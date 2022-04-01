@@ -29,7 +29,7 @@
 					<description value="Owner / Read permissions" for="cat_readable"/>
 					<listbox type="select-account" id="cat_readable" rows="6" account_type="$cont[read_accounts]"/>
 					<description value="Write permissions"/>
-					<listbox type="select-account" id="cat_writable" rows="6" options="both"/>
+					<listbox type="select-account" id="cat_writable" rows="6" account_type="both"/>
 				</row>
 				<row class="row" disabled="!@import_available">
 					<description value="Import URL" for="import_url"/>
