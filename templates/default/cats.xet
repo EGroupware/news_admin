@@ -55,7 +55,8 @@
 		<box class="action_popup prompt" id="reader_popup">
 			<vbox>
 				<description value="Read permissions" class="promptheader"/>
-				<listbox type="select-account" id="reader" no_lang="1" rows="4" options="both" class="action_popup-content"/>
+				<listbox type="select-account" id="reader" no_lang="1" rows="4" account_type="both"
+                         class="action_popup-content"/>
 				<hbox>
 					<button label="Add" id="reader_action[add]" onclick="nm_submit_popup(this); return false;"/>
 					<button label="Delete" id="reader_action[delete]" onclick="nm_submit_popup(this); return false;"/>
@@ -66,7 +67,8 @@
 		<box class="action_popup prompt" id="writer_popup">
 			<vbox>
 				<description value="Write permissions" class="promptheader"/>
-				<listbox type="select-account" id="writer" no_lang="1" rows="4" options="both" class="action_popup-content"/>
+                <listbox type="select-account" id="writer" no_lang="1" rows="4" account_type="both"
+                         class="action_popup-content"/>
 				<hbox>
 					<button label="Add" id="writer_action[add]" onclick="nm_submit_popup(this); return false;"/>
 					<button label="Delete" id="writer_action[delete]" onclick="nm_submit_popup(this); return false;"/>
