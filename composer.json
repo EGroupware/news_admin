@@ -9,8 +9,5 @@
             "name": "Ralf Becker",
             "email": "rb@egroupware.org"
         }
-    ],
-	"require": {
-		"egroupware/egroupware": "self.version"
-	}
+    ]
 }
