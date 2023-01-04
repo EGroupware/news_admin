@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2//EN" "http://www.egroupware.org/etemplate2.dtd">
-<!-- $Id$ -->
+<!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
 	<template id="news_admin.cat" template="" lang="" group="0" version="1.9.002">
 		<grid>
@@ -12,51 +11,45 @@
 			</columns>
 			<rows>
 				<row class="th" height="28">
-					<description value="Name" for="cat_name"/>
-					<textbox id="cat_name" needed="1" no_lang="1" size="80" maxlength="150" span="all"/>
+					<et2-description  value="Name" for="cat_name"></et2-description>
+					<et2-textbox  id="cat_name" maxlength="150" span="all" required="1" noLang="1"></et2-textbox>
 				</row>
 				<row class="row">
-					<description value="Parent" for="cat_parent"/>
-					<menulist span="all">
-						<menupopup type="select-cat" id="cat_parent" options="None,1,,news_admin"/>
-					</menulist>
+					<et2-description  value="Parent" for="cat_parent"></et2-description>
+					<et2-select-cat  span="all" id="cat_parent" application="news_admin" emptyLabel="None" globalCategories="1"></et2-select-cat>
 				</row>
 				<row class="row" valign="top">
-					<description value="Description" for="cat_description"/>
-					<textbox multiline="true" id="cat_description" rows="3" cols="64" span="all"/>
+					<et2-description  value="Description" for="cat_description"></et2-description>
+					<et2-textarea  id="cat_description" rows="3" cols="64" span="all"></et2-textarea>
 				</row>
 				<row class="row" valign="top">
-					<description value="Owner / Read permissions" for="cat_readable"/>
-					<listbox type="select-account" id="cat_readable" rows="6" account_type="$cont[read_accounts]"/>
-					<description value="Write permissions"/>
-					<listbox type="select-account" id="cat_writable" rows="6" account_type="both"/>
+					<et2-description  value="Owner / Read permissions" for="cat_readable"></et2-description>
+					<et2-select-account  id="cat_readable" rows="6" multiple="1" accountType="$cont[read_accounts]"></et2-select-account>
+					<et2-description  value="Write permissions"></et2-description>
+					<et2-select-account  id="cat_writable" rows="6" multiple="1" accountType="both"></et2-select-account>
 				</row>
 				<row class="row" disabled="!@import_available">
-					<description value="Import URL" for="import_url"/>
-					<textbox statustext="URL of the RSS or Atom feed, empty for own news feed" id="import_url" size="80" span="all"/>
+					<et2-description  value="Import URL" for="import_url"></et2-description>
+					<et2-textbox  statustext="URL of the RSS or Atom feed, empty for own news feed" id="import_url" span="all"></et2-textbox>
 				</row>
 				<row class="row" disabled="!@import_available">
-					<description value="Import every" for="import_frequency"/>
-					<menulist>
-						<menupopup type="select-number" label="%s hours" id="import_frequency" options="never,1,24"/>
-					</menulist>
-					<button label="Import now" id="button[import]" span="all"/>
+					<et2-description  value="Import every" for="import_frequency"></et2-description>
+					<et2-select-number  label="%s hours" id="import_frequency" min="1" max="24" emptyLabel="never"></et2-select-number>
+					<et2-button  label="Import now" id="button[import]" span="all"></et2-button>
 				</row>
 				<row disabled="!@import_available">
-					<description value="Keep"/>
-					<menulist>
-						<menupopup label="%s imported news items" id="keep_imported" no_lang="1"/>
-					</menulist>
-					<description/>
-					<description/>
+					<et2-description  value="Keep"></et2-description>
+					<et2-select  label="%s imported news items" id="keep_imported" noLang="1"></et2-select>
+					<et2-description></et2-description>
+					<et2-description></et2-description>
 				</row>
 				<row>
-					<hbox span="3">
-						<button label="Save" id="button[save]"/>
-						<button label="Apply" id="button[apply]"/>
-						<button label="Cancel" id="button[cancel]" onclick="window.close();"/>
-					</hbox>
-					<button align="right" label="Delete" id="button[delete]" onclick="return confirm('Delete this category');"/>
+					<et2-hbox  span="3">
+						<et2-button  label="Save" id="button[save]"></et2-button>
+						<et2-button  label="Apply" id="button[apply]"></et2-button>
+						<et2-button  label="Cancel" id="button[cancel]" onclick="window.close();"></et2-button>
+					</et2-hbox>
+					<et2-button  align="right" label="Delete" id="button[delete]" onclick="return confirm('Delete this category');"></et2-button>
 				</row>
 			</rows>
 		</grid>

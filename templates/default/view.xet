@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2//EN" "http://www.egroupware.org/etemplate2.dtd">
-<!-- $Id$ -->
+<!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
 	<template id="news_admin.view" template="" lang="" group="0" version="1.9.002">
 		<grid width="100%">
@@ -9,30 +8,28 @@
 			</columns>
 			<rows>
 				<row>
-					<description id="news_headline" class="news_headline"/>
+					<et2-description  id="news_headline" class="news_headline"></et2-description>
 				</row>
 				<row>
-					<hbox align="right" readonly="true" class="news_submitted">
-						<menulist>
-							<menupopup type="select-account" label="Created by" id="news_submittedby" readonly="true"/>
-						</menulist>
-						<date-time id="news_date" readonly="true"/>
-					</hbox>
+					<et2-hbox  align="right" readonly="true" class="news_submitted">
+						<et2-select-account  label="Created by" id="news_submittedby" readonly="true"></et2-select-account>
+						<et2-date-time  id="news_date" readonly="true"></et2-date-time>
+					</et2-hbox>
 				</row>
 				<row>
 					<html id="news_teaser" class="news_teaser"/>
 				</row>
 				<row valign="top">
-					<box needed="1" class="news_content">
+					<et2-box  class="news_content" required="1">
 						<html id="news_content"/>
-					</box>
+					</et2-box>
 				</row>
 				<row>
-					<hbox>
-						<button label="Edit" id="edit" onclick="window.location.href=egw::link('/index.php','menuaction=news_admin.news_admin_gui.edit&amp;news_id=$row_cont[news_id]');"/>
-						<button label="Cancel" id="cancel" onclick="window.close();"/>
-						<button align="right" label="Delete" id="delete"/>
-					</hbox>
+					<et2-hbox>
+						<et2-button  label="Edit" id="edit" onclick="window.location.href=egw::link('/index.php','menuaction=news_admin.news_admin_gui.edit&amp;news_id=$row_cont[news_id]');"></et2-button>
+						<et2-button  label="Cancel" id="cancel" onclick="window.close();"></et2-button>
+						<et2-button  align="right" label="Delete" id="delete"></et2-button>
+					</et2-hbox>
 				</row>
 			</rows>
 		</grid>
