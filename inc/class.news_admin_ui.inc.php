@@ -233,21 +233,25 @@ class news_admin_ui extends news_admin_bo
 		if (!is_array($content['nm']))
 		{
 			$content['nm'] = array(
-				'get_rows'       =>	'news_admin.news_admin_ui.get_cats',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
-				'start'          =>	0,			// IO position in list
-				'no_cat'         =>	true,		// IO category, if not 'no_cat' => True
-				'search'         =>	'',			// IO search pattern
-				'order'          =>	'news_date',// IO name of the column to sort after (optional for the sortheaders)
-				'sort'           =>	'DESC',		// IO direction of the sort: 'ASC' or 'DESC'
-				'col_filter'     =>	array(),	// IO array of column-name value pairs (optional for the filterheaders)
-				'no_filter'      => true,
-				'no_filter2'     => true,
-				'row_id'         => 'id',
-				'actions'        => $this->get_actions()
+				'get_rows'   =>	'news_admin.news_admin_ui.get_cats',    // I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
+				'start'      =>	0,            // IO position in list
+				'no_cat'     =>	true,        // IO category, if not 'no_cat' => True
+				'search'     =>	'',            // IO search pattern
+				'order'      => 'news_date',// IO name of the column to sort after (optional for the sortheaders)
+				'sort'       => 'DESC',        // IO direction of the sort: 'ASC' or 'DESC'
+				'col_filter' => array(),    // IO array of column-name value pairs (optional for the filterheaders)
+				'no_filter'  => true,
+				'no_filter2' => true,
+				'row_id'     => 'id',
+				'actions'    => $this->get_actions()
 			);
 		}
 		$this->tpl->read('news_admin.cats');
-		return $this->tpl->exec('news_admin.news_admin_ui.cats',$content,array(
+		if($_GET['user'])
+		{
+			$this->tpl->set_dom_id("news_admin-cats-user");
+		}
+		return $this->tpl->exec('news_admin.news_admin_ui.cats', $content, array(
 			'owner' => array(Api\Categories::GLOBAL_ACCOUNT => lang('All users'))
 		));
 	}

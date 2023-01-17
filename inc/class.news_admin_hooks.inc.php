@@ -100,7 +100,7 @@ class news_admin_hooks
 				array_intersect($memberships, (array)$GLOBALS['egw_info']['server']['deny_cats']) &&
 				!$GLOBALS['egw_info']['user']['apps']['admin']))
 			{
-				$file['Categories'] = Egw::link('/index.php', self::categories('categories'));
+				$file['Categories'] = Egw::link('/index.php', self::categories('categories') + ['user' => true]);
 			}
 
 			display_sidebox($appname,$menu_title,$file);
@@ -110,9 +110,9 @@ class news_admin_hooks
 		if ($GLOBALS['egw_info']['user']['apps']['admin'])
 		{
 			$title = lang('Administration');
-			$file = Array(
+			$file = array(
 				//'Site Configuration' => Egw::link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-				'Categories' => Egw::link('/index.php', self::categories('categories')),
+				'Categories' => Egw::link('/index.php', self::categories('categories'), 'admin'),
 			);
 
 			// do NOT show export link, if phpgwapi is not installed, as uiexport uses ancient nextmatch from phpgwapi
