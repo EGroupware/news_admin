@@ -53,7 +53,7 @@
 					<et2-hbox  span="4">
 						<et2-button  label="Save" id="button[save]"></et2-button>
 						<et2-description  value="as"></et2-description>
-						<et2-select-lang  id="news_lang" emptyLabel="Default languages"></et2-select-lang>
+						<et2-select-lang  id="news_lang" emptyLabel="Default languages" placement="top"></et2-select-lang>
 						<et2-button  label="Apply" id="button[apply]"></et2-button>
 						<et2-button  label="Reload" id="button[reload]"></et2-button>
 						<et2-button  label="Cancel" id="button[cancel]" onclick="window.close();"></et2-button>
