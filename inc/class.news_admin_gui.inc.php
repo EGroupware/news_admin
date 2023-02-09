@@ -97,7 +97,7 @@ class news_admin_gui extends news_admin_bo
 				$this->data['visible'] = 'always';
 			}
 		}
-		elseif (!empty($content['button']))
+		elseif (!empty($_content['button']))
 		{
 			$button = key($_content['button']);
 			unset($_content['button']);
@@ -106,7 +106,7 @@ class news_admin_gui extends news_admin_bo
 			switch($button)
 			{
 				case 'delete':
-					if ($this->check_acl(Acl::DELETE))
+					if($this->check_acl(Acl::DELETE))
 					{
 						$this->delete(array('news_id' => $this->data['news_id']));
 						Framework::refresh_opener(lang('News deleted.'), 'news_admin', $this->data['news_id'], 'delete');
