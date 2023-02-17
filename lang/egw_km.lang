@@ -1,0 +1,136 @@
+%1 entries %2	news_admin	km	%1 ធាតុ %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	km	%1 ធាតុ %2, %3 បានបរាជ័យ ដោយសារសិទ្ធិមិនគ្រប់គ្រាន់ !!!
+%1 module	news_admin	km	ម៉ូឌុល %1
+%1 news imported (%2 new, %3 deleted).	news_admin	km	ដំណឹង %1 ត្រូវបាននាំចូល។ %2 ថ្មី %3 បានលុប។
+%s hours	news_admin	km	%s ម៉ោង
+%s imported news items	news_admin	km	%s ធាតុព័ត៌មានដែលបាននាំចូល
+actions	news_admin	km	សកម្មភាព
+active	news_admin	km	សកម្ម
+add new article	news_admin	km	បន្ថែមអត្ថបទថ្មី។
+add new news	news_admin	km	បន្ថែមព័ត៌មានថ្មី។
+add news item	news_admin	km	បន្ថែមធាតុព័ត៌មាន
+all news	news_admin	km	ព័ត៌មានទាំងអស់។
+all users	news_admin	km	អ្នក​ប្រើ​ទាំងអស់
+always	news_admin	km	ជានិច្ច
+as	news_admin	km	ជា
+as imported	news_admin	km	ដូចដែលបាននាំចូល
+by date	news_admin	km	តាមកាលបរិច្ឆេទ
+categories to displayed on main page?	news_admin	km	ប្រភេទដែលត្រូវបង្ហាញនៅលើទំព័រដើម
+category deleted.	news_admin	km	ប្រភេទត្រូវបានលុប។
+category saved.	news_admin	km	បាន​រក្សា​ទុក​ប្រភេទ។
+choose a category	news_admin	km	ជ្រើសរើសប្រភេទ
+comma separated item ids which shall be shown (empty = all)	news_admin	km	លេខសម្គាល់ធាតុដែលបំបែកដោយសញ្ញាក្បៀសដែលនឹងត្រូវបានបង្ហាញ។ ទទេ = ទាំងអស់។
+configuration	news_admin	km	ការកំណត់​រចនាសម្ព័ន្ធ
+configure access permissions	common	km	កំណត់រចនាសម្ព័ន្ធ ACL
+configure rss exports	common	km	កំណត់រចនាសម្ព័ន្ធការនាំចេញ RSS
+contains html	news_admin	km	មាន HTML
+content	news_admin	km	មាតិកា
+count	news_admin	km	រាប់
+date and time	news_admin	km	កាលបរិច្ឆេទ​និង​ពេលវេលា
+date of entry, newest first	news_admin	km	កាលបរិច្ឆេទនៃការចូល ថ្មីបំផុតមុនគេ
+default language	news_admin	km	ភាសាលំនាំដើម
+default languages	news_admin	km	ភាសាលំនាំដើម
+delete these categories, and all news in them	news_admin	km	លុបប្រភេទទាំងនេះ និងព័ត៌មានទាំងអស់នៅក្នុងពួកវា
+delete this category, and all news in it	news_admin	km	លុបប្រភេទនេះ និងព័ត៌មានទាំងអស់នៅក្នុងវា។
+delete this news	news_admin	km	លុបព័ត៌មាននេះ។
+deleted	news_admin	km	បានលុប
+do you want to publish a rss feed for this news category	news_admin	km	បោះពុម្ពផ្សាយព័ត៌មាន RSS សម្រាប់ប្រភេទព័ត៌មាននេះ។
+edit news item	news_admin	km	កែសម្រួលព័ត៌មាន
+end	news_admin	km	ចប់
+end date (if selected), first ending first, then unterminated	news_admin	km	កាលបរិច្ឆេទបញ្ចប់ (ប្រសិនបើបានជ្រើសរើស) បញ្ចប់ដំបូង ហើយបន្ទាប់មកមិនបញ្ចប់
+error importing the feed!	news_admin	km	មាន​បញ្ហា​ក្នុង​ការ​នាំចូល​មតិព័ត៌មាន!
+error saving the category!	news_admin	km	កំហុសក្នុងការរក្សាទុកប្រភេទ!
+error saving the news!	news_admin	km	កំហុសក្នុងការរក្សាទុកព័ត៌មាន!
+failed to add message	news_admin	km	បរាជ័យក្នុងការបន្ថែមសារថ្មី។
+format for links to items	news_admin	km	ទម្រង់សម្រាប់តំណភ្ជាប់ទៅធាតុ
+format of export	news_admin	km	ទម្រង់នៃការនាំចេញ
+from	news_admin	km	ពី
+from all	news_admin	km	ពីទាំងអស់។
+future	news_admin	km	អនាគត
+global categories	news_admin	km	ប្រភេទសកល
+global news	news_admin	km	ព័ត៌មានសកល
+global_news	news_admin	km	Global_News
+headline	news_admin	km	បន្ទាត់ក្បាល
+headline with link	news_admin	km	បន្ទាត់ក្បាលជាមួយតំណភ្ជាប់
+how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	km	តើ​មាន​បន្ទាត់​ពណ៌នា​ប៉ុន្មាន​ដែល​គួរ​មើល​ឃើញ​ដោយ​ផ្ទាល់។ បន្ទាត់​បន្ថែម​អាច​ប្រើ​បាន​តាម​រយៈ​របារ​រមូរ។
+how shall the articles be sorted?	news_admin	km	តើអត្ថបទត្រូវតម្រៀបយ៉ាងដូចម្តេច?
+if you specify an export definition, it will be used when you export	news_admin	km	ប្រសិនបើអ្នកបញ្ជាក់និយមន័យនាំចេញ វានឹងត្រូវបានប្រើនៅពេលអ្នកនាំចេញ។
+image link	news_admin	km	តំណភ្ជាប់រូបភាព
+image title	news_admin	km	ចំណងជើងរូបភាព
+image url	news_admin	km	URL រូបភាព
+implies read permission	news_admin	km	បង្កប់ន័យការអនុញ្ញាតអាន
+import every	news_admin	km	នាំចូលជារៀងរាល់
+import now	news_admin	km	នាំចូលឥឡូវនេះ
+import url	news_admin	km	នាំចូល URL
+imported feeds can not be writable!	news_admin	km	មតិព័ត៌មានដែលបាននាំចូលមិនអាចសរសេរបានទេ!
+imported news items	news_admin	km	ធាតុព័ត៌មានដែលបាននាំចូល
+item has been deleted	news_admin	km	ធាតុត្រូវបានលុប។
+item not found	news_admin	km	រកមិនឃើញធាតុទេ។
+keep	news_admin	km	រក្សា
+keep all	news_admin	km	រក្សាទាំងអស់។
+kept %1 because of write permissions.  remove them first.	news_admin	km	បាន​រក្សា %1 ដោយ​សារ​ការ​អនុញ្ញាត​ការ​សរសេរ។ យកពួកវាចេញជាមុនសិន។
+last imported	news_admin	km	នាំចូលចុងក្រោយ
+last updated	news_admin	km	ធ្វើ​ឱ្យ​ទាន់សម័យ​ចុងក្រោយ
+limit number of description lines (default 5, 0 for no limit)	news_admin	km	កំណត់ចំនួនបន្ទាត់ពិពណ៌នា (លំនាំដើម 5, 0 សម្រាប់គ្មានដែនកំណត់)
+link	news_admin	km	តំណភ្ជាប់
+main	news_admin	km	មេ
+maintain	news_admin	km	ថែរក្សា
+maintain news	admin	km	រក្សាព័ត៌មាន
+message has been added	news_admin	km	សារត្រូវបានបន្ថែម។
+more news	news_admin	km	ព័ត៌មាន​បន្ថែម
+more news link	news_admin	km	តំណភ្ជាប់ព័ត៌មានច្រើនទៀត
+new item has been added	news_admin	km	ធាតុថ្មីត្រូវបានបន្ថែម។
+news	news_admin	km	ព័ត៌មាន
+news admin	news_admin	km	ព័ត៌មាន
+news administration	news_admin	km	ការគ្រប់គ្រងព័ត៌មាន
+news deleted.	news_admin	km	ព័ត៌មានត្រូវបានលុប។
+news item has been added	news_admin	km	ធាតុព័ត៌មានត្រូវបានបន្ថែម។
+news item has been updated	news_admin	km	ធាតុព័ត៌មានត្រូវបានធ្វើបច្ចុប្បន្នភាព។
+news list	news_admin	km	បញ្ជីព័ត៌មាន
+news saved.	news_admin	km	បានរក្សាទុកព័ត៌មាន។
+news_admin	common	km	ព័ត៌មាន
+no anonymous user accounts installed.  notify the administrator.	news_admin	km	គ្មានគណនីអ្នកប្រើប្រាស់អនាមិកត្រូវបានដំឡើងទេ។ ជូនដំណឹងដល់អ្នកគ្រប់គ្រង។
+no entries found	news_admin	km	រកមិនឃើញធាតុទេ។
+no matching news item	news_admin	km	មិនមានធាតុព័ត៌មានដែលត្រូវគ្នាទេ។
+no news	news_admin	km	មិនមានព័ត៌មាននៅក្នុងប្រភេទទេ។
+no rss export	news_admin	km	គ្មានការនាំចេញ RSS ទេ
+now	news_admin	km	ឥឡូវ​នេះ
+number of news items to be displayed on page	news_admin	km	ចំនួនព័ត៌មានដែលត្រូវបង្ហាញនៅលើទំព័រ
+old	news_admin	km	ចាស់
+on	news_admin	km	បើក
+owner / read permissions	news_admin	km	ម្ចាស់ / អានការអនុញ្ញាត
+page-name the item should be displayed (empty = current page)	news_admin	km	ឈ្មោះទំព័រដែលធាតុគួរតែត្រូវបានបង្ហាញ។ ទទេ = ទំព័របច្ចុប្បន្ន។
+parent	news_admin	km	ឪពុកម្តាយ
+picture upload (leave the upload directory empty to disable the upload)	admin	km	ការបង្ហោះរូបភាព។ ទុក​ថត​ឯកសារ​ផ្ទុក​ឡើង​ទទេ ដើម្បី​បិទ​ការ​ផ្ទុក​ឡើង។
+please select a category	news_admin	km	ជ្រើសរើសប្រភេទមួយ។
+publish date	news_admin	km	កាលបរិច្ឆេទចេញផ្សាយ
+read more	news_admin	km	អាន​បន្ថែម
+read news	news_admin	km	អានព័ត៌មាន
+read permissions	news_admin	km	អានការអនុញ្ញាត
+reload	news_admin	km	ផ្ទុកឡើងវិញ
+send mail to others	news_admin	km	ផ្ញើសំបុត្រ
+show latest news articles?	news_admin	km	បង្ហាញអត្ថបទព័ត៌មានថ្មីៗ
+show news articles on main page?	news_admin	km	បង្ហាញអត្ថបទព័ត៌មាននៅលើទំព័រដើម
+small view	news_admin	km	ទិដ្ឋភាពតូច
+start	news_admin	km	ចាប់ផ្តើម
+start date (if selected), last started first, then unterminated	news_admin	km	កាលបរិច្ឆេទចាប់ផ្តើម (ប្រសិនបើបានជ្រើសរើស) ចុងក្រោយចាប់ផ្តើមដំបូង បន្ទាប់មកមិនបញ្ចប់
+submitted by	common	km	ដាក់​ជូន​ដោយ
+submitted by %1 on %2	news_admin	km	បានដាក់ស្នើដោយ%1 នៅលើ %2
+submitted by and date	news_admin	km	បានដាក់ស្នើដោយកាលបរិច្ឆេទ
+teaser	news_admin	km	ឈុតខ្លីៗ
+teaser with read more link	news_admin	km	ឈុតខ្លីៗជាមួយតំណភ្ជាប់អានបន្ថែម
+the news content is missing	news_admin	km	មិនមានខ្លឹមសារព័ត៌មានទេ។
+the subject is missing	news_admin	km	មិនមានប្រធានបទទេ។
+there no such translation.	news_admin	km	មិនមានការបកប្រែទេ។
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	km	ម៉ូឌុលនេះផ្សព្វផ្សាយព័ត៌មានពីកម្មវិធី news_admin នៅលើគេហទំព័ររបស់អ្នក។ ត្រូវដឹងពីការរឹតបន្តឹង ACL របស់ news_admin ។
+until	news_admin	km	រហូតដល់
+update rss feed	news_admin	km	ធ្វើបច្ចុប្បន្នភាពព័ត៌មាន RSS
+updated	news_admin	km	បានធ្វើបច្ចុប្បន្នភាព
+url of the rss or atom feed, empty for own news feed	news_admin	km	URL នៃ RSS ឬ Atom feed ទទេសម្រាប់ព័ត៌មានផ្ទាល់ខ្លួន
+view this category	news_admin	km	មើលប្រភេទនេះ
+visible	news_admin	km	ដែល​អាច​មើលឃើញ
+webpage news admin	news_admin	km	អ្នកគ្រប់គ្រងព័ត៌មានគេហទំព័រ
+which information do you want to show (css class)	news_admin	km	តើព័ត៌មានមួយណាដែលអ្នកចង់បង្ហាញ (ថ្នាក់ CSS)
+write	news_admin	km	សរសេរ
+write permissions	news_admin	km	សរសេរការអនុញ្ញាត
+you need to select some entries first	news_admin	km	អ្នកត្រូវជ្រើសរើសធាតុមួយចំនួនជាមុនសិន
