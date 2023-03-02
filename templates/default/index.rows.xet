@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
+<overlay>
+    <template id="news_admin.index.rows" template="" lang="" group="0" version="1.9.003">
+        <grid width="100%">
+            <columns>
+                <column width="80%"/>
+                <column width="120"/>
+                <column width="100"/>
+                <column width="100"/>
+            </columns>
+            <rows>
+                <row class="th">
+                    <et2-description value="News"></et2-description>
+                    <et2-vbox>
+                        <et2-nextmatch-header-account id="news_submittedby" emptyLabel="From all"/>
+                        <nextmatch-sortheader label="Date" id="news_date" sortmode="DESC"/>
+                    </et2-vbox>
+                    <et2-nextmatch-header-filter label="Visible" id="visible"/>
+                    <et2-nextmatch-header-custom id="news_lang" emptyLabel="Default language" widgetType="select-lang"/>
+                </row>
+                <row class="row $row_cont[class]" valign="top">
+                    <et2-vbox class="news_container">
+                        <et2-description id="${row}[news_headline]" href="$row_cont[link]" class="news_headline"
+                                         noLang="1" extraLinkTarget="_blank"></et2-description>
+                        <html id="${row}[news_teaser]" no_lang="1" options=",,1" class="news_teaser"/>
+                        <et2-box class="news_content">
+                            <html id="${row}[news_content]"/>
+                        </et2-box>
+                    </et2-vbox>
+                    <et2-vbox>
+                        <et2-select-account id="${row}[news_submittedby]" readonly="true"></et2-select-account>
+                        <et2-date-time id="${row}[news_date]" readonly="true"></et2-date-time>
+                    </et2-vbox>
+                    <et2-vbox>
+                        <et2-select id="${row}[visible]" readonly="true"></et2-select>
+                        <et2-date id="${row}[news_begin]" readonly="true"></et2-date>
+                        <et2-date id="${row}[news_end]" readonly="true"></et2-date>
+                    </et2-vbox>
+                    <et2-select-lang id="${row}[news_lang]" readonly="true"></et2-select-lang>
+                </row>
+            </rows>
+        </grid>
+    </template>
+</overlay>
