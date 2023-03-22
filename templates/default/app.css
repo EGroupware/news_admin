@@ -24,3 +24,8 @@ div.et2_vbox.news_container  a {
 .news_container {
   width: 100%;
 }
+
+/* fix height of images in news list */
+table.egwGridView_grid .news_content img, table.egwGridView_grid .news_teaser img {
+	height: auto;
+}
