@@ -28,6 +28,7 @@ content	news_admin	es-es	Contenido
 count	news_admin	es-es	Contar
 date and time	news_admin	es-es	Fecha y hora
 date of entry, newest first	news_admin	es-es	Fecha de la entrada, las más recientes primero
+default language	news_admin	es-es	Idioma predeterminado
 default languages	news_admin	es-es	Idiomas predeterminados
 delete these categories, and all news in them	news_admin	es-es	Borrar estas categorías y todas las noticias que contengan
 delete this category, and all news in it	news_admin	es-es	Borrar esta categoría y todas las noticias que contenga
@@ -85,6 +86,7 @@ news administration	news_admin	es-es	Administración de noticias
 news deleted.	news_admin	es-es	Noticia borrada
 news item has been added	news_admin	es-es	Se ha añadido un elemento de noticias
 news item has been updated	news_admin	es-es	Se ha actualizado un elemento de noticias
+news list	news_admin	es-es	Lista de noticias
 news saved.	news_admin	es-es	Noticia guardada
 news_admin	common	es-es	Administrador de noticias
 no anonymous user accounts installed.  notify the administrator.	news_admin	es-es	NO HAY CUENTA INSTALADA PARA EL USUARIO ANONIMO. NOTIFIQUELO AL ADMINISTRADOR.
