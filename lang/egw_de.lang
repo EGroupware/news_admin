@@ -13,7 +13,7 @@ all news	news_admin	de	Alle Nachrichten
 all users	news_admin	de	Alle Benutzer
 always	news_admin	de	Immer
 as	news_admin	de	als
-as imported	news_admin	de	wie importiert
+as imported	news_admin	de	Wie importiert
 by date	news_admin	de	Nach Datum
 categories to displayed on main page?	news_admin	de	Kategorien zum Anzeigen auf der Startseite?
 category deleted.	news_admin	de	Kategorie gelöscht.
@@ -30,8 +30,8 @@ date and time	news_admin	de	Datum und Uhrzeit
 date of entry, newest first	news_admin	de	Datum des Eintrags, neueste zuerst
 default language	news_admin	de	Standard Sprache
 default languages	news_admin	de	Standard Sprache
-delete these categories, and all news in them	news_admin	de	Löst alle diese Kategorien und alle Nachrichten diesen Kategorien.
-delete this category, and all news in it	news_admin	de	Löst alle diese Kategorie und alle Nachrichten dieser Kategorie
+delete these categories, and all news in them	news_admin	de	Löscht alle diese Kategorien und alle Nachrichten diesen Kategorien.
+delete this category, and all news in it	news_admin	de	Löscht diese Kategorie und alle Nachrichten dieser Kategorie
 delete this news	news_admin	de	Diese Nachricht löschen
 deleted	news_admin	de	Gelöscht.
 do you want to publish a rss feed for this news category	news_admin	de	Wollen Sie einen RSS-Feed mit Link für diese Kategorie anzeigen
@@ -66,7 +66,7 @@ imported feeds can not be writable!	news_admin	de	Importierte Nachrichten-Feeds 
 imported news items	news_admin	de	Importierte Nachrichten
 item has been deleted	news_admin	de	Nachricht gelöscht
 item not found	news_admin	de	Nachricht nicht gefunden
-keep	news_admin	de	beibehalten
+keep	news_admin	de	Beibehalten
 keep all	news_admin	de	Alle Einträge behalten
 kept %1 because of write permissions.  remove them first.	news_admin	de	%1 beibehalten wegen Schreibrechten. Löschen Sie diese Nachrichten zuerst.
 last imported	news_admin	de	Zuletzt importiert
@@ -92,7 +92,7 @@ news_admin	common	de	Nachrichten
 no anonymous user accounts installed.  notify the administrator.	news_admin	de	ES ist keine Anonymer Benutzeraccount installiert. Benachrichtigen Sie den Administrator.
 no entries found	news_admin	de	Keine Einträge gefunden
 no matching news item	news_admin	de	Keine zutreffenden Nachrichten
-no news	news_admin	de	In dieser Kategorie sind keine News vorhanden
+no news	news_admin	de	In dieser Kategorie sind keine Nachrichten vorhanden
 no rss export	news_admin	de	Kein RSS Export
 now	news_admin	de	Jetzt
 number of news items to be displayed on page	news_admin	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
@@ -104,7 +104,7 @@ parent	news_admin	de	Elternelement
 picture upload (leave the upload directory empty to disable the upload)	admin	de	Hochladen von Dateien (Lassen sie die Felder frei um das Hochladen abzuschalten)
 please select a category	news_admin	de	Bitte wählen Sie eine Kategorie
 publish date	news_admin	de	Veröffentlichungsdatum
-read more	news_admin	de	weiter lesen
+read more	news_admin	de	Weiter lesen
 read news	news_admin	de	Nachrichten lesen
 read permissions	news_admin	de	Leserechte
 reload	news_admin	de	Nachladen
@@ -118,12 +118,12 @@ submitted by	common	de	Eingetragen von
 submitted by %1 on %2	news_admin	de	Eingetragen von %1 am %2
 submitted by and date	news_admin	de	Eingetragen von und mit Datum
 teaser	news_admin	de	Anreißer
-teaser with read more link	news_admin	de	Anreißer mit weiter lesen Link
+teaser with read more link	news_admin	de	Anreißer mit "Weiter lesen"-Link
 the news content is missing	news_admin	de	Es ist kein Inhalt der Nachricht vorhanden
 the subject is missing	news_admin	de	Diese Nachricht hat keinen Titel
 there no such translation.	news_admin	de	Für diese Nachricht gibt es keine Übersetzung
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	de	Diese Module zeigt Nachrichten der Nachrichten Anwendung auf Ihrer Website an. Bitte beachten Sie die ACL's der Nachrichten Anwendung.
-until	news_admin	de	bis
+until	news_admin	de	Bis
 update rss feed	news_admin	de	RSS Nachrichten-Feed aktualisieren
 updated	news_admin	de	Aktualisiert
 url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS oder Atome Feed, leer für einen eigenen Nachrichten-Feed
