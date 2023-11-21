@@ -27,6 +27,8 @@ contains html	news_admin	fr	Contient du HTML
 content	news_admin	fr	Contenu
 count	news_admin	fr	Décompte
 date and time	news_admin	fr	Date et heure
+date of entry, newest first	news_admin	fr	Date d'entrée, la plus récente en premier
+default language	news_admin	fr	Langue par défaut
 default languages	news_admin	fr	Langue par défaut
 delete these categories, and all news in them	news_admin	fr	Supprimer ces catégories et tous les communiqués de celles-ci
 delete this category, and all news in it	news_admin	fr	Supprimer cette catégorie et tous communiqués de celle-ci
@@ -35,6 +37,7 @@ deleted	news_admin	fr	supprimé
 do you want to publish a rss feed for this news category	news_admin	fr	Voulez-vous publier un flux RSS pour cette catégorie de communiqués ?
 edit news item	news_admin	fr	Modifier un communiqué
 end	news_admin	fr	Fin
+end date (if selected), first ending first, then unterminated	news_admin	fr	Date de fin (si sélectionnée), la première fin en premier, puis sans fin
 error importing the feed!	news_admin	fr	Erreur lors de l'importation du flux !
 error saving the category!	news_admin	fr	Erreur lors de l'enregistrement de la catégorie !
 error saving the news!	news_admin	fr	Erreur lors de l'enregistrement du communiqué !
@@ -44,17 +47,18 @@ format of export	news_admin	fr	Format d'export
 from	news_admin	fr	Depuis
 from all	news_admin	fr	Depuis tous
 future	news_admin	fr	Futur
-global categories	news_admin	fr	catégories globales
+global categories	news_admin	fr	Catégories globales
 global news	news_admin	fr	Communiqués Globaux
 global_news	news_admin	fr	Communiqués_Globaux
 headline	news_admin	fr	Entête
 headline with link	news_admin	fr	Entête avec lien
 how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	fr	Combien de lignes de descriptions devraient être directement visibles. Les lignes supplémentaires sont disponibles via une barre de défilement.
+how shall the articles be sorted?	news_admin	fr	Comment les articles doivent-ils être triés ?
 if you specify an export definition, it will be used when you export	news_admin	fr	Si vous spécifier un format d'export, il sera utilisé à l'export.
 image link	news_admin	fr	Lien Image
 image title	news_admin	fr	Titre Image
 image url	news_admin	fr	URL Image
-implies read permission	news_admin	fr	implique les droits en lecture
+implies read permission	news_admin	fr	Implique les droits en lecture
 import every	news_admin	fr	Importer tous les
 import now	news_admin	fr	Importer maintenant
 import url	news_admin	fr	Importer l'URL
@@ -82,6 +86,7 @@ news administration	news_admin	fr	Administration des communiqués
 news deleted.	news_admin	fr	Communiqués supprimés.
 news item has been added	news_admin	fr	Communiqué ajouté
 news item has been updated	news_admin	fr	Communiqués mis à jour
+news list	news_admin	fr	Liste des nouvelles
 news saved.	news_admin	fr	Communiqués enregistrés.
 news_admin	common	fr	Communiqués
 no anonymous user accounts installed.  notify the administrator.	news_admin	fr	IL N'Y A PAS DE COMPTE UTILISATEUR ANONYME INSTALLE.  PREVENEZ L'ADMINISTRATEUR.
@@ -92,7 +97,7 @@ no rss export	news_admin	fr	Pas d'exportation RSS
 now	news_admin	fr	Maintenant
 number of news items to be displayed on page	news_admin	fr	Nombre d'articles à afficher dans la page
 old	news_admin	fr	Ancien
-on	news_admin	fr	le
+on	news_admin	fr	Le
 owner / read permissions	news_admin	fr	Propriétaire / Droits de lecture
 page-name the item should be displayed (empty = current page)	news_admin	fr	Le nom de la page de l'élément doit être affiché (si vide = page courante)
 parent	news_admin	fr	Parent
@@ -106,8 +111,9 @@ reload	news_admin	fr	Recharger
 send mail to others	news_admin	fr	Envoyer un email aux autres
 show latest news articles?	news_admin	fr	Montrer les derniers articles des communiqués?
 show news articles on main page?	news_admin	fr	Montrer les communiqués sur la page principale?
-small view	news_admin	fr	vue réduite
+small view	news_admin	fr	Vue réduite
 start	news_admin	fr	Début
+start date (if selected), last started first, then unterminated	news_admin	fr	Date de début (si sélectionnée), le dernier ayant commencé en premier, puis non terminé
 submitted by	common	fr	Soumis par
 submitted by %1 on %2	news_admin	fr	Soumis par %1 le %2
 submitted by and date	news_admin	fr	Soumis par date et par
