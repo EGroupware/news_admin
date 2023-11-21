@@ -1,5 +1,9 @@
+%1 entries %2	news_admin	cs	%1 položky %2
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	cs	%1 záznamy %2, %3 se nepodařilo zařadit z důvodu nedostatečných práv !!!
 %1 module	news_admin	cs	modul %1
+%1 news imported (%2 new, %3 deleted).	news_admin	cs	%1 novinky importovány. %2 nové, %3 smazané.
 %s hours	news_admin	cs	%s hodin(y)
+%s imported news items	news_admin	cs	%s importovaných novinek
 actions	news_admin	cs	Akce
 active	news_admin	cs	Aktivní
 add new article	news_admin	cs	Přidat nový článek
@@ -9,11 +13,13 @@ all news	news_admin	cs	Všechny novinky
 all users	news_admin	cs	Všichni uživatelé
 always	news_admin	cs	Vždy
 as	news_admin	cs	jako
+as imported	news_admin	cs	Jak bylo importováno
 by date	news_admin	cs	Podle data
 categories to displayed on main page?	news_admin	cs	Které kategorie by se měly zobrazit na hlavní straně?
 category deleted.	news_admin	cs	Kategorie byla smazána.
 category saved.	news_admin	cs	Kategorie byla uložena.
 choose a category	news_admin	cs	Vybrat kategorii
+comma separated item ids which shall be shown (empty = all)	news_admin	cs	ID položek oddělené čárkou, které se zobrazí. Prázdné = všechny
 configuration	news_admin	cs	Konfigurace
 configure access permissions	common	cs	Konfigurovat přístupová práva
 configure rss exports	common	cs	Konfigurovat RSS exporty
@@ -21,11 +27,17 @@ contains html	news_admin	cs	Obsahuje HTML
 content	news_admin	cs	Obsah
 count	news_admin	cs	Počet
 date and time	news_admin	cs	Datum a čas
+date of entry, newest first	news_admin	cs	Datum vložení, nejnovější jako první
+default language	news_admin	cs	Výchozí jazyk
+default languages	news_admin	cs	Výchozí jazyky
+delete these categories, and all news in them	news_admin	cs	Smazat tyto kategorie a všechny novinky v nich
+delete this category, and all news in it	news_admin	cs	Smazat tuto kategorii a všechny novinky v ní
 delete this news	news_admin	cs	Smazat tuto novinku
 deleted	news_admin	cs	smazáno
 do you want to publish a rss feed for this news category	news_admin	cs	Chcete publikovat RSS feed pro tuto kategorii novinek
 edit news item	news_admin	cs	Editovat položku novinek
 end	news_admin	cs	Konec
+end date (if selected), first ending first, then unterminated	news_admin	cs	Datum ukončení (pokud je vybráno), nejprve končí první, pak neukončené
 error importing the feed!	news_admin	cs	Chyba při importu feedu!
 error saving the category!	news_admin	cs	Chyba při ukládání kategorie!
 error saving the news!	news_admin	cs	Chyba při ukládání novinek
@@ -35,22 +47,29 @@ format of export	news_admin	cs	Formát exportu
 from	news_admin	cs	Od
 from all	news_admin	cs	Od všech
 future	news_admin	cs	Budoucí
-global categories	news_admin	cs	globální kategorie
+global categories	news_admin	cs	Globální kategorie
 global news	news_admin	cs	Globální novinky
 global_news	news_admin	cs	Globální novinky
 headline	news_admin	cs	Nadpis
 headline with link	news_admin	cs	Nadpis s odkazem
 how many description lines should be directly visible. further lines are available via a scrollbar.	news_admin	cs	Kolik řádek popisu má být vidět přímo. Ostatní řádky budou dostupné přes posouvací lištu.
+how shall the articles be sorted?	news_admin	cs	Jak se mají články řadit?
+if you specify an export definition, it will be used when you export	news_admin	cs	Pokud zadáte definici exportu, bude použita při exportu.
 image link	news_admin	cs	Odkaz na obrázek
 image title	news_admin	cs	Titulek obrázku
 image url	news_admin	cs	URL obrázku
-implies read permission	news_admin	cs	z toho vyplývají práva pro čtení
+implies read permission	news_admin	cs	Z toho vyplývají práva pro čtení
 import every	news_admin	cs	Importovat každé
 import now	news_admin	cs	Importovat nyní
 import url	news_admin	cs	Importovat URL
 imported feeds can not be writable!	news_admin	cs	Naimportované feedy nemou být dostupné pro zápis!
+imported news items	news_admin	cs	Importované novinky
 item has been deleted	news_admin	cs	Položka byla smazána
 item not found	news_admin	cs	Položka nebyla nalezena
+keep	news_admin	cs	Zachovat
+keep all	news_admin	cs	Zachovat všechny
+kept %1 because of write permissions.  remove them first.	news_admin	cs	Zachováno %1 z důvodu oprávnění k zápisu. Nejprve je odstraňte.
+last imported	news_admin	cs	Poslední importované
 last updated	news_admin	cs	Poslední aktualizace
 limit number of description lines (default 5, 0 for no limit)	news_admin	cs	Omezit počet řádek popisu (výchozí 5, pro zrušení limitu 0)
 link	news_admin	cs	Odkaz
@@ -67,31 +86,34 @@ news administration	news_admin	cs	Administrace novinek
 news deleted.	news_admin	cs	Novinka smazána.
 news item has been added	news_admin	cs	Položka novinek byla přidána
 news item has been updated	news_admin	cs	Položka novinek byla zaktualizována
+news list	news_admin	cs	Seznam novinek
 news saved.	news_admin	cs	Novinka uložna.
 news_admin	common	cs	Správce novinek
 no anonymous user accounts installed.  notify the administrator.	news_admin	cs	Nejsou nainstalovány žádné anonymní uživatelské účty. Upozorněte správce.
-no entries found	news_admin	cs	žádné záznamy nebyly nalezeny
+no entries found	news_admin	cs	Nebyly nalezeny žádné položky.
 no matching news item	news_admin	cs	Žádné odpovídající položky novinek nebyly nalezeny
 no news	news_admin	cs	V kategorii nejsou momentálně dostupné žádné novinky
 no rss export	news_admin	cs	Bez RSS exportu
 now	news_admin	cs	Nyní
 number of news items to be displayed on page	news_admin	cs	Počet položek novinek, které se mají zobrazovat na stránce
 old	news_admin	cs	Staré
-on	news_admin	cs	na
+on	news_admin	cs	Na
+owner / read permissions	news_admin	cs	Vlastník / oprávnění ke čtení
 page-name the item should be displayed (empty = current page)	news_admin	cs	Název stránky, na které by měla být položka zobrazena (nevyplněno = na aktuální straně)
 parent	news_admin	cs	Nadřazený
 picture upload (leave the upload directory empty to disable the upload)	admin	cs	Upload obrázku (chcete-li upload zakázat, ponechte adresář pro upload prázdný)
 please select a category	news_admin	cs	Vyberte prosím kategorii
 publish date	news_admin	cs	Datum publikování
-read more	news_admin	cs	číst dále
+read more	news_admin	cs	Přečíst více
 read news	news_admin	cs	Číst novinky
 read permissions	news_admin	cs	Práva ke čtění
 reload	news_admin	cs	Načíst znovu
 send mail to others	news_admin	cs	Odeslat mail ostatním
 show latest news articles?	news_admin	cs	Zobrazit články posledních novinek?
 show news articles on main page?	news_admin	cs	Zobrazovat články novinek na hlavní obrazovce?
-small view	news_admin	cs	zmenšený pohled
+small view	news_admin	cs	Zmenšený pohled
 start	news_admin	cs	Začátek
+start date (if selected), last started first, then unterminated	news_admin	cs	Datum zahájení (je-li vybráno), nejprve poslední zahájené, pak neukončené
 submitted by	common	cs	Odeslal(a)
 submitted by %1 on %2	news_admin	cs	Odeslal(a) %1 k %2
 submitted by and date	news_admin	cs	Odesláno kdykoli
@@ -101,7 +123,8 @@ the news content is missing	news_admin	cs	Obsah novinek chybí
 the subject is missing	news_admin	cs	Chybí předmět
 there no such translation.	news_admin	cs	Takový překlad neexistuje.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	cs	Tento modul publikuje novinky z aplikace Správce novinek na Vašem webu. Mějte na paměti omezení daná přístupovými právy (ACL) nastavenými ve Správci novinek.
-until	news_admin	cs	do
+until	news_admin	cs	Do
+update rss feed	news_admin	cs	Aktualizovat kanál RSS
 updated	news_admin	cs	Aktualizováno
 url of the rss or atom feed, empty for own news feed	news_admin	cs	URL RSS nebo Atom kanálu, ponechte prázdné pro vlastní kanál
 view this category	news_admin	cs	Zobrazit tuto kategorii
@@ -110,3 +133,4 @@ webpage news admin	news_admin	cs	Správce novinek na webové stránce
 which information do you want to show (css class)	news_admin	cs	Které informace chcete zobrazit (CSS třída)
 write	news_admin	cs	Uložit
 write permissions	news_admin	cs	Práva k zápisu
+you need to select some entries first	news_admin	cs	Nejprve je třeba vybrat některé příspěvky

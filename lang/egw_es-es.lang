@@ -97,14 +97,14 @@ no rss export	news_admin	es-es	No hay exportación RSS
 now	news_admin	es-es	Ahora
 number of news items to be displayed on page	news_admin	es-es	Número de elementos de noticias a mostrar en la página
 old	news_admin	es-es	Antigua
-on	news_admin	es-es	en
+on	news_admin	es-es	En
 owner / read permissions	news_admin	es-es	Propietario / permisos de lectura
 page-name the item should be displayed (empty = current page)	news_admin	es-es	Página-indique el elemento a mostrar (vacío=página actual)
 parent	news_admin	es-es	Nivel superior
 picture upload (leave the upload directory empty to disable the upload)	admin	es-es	Subir imagen (dejar el directorio en blanco para desactivar subir imágenes)
 please select a category	news_admin	es-es	Por favor, seleccione una categoría
 publish date	news_admin	es-es	Fecha de publicación
-read more	news_admin	es-es	leer más
+read more	news_admin	es-es	Leer más
 read news	news_admin	es-es	Leer noticias
 read permissions	news_admin	es-es	Permiso de lectura
 reload	news_admin	es-es	Recargar
@@ -123,7 +123,7 @@ the news content is missing	news_admin	es-es	Falta el contenido de las noticias
 the subject is missing	news_admin	es-es	Falta el asunto
 there no such translation.	news_admin	es-es	No hay tal traducción.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	es-es	Este módulo publica noticias desde la aplicación Administrador de noticias en su sitio web. Tenga en cuenta las restricciones de ACL de la aplicación.
-until	news_admin	es-es	hasta
+until	news_admin	es-es	Hasta
 update rss feed	news_admin	es-es	Actualizar hilo RSS
 updated	news_admin	es-es	Actualizado
 url of the rss or atom feed, empty for own news feed	news_admin	es-es	URL del hilo Atom. En blanco para hilo propio.

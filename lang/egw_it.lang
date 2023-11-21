@@ -28,6 +28,7 @@ content	news_admin	it	Contenuto
 count	news_admin	it	Conta
 date and time	news_admin	it	Data e ora
 date of entry, newest first	news_admin	it	Data di inserimento, prima le recenti
+default language	news_admin	it	Lingua predefinita
 default languages	news_admin	it	Lingue predefinite
 delete these categories, and all news in them	news_admin	it	Elimina queste categorie e tutte le notizie contenute
 delete this category, and all news in it	news_admin	it	Elimina la categoria e tutte le notizie contenute
@@ -62,7 +63,7 @@ import every	news_admin	it	Importa ogni
 import now	news_admin	it	Importa adesso
 import url	news_admin	it	Importa URL
 imported feeds can not be writable!	news_admin	it	I feed non importati NON sono scrivibili
-imported news items	news_admin	it	notizie importate
+imported news items	news_admin	it	Notizie importate
 item has been deleted	news_admin	it	L'oggetto è stato cancellato
 item not found	news_admin	it	Oggetto non trovato
 keep	news_admin	it	Mantieni
@@ -85,6 +86,7 @@ news administration	news_admin	it	Amministrazione Notizie
 news deleted.	news_admin	it	Notizia cancellata.
 news item has been added	news_admin	it	l'oggetto Notizia è stato aggiunto
 news item has been updated	news_admin	it	l'oggetto Notizia è stato aggiornato
+news list	news_admin	it	Elenco delle notizie
 news saved.	news_admin	it	Notizia salvata.
 news_admin	common	it	Gestione Notizie
 no anonymous user accounts installed.  notify the administrator.	news_admin	it	Nessun utente Anonimo impostato. Notificare all'amministratore.
@@ -95,14 +97,14 @@ no rss export	news_admin	it	Nessuna esportazione RSS
 now	news_admin	it	Adesso
 number of news items to be displayed on page	news_admin	it	Numero di notizie da mostrare in home
 old	news_admin	it	Vecchie
-on	news_admin	it	il
+on	news_admin	it	Il
 owner / read permissions	news_admin	it	Permessi proprietario/lettura
 page-name the item should be displayed (empty = current page)	news_admin	it	Nome pagina in cui l'elemento deve essere visibile. Vuoto = pagina corrente
 parent	news_admin	it	Superiore
 picture upload (leave the upload directory empty to disable the upload)	admin	it	Caricamento immagine. Lasciare vuota la directory di caricamento per disabilitare l'upload
 please select a category	news_admin	it	Prego seleziona una categoria
 publish date	news_admin	it	Data pubblicazione
-read more	news_admin	it	leggi di più
+read more	news_admin	it	Leggi di più
 read news	news_admin	it	Leggi Notizie
 read permissions	news_admin	it	Permessi di lettura
 reload	news_admin	it	Ricarica
@@ -121,7 +123,7 @@ the news content is missing	news_admin	it	Il contenuto della notizia è mancante
 the subject is missing	news_admin	it	L'oggetto è mancante
 there no such translation.	news_admin	it	Nessuna traduzione
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	news_admin	it	Questo modulo pubblica news dalla applicazione news_admin sul tuo sito. Attenzione alle restrizioni ACL in news_admin
-until	news_admin	it	fino al
+until	news_admin	it	Fino al
 update rss feed	news_admin	it	Aggiorna RSS
 updated	news_admin	it	Aggiornato
 url of the rss or atom feed, empty for own news feed	news_admin	it	URL RSS o atom, vuoto per proprio feed
