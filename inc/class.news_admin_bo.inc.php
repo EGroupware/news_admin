@@ -109,15 +109,15 @@ class news_admin_bo extends Api\Storage\Base
 		{
 			if (isset($data[$name]) && $data[$name]) $data[$name] += $this->tz_offset_s;
 		}
-		if (!$data['news_begin'])
+		if (empty($data['news_begin']))
 		{
-			$data['visible'] = (string) $data['news_end'] == '0' ? 'never' : 'always';
+			$data['visible'] = (string)($data['news_end']??null) == '0' ? 'never' : 'always';
 		}
 		else
 		{
 			$data['visible'] = 'date';
 		}
-		switch($data['news_is_html'])
+		switch($data['news_is_html'] ?? null)
 		{
 			case -1:
 				$data['link'] = $data['news_content'];
@@ -147,7 +147,7 @@ class news_admin_bo extends Api\Storage\Base
 		{
 			$data = &$this->data;
 		}
-		switch($data['visible'])
+		switch($data['visible'] ?? null)
 		{
 			case 'always':
 				$data['news_begin'] = 0;
@@ -186,7 +186,7 @@ class news_admin_bo extends Api\Storage\Base
 		{
 			return true;
 		}
-		if (!$this->data['news_id'])	// new entry
+		if (empty($this->data['news_id']))	// new entry
 		{
 			if (!$this->data['news_date']) $this->data['news_date'] = $this->now;
 			if (!isset($this->data['news_submittedby'])) $this->data['news_submittedby'] = $this->user;
@@ -263,7 +263,7 @@ class news_admin_bo extends Api\Storage\Base
 		}
 		$today = mktime(0,0,0,date('m'),date('d'),date('Y'));
 		//echo "<p align=right>today=$today</p>\n";
-		switch($visible)
+		switch($visible ?? 'now')
 		{
 			case 'all':
 				break;
@@ -319,7 +319,7 @@ class news_admin_bo extends Api\Storage\Base
 	{
 		if (!is_array($keys) && (int)$keys) $keys = array('news_id' => (int)$keys);
 
-		if ($keys['news_lang'])
+		if (!empty($keys['news_lang']))
 		{
 			// (news_id=$id AND news_lang IS NULL) OR (news_source_id=$id AND news_lang='$lang'
 			if (!(list($this->data) = self::search(array(),false,'','','',false,'AND',false,array(
@@ -449,10 +449,10 @@ class news_admin_bo extends Api\Storage\Base
 		unset($readonlys, $ignore_acl);	// not used, but required by function signature
 
 		$filter = array('appname' => 'news_admin');
-		if (is_array($query['col_filter'])) $filter += $query['col_filter'];
+		if (is_array($query['col_filter'] ?? null)) $filter += $query['col_filter'];
 
 		$globalcats = $GLOBALS['egw_info']['user']['apps']['admin'] ? 'all_no_acl' : false;
-		$cats = $this->cats->return_sorted_array($query['start'],false,$query['search'],$query['sort'],$query['order'],$globalcats,0,true,$filter);
+		$cats = $this->cats->return_sorted_array($query['start'],false, $query['search']??null, $query['sort']??null, $query['order']??null, $globalcats,0,true,$filter);
 		if (!$cats) $cats = array();
 
 		$cat_ids = array();
@@ -514,7 +514,7 @@ class news_admin_bo extends Api\Storage\Base
 
 		if (!is_array($cat)) $cat = $this->read_cat($cat);
 
-		return $cat && (in_array($this->user, (array)$cat['cat_writable']) || isset($GLOBALS['egw_info']['user']['apps']['admin']));
+		return $cat && (in_array($this->user, (array)($cat['cat_writable']??[])) || isset($GLOBALS['egw_info']['user']['apps']['admin']));
 	}
 
 	/**
@@ -549,7 +549,7 @@ class news_admin_bo extends Api\Storage\Base
 		}
 
 		// Write permission implies read permission
-		if(!is_array($cat['cat_writable'])) $cat['cat_writable'] = $cat['cat_writable'] ? explode(',',$cat['cat_writable']) : array();
+		if(!is_array($cat['cat_writable'] ?? null)) $cat['cat_writable'] = empty($cat['cat_writable']) ? [] : explode(',',$cat['cat_writable']);
 		if($cat['owner'] !== Api\Categories::GLOBAL_ACCOUNT)
 		{
 			$cat['owner'] = implode(',',array_unique(array_merge($cat['cat_readable'], $cat['cat_writable'])));
