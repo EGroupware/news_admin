@@ -13,6 +13,10 @@ use EGroupware\Api\Acl;
 class news_admin_acl
 {
 	/**
+	 * @var Api\Categories
+	 */
+	var $catbo;
+	/**
 	 * Constructor
 	 */
 	function __construct()
@@ -30,7 +34,7 @@ class news_admin_acl
 	{
 		if($right & Acl::READ)
 		{
-			if(!is_object($this->catbo))
+			if(empty($this->catbo))
 			{
 				$this->catbo = new Api\Categories('','news_admin');
 			}
