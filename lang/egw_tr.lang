@@ -1,6 +1,6 @@
 actions	news_admin	tr	Eylemler
 all users	news_admin	tr	Tüm Kullanıcılar
-always	news_admin	tr	her zaman
+always	news_admin	tr	Her zaman
 configuration	news_admin	tr	Ayarlar
 deleted	news_admin	tr	Silindi
 from	news_admin	tr	Nereden
