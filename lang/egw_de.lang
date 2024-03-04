@@ -1,5 +1,5 @@
 %1 entries %2	news_admin	de	%1 Datensatz %2
-%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	de	%1 Datensatz %2, %3 ist fehlgeschlagen, wegen zu fehlenden Zugriffsrechten!!!
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	de	%1 Datensatz %2, %3 ist fehlgeschlagen, wegen zu fehlenden Zugriffsrechten!
 %1 module	news_admin	de	%1 Module
 %1 news imported (%2 new, %3 deleted).	news_admin	de	%1 Nachrichten importiert (%2 neue, %3 gelöscht).
 %s hours	news_admin	de	%s Stunden
@@ -130,7 +130,7 @@ url of the rss or atom feed, empty for own news feed	news_admin	de	URL des RSS o
 view this category	news_admin	de	Diese Kategorie anzeigen
 visible	news_admin	de	Sichtbar
 webpage news admin	news_admin	de	Webseite Nachrichten
-which information do you want to show (css class)	news_admin	de	Welche Informationen sollen angezeigt werden (CSS Klasse)
+which information do you want to show (css class)	news_admin	de	Welche Informationen sollen angezeigt werden (CSS-Klasse)
 write	news_admin	de	Schreiben
 write permissions	news_admin	de	Schreibrechte
 you need to select some entries first	news_admin	de	Sie müssen zuerst Einträge auswählen
