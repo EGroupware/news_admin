@@ -1,5 +1,5 @@
 %1 entries %2	news_admin	en	%1 entries %2
-%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	en	%1 entries %2, %3 failed because of insufficent rights !!!
+%1 entries %2, %3 failed because of insufficent rights !!!	news_admin	en	%1 entries %2, %3 failed because of insufficent rights!
 %1 module	news_admin	en	%1 module
 %1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported. %2 new, %3 deleted.
 %s hours	news_admin	en	%s hours
@@ -68,7 +68,7 @@ item has been deleted	news_admin	en	Entry has been deleted.
 item not found	news_admin	en	Entry not found.
 keep	news_admin	en	Keep
 keep all	news_admin	en	Keep all
-kept %1 because of write permissions.  remove them first.	news_admin	en	Kept %1 because of write permissions.  Remove them first.
+kept %1 because of write permissions.  remove them first.	news_admin	en	Kept %1 because of write permissions. Remove them first.
 last imported	news_admin	en	Last imported
 last updated	news_admin	en	Last updated
 limit number of description lines (default 5, 0 for no limit)	news_admin	en	Limit number of description lines (default 5, 0 for no limit)
@@ -89,7 +89,7 @@ news item has been updated	news_admin	en	News entry has been updated.
 news list	news_admin	en	News list
 news saved.	news_admin	en	News saved.
 news_admin	common	en	News
-no anonymous user accounts installed.  notify the administrator.	news_admin	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
+no anonymous user accounts installed.  notify the administrator.	news_admin	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
 no entries found	news_admin	en	No entries found.
 no matching news item	news_admin	en	No matching news item.
 no news	news_admin	en	No news available in the category.
