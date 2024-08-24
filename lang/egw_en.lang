@@ -4,8 +4,6 @@
 %1 news imported (%2 new, %3 deleted).	news_admin	en	%1 news imported. %2 new, %3 deleted.
 %s hours	news_admin	en	%s hours
 %s imported news items	news_admin	en	%s imported news items
-actions	news_admin	en	Actions
-active	news_admin	en	Active
 add new article	news_admin	en	Add new article
 add new news	news_admin	en	Add new news
 add news item	news_admin	en	Add news item
