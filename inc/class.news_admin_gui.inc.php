@@ -256,7 +256,7 @@ class news_admin_gui extends news_admin_bo
 		{
 			$readonlys['add'] = true;
 		}
-		//if (!is_array($content['nm']))
+		if (!is_array($content['nm']))
 		{
 			$content['nm'] = array(
 				'get_rows'       =>	'news_admin.news_admin_gui.get_rrows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
