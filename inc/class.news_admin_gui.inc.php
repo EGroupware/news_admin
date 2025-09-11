@@ -256,7 +256,7 @@ class news_admin_gui extends news_admin_bo
 		{
 			$readonlys['add'] = true;
 		}
-		if (!is_array($content['nm']))
+		//if (!is_array($content['nm']))
 		{
 			$content['nm'] = array(
 				'get_rows'       =>	'news_admin.news_admin_gui.get_rrows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
@@ -268,8 +268,10 @@ class news_admin_gui extends news_admin_bo
 				'sort'           =>	'DESC',		// IO direction of the sort: 'ASC' or 'DESC'
 				'col_filter'     =>	array(),	// IO array of column-name value pairs (optional for the filterheaders)
 				'filter'         =>	'',	// =All	// IO filter, if not 'no_filter' => True
+				'filter_aria_label' => lang('Category'),
 				'filter_no_lang' => True,		// I  set no_lang for filter (=dont translate the options)
 				'filter2'        =>	'content',	// IO filter2, if not 'no_filter2' => True
+				'filter2_aria_label' => lang('Show'),
 				'favorites'	=> true,           // Enable favorites
 				'options-filter2' => array(
 					'content'  => 'Content',

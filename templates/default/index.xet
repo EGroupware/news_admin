@@ -41,11 +41,15 @@
 			</rows>
 		</grid>
 	</template>
-	<template id="news_admin.index.add" template="" lang="" group="0" version="1.9.001">
+	<template id="news_admin.index.header" template="" lang="" group="0" version="1.9.001">
 		<et2-button  statustext="Add" id="add" onclick="egw.open('','news_admin','add'); return false;" noSubmit="true"></et2-button>
+		<template template="api.search-button"></template>
+		<et2-select id="filter" ariaLabel="Category" onchange="app.news_admin.changeNmFilter"/>
+		<et2-select id="filter2" ariaLabel="Filter" onchange="app.news_admin.changeNmFilter"/>
 	</template>
 	<template id="news_admin.index" template="" lang="" group="0" version="1.9.001">
+		<template template="news_admin.index.header" slot="main-header"></template>
 		<html id="css" span="all"/>
-		<nextmatch id="nm" template="news_admin.index.rows" header_left="news_admin.index.add"/>
+		<nextmatch id="nm" template="news_admin.index.rows"/>
 	</template>
 </overlay>

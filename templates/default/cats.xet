@@ -42,11 +42,12 @@
 			</rows>
 		</grid>
 	</template>
-	<template id="news_admin.cats.add" template="" lang="" group="0" version="1.9.001">
+	<template id="news_admin.cats.header" template="" lang="" group="0" version="1.9.001">
 		<et2-button  statustext="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;" noSubmit="true"></et2-button>
 	</template>
 	<template id="news_admin.cats" template="" lang="" group="0" version="1.9.001">
-		<nextmatch id="nm" options="news_admin.cats.rows" header_left="news_admin.cats.add"/>
+		<template template="news_admin.cats.header" slot="main-header"></template>
+		<nextmatch id="nm" options="news_admin.cats.rows"/>
 		<et2-box  class="action_popup prompt" id="reader_popup">
 			<et2-vbox>
 				<et2-description  value="Read permissions" class="promptheader"></et2-description>
