@@ -84,7 +84,8 @@ class news_admin_hooks
 			}
 			$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
 			$file = array();
-			$file['News list'] = Egw::link('/index.php',array('menuaction' => 'news_admin.news_admin_gui.index'));
+			$file['News list'] = Egw::link('/index.php', array('menuaction' => 'news_admin.news_admin_gui.index',
+															   'ajax'       => 'true'));
 			if ($enableadd)
 			{
 				$file[] = array(
