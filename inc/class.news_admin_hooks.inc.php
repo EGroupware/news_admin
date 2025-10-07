@@ -124,7 +124,7 @@ class news_admin_hooks
 
 			if ($location == 'sidebox_menu')
 			{
-				display_sidebox($appname,$title,$file);
+				//	display_sidebox($appname,$title,$file);
 			}
 			else
 			{
