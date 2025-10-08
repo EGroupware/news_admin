@@ -70,41 +70,6 @@ class news_admin_hooks
 		{
 			// Magic etemplate2 favorites menu (from nextmatch widget)
 			$GLOBALS['egw']->framework->sidebox($appname, lang('Favorites'), Framework\Favorites::list_favorites($appname));
-
-			$categories = new Api\Categories('',$appname);
-			$bo = new news_admin_bo();
-			$enableadd = count($bo->rights2cats(Acl::ADD)) > 0;
-			foreach((array)$categories->return_sorted_array(0,False,'','','',false) as $cat)
-			{
-				if ($categories->check_perms(Acl::EDIT,$cat))
-				{
-					$enableadd = true;
-					break;
-				}
-			}
-			$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
-			$file = array();
-			$file['News list'] = Egw::link('/index.php', array('menuaction' => 'news_admin.news_admin_gui.index',
-															   'ajax'       => 'true'));
-			if ($enableadd)
-			{
-				$file[] = array(
-					'text' => lang('Add %1',lang(Link::get_registry($appname, 'entry'))),
-					'no_lang' => true,
-					'link' => "javascript:egw.open('','$appname','add')"
-				);
-			}
-
-			// add categories, if use has rights to use them, as they are important for news_admin
-			$memberships = $GLOBALS['egw']->accounts->memberships($GLOBALS['egw_info']['user']['account_id'], true);
-			if (!(!$GLOBALS['egw_info']['user']['apps']['preferences'] || $GLOBALS['egw_info']['server']['deny_cats'] &&
-				array_intersect($memberships, (array)$GLOBALS['egw_info']['server']['deny_cats']) &&
-				!$GLOBALS['egw_info']['user']['apps']['admin']))
-			{
-				$file['Categories'] = Egw::link('/index.php', self::categories('categories') + ['user' => true]);
-			}
-
-			$GLOBALS['egw']->framework->sidebox($appname,$menu_title,$file);
 		}
 
 		// do NOT show export link, if phpgwapi is not installed, as uiexport uses ancient nextmatch from phpgwapi
@@ -144,8 +109,18 @@ class news_admin_hooks
 	{
 		unset($data);	// not used
 
+		// add categories, if use has rights to use them, as they are important for news_admin
+		$memberships = $GLOBALS['egw']->accounts->memberships($GLOBALS['egw_info']['user']['account_id'], true);
+		if((!$GLOBALS['egw_info']['user']['apps']['preferences'] || $GLOBALS['egw_info']['server']['deny_cats'] &&
+			array_intersect($memberships, (array)$GLOBALS['egw_info']['server']['deny_cats']) &&
+			!$GLOBALS['egw_info']['user']['apps']['admin']))
+		{
+			return false;
+		}
+
 		return array(
 			'menuaction' => 'news_admin.news_admin_ui.cats',
+			'user' => !$GLOBALS['egw_info']['user']['apps']['admin'],
 			'ajax' => 'true',
 		);
 	}
