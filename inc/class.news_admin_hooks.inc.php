@@ -69,7 +69,7 @@ class news_admin_hooks
 		if ($location == 'sidebox_menu')
 		{
 			// Magic etemplate2 favorites menu (from nextmatch widget)
-			display_sidebox($appname, lang('Favorites'), Framework\Favorites::list_favorites($appname));
+			$GLOBALS['egw']->framework->sidebox($appname, lang('Favorites'), Framework\Favorites::list_favorites($appname));
 
 			$categories = new Api\Categories('',$appname);
 			$bo = new news_admin_bo();
@@ -104,7 +104,7 @@ class news_admin_hooks
 				$file['Categories'] = Egw::link('/index.php', self::categories('categories') + ['user' => true]);
 			}
 
-			display_sidebox($appname,$menu_title,$file);
+			$GLOBALS['egw']->framework->sidebox($appname,$menu_title,$file);
 		}
 
 		// do NOT show export link, if phpgwapi is not installed, as uiexport uses ancient nextmatch from phpgwapi
@@ -124,7 +124,7 @@ class news_admin_hooks
 
 			if ($location == 'sidebox_menu')
 			{
-				//	display_sidebox($appname,$title,$file);
+				//	$GLOBALS['egw']->framework->sidebox($appname,$title,$file);
 			}
 			else
 			{
