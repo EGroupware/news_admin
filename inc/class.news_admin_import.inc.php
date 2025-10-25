@@ -45,10 +45,10 @@ class news_admin_import
 	 * Read the feed of the given URL
 	 *
 	 * @param string $url
-	 * @param array $context =null
+	 * @param ?array $context =null
 	 * @return XML_Feed_Parser|boolean false on error
 	 */
-	function read($url, array $context=null)
+	function read($url, ?array $context=null)
 	{
 		$default_lang = $GLOBALS['egw']->preferences->default['common']['lang'];
 		$default_context = array(
