@@ -47,7 +47,6 @@ class NewsAdminApp extends EgwApp
 			case 'news_admin.cat':
 				if(this.et2.getArrayMgr('content').getEntry('read_all_users'))
 				{
-					debugger;
 					// Start read permissions hidden if all users is flagged
 					var all_users = this.et2.getWidgetById('read_all_users');
 					if(all_users.get_value())
