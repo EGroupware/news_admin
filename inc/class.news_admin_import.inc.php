@@ -58,6 +58,19 @@ class news_admin_import
 		$parts = parse_url($url);
 		if (!in_array($parts['scheme'],array('http','https','ftp'))) return false;	// security!
 
+		// SSRF protection: reject hosts resolving to private/reserved IP ranges (same guard used
+		// by CalDAV\Sync for the calendar-subscribe SSRF fix - avoid a second implementation)
+		require_once EGW_INCLUDE_ROOT.'/doc/REST-CalDAV-CardDAV/api-client.php';
+		try
+		{
+			checkPublicIP($url);
+		}
+		catch (\InvalidArgumentException $e)
+		{
+			unset($e);
+			return false;
+		}
+
 		if (!($feed_xml = file_get_contents($url, false,
 			Api\Framework::proxy_context(null, null, $context ? $context : $default_context))) ||
 			!@include_once('XML/Feed/Parser.php'))
