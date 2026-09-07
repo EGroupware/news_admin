@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
-	<template id="news_admin.cats.rows" template="" lang="" group="0" version="1.9.001">
+	<et2-template  id="news_admin.cats.rows" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
 				<column width="25%"/>
@@ -17,15 +17,15 @@
 					<nextmatch-sortheader label="Name" id="name"/>
 					<nextmatch-sortheader label="Description" id="description"/>
 					<nextmatch-sortheader label="Read permissions" id="owner"/>
-					<nextmatch-header label="Write permissions" id="writable"/>
+					<et2-nextmatch-header  label="Write permissions" id="writable"></et2-nextmatch-header>
 					<et2-vbox>
 						<et2-vbox>
 							<nextmatch-sortheader label="Last updated" id="news_date" sortmode="DESC"/>
-							<nextmatch-header label="Last imported" id="import_timestamp"/>
+							<et2-nextmatch-header  label="Last imported" id="import_timestamp"></et2-nextmatch-header>
 						</et2-vbox>
 					</et2-vbox>
 					<nextmatch-sortheader label="Count" id="num_news"/>
-					<nextmatch-header label="Import URL" id="import_url"/>
+					<et2-nextmatch-header  label="Import URL" id="import_url"></et2-nextmatch-header>
 				</row>
 				<row class="row $row_cont[class]">
 					<et2-description  id="${row}[name]" href="news_admin.news_admin_gui.index&amp;cat_id=$row_cont[id]" target="news_admin"></et2-description>
@@ -41,12 +41,12 @@
 				</row>
 			</rows>
 		</grid>
-	</template>
-	<template id="news_admin.cats.header" template="" lang="" group="0" version="1.9.001">
+	</et2-template>
+	<et2-template  id="news_admin.cats.header" template="" lang="" group="0" version="1.9.001">
 		<et2-button  statustext="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;" noSubmit="true"></et2-button>
-	</template>
-	<template id="news_admin.cats" template="" lang="" group="0" version="1.9.001">
-		<template template="news_admin.cats.header" slot="main-header"></template>
+	</et2-template>
+	<et2-template  id="news_admin.cats" template="" lang="" group="0" version="1.9.001">
+		<et2-template  template="news_admin.cats.header" slot="main-header"></et2-template>
 		<nextmatch id="nm" options="news_admin.cats.rows"/>
 		<et2-box  class="action_popup prompt" id="reader_popup">
 			<et2-vbox>
@@ -70,7 +70,7 @@
 				</et2-hbox>
 			</et2-vbox>
 		</et2-box>
-		<styles>
+		<et2-styles>
 
 .action_popup {
 	position: fixed;
@@ -99,6 +99,6 @@
 .action_select {
 	width: 100%
 }
-		</styles>
-	</template>
+		</et2-styles>
+	</et2-template>
 </overlay>

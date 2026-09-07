@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
-	<template id="news_admin.view" template="" lang="" group="0" version="1.9.002">
+	<et2-template  id="news_admin.view" template="" lang="" group="0" version="1.9.002">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -17,11 +17,11 @@
 					</et2-hbox>
 				</row>
 				<row>
-					<html id="news_teaser" class="news_teaser"/>
+					<et2-html  id="news_teaser" class="news_teaser"></et2-html>
 				</row>
 				<row valign="top">
 					<et2-box  class="news_content" required="1">
-						<html id="news_content"/>
+						<et2-html  id="news_content"></et2-html>
 					</et2-box>
 				</row>
 				<row>
@@ -33,13 +33,13 @@
 				</row>
 			</rows>
 		</grid>
-		<styles>
+		<et2-styles>
 			.news_content
 {
   border-top: 1px solid #D0D0D0;
   margin-top: 0.5em;
   padding-top: 2em;
 }
-		</styles>
-	</template>
+		</et2-styles>
+	</et2-template>
 </overlay>
