@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../doc/etemplate2/etemplate2.0.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
-	<template id="news_admin.edit" template="" lang="" group="0" version="1.9.003">
+	<et2-template  id="news_admin.edit" template="" lang="" group="0" version="1.9.003">
 		<grid width="100%">
 			<columns>
 				<column width="60"/>
@@ -21,12 +22,10 @@
                     <et2-appicon  src="news_admin" for="cat_id" align="right"></et2-appicon>
 				</row>
 				<row class="row" valign="top">
-					<et2-description  value="Teaser" for="news_teaser"></et2-description>
-					<htmlarea id="news_teaser" height="220px" width="99%" base_href="$cont[upload_dir]" span="all"/>
+					<et2-description  value="Teaser" for="news_teaser"></et2-description><et2-ai  span="all"><et2-htmlarea  id="news_teaser" width="99%" baseHref="$cont[upload_dir]"></et2-htmlarea></et2-ai>
 				</row>
 				<row class="row" valign="top">
-					<et2-description  value="Content" for="news_content"></et2-description>
-					<htmlarea id="news_content" needed="1" height="320px" width="99%" toolbar="true" base_href="$cont[upload_dir]" span="all"/>
+					<et2-description  value="Content" for="news_content"></et2-description><et2-ai  span="all"><et2-htmlarea  id="news_content" width="99%" required="1" baseHref="$cont[upload_dir]" noToolbar="false"></et2-htmlarea></et2-ai>
 				</row>
 				<row class="dialogOperators" height="28">
 					<et2-description  value="Category" for="cat_id"></et2-description>
@@ -63,5 +62,5 @@
 				</row>
 			</rows>
 		</grid>
-	</template>
+	</et2-template>
 </overlay>

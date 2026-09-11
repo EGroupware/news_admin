@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../doc/etemplate2/etemplate2.0.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
-	<template id="news_admin.cat" template="" lang="" group="0" version="1.9.002">
+	<et2-template  id="news_admin.cat" template="" lang="" group="0" version="1.9.002">
 		<grid>
 			<columns>
 				<column/>
@@ -19,8 +20,7 @@
 					<et2-select-cat  span="all" id="cat_parent" application="news_admin" emptyLabel="None" globalCategories="1"></et2-select-cat>
 				</row>
 				<row class="row" valign="top">
-					<et2-description  value="Description" for="cat_description"></et2-description>
-					<et2-textarea  id="cat_description" rows="3" cols="64" span="all"></et2-textarea>
+					<et2-description  value="Description" for="cat_description"></et2-description><et2-ai  span="all"><et2-textarea  id="cat_description" rows="3" cols="64"></et2-textarea></et2-ai>
 				</row>
 				<row class="row" valign="top">
 					<et2-description  value="Owner / Read permissions" for="cat_readable"></et2-description>
@@ -53,5 +53,5 @@
 				</row>
 			</rows>
 		</grid>
-	</template>
+	</et2-template>
 </overlay>

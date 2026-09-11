@@ -48,7 +48,7 @@ class NewsAdminApp extends EgwApp
 				if(this.et2.getArrayMgr('content').getEntry('read_all_users'))
 				{
 					// Start read permissions hidden if all users is flagged
-					var all_users = this.et2.getWidgetById('read_all_users');
+					const all_users = this.et2.getWidgetById('read_all_users');
 					if(all_users.get_value())
 					{
 						//all_users.change();
@@ -85,7 +85,7 @@ class NewsAdminApp extends EgwApp
 				switch (_app)
 				{
 					case 'timesheet':
-						var nm = this.et2 ? this.et2.getWidgetById('nm') : null;
+						const nm = this.et2 ? this.et2.getWidgetById('nm') : null;
 						if (nm) nm.applyFilters();
 						break;
 				}
@@ -94,12 +94,12 @@ class NewsAdminApp extends EgwApp
 		//Refresh handler for news_admins integrated in calendar
 		if (_app == 'news_admin' && _id && _type !='delete')
 		{
-			var info_type = egw.dataGetUIDdata(_app+"::"+_id)?egw.dataGetUIDdata(_app+"::"+_id).data.info_type:false;
-			var cal_show = egw.preference('cal_show','news_admin')||false;
+			const info_type = egw.dataGetUIDdata(_app+"::"+_id)?egw.dataGetUIDdata(_app+"::"+_id).data.info_type:false;
+			const cal_show = egw.preference('cal_show','news_admin')||false;
 
 			if (info_type && cal_show)
 			{
-				var rex = RegExp(info_type,'gi');
+				const rex = RegExp(info_type,'gi');
 				if (cal_show.match(rex))
 				{
 					//Trigger refresh the whole calendar if the changed news_admin entry is integrated one
@@ -120,9 +120,9 @@ class NewsAdminApp extends EgwApp
 	getState()
 	{
 		// call parent
-		var state = super.getState();
+		const state = super.getState();
 
-		var nm = this.et2 ? this.et2.getArrayMgr('content').data.nm : {};
+		const nm = this.et2 ? this.et2.getArrayMgr('content').data.nm : {};
 		state.action = nm.action || null;
 		state.action_id = nm.action_id || null;
 
@@ -143,12 +143,12 @@ class NewsAdminApp extends EgwApp
 	{
 		// as we have to set state.state.action, we have to set all other
 		// for "No filter" favorite to work as expected
-		var to_set = {col_filter: null, filter: '', filter2: '', cat_id: '', search: '', action: null};
+		const to_set = {col_filter: null, filter: '', filter2: '', cat_id: '', search: '', action: null};
 		if(typeof state.state === 'undefined')
 		{
 			state.state = {};
 		}
-		for(var name in to_set)
+		for(const name in to_set)
 		{
 			if (typeof state.state[name] == 'undefined') state.state[name] = to_set[name];
 		}
@@ -163,9 +163,9 @@ class NewsAdminApp extends EgwApp
 	 */
 	filter_change()
 	{
-		var filter = this.et2.getWidgetById('filter');
-		var nm = this.et2.getWidgetById('nm');
-		var dates = this.et2.getWidgetById('news_admin.index.dates');
+		const filter = this.et2.getWidgetById('filter');
+		const nm = this.et2.getWidgetById('nm');
+		const dates = this.et2.getWidgetById('news_admin.index.dates');
 		if(nm && filter)
 		{
 			switch(filter.getValue())
@@ -197,7 +197,7 @@ class NewsAdminApp extends EgwApp
 	 */
 	filter2_change(event, nm)
 	{
-		var filter2 = nm.getWidgetById('filter2');
+		const filter2 = nm.getWidgetById('filter2');
 
 		if (nm && filter2)
 		{
@@ -211,12 +211,12 @@ class NewsAdminApp extends EgwApp
 			nm.options.settings.columnselection_pref = nm.options.settings.columnselection_pref.replace('-details','') + (filter2.value == 'all' ? '-details' :'');
 
 			// Load new preferences
-			var colData = nm.columns.slice();
-			for(var i = 0; i < nm.columns.length; i++) colData[i].disabled=false;
+			const colData = nm.columns.slice();
+			for(let i = 0; i < nm.columns.length; i++) colData[i].disabled=false;
 			nm._applyUserPreferences(nm.columns, colData);
 
 			// Now apply them to columns
-			for(var i = 0; i < colData.length; i++)
+			for(let i = 0; i < colData.length; i++)
 			{
 				nm.dataview.getColumnMgr().columns[i].set_width(colData[i].width);
 				nm.dataview.getColumnMgr().columns[i].set_visibility(!colData[i].disabled);
@@ -241,13 +241,13 @@ class NewsAdminApp extends EgwApp
 
 	confirm_delete_2(_action, _senders)
 	{
-		var children = false;
-		var child_button = jQuery('#delete_sub').get(0) || jQuery('[id*="delete_sub"]').get(0);
+		let children = false;
+		const child_button = document.getElementById('delete_sub') || document.querySelector<HTMLElement>('[id*="delete_sub"]');
 		if(child_button)
 		{
-			for(var i = 0; i < _senders.length; i++)
+			for(let i = 0; i < _senders.length; i++)
 			{
-				if (jQuery(_senders[i].iface.node).hasClass('news_admin_rowHasSubs'))
+				if (_senders[i].iface.node.classList.contains('news_admin_rowHasSubs'))
 				{
 					children = true;
 					break;
@@ -255,7 +255,7 @@ class NewsAdminApp extends EgwApp
 			}
 			child_button.style.display = children ? 'block' : 'none';
 		}
-		var callbackDeleteDialog = function (button_id)
+		const callbackDeleteDialog = (button_id) =>
 		{
 			if(button_id == Et2Dialog.YES_BUTTON)
 			{
@@ -274,13 +274,13 @@ class NewsAdminApp extends EgwApp
 	 */
 	confirm_delete(_action, _senders)
 	{
-		var children = false;
-		var child_button = jQuery('#delete_sub').get(0) || jQuery('[id*="delete_sub"]').get(0);
+		let children = false;
+		const child_button = document.getElementById('delete_sub') || document.querySelector<HTMLElement>('[id*="delete_sub"]');
 		if(child_button)
 		{
-			for(var i = 0; i < _senders.length; i++)
+			for(let i = 0; i < _senders.length; i++)
 			{
-				if (jQuery(_senders[i].iface.getDOMNode()).hasClass('news_admin_rowHasSubs'))
+				if (_senders[i].iface.getDOMNode().classList.contains('news_admin_rowHasSubs'))
 				{
 					children = true;
 					break;
@@ -299,24 +299,26 @@ class NewsAdminApp extends EgwApp
 	 */
 	add_email_from_ab(ab_id,info_cc)
 	{
-		var ab = document.getElementById(ab_id);
+		const ab = <HTMLSelectElement>document.getElementById(ab_id);
 
 		if (!ab || !ab.value)
 		{
-			jQuery("tr.hiddenRow").css("display", "table-row");
+			document.querySelectorAll<HTMLElement>("tr.hiddenRow").forEach(row => row.style.display = "table-row");
 		}
 		else
 		{
-			var cc = document.getElementById(info_cc);
+			const cc = <HTMLInputElement>document.getElementById(info_cc);
 
-			for(var i=0; i < ab.options.length && ab.options[i].value != ab.value; ++i) ;
+			let i;
+			for(i=0; i < ab.options.length && ab.options[i].value != ab.value; ++i) ;
 
 			if (i < ab.options.length)
 			{
 				cc.value += (cc.value?', ':'')+ab.options[i].text.replace(/^.* <(.*)>$/,'$1');
 				ab.value = '';
-				ab.onchange();
-				jQuery("tr.hiddenRow").css("display", "none");
+				// call the native change-event handler directly (no synthetic Event needed at runtime)
+				(<any>ab).onchange();
+				document.querySelectorAll<HTMLElement>("tr.hiddenRow").forEach(row => row.style.display = "none");
 			}
 		}
 		return false;
@@ -329,11 +331,12 @@ class NewsAdminApp extends EgwApp
 	 */
 	edit_actions()
 	{
-		var widget = this.et2.getWidgetById('action');
-		var template = this.et2._inst;
+		const widget = this.et2.getWidgetById('action');
+		const template = this.et2.getInstanceManager();
+		let id;
 		if (template)
 		{
-			var id = template.widgetContainer.getArrayMgr('content').data['info_id'];
+			id = template.widgetContainer.getArrayMgr('content').data['info_id'];
 		}
 		if (widget)
 		{
@@ -360,7 +363,7 @@ class NewsAdminApp extends EgwApp
 	 */
 	news_admin_menu_print(_action, _selected)
 	{
-		var id = _selected[0].id.replace(/^news_admin::/g,'');
+		const id = _selected[0].id.replace(/^news_admin::/g,'');
 		egw.open(id,'news_admin','edit',{print:1});
 	}
 
@@ -369,21 +372,22 @@ class NewsAdminApp extends EgwApp
 	 */
 	news_admin_print_preview_onload()
 	{
-		var that = this;
-		jQuery('#news_admin-edit-print').bind('load',function(){
-			var isLoadingCompleted = true;
-			jQuery('#news_admin-edit-print').bind("DOMSubtreeModified",function(event){
-					isLoadingCompleted = false;
-					jQuery('#news_admin-edit-print').unbind("DOMSubtreeModified");
-			});
-			setTimeout(function() {
+		const node = document.getElementById('news_admin-edit-print');
+		node?.addEventListener('load', () => {
+			let isLoadingCompleted = true;
+			const onSubtreeModified = () => {
+				isLoadingCompleted = false;
+				node.removeEventListener("DOMSubtreeModified", onSubtreeModified);
+			};
+			node.addEventListener("DOMSubtreeModified", onSubtreeModified);
+			setTimeout(() => {
 				isLoadingCompleted = false;
 			}, 1000);
-			var interval = setInterval(function(){
+			const interval = setInterval(() => {
 				if (!isLoadingCompleted)
 				{
 					clearInterval(interval);
-					that.news_admin_print_preview();
+					this.news_admin_print_preview();
 				}
 			}, 100);
 		});
@@ -421,12 +425,12 @@ class NewsAdminApp extends EgwApp
 		// We use widget.getRoot() instead of this.et2 for the case when the
 		// addressbook tab is viewing a contact + news_admin list, there's 2 news_admin
 		// etemplates
-		var nm = widget.getRoot().getWidgetById('nm');
-		var nm_value = nm.getValue() || {};
+		const nm = widget.getRoot().getWidgetById('nm');
+		const nm_value = nm.getValue() || {};
 
 		// It's important that all these keys are here, they override the link
 		// registry.
-		var extras = {
+		const extras = {
 			type: _type || nm_value.filter || "",
 			cat_id: nm_value.cat_id || "",
 			action: _action || "",
