@@ -11,12 +11,15 @@
  */
 
 use EGroupware\Api;
+use EGroupware\Api\CalDAV\RestClientTrait;
 
 /**
  * Import RSS and Atom feeds via PEAR's XML_Feed_Parser class
  */
 class news_admin_import
 {
+	use RestClientTrait;
+
 	/**
 	 * Reference to the news_admins's bo
 	 *
@@ -60,10 +63,9 @@ class news_admin_import
 
 		// SSRF protection: reject hosts resolving to private/reserved IP ranges (same guard used
 		// by CalDAV\Sync for the calendar-subscribe SSRF fix - avoid a second implementation)
-		require_once EGW_INCLUDE_ROOT.'/doc/REST-CalDAV-CardDAV/api-client.php';
 		try
 		{
-			checkPublicIP($url);
+			$this->checkPublicIP($url);
 		}
 		catch (\InvalidArgumentException $e)
 		{
