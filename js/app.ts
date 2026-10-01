@@ -9,6 +9,7 @@
  */
 
 import {EgwApp} from '../../api/js/jsapi/egw_app';
+import type {EgwFrameworkApp, FilterInfo} from "../../kdots/js/EgwFrameworkApp";
 import {nm_open_popup} from "../../api/js/etemplate/et2_extension_nextmatch_actions";
 import {Et2Dialog} from "../../api/js/etemplate/Et2Dialog/Et2Dialog";
 
@@ -27,6 +28,28 @@ class NewsAdminApp extends EgwApp
 	{
 		// call parent
 		super('news_admin');
+	}
+
+	/**
+	 * Current news in the user's language is what the list shows by default, and filter2 only chooses how they are shown
+	 *
+	 * @param filterValues
+	 * @param fwApp
+	 */
+	getFilterInfo(filterValues : { [id : string] : any }, fwApp : EgwFrameworkApp) : FilterInfo
+	{
+		const values = {...(filterValues ?? {})};
+		values.col_filter = {...(values.col_filter ?? {})};
+		delete values.filter2;
+		if(values.col_filter.visible == 'now')
+		{
+			delete values.col_filter.visible;
+		}
+		if(values.col_filter.news_lang == this.egw.preference('lang', 'common'))
+		{
+			delete values.col_filter.news_lang;
+		}
+		return fwApp.filterInfo(values);
 	}
 
 	/**
