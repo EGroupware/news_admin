@@ -15,17 +15,17 @@
 			</columns>
 			<rows>
 				<row class="th">
-					<nextmatch-sortheader label="Name" id="name"/>
-					<nextmatch-sortheader label="Description" id="description"/>
-					<nextmatch-sortheader label="Read permissions" id="owner"/>
+					<et2-nextmatch-sortheader  label="Name" id="name"></et2-nextmatch-sortheader>
+					<et2-nextmatch-sortheader  label="Description" id="description"></et2-nextmatch-sortheader>
+					<et2-nextmatch-sortheader  label="Read permissions" id="owner"></et2-nextmatch-sortheader>
 					<et2-nextmatch-header  label="Write permissions" id="writable"></et2-nextmatch-header>
 					<et2-vbox>
 						<et2-vbox>
-							<nextmatch-sortheader label="Last updated" id="news_date" sortmode="DESC"/>
+							<et2-nextmatch-sortheader  label="Last updated" id="news_date" sortmode="DESC"></et2-nextmatch-sortheader>
 							<et2-nextmatch-header  label="Last imported" id="import_timestamp"></et2-nextmatch-header>
 						</et2-vbox>
 					</et2-vbox>
-					<nextmatch-sortheader label="Count" id="num_news"/>
+					<et2-nextmatch-sortheader  label="Count" id="num_news"></et2-nextmatch-sortheader>
 					<et2-nextmatch-header  label="Import URL" id="import_url"></et2-nextmatch-header>
 				</row>
 				<row class="row $row_cont[class]">
@@ -42,64 +42,44 @@
 				</row>
 			</rows>
 		</grid>
+		<et2-styles src="rows.css"></et2-styles>
 	</et2-template>
 	<et2-template  id="news_admin.cats.header" template="" lang="" group="0" version="1.9.001">
-		<et2-button  statustext="Add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;" noSubmit="true"></et2-button>
+		<et2-button-icon  statustext="Add" image="add" id="add" onclick="window.open(egw::link('/index.php','menuaction=news_admin.news_admin_ui.cat&amp;appname=news_admin'),'_blank','dependent=yes,width=600,height=380,scrollbars=yes,status=yes'); return false;" noSubmit="true"></et2-button-icon>
 	</et2-template>
 	<et2-template  id="news_admin.cats" template="" lang="" group="0" version="1.9.001">
 		<et2-template  template="news_admin.cats.header" slot="main-header"></et2-template>
-		<nextmatch id="nm" options="news_admin.cats.rows"/>
-		<et2-box  class="action_popup prompt" id="reader_popup">
-			<et2-vbox>
-				<et2-description  value="Read permissions" class="promptheader"></et2-description>
+		<et2-nextmatch  id="nm" template="news_admin.cats.rows"></et2-nextmatch>
+		<!-- The "Change" read / write permission mass actions.  These used to be
+		     <et2-box class="action_popup prompt"> boxes, upgraded into dialogs at runtime by the legacy
+		     nm_open_popup(), whose buttons relied on the window.nm_popup_action/nm_popup_ids globals it set.
+		     As real <et2-dialog>s none of that runs, so the buttons submit through
+		     app.news_admin.submit_popup().  The inner <et2-box id="..._popup"> keeps the namespace
+		     news_admin_ui::cats() reads: $content['reader_popup'][...] / $content['writer_popup'][...]. -->
+		<et2-dialog  id="reader_popup_dialog" class="action_popup_dialog" title="Read permissions" open="false" buttons="" destroyOnClose="false">
+			<et2-box  id="reader_popup">
 				<et2-select-account  id="reader" rows="4" class="action_popup-content" multiple="1" noLang="1" accountType="both"></et2-select-account>
-				<et2-hbox>
-					<et2-button  label="Add" id="reader_action[add]" onclick="nm_submit_popup(this); return false;"></et2-button>
-					<et2-button  label="Delete" id="reader_action[delete]" onclick="nm_submit_popup(this); return false;"></et2-button>
-					<et2-button  label="Cancel" onclick="nm_hide_popup(this,'reader_popup');" noSubmit="true"></et2-button>
-				</et2-hbox>
-			</et2-vbox>
-		</et2-box>
-		<et2-box  class="action_popup prompt" id="writer_popup">
-			<et2-vbox>
-				<et2-description  value="Write permissions" class="promptheader"></et2-description>
-                <et2-select-account  id="writer" rows="4" class="action_popup-content" multiple="1" noLang="1" accountType="both"></et2-select-account>
-				<et2-hbox>
-					<et2-button  label="Add" id="writer_action[add]" onclick="nm_submit_popup(this); return false;"></et2-button>
-					<et2-button  label="Delete" id="writer_action[delete]" onclick="nm_submit_popup(this); return false;"></et2-button>
-					<et2-button  label="Cancel" onclick="nm_hide_popup(this,'writer_popup');" noSubmit="true"></et2-button>
-				</et2-hbox>
-			</et2-vbox>
-		</et2-box>
+			</et2-box>
+			<et2-button  slot="footer" variant="primary" label="Add" id="reader_popup[reader_action][add]" onclick="return app.news_admin.submit_popup(ev, widget, 'reader');"></et2-button>
+			<et2-button  slot="footer" label="Delete" id="reader_popup[reader_action][delete]" onclick="return app.news_admin.submit_popup(ev, widget, 'reader');"></et2-button>
+			<et2-button  slot="footer" label="Cancel" id="reader_action_cancel" noSubmit="true" onclick="widget.closest('et2-dialog').hide(); return false;"></et2-button>
+		</et2-dialog>
+		<et2-dialog  id="writer_popup_dialog" class="action_popup_dialog" title="Write permissions" open="false" buttons="" destroyOnClose="false">
+			<et2-box  id="writer_popup">
+				<et2-select-account  id="writer" rows="4" class="action_popup-content" multiple="1" noLang="1" accountType="both"></et2-select-account>
+			</et2-box>
+			<et2-button  slot="footer" variant="primary" label="Add" id="writer_popup[writer_action][add]" onclick="return app.news_admin.submit_popup(ev, widget, 'writer');"></et2-button>
+			<et2-button  slot="footer" label="Delete" id="writer_popup[writer_action][delete]" onclick="return app.news_admin.submit_popup(ev, widget, 'writer');"></et2-button>
+			<et2-button  slot="footer" label="Cancel" id="writer_action_cancel" noSubmit="true" onclick="widget.closest('et2-dialog').hide(); return false;"></et2-button>
+		</et2-dialog>
 		<et2-styles>
-
-.action_popup {
-	position: fixed;
-	top: 200px;
-	left: 450px;
-	width: 76ex;
-	z-index: 20000;
-	display: none;
-	border-collapse:collapse;
-	border-spacing:0px
-}
-.action_popup-content {
-	display:block;
-	padding:2ex;
-	color:#666666;
-	margin: -2px -1px 0px -2px;
-}
-.action_popup &gt; table {
-	width: 100%
-}
-.action_popup .promptheader {
-	padding: 1ex;
-	width: 100%
-}
-
-.action_select {
-	width: 100%
-}
+			.action_popup_dialog::part(panel) {
+				width: 40em;
+			}
+			.action_popup-content {
+				display: block;
+				padding: 2ex;
+			}
 		</et2-styles>
 	</et2-template>
 </overlay>

@@ -13,7 +13,7 @@
             </columns>
             <rows>
                 <row class="th">
-                    <et2-description  value="News"></et2-description>
+                    <et2-nextmatch-header  id="news" label="News"></et2-nextmatch-header>
                     <et2-vbox>
                         <et2-nextmatch-header-account  id="news_submittedby" emptyLabel="From all"></et2-nextmatch-header-account>
                         <et2-nextmatch-sortheader  label="Date" id="news_date" sortmode="DESC"/>
@@ -42,5 +42,6 @@
                 </row>
             </rows>
         </grid>
+        <et2-styles src="rows.css"></et2-styles>
     </et2-template>
 </overlay>
