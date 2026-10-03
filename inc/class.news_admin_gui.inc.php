@@ -238,11 +238,7 @@ class news_admin_gui extends news_admin_bo
 
 		if ($_content['nm']['action'] == 'delete')
 		{
-			$success = 0;
-			foreach($_content['nm']['selected'] as $id)
-			{
-				if ($this->delete(array('news_id' => $id))) $success++;
-			}
+			$success = $this->action($_content['nm']['action'], (array)$_content['nm']['selected']);
 			if($success)
 			{
 				Framework::refresh_opener($success . ' ' . lang('News deleted.'),'news_admin');
@@ -361,6 +357,58 @@ class news_admin_gui extends news_admin_bo
 	}
 
 	/**
+	 * Apply an action to the selected news entries
+	 *
+	 * @param string $action
+	 * @param array $selected news_ids
+	 * @return int number of entries the action succeeded on
+	 */
+	protected function action($action, array $selected)
+	{
+		$success = 0;
+		switch ($action)
+		{
+			case 'delete':
+				foreach($selected as $id)
+				{
+					// delete() returns false for an entry the user may not delete
+					if ($this->delete(array('news_id' => $id))) $success++;
+				}
+		}
+		return $success;
+	}
+
+	/**
+	 * Run the news list's Delete over ajax, so the list keeps its scroll position and selection
+	 * instead of being rebuilt
+	 *
+	 * $all_selected is accepted but not expanded: the loop above acts on exactly the ids it is
+	 * handed, which is what the submit it replaces did too.
+	 *
+	 * @param string $exec_id eTemplate request this came from - the only thing saying the caller
+	 *	had one of our pages open, see Nextmatch::validateExecId()
+	 * @param string $action 'delete'
+	 * @param string[] $selected news_ids
+	 * @param bool $all_selected
+	 */
+	public function ajax_action($exec_id, $action, array $selected, $all_selected=false)
+	{
+		if (!Api\Etemplate\Widget\Nextmatch::validateExecId($exec_id))
+		{
+			return;
+		}
+		$success = $this->action($action, $selected);
+		$msg = lang('%1 entries %2', $success, lang('deleted'));
+		// Naming the app in the 2nd argument makes egw.refresh() update the list itself: the
+		// "message only, a push will carry the change" sentinel needs something to send that
+		// push, and news_admin never calls Link::notify_update().
+		$single = !$all_selected && count($selected) === 1;
+		Api\Json\Response::get()->call('egw.refresh', $msg, 'news_admin',
+			$single ? $selected[0] : null, $single ? 'delete' : null, 'news_admin', null, null,
+			$success ? 'success' : 'error');
+	}
+
+	/**
 	 * Nextmatch actions
 	 * see nextmatch_widget::get_actions()
 	 */
@@ -395,6 +443,11 @@ class news_admin_gui extends news_admin_bo
 				'confirm_multiple' => 'Delete these entries',
 				'group' => $group,
 				'disableClass' => 'rowNoDelete',
+				'onExecute' => 'javaScript:app.news_admin.ajax_action',
+				// the news list is a second class in the same app, so the
+				// "<app>.<app>_ui.ajax_action" convention the client falls back to is the wrong
+				// one - that would reach the category list's endpoint
+				'data' => array('menuaction' => 'news_admin.news_admin_gui.ajax_action'),
 			),
 		);
 		return $actions;
