@@ -342,6 +342,9 @@ class news_admin_ui extends news_admin_bo
 				'allowOnMultiple' => true,
 				'disableClass' => 'rowNoUpdate',
 				'group' => $group,
+				// no 'menuaction' needed: news_admin.news_admin_ui.ajax_action is exactly the
+				// "<app>.<app>_ui.ajax_action" convention the client falls back to
+				'onExecute' => 'javaScript:app.news_admin.ajax_action',
 			),
 			'delete' => array(
 				'caption' => 'Delete',
@@ -350,6 +353,7 @@ class news_admin_ui extends news_admin_bo
 				'allowOnMultiple' => true,
 				'group' => ++$group,
 				'disableClass' => 'rowNoDelete',
+				'onExecute' => 'javaScript:app.news_admin.ajax_action',
 			),
 		);
 
@@ -374,6 +378,45 @@ class news_admin_ui extends news_admin_bo
 	 * @param string &$msg
 	 * @return boolean true if all actions succeded, false otherwise
 	 */
+	/**
+	 * Run the category list's Delete and Update RSS feed over ajax, so the list keeps its scroll
+	 * position and selection instead of being rebuilt
+	 *
+	 * Updating a feed rewrites the news behind a category rather than the category row itself, so
+	 * it always asks for a reload; only a single delete can be a row update.
+	 *
+	 * @param string $exec_id eTemplate request this came from - the only thing saying the caller
+	 *	had one of our pages open, see Nextmatch::validateExecId()
+	 * @param string $action 'delete' or 'update'
+	 * @param string[] $selected category ids
+	 * @param bool $all_selected expanded by action() from the query the list last ran
+	 */
+	public function ajax_action($exec_id, $action, array $selected, $all_selected=false)
+	{
+		if (!Api\Etemplate\Widget\Nextmatch::validateExecId($exec_id))
+		{
+			return;
+		}
+		$success = $failed = $action_msg = null;
+		$msg = '';
+		if ($this->action($action, $selected, $all_selected, $success, $failed, $action_msg, 'cats', $msg))
+		{
+			$msg .= lang('%1 entries %2', $success, $action_msg);
+		}
+		else
+		{
+			$msg .= lang('%1 entries %2, %3 failed because of insufficent rights !!!',
+				$success, $action_msg, $failed);
+		}
+		// Naming the app in the 2nd argument makes egw.refresh() update the list itself: the
+		// "message only, a push will carry the change" sentinel needs something to send that
+		// push, and news_admin never calls Link::notify_update().
+		$single = $action === 'delete' && !$all_selected && count($selected) === 1;
+		Api\Json\Response::get()->call('egw.refresh', $msg, 'news_admin',
+			$single ? $selected[0] : null, $single ? 'delete' : null, 'news_admin', null, null,
+			$failed ? 'error' : 'success');
+	}
+
 	function action($_action,$checked,$use_all,&$success,&$failed,&$action_msg,$session_name,&$msg)
 	{
 		//error_log(__METHOD__ . "($_action, " . array2string($checked) . ",$use_all)");
@@ -392,7 +435,9 @@ class news_admin_ui extends news_admin_bo
 			}
 			$query['num_rows'] = -1;        // all
 			$result = $readonlys = null;
-			$this->get_rows($query,$result,$readonlys);
+			// get_cats(), not get_rows(): this class has no get_rows at all, so "select all" on
+			// the category list fatalled instead of selecting anything
+			$this->get_cats($query,$result,$readonlys);
 			$checked = array();
 			foreach($result as $key => $info)
 			{
