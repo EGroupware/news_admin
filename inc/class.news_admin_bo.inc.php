@@ -270,21 +270,21 @@ class news_admin_bo extends Api\Storage\Base
 
 			default:
 			case 'now':
-				$filter[] = "(news_begin=0 AND news_end IS NULL OR news_begin <= $today AND ($today <= news_end OR news_end IS NULL))";
+				$filter[] = Api\Db\SqlFragment::raw("(news_begin=0 AND news_end IS NULL OR news_begin <= $today AND ($today <= news_end OR news_end IS NULL))");
 				break;
 
 			case 'future':
-				$filter[] = "news_begin > $today";
+				$filter[] = Api\Db\SqlFragment::raw("news_begin > $today");
 				break;
 
 			case 'old':
-				$filter[] = "news_end < $today";
-				$filter[] = 'news_end != 0';
+				$filter[] = Api\Db\SqlFragment::raw("news_end < $today");
+				$filter[] = Api\Db\SqlFragment::raw('news_end != 0');
 				break;
 
 			case 'always':
 				$filter['news_begin'] = 0;
-				$filter[] = 'news_end IS NULL';
+				$filter[] = Api\Db\SqlFragment::raw('news_end IS NULL');
 				break;
 
 			case 'never':
@@ -292,14 +292,14 @@ class news_admin_bo extends Api\Storage\Base
 				break;
 
 			case 'date':
-				$filter[] = 'news_begin > 0';
+				$filter[] = Api\Db\SqlFragment::raw('news_begin > 0');
 				break;
 		}
 		// show only the selected language or the default language, if no translation exists
 		if (isset($filter['news_lang']))
 		{
-			$filter[] = '(news_lang='.$this->db->quote($filter['news_lang']).' OR news_lang IS NULL AND '.
-				 "NOT EXISTS (SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id AND translation.news_lang = ".$this->db->quote($filter['news_lang']).'))';
+			$filter[] = Api\Db\SqlFragment::raw('(news_lang='.$this->db->quote($filter['news_lang']).' OR news_lang IS NULL AND '.
+				 "NOT EXISTS (SELECT news_id FROM $this->table_name translation WHERE $this->table_name.news_id = translation.news_source_id AND translation.news_lang = ".$this->db->quote($filter['news_lang']).'))');
 			unset($filter['news_lang']);
 		}
 		return parent::search($criteria,$only_keys,$order_by,$extra_cols,$wildcard,$empty,$op,$start,$filter,$join);
