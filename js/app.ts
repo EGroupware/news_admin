@@ -10,8 +10,7 @@
 
 import {EgwApp} from '../../api/js/jsapi/egw_app';
 import type {EgwFrameworkApp, FilterInfo} from "../../kdots/js/EgwFrameworkApp";
-import {nm_open_popup} from "../../api/js/etemplate/et2_extension_nextmatch_actions";
-import {Et2Dialog} from "../../api/js/etemplate/Et2Dialog/Et2Dialog";
+import type {Et2Nextmatch} from "../../api/js/etemplate/Et2Nextmatch/Et2Nextmatch";
 
 /**
  * UI for News
@@ -212,106 +211,36 @@ class NewsAdminApp extends EgwApp
 	}
 
 	/**
-	 * show or hide the details of rows by selecting the filter2 option
-	 * either 'all' for details or 'no_description' for no details
+	 * Submit one of the category list's "Change" read / write permission dialogs
 	 *
-	 * @param {Event} event Change event
-	 * @param {et2_nextmatch} nm The nextmatch widget that owns the filter
-	 */
-	filter2_change(event, nm)
-	{
-		const filter2 = nm.getWidgetById('filter2');
-
-		if (nm && filter2)
-		{
-			// Show / hide descriptions
-			this.show_details(filter2.value == 'all', nm.getDOMNode(nm));
-
-			// Store selection as implicit preference
-			egw.set_preference('news_admin', nm.options.settings.columnselection_pref.replace('-details','')+'-details-pref', filter2.value);
-
-			// Change preference location - widget is nextmatch
-			nm.options.settings.columnselection_pref = nm.options.settings.columnselection_pref.replace('-details','') + (filter2.value == 'all' ? '-details' :'');
-
-			// Load new preferences
-			const colData = nm.columns.slice();
-			for(let i = 0; i < nm.columns.length; i++) colData[i].disabled=false;
-			nm._applyUserPreferences(nm.columns, colData);
-
-			// Now apply them to columns
-			for(let i = 0; i < colData.length; i++)
-			{
-				nm.dataview.getColumnMgr().columns[i].set_width(colData[i].width);
-				nm.dataview.getColumnMgr().columns[i].set_visibility(!colData[i].disabled);
-			}
-			nm.dataview.getColumnMgr().updated = true;
-			// Update page
-			nm.dataview.updateColumns();
-		}
-	}
-
-	/**
-	 * Show or hide details by changing the CSS class
+	 * The dialogs are real <et2-dialog>s, so Et2NextmatchActionController.openActionPopup() just sets
+	 * their .selectedIds and shows them; the window.nm_popup_action/nm_popup_ids globals the legacy
+	 * nm_submit_popup() used are never set.  The clicked button lands in the submitted content (eg.
+	 * reader_popup[reader_action][add]), which tells news_admin_ui::cats() what to do.
 	 *
-	 * @param {boolean} show
-	 * @param {DOMNode} dom_node
+	 * @param _event
+	 * @param _widget the clicked button
+	 * @param _action_id the nm action the dialog was opened for, "reader" or "writer"
+	 * @return false to stop the button's own submit
 	 */
-	show_details(show, dom_node)
+	submit_popup(_event : Event, _widget, _action_id : string) : boolean
 	{
-		// Show / hide descriptions
-        egw.css((dom_node && dom_node.id ? "#"+dom_node.id+' ' : '') + ".et2_box.infoDes","display:" + (show ? "block;" : "none;"));
-	}
-
-	confirm_delete_2(_action, _senders)
-	{
-		let children = false;
-		const child_button = document.getElementById('delete_sub') || document.querySelector<HTMLElement>('[id*="delete_sub"]');
-		if(child_button)
+		const dialog = <any>_widget.closest('et2-dialog');
+		const nm = <Et2Nextmatch>_widget.getInstanceManager()?.widgetContainer?.getWidgetById('nm');
+		if(!nm)
 		{
-			for(let i = 0; i < _senders.length; i++)
-			{
-				if (_senders[i].iface.node.classList.contains('news_admin_rowHasSubs'))
-				{
-					children = true;
-					break;
-				}
-			}
-			child_button.style.display = children ? 'block' : 'none';
+			return false;
 		}
-		const callbackDeleteDialog = (button_id) =>
+		// Prefer the live selection - it still carries "select all", which the dialog's
+		// .selectedIds (a plain array of ids) does not
+		const selection = nm.getSelection();
+		if(!selection.all && dialog?.selectedIds?.length)
 		{
-			if(button_id == Et2Dialog.YES_BUTTON)
-			{
-
-			}
-		};
-		Et2Dialog.show_dialog(callbackDeleteDialog, this.egw.lang("Do you really want to DELETE this Rule"), this.egw.lang("Delete"), {}, Et2Dialog.BUTTONS_YES_NO_CANCEL, Et2Dialog.WARNING_MESSAGE);
-	}
-
-	/**
-	 * Confirm delete
-	 * If entry has children, asks if you want to delete children too
-	 *
-	 *@param _action
-	 *@param _senders
-	 */
-	confirm_delete(_action, _senders)
-	{
-		let children = false;
-		const child_button = document.getElementById('delete_sub') || document.querySelector<HTMLElement>('[id*="delete_sub"]');
-		if(child_button)
-		{
-			for(let i = 0; i < _senders.length; i++)
-			{
-				if (_senders[i].iface.getDOMNode().classList.contains('news_admin_rowHasSubs'))
-				{
-					children = true;
-					break;
-				}
-			}
-			child_button.style.display = children ? 'block' : 'none';
+			selection.ids = dialog.selectedIds;
 		}
-		nm_open_popup(_action, _senders);
+		nm.executeAction(_action_id, selection, {nmAction: "submit"});
+		dialog?.close();
+		return false;
 	}
 
 	/**

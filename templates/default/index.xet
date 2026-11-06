@@ -12,10 +12,10 @@
 			</columns>
 			<rows>
 				<row class="th">
-					<et2-description  value="News"></et2-description>
+					<et2-nextmatch-header  id="news" label="News"></et2-nextmatch-header>
 					<et2-vbox>
 						<et2-nextmatch-header-account  id="news_submittedby" emptyLabel="From all"></et2-nextmatch-header-account>
-						<nextmatch-sortheader label="Date" id="news_date" sortmode="DESC"/>
+						<et2-nextmatch-sortheader  label="Date" id="news_date" sortmode="DESC"></et2-nextmatch-sortheader>
 					</et2-vbox>
 					<et2-nextmatch-header-filter  label="Visible" id="visible"></et2-nextmatch-header-filter>
 					<et2-nextmatch-header-custom  id="news_lang" emptyLabel="Default language" widgetType=""></et2-nextmatch-header-custom>
@@ -23,7 +23,7 @@
 				<row class="row $row_cont[class]" valign="top">
 					<et2-vbox  class="news_container">
 						<et2-description  id="${row}[news_headline]" href="$row_cont[link]" class="news_headline" noLang="1" extraLinkTarget="_blank"></et2-description>
-						<et2-html  id="${row}[news_teaser]" options=",,1" class="news_teaser" noLang="1"></et2-html>
+						<et2-html  id="${row}[news_teaser]" class="news_teaser" noLang="1"></et2-html>
 						<et2-box  class="news_content">
 							<et2-html  id="${row}[news_content]"></et2-html>
 						</et2-box>
@@ -41,9 +41,10 @@
 				</row>
 			</rows>
 		</grid>
+		<et2-styles src="rows.css"></et2-styles>
 	</et2-template>
 	<et2-template  id="news_admin.index.header" template="" lang="" group="0" version="1.9.001">
-		<et2-button  statustext="Add" id="add" onclick="egw.open('','news_admin','add'); return false;" noSubmit="true"></et2-button>
+		<et2-button-icon  statustext="Add" image="add" id="add" onclick="egw.open('','news_admin','add'); return false;" noSubmit="true"></et2-button-icon>
 		<et2-template  template="api.search-button"></et2-template>
 		<et2-select  id="filter" ariaLabel="Category" onchange="app.news_admin.changeNmFilter"/>
 		<et2-select  id="filter2" ariaLabel="Filter" onchange="app.news_admin.changeNmFilter"/>
@@ -51,6 +52,6 @@
 	<et2-template  id="news_admin.index" template="" lang="" group="0" version="1.9.001">
 		<et2-template  template="news_admin.index.header" slot="main-header"></et2-template>
 		<et2-html  id="css" span="all"></et2-html>
-		<nextmatch id="nm" template="news_admin.index.rows"/>
+		<et2-nextmatch  id="nm" template="news_admin.index.rows"></et2-nextmatch>
 	</et2-template>
 </overlay>

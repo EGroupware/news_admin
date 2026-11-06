@@ -1,0 +1,27 @@
+/**
+ * EGroupware News - styles for the news and category list rows
+ *
+ * Loaded into the list's row shadow DOM by <et2-styles src="rows.css"> in index.xet, index.rows.xet
+ * (Home's portlet) and cats.xet, app.css does not reach the rows.
+ */
+.news_headline {
+	font-weight: bold;
+	font-size: 120%;
+}
+.news_teaser {
+	font-weight: bold;
+}
+.news_content {
+	overflow: auto;
+	width: 100%;
+}
+.news_container {
+	width: 100%;
+}
+.news_container a {
+	display: inline !important;
+}
+/* fix height of images in news list */
+.news_content img, .news_teaser img {
+	height: auto;
+}

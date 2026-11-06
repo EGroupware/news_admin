@@ -2,65 +2,33 @@
 <?xml-model href="../../../doc/etemplate2/etemplate2.0.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <!DOCTYPE overlay PUBLIC "-//EGroupware GmbH//eTemplate 2.0//EN" "https://www.egroupware.org/etemplate2.0.dtd">
 <overlay>
-	<et2-template  id="news_admin.edit" template="" lang="" group="0" version="1.9.003">
-		<grid width="100%">
-			<columns>
-				<column width="60"/>
-				<column width="140"/>
-				<column width="30"/>
-				<column width="88"/>
-				<column width="132"/>
-			</columns>
-			<rows>
-				<row disabled="!@msg">
-					<et2-description  align="center" id="msg" span="all" class="redItalic" noLang="1"></et2-description>
-					<et2-description></et2-description>
-				</row>
-				<row class="dialogHeader">
-					<et2-description  value="Headline" for="news_headline"></et2-description>
-					<et2-textbox  id="news_headline" maxlength="128" span="3" required="1"></et2-textbox>
-                    <et2-appicon  src="news_admin" for="cat_id" align="right"></et2-appicon>
-				</row>
-				<row class="row" valign="top">
-					<et2-description  value="Teaser" for="news_teaser"></et2-description><et2-ai  span="all"><et2-htmlarea  id="news_teaser" width="99%" baseHref="$cont[upload_dir]"></et2-htmlarea></et2-ai>
-				</row>
-				<row class="row" valign="top">
-					<et2-description  value="Content" for="news_content"></et2-description><et2-ai  span="all"><et2-htmlarea  id="news_content" width="99%" required="1" baseHref="$cont[upload_dir]" noToolbar="false"></et2-htmlarea></et2-ai>
-				</row>
-				<row class="dialogOperators" height="28">
-					<et2-description  value="Category" for="cat_id"></et2-description>
-					<et2-select  id="cat_id" required="1" noLang="1" emptyLabel="Select one"></et2-select>
-					<et2-description></et2-description>
-					<et2-description  value="Created by"></et2-description>
-					<et2-hbox  width="100%">
-						<et2-select-account  id="news_submittedby" readonly="true"></et2-select-account>
-						<et2-date-time  align="right" id="news_date" readonly="true"></et2-date-time>
-					</et2-hbox>
-				</row>
-				<row class="dialogOperators">
-					<et2-description  value="Visible"></et2-description>
-					<et2-select  id="visible"></et2-select>
-					<et2-description></et2-description>
-					<et2-hbox  width="100%">
-						<et2-description  value="Start" for="news_begin"></et2-description>
-						<et2-date  id="news_begin"></et2-date>
-						<et2-description  value="End" for="news_end" align="right"></et2-description>
-						<et2-date  id="news_end" align="right"></et2-date>
-					</et2-hbox>
-				</row>
-				<row class="dialogFooterToolbar">
-					<et2-hbox  span="4">
-						<et2-button  label="Save" id="button[save]"></et2-button>
-						<et2-description  value="as"></et2-description>
-						<et2-select-lang  id="news_lang" emptyLabel="Default languages" placement="top"></et2-select-lang>
-						<et2-button  label="Apply" id="button[apply]"></et2-button>
-						<et2-button  label="Reload" id="button[reload]"></et2-button>
-						<et2-button  label="Cancel" id="button[cancel]" onclick="window.close();"></et2-button>
-						<et2-description></et2-description>
-					</et2-hbox>
-					<et2-button  align="right" label="Delete" id="button[delete]" onclick="return confirm('Delete this news');"></et2-button>
-				</row>
-			</rows>
-		</grid>
+	<et2-template  id="news_admin.edit" template="" lang="" group="0" version="1.9.004" layout="edit" style="--label-width:9em;">
+		<et2-description  align="center" id="msg" span="all" class="redItalic" noLang="1" hidden="!@msg"></et2-description>
+		<et2-hbox  class="dialogHeader">
+			<et2-textbox  label="Headline" class="et2-label-fixed" id="news_headline" maxlength="128" required="1"></et2-textbox>
+			<et2-appicon  src="news_admin" for="cat_id" align="right"></et2-appicon>
+		</et2-hbox>
+		<et2-ai  span="all"><et2-htmlarea  label="Teaser" class="et2-label-fixed" id="news_teaser" width="99%" baseHref="$cont[upload_dir]"></et2-htmlarea></et2-ai>
+		<et2-ai  span="all"><et2-htmlarea  label="Content" class="et2-label-fixed" id="news_content" width="99%" required="1" baseHref="$cont[upload_dir]" noToolbar="false"></et2-htmlarea></et2-ai>
+		<et2-select  label="Category" id="cat_id" required="1" noLang="1" emptyLabel="Select one"></et2-select>
+		<et2-select  label="Visible" id="visible"></et2-select>
+		<et2-date  label="Start" id="news_begin"></et2-date>
+		<et2-date  label="End" id="news_end"></et2-date>
+		<et2-hbox  class="dialogMeta">
+			<et2-description  value="Created by" for="news_submittedby"></et2-description>
+			<et2-hbox>
+				<et2-select-account  id="news_submittedby" readonly="true"></et2-select-account>
+				<et2-date-time  id="news_date" readonly="true"></et2-date-time>
+			</et2-hbox>
+		</et2-hbox>
+		<et2-hbox  class="dialogFooterToolbar" style="min-width:0">
+			<et2-button  label="Save" id="button[save]"></et2-button>
+			<et2-description  value="as"></et2-description>
+			<et2-select-lang  id="news_lang" emptyLabel="Default languages" placement="top"></et2-select-lang>
+			<et2-button  label="Apply" id="button[apply]"></et2-button>
+			<et2-button  label="Reload" id="button[reload]"></et2-button>
+			<et2-button  label="Cancel" id="button[cancel]" onclick="window.close();"></et2-button>
+			<et2-button  align="right" label="Delete" id="button[delete]" onclick="return confirm('Delete this news');"></et2-button>
+		</et2-hbox>
 	</et2-template>
 </overlay>
