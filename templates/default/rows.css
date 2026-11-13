@@ -12,6 +12,7 @@
 	font-weight: bold;
 }
 .news_content {
+	max-height: var(--news-content-max-height, 5lh);
 	overflow: auto;
 	width: 100%;
 }
