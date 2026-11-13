@@ -144,7 +144,7 @@ class NewsAdminApp extends EgwApp
 		// call parent
 		const state = super.getState();
 
-		const nm = this.et2 ? this.et2.getArrayMgr('content').data.nm : {};
+		const nm = this.et2?.getArrayMgr('content')?.data?.nm ?? {};
 		state.action = nm.action || null;
 		state.action_id = nm.action_id || null;
 

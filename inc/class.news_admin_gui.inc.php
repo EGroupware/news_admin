@@ -21,6 +21,11 @@ use EGroupware\Api\Etemplate;
 class news_admin_gui extends news_admin_bo
 {
 	/**
+	 * Row height in lines the list stops at when the description limit preference is 0 (no limit)
+	 */
+	const NO_LIMIT_ROW_LINES = 80;
+
+	/**
 	 * Methods callable via menuaction
 	 *
 	 * @var array
@@ -286,12 +291,21 @@ class news_admin_gui extends news_admin_bo
 
 		 // add scrollbar to long description, if user choose so in his prefs
 		$prefs = $GLOBALS['egw_info']['user']['preferences']['news_admin'];
+		// The rows live in the nextmatch's shadow DOM, which a selector in the page can't reach,
+		// but custom properties inherit into it: set the limit on the nextmatch, rows.css uses it
 		if ($prefs['limit_des_lines'] > 0 || (string)$prefs['limit_des_lines'] == '')
 		{
-			$content['css'] .= '<style type="text/css">@media screen { .news_content {  '.
-					' max-height: '.
-					(($prefs['limit_des_lines'] ? $prefs['limit_des_lines'] : 5) * 1.35).       // dono why em is not real lines
-					'em; overflow: auto; }}</style>';
+			$content['css'] .= '<style type="text/css">@media screen { #news_admin-index_nm, et2-nextmatch[id^="news_admin-index"] { ' .
+				'--news-content-max-height: ' . ($lines = ((int)$prefs['limit_des_lines'] ?: 5)) . 'lh; ' .
+				// the datagrid clips every row cell at 20lh by default: leave room for headline and teaser
+				'--row-cell-max-height: ' . max(20, $lines + 8) . 'lh; }}</style>';
+		}
+		elseif ((string)$prefs['limit_des_lines'] === '0')
+		{
+			$content['css'] .= '<style type="text/css">@media screen { #news_admin-index_nm, et2-nextmatch[id^="news_admin-index"] { ' .
+				// "no limit" still stops at a row cell cap: a row of many screens makes the list unusable and slow,
+				// the datagrid fades out the rest and the article's view shows it all
+				'--news-content-max-height: none; --row-cell-max-height: ' . self::NO_LIMIT_ROW_LINES . 'lh; }}</style>';
 		}
 
 		$this->tpl->read('news_admin.index');
