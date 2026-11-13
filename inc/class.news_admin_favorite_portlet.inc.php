@@ -33,13 +33,27 @@ class news_admin_favorite_portlet extends home_favorite_portlet
 		$this->context['template'] = 'news_admin.index.rows';
 		$this->nm_settings += array(
 			'no_cat'	=> true,
-			'get_rows'	=> 'news_admin.news_admin_gui.get_rows',
+			'get_rows'	=> 'news_admin_favorite_portlet::get_rows',
 			// Use a different template so it can be accessed from client side
 			'template'	=> 'news_admin.index.rows',
 			'default_cols'	=> 'news',
-			'session_for'	=> 'home',
 			'row_id'        => 'news_id'
 		);
+	}
+
+	/**
+	 * Fetch the rows of the portlet's list
+	 *
+	 * @param array $query
+	 * @param array $rows
+	 * @param array $readonlys
+	 * @return int total rows found
+	 */
+	protected static function rows(&$query, &$rows, &$readonlys)
+	{
+		$bo = new news_admin_gui();
+
+		return $bo->get_rows($query, $rows, $readonlys);
 	}
 
 	public function exec($id = null, Etemplate &$etemplate = null)
