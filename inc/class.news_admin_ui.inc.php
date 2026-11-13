@@ -246,6 +246,9 @@ class news_admin_ui extends news_admin_bo
 				'actions'    => $this->get_actions()
 			);
 		}
+		// the query restored from the session is what get_cats() was handed, which never
+		// includes the actions - without them a revisited list has no context menu
+		$content['nm']['actions'] = $this->get_actions();
 		$this->tpl->read('news_admin.cats');
 		if($_GET['user'])
 		{
@@ -267,7 +270,13 @@ class news_admin_ui extends news_admin_bo
 	 */
 	function get_cats($query,&$rows,&$readonlys=null,$ignore_acl=false)
 	{
-		Api\Cache::setSession('news_admin', 'cats', $query);
+		// Remember what the list is showing, so action() can expand a "select all". Not for the
+		// nextmatch's own partial queries (a single-row refresh, a check of known rows): those
+		// are narrowed to a few ids and would turn the next "select all" into just those rows.
+		if (empty($query['csv_export']))
+		{
+			Api\Cache::setSession('news_admin', 'cats', $query);
+		}
 
 		$total = parent::get_cats($query,$rows);
 
@@ -362,7 +371,9 @@ class news_admin_ui extends news_admin_bo
 			unset($actions['change']['children']['writer']);
 		}
 
-		return $actions;
+		// with "select all" action() expands the selection itself from the list's query, so the
+		// client does not have to fetch the ids of all rows first
+		return Api\Etemplate\Widget\Nextmatch::flagServerSelectAll($actions, ['javaScript:app.news_admin.ajax_action']);
 	}
 
 	/**
@@ -428,12 +439,21 @@ class news_admin_ui extends news_admin_bo
 			if(!is_array($session_name))
 			{
 				$old_query = $query = Api\Cache::getSession('news_admin', $session_name);
+				// nothing cached means we do not know what the user was looking at, and an empty
+				// query would be every category there is
+				if (!is_array($query))
+				{
+					throw new Api\Exception\WrongUserinput(
+						lang('Could not determine the current selection. Nothing was changed, please reload the list and try again.'));
+				}
 			}
 			else
 			{
 				$query = $session_name;
 			}
 			$query['num_rows'] = -1;        // all
+			$query['start'] = 0;            // from the top, wherever the list was scrolled to
+			$query['csv_export'] = true;    // do not store this query as what the list shows
 			$result = $readonlys = null;
 			// get_cats(), not get_rows(): this class has no get_rows at all, so "select all" on
 			// the category list fatalled instead of selecting anything
@@ -446,6 +466,8 @@ class news_admin_ui extends news_admin_bo
 					$checked[] = $info['id'];
 				}
 			}
+			// refuse to act on a different number of entries than the list showed the user
+			Api\Etemplate\Widget\Nextmatch::checkSelectAllCount($use_all, count($checked));
 			// Reset query
 			if($old_query) Api\Cache::setSession('news_admin', $session_name, $old_query);
 		}

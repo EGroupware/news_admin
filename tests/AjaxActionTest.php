@@ -228,4 +228,42 @@ class AjaxActionTest extends LoggedInTest
 		$this->assertNull($parms[2], 'no single id');
 		$this->assertNull($parms[3], 'and no type, so egw.refresh reloads the list');
 	}
+
+	/**
+	 * The nextmatch re-queries single rows on its own (a refresh after an edit, a check of the
+	 * rows it knows). Those queries are narrowed to a few ids; were they stored as "what the list
+	 * shows", the next "select all" would act on just those rows.
+	 */
+	public function testARowRefreshDoesNotReplaceTheCachedCategoryQuery()
+	{
+		$ui = new \news_admin_ui();
+		$rows = $readonlys = null;
+		$list = ['start' => 0, 'num_rows' => 25, 'search' => 'AjaxActionTest', 'col_filter' => [],
+			'order' => 'cat_name', 'sort' => 'ASC'];
+		$ui->get_cats($list, $rows, $readonlys);
+		$this->assertSame($list, Api\Cache::getSession('news_admin', 'cats'), 'the list query is stored');
+
+		$ui->get_cats(['col_filter' => ['id' => 1], 'csv_export' => 'refresh'] + $list, $rows, $readonlys);
+
+		$this->assertSame($list, Api\Cache::getSession('news_admin', 'cats'),
+			'a single-row refresh must not replace it');
+		Api\Cache::unsetSession('news_admin', 'cats');
+	}
+
+	/**
+	 * With nothing cached there is no way to know what the user was looking at, and an empty
+	 * query is every category there is - so "select all" has to refuse.
+	 *
+	 * 'update' rather than 'delete' for the same reason as above: should this ever regress, an
+	 * RSS update of categories without a feed is a no-op, a delete is not.
+	 */
+	public function testSelectAllOnCategoriesRefusesWithoutACachedQuery()
+	{
+		Api\Cache::unsetSession('news_admin', 'cats');
+
+		$success = $failed = $action_msg = null;
+		$msg = '';
+		$this->expectException(Api\Exception\WrongUserinput::class);
+		(new \news_admin_ui())->action('update', [], true, $success, $failed, $action_msg, 'cats', $msg);
+	}
 }
