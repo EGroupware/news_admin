@@ -8,10 +8,10 @@
 		<et2-ai  span="all"><et2-textarea  label="Description" class="et2-label-fixed" id="cat_description" rows="3" cols="64"></et2-textarea></et2-ai>
 		<et2-select-account  label="Owner / Read permissions" id="cat_readable" rows="6" multiple="1" accountType="$cont[read_accounts]"></et2-select-account>
 		<et2-select-account  label="Write permissions" id="cat_writable" rows="6" multiple="1" accountType="both"></et2-select-account>
-		<et2-textbox  label="Import URL" statustext="URL of the RSS or Atom feed, empty for own news feed" id="import_url" span="all" hidden="!@import_available"></et2-textbox>
-		<et2-select-number  label="Import every" id="import_frequency" min="1" max="24" suffix=" hours" emptyLabel="never" hidden="!@import_available"></et2-select-number>
-		<et2-button  label="Import now" id="button[import]" hidden="!@import_available"></et2-button>
-		<et2-hbox  hidden="!@import_available">
+		<et2-textbox  label="Import URL" statustext="URL of the RSS or Atom feed, empty for own news feed" id="import_url" span="all" hidden="!@import_available" disabled="!@import_available"></et2-textbox>
+		<et2-select-number  label="Import every" id="import_frequency" min="1" max="24" suffix=" hours" emptyLabel="never" hidden="!@import_available" disabled="!@import_available"></et2-select-number>
+		<et2-button  label="Import now" id="button[import]" hidden="!@import_available" disabled="!@import_available"></et2-button>
+		<et2-hbox  hidden="!@import_available" disabled="!@import_available">
 			<et2-select  label="Keep" class="et2-label-fixed" id="keep_imported" noLang="1"></et2-select>
 			<et2-description  value="imported news items"></et2-description>
 		</et2-hbox>
