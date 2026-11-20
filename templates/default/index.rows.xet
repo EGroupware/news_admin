@@ -19,7 +19,7 @@
                         <et2-nextmatch-sortheader  label="Date" id="news_date" sortmode="DESC"/>
                     </et2-vbox>
                     <et2-nextmatch-header-filter  label="Visible" id="visible"></et2-nextmatch-header-filter>
-                    <et2-nextmatch-header-custom  id="news_lang" emptyLabel="Default language" widgetType=""></et2-nextmatch-header-custom>
+                    <et2-nextmatch-header-custom  id="news_lang" emptyLabel="Default language" widgetType="select-lang"></et2-nextmatch-header-custom>
                 </row>
                 <row class="row $row_cont[class]" valign="top">
                     <et2-vbox  class="news_container">
