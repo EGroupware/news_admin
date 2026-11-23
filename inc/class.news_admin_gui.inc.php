@@ -328,7 +328,12 @@ class news_admin_gui extends news_admin_bo
 	 */
 	function get_rrows(&$query_in,&$rows,&$readonlys)
 	{
-		Api\Cache::setSession('news_admin', $query_in['session_for'] ? $query_in['session_for'] : 'index', $query=$query_in);
+		$query = $query_in;
+		// a refresh of single rows or an export is no new state of the list, it would replace the one restored on the next visit
+		if (empty($query_in['csv_export']))
+		{
+			Api\Cache::setSession('news_admin', $query_in['session_for'] ? $query_in['session_for'] : 'index', $query_in);
+		}
 
 		if ((int)$query['filter'])
 		{
